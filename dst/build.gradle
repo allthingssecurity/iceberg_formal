@@ -1,0 +1,91 @@
+plugins {
+  id 'java'
+}
+
+def icebergVersion = project.findProperty('icebergVersion') ?: '1.12.0'
+
+repositories {
+  mavenCentral()
+}
+
+dependencies {
+  implementation "org.apache.iceberg:iceberg-api:${icebergVersion}"
+  implementation "org.apache.iceberg:iceberg-core:${icebergVersion}"
+  implementation "org.apache.iceberg:iceberg-bundled-guava:${icebergVersion}"
+  implementation 'org.slf4j:slf4j-api:2.0.16'
+  runtimeOnly 'org.slf4j:slf4j-simple:2.0.16'
+
+  testImplementation platform('org.junit:junit-bom:5.11.4')
+  testImplementation 'org.junit.jupiter:junit-jupiter'
+  testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+}
+
+// No toolchain block on purpose: the harness compiles with whatever JDK runs
+// Gradle (17 or newer) and targets 17 bytecode, so it needs no second JDK.
+tasks.withType(JavaCompile).configureEach {
+  options.encoding = 'UTF-8'
+  options.release = 17
+}
+
+test {
+  useJUnitPlatform()
+  // Iceberg's own worker pools must never start: every pool the harness cares
+  // about is injected, and this keeps a stray default pool to one thread.
+  systemProperty 'iceberg.worker.num-threads', '1'
+  // Iceberg's Tasks logs a WARN with a full stack trace on every commit retry, and the harness
+  // forces thousands of retries. At 'warn' a 500-seed run wrote 16 MB of captured stderr into the
+  // JUnit XML; at 5000 seeds it was heading for the 31 GB the Camel harness once managed.
+  systemProperty 'org.slf4j.simpleLogger.defaultLogLevel', 'error'
+  systemProperty 'icebergVersion', icebergVersion
+  // Forward the seed counts and declare them as task inputs, so changing one re-runs the tests
+  // instead of Gradle calling them up to date. Without this, `-Ddst.seeds=5000` silently does
+  // nothing on a second invocation.
+  ['dst.seeds', 'dst.recall.seeds', 'dst.seed', 'dst.flip.seeds',
+   'dst.invalidateFilterCache', 'dst.commitUuid',
+   // r5 additions (findings/r5-dst-core.md)
+   'dst.r5.readfault.seeds', 'dst.r5.readfault.transientSeeds', 'dst.r5.retention.seeds',
+   'dst.r5.txnrewrite.seeds', 'dst.r5.requireddeletes.seeds', 'dst.r5.cause.seeds',
+   'dst.r5.v3.seeds'].each { name ->
+    def value = System.getProperty(name)
+    if (value != null) {
+      systemProperty name, value
+    }
+    inputs.property(name, value ?: 'unset')
+  }
+  inputs.property('icebergVersion', icebergVersion)
+  maxHeapSize = '2g'
+  // Lesson from the Camel scorecard: a looping test once wrote a 31 GB log and
+  // filled the disk. Keep stdout/stderr out of the report entirely; the harness
+  // writes its own capped traces under build/dst/.
+  testLogging {
+    showStandardStreams = false
+    events 'failed'
+    exceptionFormat 'full'
+  }
+  reports.junitXml {
+    // Keep captured output out of the XML as well; the console setting above does not stop Gradle
+    // from writing it to disk.
+    includeSystemOutLog = false
+    includeSystemErrLog = false
+  }
+}
+
+/**
+ * Prints the runtime classpath, so one seed can be replayed with a plain `java` command:
+ *   ./gradlew -q printClasspath > build/cp.txt
+ *   java -cp "build/classes/java/main:$(cat build/cp.txt)" org.apache.iceberg.dst.Main 42
+ */
+tasks.register('printClasspath') {
+  doLast { println sourceSets.main.runtimeClasspath.asPath }
+}
+
+/** The JDK Gradle itself is running on, so run.sh can use the same one. */
+tasks.register('javaHome') {
+  doLast { println System.getProperty('java.home') }
+}
+
+/** The Iceberg release this build resolved, so a report can name it. */
+tasks.register('icebergVersion') {
+  def v = icebergVersion
+  doLast { println v }
+}

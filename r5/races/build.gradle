@@ -1,0 +1,51 @@
+plugins { id 'java' }
+
+def icebergVersion = project.findProperty('icebergVersion') ?: '1.12.0'
+repositories { mavenCentral() }
+
+dependencies {
+  implementation "org.apache.iceberg:iceberg-api:${icebergVersion}"
+  implementation "org.apache.iceberg:iceberg-core:${icebergVersion}"
+  implementation "org.apache.iceberg:iceberg-common:${icebergVersion}"
+  implementation "org.apache.iceberg:iceberg-data:${icebergVersion}"
+  implementation "org.apache.iceberg:iceberg-parquet:${icebergVersion}"
+  implementation "org.apache.iceberg:iceberg-orc:${icebergVersion}"
+  implementation "org.apache.iceberg:iceberg-bundled-guava:${icebergVersion}"
+  implementation('org.apache.hadoop:hadoop-common:3.4.3') {
+    exclude group: 'org.slf4j'
+    exclude group: 'ch.qos.reload4j'
+    exclude group: 'log4j'
+  }
+  // C-54 only. iceberg-azure declares the Azure SDK compileOnly; versions from Iceberg's own BOM pin.
+  implementation "org.apache.iceberg:iceberg-azure:${icebergVersion}"
+  implementation platform('com.azure:azure-sdk-bom:1.3.9')
+  implementation 'com.azure:azure-core'
+  implementation 'com.azure:azure-storage-file-datalake'
+  implementation 'com.azure:azure-identity'
+  implementation 'org.slf4j:slf4j-api:2.0.16'
+  runtimeOnly 'org.slf4j:slf4j-simple:2.0.16'
+}
+
+tasks.withType(JavaCompile).configureEach {
+  options.encoding = 'UTF-8'
+  options.release = 17
+}
+
+def runArgs = (project.findProperty('args') ?: '').toString()
+tasks.register('run', JavaExec) {
+  classpath = sourceSets.main.runtimeClasspath
+  mainClass = project.findProperty('main') ?: 'races.Calibration'
+  args = runArgs.isEmpty() ? [] : runArgs.split(' ').toList()
+  systemProperty 'org.slf4j.simpleLogger.defaultLogLevel', 'error'
+  systemProperty 'icebergVersion', icebergVersion
+  // InMemoryLockManager logs an ERROR per failed release; the harness counts those itself
+  systemProperty 'org.slf4j.simpleLogger.log.org.apache.iceberg.util.LockManagers$InMemoryLockManager', 'off'
+  maxHeapSize = '2g'
+  jvmArgs '--add-opens=java.base/java.lang=ALL-UNNAMED', '--add-opens=java.base/java.nio=ALL-UNNAMED'
+}
+
+/** Runtime classpath, so the harness can be run with plain java alongside a running gradle job. */
+tasks.register('printClasspath') {
+  def cp = sourceSets.main.runtimeClasspath
+  doLast { println cp.filter { !it.path.contains('build/classes') && !it.path.contains('build/resources') }.asPath }
+}

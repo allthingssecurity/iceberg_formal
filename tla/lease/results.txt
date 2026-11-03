@@ -1,0 +1,15 @@
+== hms_wit_both: Error: Invariant W_BothSuccess is violated. 16928 states generated, 6903 distinct states found, 2030 states left on queue. 
+== hms_wit_lapse: Error: Invariant W_LeaseLapse is violated. 3546 states generated, 1503 distinct states found, 545 states left on queue. 
+== hms_nopause: Model checking completed. No error has been found. 4431 states generated, 2630 distinct states found, 0 states left on queue. 
+== hms_pause: Error: Invariant NoLostCommit is violated. 72158 states generated, 29456 distinct states found, 6878 states left on queue. 
+== hms_pause_cas: Model checking completed. No error has been found. 204903 states generated, 75152 distinct states found, 0 states left on queue. 
+== dyn_wit_both: Error: Invariant W_BothSuccess is violated. 5364 states generated, 2609 distinct states found, 1190 states left on queue. 
+== dyn_wit_lapse: Error: Invariant W_LeaseLapse is violated. 9382 states generated, 4561 distinct states found, 2000 states left on queue. 
+== dyn_nopause: Model checking completed. No error has been found. 42217 states generated, 27750 distinct states found, 0 states left on queue. 
+== dyn_pause: Error: Invariant NoLostCommit is violated. 68520 states generated, 32814 distinct states found, 12226 states left on queue. 
+== dyn_pause_cas: Model checking completed. No error has been found. 997359 states generated, 400266 distinct states found, 0 states left on queue. 
+== neg_unknown_lock: Error: Assumption line 41, col 8 to line 41, col 33 of module LeaseCommit is false. 
+== hms_nopause_wit_both: Error: Invariant W_BothSuccess is violated. 1291 states generated, 768 distinct states found, 188 states left on queue. 
+== hms_nopause_nolapse: Model checking completed. No error has been found. 4431 states generated, 2630 distinct states found, 0 states left on queue. 
+== dyn_nopause_wit_both: Error: Invariant W_BothSuccess is violated. 942 states generated, 644 distinct states found, 260 states left on queue. 
+== dyn_nopause_nolapse: Model checking completed. No error has been found. 42217 states generated, 27750 distinct states found, 0 states left on queue. 

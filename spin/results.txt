@@ -1,0 +1,5 @@
+base [] [-E]: errors: 0; ; 9004 states, stored; depth reached 172; 0.01s
+reuse [-DREUSE] [-E]: errors: 1; assertion violated  !(refs[((cj*6)+f1)]) @depth 59; 115 states, stored; depth reached 159; 0s; trail 302 steps
+reuse_fix [-DREUSE -DCHECK_ALL_SNAPSHOTS] [-E]: errors: 0; ; 73213 states, stored; depth reached 202; 0.04s
+orphan_default [-DORPHAN] [-E]: errors: 0; ; 2561 states, stored; depth reached 150; 0s
+orphan_short [-DORPHAN -DSHORT_RETENTION] [-E]: errors: 1; assertion violated ( !(refs[((s*6)+ci)])||(fstate[ci]==2)) @depth 84; 954 states, stored; depth reached 149; 0s; trail 304 steps

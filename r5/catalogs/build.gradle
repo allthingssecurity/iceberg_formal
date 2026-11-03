@@ -1,0 +1,131 @@
+plugins {
+  id 'java'
+}
+
+def icebergVersion = project.findProperty('icebergVersion') ?: '1.12.0'
+
+repositories {
+  mavenCentral()
+}
+
+sourceSets {
+  // HMS lease experiment: Hive 2.3.10 metastore + Hadoop, kept off the JDBC classpath.
+  hiveTest {
+    java.srcDir 'src/hiveTest/java'
+    compileClasspath += sourceSets.main.output
+    runtimeClasspath += sourceSets.main.output
+  }
+}
+
+configurations {
+  hiveTestImplementation.extendsFrom implementation
+  hiveTestRuntimeOnly.extendsFrom runtimeOnly
+}
+
+def hiveExcludes = { dep ->
+  dep.exclude group: 'org.apache.avro', module: 'avro'
+  dep.exclude group: 'org.slf4j', module: 'slf4j-log4j12'
+  dep.exclude group: 'org.slf4j', module: 'slf4j-reload4j'
+  dep.exclude group: 'ch.qos.reload4j'
+  dep.exclude group: 'org.pentaho'
+  dep.exclude group: 'org.apache.hbase'
+  dep.exclude group: 'org.apache.logging.log4j'
+  dep.exclude group: 'co.cask.tephra'
+  dep.exclude group: 'com.google.code.findbugs', module: 'jsr305'
+  dep.exclude group: 'org.eclipse.jetty.aggregate', module: 'jetty-all'
+  dep.exclude group: 'org.eclipse.jetty.orbit', module: 'javax.servlet'
+  dep.exclude group: 'org.apache.parquet', module: 'parquet-hadoop-bundle'
+  dep.exclude group: 'com.tdunning', module: 'json'
+  dep.exclude group: 'javax.transaction', module: 'transaction-api'
+  dep.exclude group: 'com.zaxxer', module: 'HikariCP'
+  dep.exclude group: 'org.apache.hive', module: 'hive-llap-tez'
+  dep.exclude group: 'com.google.protobuf', module: 'protobuf-java'
+  dep.exclude group: 'org.apache.calcite'
+  dep.exclude group: 'org.apache.calcite.avatica'
+}
+
+dependencies {
+  implementation "org.apache.iceberg:iceberg-api:${icebergVersion}"
+  implementation "org.apache.iceberg:iceberg-core:${icebergVersion}"
+  implementation "org.apache.iceberg:iceberg-bundled-guava:${icebergVersion}"
+  implementation 'org.slf4j:slf4j-api:2.0.16'
+  runtimeOnly 'org.slf4j:slf4j-simple:2.0.16'
+
+  testImplementation 'org.xerial:sqlite-jdbc:3.53.4.0'
+  testImplementation platform('org.junit:junit-bom:5.11.4')
+  testImplementation 'org.junit.jupiter:junit-jupiter'
+  testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+
+  hiveTestImplementation "org.apache.iceberg:iceberg-hive-metastore:${icebergVersion}"
+  hiveTestImplementation "org.apache.iceberg:iceberg-hive-metastore:${icebergVersion}:tests"
+  hiveTestImplementation "org.apache.iceberg:iceberg-common:${icebergVersion}"
+  hiveTestImplementation('org.apache.hive:hive-metastore:2.3.10') { hiveExcludes(it) }
+  hiveTestImplementation('org.apache.hive:hive-exec:2.3.10:core') { hiveExcludes(it) }
+  hiveTestImplementation('org.apache.hadoop:hadoop-client:3.4.3') {
+    exclude group: 'org.apache.avro', module: 'avro'
+    exclude group: 'org.slf4j', module: 'slf4j-log4j12'
+    exclude group: 'org.slf4j', module: 'slf4j-reload4j'
+    exclude group: 'ch.qos.reload4j'
+  }
+  hiveTestImplementation 'org.apache.avro:avro:1.12.0'
+  hiveTestImplementation 'org.assertj:assertj-core:3.27.3'
+  hiveTestImplementation 'org.apache.derby:derby:10.15.2.0'
+  hiveTestImplementation 'org.apache.derby:derbytools:10.15.2.0'
+  hiveTestImplementation platform('org.junit:junit-bom:5.11.4')
+  hiveTestImplementation 'org.junit.jupiter:junit-jupiter'
+  hiveTestRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+}
+
+tasks.withType(JavaCompile).configureEach {
+  options.encoding = 'UTF-8'
+  options.release = 17
+}
+
+def r5props = ['r5.runs', 'r5.scenario', 'r5.mode']
+
+def configureTest = { Test t ->
+  t.useJUnitPlatform()
+  t.systemProperty 'org.slf4j.simpleLogger.defaultLogLevel', 'error'
+  t.systemProperty 'iceberg.worker.num-threads', '2'
+  r5props.each { name ->
+    def value = System.getProperty(name)
+    if (value != null) {
+      t.systemProperty name, value
+    }
+    t.inputs.property(name, value ?: 'unset')
+  }
+  t.inputs.property('icebergVersion', icebergVersion)
+  t.maxHeapSize = '2g'
+  t.outputs.upToDateWhen { false }
+  t.testLogging {
+    showStandardStreams = false
+    events 'failed'
+    exceptionFormat 'full'
+  }
+  t.reports.junitXml {
+    includeSystemOutLog = false
+    includeSystemErrLog = false
+  }
+}
+
+test { configureTest(it) }
+
+tasks.register('hiveTest', Test) {
+  testClassesDirs = sourceSets.hiveTest.output.classesDirs
+  classpath = sourceSets.hiveTest.runtimeClasspath
+  configureTest(it)
+  // Hive 2.3 + JDK 17/21 needs these opens (HiveConf / DataNucleus reflection).
+  jvmArgs '--add-opens=java.base/java.lang=ALL-UNNAMED',
+      '--add-opens=java.base/java.net=ALL-UNNAMED',
+      '--add-opens=java.base/java.util=ALL-UNNAMED',
+      '--add-opens=java.base/java.util.concurrent=ALL-UNNAMED',
+      '--add-opens=java.base/java.lang.reflect=ALL-UNNAMED',
+      '--add-opens=java.base/java.io=ALL-UNNAMED',
+      '--add-opens=java.base/java.nio=ALL-UNNAMED',
+      '--add-opens=java.base/sun.nio.ch=ALL-UNNAMED',
+      '--add-opens=java.sql/java.sql=ALL-UNNAMED'
+}
+
+tasks.register('printHiveClasspath') {
+  doLast { println sourceSets.hiveTest.runtimeClasspath.asPath }
+}

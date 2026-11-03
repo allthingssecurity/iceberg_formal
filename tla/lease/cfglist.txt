@@ -1,0 +1,15 @@
+hms_wit_both
+hms_wit_lapse
+hms_nopause
+hms_pause
+hms_pause_cas
+dyn_wit_both
+dyn_wit_lapse
+dyn_nopause
+dyn_pause
+dyn_pause_cas
+hms_nopause_wit_both
+hms_nopause_nolapse
+dyn_nopause_wit_both
+dyn_nopause_nolapse
+neg_unknown_lock

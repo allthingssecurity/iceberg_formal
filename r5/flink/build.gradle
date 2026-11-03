@@ -1,0 +1,78 @@
+plugins { id 'java' }
+
+def icebergVersion = project.findProperty('icebergVersion') ?: '1.12.0'
+def flinkVersion = project.findProperty('flinkVersion') ?: '2.3.0'
+
+repositories { mavenCentral() }
+
+dependencies {
+  testImplementation "org.apache.iceberg:iceberg-flink-2.3:${icebergVersion}"
+  testImplementation "org.apache.iceberg:iceberg-api:${icebergVersion}"
+  testImplementation "org.apache.iceberg:iceberg-core:${icebergVersion}"
+  testImplementation "org.apache.iceberg:iceberg-data:${icebergVersion}"
+  testImplementation "org.apache.iceberg:iceberg-bundled-guava:${icebergVersion}"
+
+  testImplementation "org.apache.flink:flink-streaming-java:${flinkVersion}"
+  testImplementation "org.apache.flink:flink-streaming-java:${flinkVersion}:tests"
+  testImplementation "org.apache.flink:flink-runtime:${flinkVersion}"
+  testImplementation "org.apache.flink:flink-runtime:${flinkVersion}:tests"
+  testImplementation "org.apache.flink:flink-core:${flinkVersion}"
+  testImplementation "org.apache.flink:flink-connector-base:${flinkVersion}"
+  testImplementation "org.apache.flink:flink-table-runtime:${flinkVersion}"
+  testImplementation "org.apache.flink:flink-metrics-dropwizard:${flinkVersion}"
+  testImplementation("org.apache.flink:flink-test-utils:${flinkVersion}") {
+    exclude group: 'org.apache.curator', module: 'curator-test'
+    exclude group: 'junit'
+  }
+
+  testImplementation 'org.apache.hadoop:hadoop-client-api:3.4.2'
+  testRuntimeOnly 'org.apache.hadoop:hadoop-client-runtime:3.4.2'
+  testImplementation 'org.slf4j:slf4j-api:2.0.16'
+  testRuntimeOnly 'org.slf4j:slf4j-simple:2.0.16'
+  testImplementation platform('org.junit:junit-bom:5.11.4')
+  testImplementation 'org.junit.jupiter:junit-jupiter'
+  testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+}
+
+configurations.all {
+  exclude group: 'org.apache.logging.log4j', module: 'log4j-slf4j-impl'
+  exclude group: 'org.apache.logging.log4j', module: 'log4j-slf4j2-impl'
+  exclude group: 'org.slf4j', module: 'slf4j-reload4j'
+  exclude group: 'org.slf4j', module: 'slf4j-log4j12'
+  exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+}
+
+tasks.withType(JavaCompile).configureEach {
+  options.encoding = 'UTF-8'
+  options.release = 17
+}
+
+test {
+  useJUnitPlatform()
+  systemProperty 'org.slf4j.simpleLogger.defaultLogLevel', 'error'
+  systemProperty 'iceberg.worker.num-threads', '2'
+  systemProperty 'icebergVersion', icebergVersion
+  systemProperty 'r5.out', "${buildDir}/r5"
+  ['r5.runs'].each { name ->
+    def value = System.getProperty(name)
+    if (value != null) systemProperty name, value
+    inputs.property(name, value ?: 'unset')
+  }
+  inputs.property('icebergVersion', icebergVersion)
+  outputs.upToDateWhen { false }
+  maxHeapSize = '2g'
+  jvmArgs '--add-opens=java.base/java.lang=ALL-UNNAMED', '--add-opens=java.base/java.util=ALL-UNNAMED',
+          '--add-opens=java.base/java.lang.reflect=ALL-UNNAMED', '--add-opens=java.base/java.io=ALL-UNNAMED',
+          '--add-opens=java.base/java.nio=ALL-UNNAMED', '--add-opens=java.base/java.util.concurrent=ALL-UNNAMED'
+  testLogging {
+    showStandardStreams = false
+    events 'passed', 'failed'
+    exceptionFormat 'full'
+  }
+  reports.junitXml {
+    includeSystemOutLog = false
+    includeSystemErrLog = false
+  }
+}
+
+tasks.register('printClasspath') { doLast { println sourceSets.test.runtimeClasspath.asPath } }
