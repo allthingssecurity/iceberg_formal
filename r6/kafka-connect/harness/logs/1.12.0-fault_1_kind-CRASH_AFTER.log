@@ -1,0 +1,2 @@
+[iceberg-kafka-connect-1.12.0.jar] fault run 1: ok  {db.tbl=produced=60 lost=0 dupRows=0 dupFiles=0 uncommittedMissing=0 snapshots=4} committedSrc={0=30, 1=30} failures={} injected=1
+SUMMARY [iceberg-kafka-connect-1.12.0.jar] fault {kind=CRASH_AFTER} BAD 0/1

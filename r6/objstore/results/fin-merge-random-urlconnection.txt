@@ -1,0 +1,4 @@
+fin-merge v1.12.0 client=urlconnection FAULT runs=20 armed=20 finInjected=20 majorRuns=20 counts={MAJOR_lostCommittedFiles=20, MAJOR_summaryVsManifestsMismatch=20}
+fin-merge v1.12.0 client=urlconnection CONTROL runs=20 armed=0 finInjected=0 majorRuns=0 counts={}
+fin-merge v1.12.0 client=default FAULT runs=20 armed=20 finInjected=20 majorRuns=0 counts={commitThrew:AvroRuntimeException/ConnectionClosedException=20, orphan_callerData=48, orphan_manifest=40}
+fin-merge v1.12.0 client=default CONTROL runs=20 armed=0 finInjected=0 majorRuns=0 counts={}

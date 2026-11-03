@@ -1,0 +1,60 @@
+target v1.12.0 client=default spec=CreateMultipartUpload:DROP_RESP:data:1:1:0 FAULT runs=5 majorRuns=0
+  effects={CreateMultipartUpload:DROP_RESP->applied-status-N-ack-dropped=5}
+  counts={leak_incompleteMultipartUploads=5, read_rangeOK=68, read_scanOK=5, read_seqOK=34, read_tailOK=34}
+target v1.12.0 client=default spec=CreateMultipartUpload:DROP_RESP:data:1:1:0 CONTROL runs=5 majorRuns=0
+  effects={}
+  counts={read_rangeOK=68, read_scanOK=5, read_seqOK=34, read_tailOK=34}
+target v1.12.0 client=default spec=CompleteMultipartUpload:DROP_RESP:data:1:1:0 FAULT runs=5 majorRuns=0
+  effects={CompleteMultipartUpload:DROP_RESP->applied-status-N-ack-dropped=5}
+  counts={read_rangeOK=68, read_scanOK=5, read_seqOK=34, read_tailOK=34}
+target v1.12.0 client=default spec=CompleteMultipartUpload:DROP_RESP:data:1:1:0 CONTROL runs=5 majorRuns=0
+  effects={}
+  counts={read_rangeOK=68, read_scanOK=5, read_seqOK=34, read_tailOK=34}
+target v1.12.0 client=default spec=CompleteMultipartUpload:CUT_REQ:data:1:1:100 FAULT runs=5 majorRuns=0
+  effects={CompleteMultipartUpload:CUT_REQ->cut-after-NB=5}
+  counts={read_rangeOK=68, read_scanOK=5, read_seqOK=34, read_tailOK=34}
+target v1.12.0 client=default spec=CompleteMultipartUpload:CUT_REQ:data:1:1:100 CONTROL runs=5 majorRuns=0
+  effects={}
+  counts={read_rangeOK=68, read_scanOK=5, read_seqOK=34, read_tailOK=34}
+target v1.12.0 client=default spec=UploadPart:CUT_REQ:data:1:8:1000000 FAULT runs=5 majorRuns=0
+  effects={UploadPart:CUT_REQ->cut-after-NB=40}
+  counts={blobWriteThrew:SocketException=1, read_rangeOK=68, read_scanOK=5, read_seqOK=34, read_tailOK=34}
+target v1.12.0 client=default spec=UploadPart:CUT_REQ:data:1:8:1000000 CONTROL runs=5 majorRuns=0
+  effects={}
+  counts={read_rangeOK=68, read_scanOK=5, read_seqOK=34, read_tailOK=34}
+target v1.12.0 client=default spec=UploadPart:CUT_REQ:data:1:8:1000000,AbortMultipartUpload:DROP_RESP:data:1:1:0 FAULT runs=5 majorRuns=0
+  effects={AbortMultipartUpload:DROP_RESP->applied-status-N-ack-dropped=1, UploadPart:CUT_REQ->cut-after-NB=40}
+  counts={blobWriteThrew:NoSuchUploadException=1, read_rangeOK=68, read_scanOK=5, read_seqOK=34, read_tailOK=34}
+target v1.12.0 client=default spec=UploadPart:CUT_REQ:data:1:8:1000000,AbortMultipartUpload:DROP_RESP:data:1:1:0 CONTROL runs=5 majorRuns=0
+  effects={}
+  counts={read_rangeOK=68, read_scanOK=5, read_seqOK=34, read_tailOK=34}
+target v1.12.0 client=default spec=CreateMultipartUpload:CUT_REQ:data:1:8:0 FAULT runs=5 majorRuns=0
+  effects={CreateMultipartUpload:CUT_REQ->cut-before-headers=40}
+  counts={blobWriteThrew:SocketException=5, orphan_dataUnknown(writeThrew)=5, read_rangeOK=52, read_scanOK=5, read_seqOK=26, read_tailOK=26}
+target v1.12.0 client=default spec=CreateMultipartUpload:CUT_REQ:data:1:8:0 CONTROL runs=5 majorRuns=0
+  effects={}
+  counts={read_rangeOK=68, read_scanOK=5, read_seqOK=34, read_tailOK=34}
+target v1.12.0 client=default spec=PutObject:DROP_RESP:metadata:1:1:0 FAULT runs=5 majorRuns=0
+  effects={PutObject:DROP_RESP->applied-status-N-ack-dropped=5}
+  counts={read_rangeOK=68, read_scanOK=5, read_seqOK=34, read_tailOK=34}
+target v1.12.0 client=default spec=PutObject:DROP_RESP:metadata:1:1:0 CONTROL runs=5 majorRuns=0
+  effects={}
+  counts={read_rangeOK=68, read_scanOK=5, read_seqOK=34, read_tailOK=34}
+target v1.12.0 client=default spec=PutObject:CUT_REQ:manifest:1:8:1000 FAULT runs=5 majorRuns=0
+  effects={PutObject:CUT_REQ->cut-after-NB=40}
+  counts={commitThrew:SdkClientException/SocketException=5, orphan_callerData=11, read_rangeOK=44, read_scanOK=5, read_seqOK=22, read_tailOK=22}
+target v1.12.0 client=default spec=PutObject:CUT_REQ:manifest:1:8:1000 CONTROL runs=5 majorRuns=0
+  effects={}
+  counts={read_rangeOK=68, read_scanOK=5, read_seqOK=34, read_tailOK=34}
+target v1.12.0 client=default spec=DeleteObjects:DROP_RESP:any:1:1:0 FAULT runs=5 majorRuns=0
+  effects={DeleteObjects:DROP_RESP->applied-status-N-ack-dropped=5}
+  counts={expireOK=5, read_rangeOK=90, read_scanOK=5, read_seqOK=45, read_tailOK=45}
+target v1.12.0 client=default spec=DeleteObjects:DROP_RESP:any:1:1:0 CONTROL runs=5 majorRuns=0
+  effects={}
+  counts={expireOK=5, read_rangeOK=90, read_scanOK=5, read_seqOK=45, read_tailOK=45}
+target v1.12.0 client=default spec=DeleteObjects:CUT_REQ:any:1:8:10 FAULT runs=5 majorRuns=0
+  effects={DeleteObjects:CUT_REQ->cut-after-NB=40}
+  counts={expireOK=5, orphan_manifest=10, read_rangeOK=90, read_scanOK=5, read_seqOK=45, read_tailOK=45}
+target v1.12.0 client=default spec=DeleteObjects:CUT_REQ:any:1:8:10 CONTROL runs=5 majorRuns=0
+  effects={}
+  counts={expireOK=5, read_rangeOK=90, read_scanOK=5, read_seqOK=45, read_tailOK=45}

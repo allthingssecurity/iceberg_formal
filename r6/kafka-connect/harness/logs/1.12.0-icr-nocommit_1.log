@@ -1,0 +1,38 @@
+[iceberg-kafka-connect-1.12.0.jar] icr-nocommit run 1: BAD {db.tbl=produced=40 lost=10 dupRows=0 dupFiles=0 uncommittedMissing=0 snapshots=1 lostSample: p0@0 p0@1 p0@2 p0@3 p0@4 p0@5 p0@6 p0@7 p0@8 p0@9} committedSrc={0=20, 1=20} failures={} injected=0
+  -- emu trace (5)
+     start task0 #1
+     start task1 #1
+     assign task0 [src-0, src-1] gen=1
+     revoke task0 [src-1] gen=2 describe=TARGET
+     assign task1 [src-1] gen=3
+  -- kafka events (31)
+     ctl-group connect-sink-coord rebalance gen=1 members=1
+     join connect-sink-coord m1 task0 gen=1 pos={0=0}
+     ctl-group cg-control-daae878f-d6bd-4665-908f-2bb99bbc14d1 rebalance gen=1 members=1
+     join cg-control-daae878f-d6bd-4665-908f-2bb99bbc14d1 m2 task0 gen=1 pos={0=0}
+     leave cg-control-daae878f-d6bd-4665-908f-2bb99bbc14d1 m2 task0
+     ctl-group cg-control-417ce218-a17e-41b9-bd63-4ad196c37361 rebalance gen=1 members=1
+     join cg-control-417ce218-a17e-41b9-bd63-4ad196c37361 m3 task0 gen=1 pos={0=0}
+     ctl-group cg-control-7c34582a-9c44-421b-b78b-96d879ea1b0f rebalance gen=1 members=1
+     join cg-control-7c34582a-9c44-421b-b78b-96d879ea1b0f m4 task1 gen=1 pos={0=0}
+     commitSync connect-sink-coord task0 {ctl-0=OffsetAndMetadata{offset=5, leaderEpoch=null, metadata=''}}
+     commitSync connect-sink-coord task0 {ctl-0=OffsetAndMetadata{offset=8, leaderEpoch=null, metadata=''}}
+     commitSync connect-sink-coord task0 {ctl-0=OffsetAndMetadata{offset=14, leaderEpoch=null, metadata=''}}
+     commitSync connect-sink-coord task0 {ctl-0=OffsetAndMetadata{offset=18, leaderEpoch=null, metadata=''}}
+     commitSync connect-sink-coord task0 {ctl-0=OffsetAndMetadata{offset=20, leaderEpoch=null, metadata=''}}
+     commitSync connect-sink-coord task0 {ctl-0=OffsetAndMetadata{offset=26, leaderEpoch=null, metadata=''}}
+     commitSync connect-sink-coord task0 {ctl-0=OffsetAndMetadata{offset=30, leaderEpoch=null, metadata=''}}
+     commitSync connect-sink-coord task0 {ctl-0=OffsetAndMetadata{offset=32, leaderEpoch=null, metadata=''}}
+     commitSync connect-sink-coord task0 {ctl-0=OffsetAndMetadata{offset=38, leaderEpoch=null, metadata=''}}
+     commitSync connect-sink-coord task0 {ctl-0=OffsetAndMetadata{offset=42, leaderEpoch=null, metadata=''}}
+     commitSync connect-sink-coord task0 {ctl-0=OffsetAndMetadata{offset=44, leaderEpoch=null, metadata=''}}
+     commitSync connect-sink-coord task0 {ctl-0=OffsetAndMetadata{offset=50, leaderEpoch=null, metadata=''}}
+     commitSync connect-sink-coord task0 {ctl-0=OffsetAndMetadata{offset=54, leaderEpoch=null, metadata=''}}
+     commitSync connect-sink-coord task0 {ctl-0=OffsetAndMetadata{offset=56, leaderEpoch=null, metadata=''}}
+     commitSync connect-sink-coord task0 {ctl-0=OffsetAndMetadata{offset=62, leaderEpoch=null, metadata=''}}
+     commitSync connect-sink-coord task0 {ctl-0=OffsetAndMetadata{offset=66, leaderEpoch=null, metadata=''}}
+     commitSync connect-sink-coord task0 {ctl-0=OffsetAndMetadata{offset=68, leaderEpoch=null, metadata=''}}
+     commitSync connect-sink-coord task0 {ctl-0=OffsetAndMetadata{offset=74, leaderEpoch=null, metadata=''}}
+  -- catalog faults []
+  -- first task failure:null
+SUMMARY [iceberg-kafka-connect-1.12.0.jar] icr-nocommit {} BAD 1/1

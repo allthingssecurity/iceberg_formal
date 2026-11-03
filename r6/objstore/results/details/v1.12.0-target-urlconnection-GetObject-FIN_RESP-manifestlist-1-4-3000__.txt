@@ -1,0 +1,50 @@
+== target-fault run=1 seed=1 client=urlconnection checksum=false expire=false major=false
+   ops: {0=OK, 1=THREW:RuntimeIOException/EOFException, 2=THREW:RuntimeIOException/EOFException, 3=THREW:RuntimeIOException/EOFException}
+   fault#1 FIN_RESP k=3000 on #14 c1 GetObject key=r1-1/db/t/metadata/snap-9017640456586737755-1-f3791e77-1813-4c38-aa4a-bb1f8644e5a4.avro range=bytes=0- len=0 status=206 -> fin-after-3000B-of-4438
+   fault#2 FIN_RESP k=3000 on #22 c2 GetObject key=r1-1/db/t/metadata/snap-9017640456586737755-1-f3791e77-1813-4c38-aa4a-bb1f8644e5a4.avro range=bytes=0- len=0 status=206 -> fin-after-3000B-of-4438
+   fault#3 FIN_RESP k=3000 on #26 c3 GetObject key=r1-1/db/t/metadata/snap-9017640456586737755-1-f3791e77-1813-4c38-aa4a-bb1f8644e5a4.avro range=bytes=0- len=0 status=206 -> fin-after-3000B-of-4438
+   fault#4 FIN_RESP k=3000 on #32 c4 GetObject key=r1-1/db/t/metadata/snap-9017640456586737755-1-f3791e77-1813-4c38-aa4a-bb1f8644e5a4.avro range=bytes=0- len=0 status=206 -> fin-after-3000B-of-4438
+   op1 commit threw RuntimeIOException: Failed to open file: s3://bucket/r1-1/db/t/metadata/snap-9017640456586737755-1-f3791e77-1813-4c38-aa4a-bb1f8644e5a4.avro <- EOFException: null
+   op2 commit threw RuntimeIOException: Failed to open file: s3://bucket/r1-1/db/t/metadata/snap-9017640456586737755-1-f3791e77-1813-4c38-aa4a-bb1f8644e5a4.avro <- EOFException: null
+   op3 commit threw RuntimeIOException: Failed to open file: s3://bucket/r1-1/db/t/metadata/snap-9017640456586737755-1-f3791e77-1813-4c38-aa4a-bb1f8644e5a4.avro <- EOFException: null
+   counts: {commitThrew:RuntimeIOException/EOFException=3, orphan_callerData=6, read_rangeOK=6, read_scanOK=1, read_seqOK=3, read_tailOK=3}
+== target-fault run=2 seed=2 client=urlconnection checksum=false expire=false major=false
+   ops: {0=OK, 1=THREW:RuntimeIOException/EOFException, 2=THREW:RuntimeIOException/EOFException, 3=THREW:RuntimeIOException/EOFException}
+   fault#5 FIN_RESP k=3000 on #59 c5 GetObject key=r2-2/db/t/metadata/snap-3493418651697079076-1-288037d4-6be4-47be-aad5-c3ed2157b506.avro range=bytes=0- len=0 status=206 -> fin-after-3000B-of-4437
+   fault#6 FIN_RESP k=3000 on #65 c6 GetObject key=r2-2/db/t/metadata/snap-3493418651697079076-1-288037d4-6be4-47be-aad5-c3ed2157b506.avro range=bytes=0- len=0 status=206 -> fin-after-3000B-of-4437
+   fault#7 FIN_RESP k=3000 on #71 c7 GetObject key=r2-2/db/t/metadata/snap-3493418651697079076-1-288037d4-6be4-47be-aad5-c3ed2157b506.avro range=bytes=0- len=0 status=206 -> fin-after-3000B-of-4437
+   fault#8 FIN_RESP k=3000 on #77 c8 GetObject key=r2-2/db/t/metadata/snap-3493418651697079076-1-288037d4-6be4-47be-aad5-c3ed2157b506.avro range=bytes=0- len=0 status=206 -> fin-after-3000B-of-4437
+   op1 commit threw RuntimeIOException: Failed to open file: s3://bucket/r2-2/db/t/metadata/snap-3493418651697079076-1-288037d4-6be4-47be-aad5-c3ed2157b506.avro <- EOFException: null
+   op2 commit threw RuntimeIOException: Failed to open file: s3://bucket/r2-2/db/t/metadata/snap-3493418651697079076-1-288037d4-6be4-47be-aad5-c3ed2157b506.avro <- EOFException: null
+   op3 commit threw RuntimeIOException: Failed to open file: s3://bucket/r2-2/db/t/metadata/snap-3493418651697079076-1-288037d4-6be4-47be-aad5-c3ed2157b506.avro <- EOFException: null
+   counts: {commitThrew:RuntimeIOException/EOFException=3, orphan_callerData=6, read_rangeOK=4, read_scanOK=1, read_seqOK=2, read_tailOK=2}
+== target-fault run=3 seed=3 client=urlconnection checksum=false expire=false major=false
+   ops: {0=OK, 1=THREW:RuntimeIOException/EOFException, 2=THREW:RuntimeIOException/EOFException, 3=THREW:RuntimeIOException/EOFException}
+   fault#9 FIN_RESP k=3000 on #102 c9 GetObject key=r3-3/db/t/metadata/snap-2356038801941454638-1-1b6db7f0-5b2d-4b80-b563-299b273d5de0.avro range=bytes=0- len=0 status=206 -> fin-after-3000B-of-4437
+   fault#10 FIN_RESP k=3000 on #108 c10 GetObject key=r3-3/db/t/metadata/snap-2356038801941454638-1-1b6db7f0-5b2d-4b80-b563-299b273d5de0.avro range=bytes=0- len=0 status=206 -> fin-after-3000B-of-4437
+   fault#11 FIN_RESP k=3000 on #114 c11 GetObject key=r3-3/db/t/metadata/snap-2356038801941454638-1-1b6db7f0-5b2d-4b80-b563-299b273d5de0.avro range=bytes=0- len=0 status=206 -> fin-after-3000B-of-4437
+   fault#12 FIN_RESP k=3000 on #118 c12 GetObject key=r3-3/db/t/metadata/snap-2356038801941454638-1-1b6db7f0-5b2d-4b80-b563-299b273d5de0.avro range=bytes=0- len=0 status=206 -> fin-after-3000B-of-4437
+   op1 commit threw RuntimeIOException: Failed to open file: s3://bucket/r3-3/db/t/metadata/snap-2356038801941454638-1-1b6db7f0-5b2d-4b80-b563-299b273d5de0.avro <- EOFException: null
+   op2 commit threw RuntimeIOException: Failed to open file: s3://bucket/r3-3/db/t/metadata/snap-2356038801941454638-1-1b6db7f0-5b2d-4b80-b563-299b273d5de0.avro <- EOFException: null
+   op3 commit threw RuntimeIOException: Failed to open file: s3://bucket/r3-3/db/t/metadata/snap-2356038801941454638-1-1b6db7f0-5b2d-4b80-b563-299b273d5de0.avro <- EOFException: null
+   counts: {commitThrew:RuntimeIOException/EOFException=3, orphan_callerData=5, read_rangeOK=6, read_scanOK=1, read_seqOK=3, read_tailOK=3}
+== target-fault run=4 seed=4 client=urlconnection checksum=false expire=false major=false
+   ops: {0=OK, 1=THREW:RuntimeIOException/EOFException, 2=THREW:RuntimeIOException/EOFException, 3=THREW:RuntimeIOException/EOFException}
+   fault#13 FIN_RESP k=3000 on #145 c13 GetObject key=r4-4/db/t/metadata/snap-8714526589710880343-1-c769b353-b0dd-4041-9ae1-2869744a8148.avro range=bytes=0- len=0 status=206 -> fin-after-3000B-of-4438
+   fault#14 FIN_RESP k=3000 on #149 c14 GetObject key=r4-4/db/t/metadata/snap-8714526589710880343-1-c769b353-b0dd-4041-9ae1-2869744a8148.avro range=bytes=0- len=0 status=206 -> fin-after-3000B-of-4438
+   fault#15 FIN_RESP k=3000 on #159 c15 GetObject key=r4-4/db/t/metadata/snap-8714526589710880343-1-c769b353-b0dd-4041-9ae1-2869744a8148.avro range=bytes=0- len=0 status=206 -> fin-after-3000B-of-4438
+   fault#16 FIN_RESP k=3000 on #169 c16 GetObject key=r4-4/db/t/metadata/snap-8714526589710880343-1-c769b353-b0dd-4041-9ae1-2869744a8148.avro range=bytes=0- len=0 status=206 -> fin-after-3000B-of-4438
+   op1 commit threw RuntimeIOException: Failed to open file: s3://bucket/r4-4/db/t/metadata/snap-8714526589710880343-1-c769b353-b0dd-4041-9ae1-2869744a8148.avro <- EOFException: null
+   op2 commit threw RuntimeIOException: Failed to open file: s3://bucket/r4-4/db/t/metadata/snap-8714526589710880343-1-c769b353-b0dd-4041-9ae1-2869744a8148.avro <- EOFException: null
+   op3 commit threw RuntimeIOException: Failed to open file: s3://bucket/r4-4/db/t/metadata/snap-8714526589710880343-1-c769b353-b0dd-4041-9ae1-2869744a8148.avro <- EOFException: null
+   counts: {commitThrew:RuntimeIOException/EOFException=3, orphan_callerData=9, read_rangeOK=4, read_scanOK=1, read_seqOK=2, read_tailOK=2}
+== target-fault run=5 seed=5 client=urlconnection checksum=false expire=false major=false
+   ops: {0=OK, 1=THREW:RuntimeIOException/EOFException, 2=THREW:RuntimeIOException/EOFException, 3=THREW:RuntimeIOException/EOFException}
+   fault#17 FIN_RESP k=3000 on #190 c17 GetObject key=r5-5/db/t/metadata/snap-6896609024284089165-1-180847ce-9221-415b-8f23-4c85f28012e4.avro range=bytes=0- len=0 status=206 -> fin-after-3000B-of-4438
+   fault#18 FIN_RESP k=3000 on #196 c18 GetObject key=r5-5/db/t/metadata/snap-6896609024284089165-1-180847ce-9221-415b-8f23-4c85f28012e4.avro range=bytes=0- len=0 status=206 -> fin-after-3000B-of-4438
+   fault#19 FIN_RESP k=3000 on #202 c19 GetObject key=r5-5/db/t/metadata/snap-6896609024284089165-1-180847ce-9221-415b-8f23-4c85f28012e4.avro range=bytes=0- len=0 status=206 -> fin-after-3000B-of-4438
+   fault#20 FIN_RESP k=3000 on #210 c20 GetObject key=r5-5/db/t/metadata/snap-6896609024284089165-1-180847ce-9221-415b-8f23-4c85f28012e4.avro range=bytes=0- len=0 status=206 -> fin-after-3000B-of-4438
+   op1 commit threw RuntimeIOException: Failed to open file: s3://bucket/r5-5/db/t/metadata/snap-6896609024284089165-1-180847ce-9221-415b-8f23-4c85f28012e4.avro <- EOFException: null
+   op2 commit threw RuntimeIOException: Failed to open file: s3://bucket/r5-5/db/t/metadata/snap-6896609024284089165-1-180847ce-9221-415b-8f23-4c85f28012e4.avro <- EOFException: null
+   op3 commit threw RuntimeIOException: Failed to open file: s3://bucket/r5-5/db/t/metadata/snap-6896609024284089165-1-180847ce-9221-415b-8f23-4c85f28012e4.avro <- EOFException: null
+   counts: {commitThrew:RuntimeIOException/EOFException=3, orphan_callerData=7, read_rangeOK=2, read_scanOK=1, read_seqOK=1, read_tailOK=1}

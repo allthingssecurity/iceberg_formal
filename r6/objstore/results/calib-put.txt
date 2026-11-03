@@ -1,0 +1,6 @@
+calib-put v1.0.0 FAULT   runs=10 injected(>128KiB sent)=10 commitThrew=10 commitOK=0 counts={commitThrew:UncheckedIOException/IOException=10, orphan_callerData=21}
+calib-put v1.0.0 CONTROL runs=10 injected(>128KiB sent)=0 commitThrew=0 commitOK=10 counts={}
+details: /Users/I074560/Downloads/experiments/iceberg-verify/r6/objstore/build/work/v1.0.0/calib-put-default-details.txt
+calib-put v1.1.0 FAULT   runs=10 injected(>128KiB sent)=10 commitThrew=0 commitOK=10 counts={}
+calib-put v1.1.0 CONTROL runs=10 injected(>128KiB sent)=0 commitThrew=0 commitOK=10 counts={}
+details: /Users/I074560/Downloads/experiments/iceberg-verify/r6/objstore/build/work/v1.1.0/calib-put-default-details.txt

@@ -1,0 +1,4 @@
+calib-read v1.6.1 FAULT   runs=10 injected=10 targetReadThrew=10 targetReadOK=0
+calib-read v1.6.1 CONTROL runs=10 injected=0 targetReadThrew=0 targetReadOK=10
+calib-read v1.7.0 FAULT   runs=10 injected=10 targetReadThrew=0 targetReadOK=10
+calib-read v1.7.0 CONTROL runs=10 injected=0 targetReadThrew=0 targetReadOK=10

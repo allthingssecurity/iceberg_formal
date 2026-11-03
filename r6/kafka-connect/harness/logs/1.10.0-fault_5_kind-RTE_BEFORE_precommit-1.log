@@ -1,0 +1,6 @@
+[iceberg-kafka-connect-1.10.0.jar] fault run 1: ok  {db.tbl=produced=60 lost=0 dupRows=0 dupFiles=0 uncommittedMissing=0 snapshots=3} committedSrc={0=30, 1=30} failures={} injected=1
+[iceberg-kafka-connect-1.10.0.jar] fault run 2: ok  {db.tbl=produced=60 lost=0 dupRows=0 dupFiles=0 uncommittedMissing=0 snapshots=3} committedSrc={0=30, 1=30} failures={} injected=1
+[iceberg-kafka-connect-1.10.0.jar] fault run 3: ok  {db.tbl=produced=60 lost=0 dupRows=0 dupFiles=0 uncommittedMissing=0 snapshots=3} committedSrc={0=30, 1=30} failures={} injected=1
+[iceberg-kafka-connect-1.10.0.jar] fault run 4: ok  {db.tbl=produced=60 lost=0 dupRows=0 dupFiles=0 uncommittedMissing=0 snapshots=3} committedSrc={0=30, 1=30} failures={} injected=1
+[iceberg-kafka-connect-1.10.0.jar] fault run 5: ok  {db.tbl=produced=60 lost=0 dupRows=0 dupFiles=0 uncommittedMissing=0 snapshots=3} committedSrc={0=30, 1=30} failures={} injected=1
+SUMMARY [iceberg-kafka-connect-1.10.0.jar] fault {precommit=1, kind=RTE_BEFORE} BAD 0/5

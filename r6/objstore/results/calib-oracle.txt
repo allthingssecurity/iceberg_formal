@@ -1,0 +1,7 @@
+calib-oracle v1.12.0 tamper=none             runs=3 flagged=0 majors={}
+calib-oracle v1.12.0 tamper=truncManifest    runs=3 flagged=3 majors={MAJOR_lostCommittedFiles=9, MAJOR_manifestLengthMismatch=3}
+calib-oracle v1.12.0 tamper=truncData        runs=3 flagged=3 majors={MAJOR_fileLengthMismatch=3}
+calib-oracle v1.12.0 tamper=deleteData       runs=3 flagged=3 majors={MAJOR_missingDataOrDeleteFile=3}
+calib-oracle v1.12.0 tamper=flipData         runs=3 flagged=3 majors={MAJOR_fileContentMismatch=3}
+calib-oracle v1.12.0 tamper=zeroManifestList runs=3 flagged=3 majors={MAJOR_lostCommittedFiles=9, MAJOR_unreadableManifestList=3, MAJOR_zeroLengthManifestList=3}
+details: /Users/I074560/Downloads/experiments/iceberg-verify/r6/objstore/build/work/v1.12.0/calib-oracle-default-details.txt

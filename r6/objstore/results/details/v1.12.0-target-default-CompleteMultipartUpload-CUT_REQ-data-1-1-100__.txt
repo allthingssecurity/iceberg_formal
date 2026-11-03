@@ -1,0 +1,20 @@
+== target-fault run=1 seed=1 client=default checksum=false expire=false major=false
+   ops: {0=OK, 1=OK, 2=OK}
+   fault#1 CUT_REQ k=100 on #7 c1 CompleteMultipartUpload key=r1-1/db/t/data/op0-f0-18f69335-eb21-4695-9b86-7cd25b57e14f.parquet upload=f5ed9a83 len=329 status=-1 -> cut-after-100B
+   counts: {read_rangeOK=16, read_scanOK=1, read_seqOK=8, read_tailOK=8}
+== target-fault run=2 seed=2 client=default checksum=false expire=false major=false
+   ops: {0=OK, 1=OK, 2=OK}
+   fault#2 CUT_REQ k=100 on #108 c4 CompleteMultipartUpload key=r2-2/db/t/data/op0-f0-5f899efc-8ea7-4194-ade4-458ac2b68d04.parquet upload=086fce38 len=329 status=-1 -> cut-after-100B
+   counts: {read_rangeOK=14, read_scanOK=1, read_seqOK=7, read_tailOK=7}
+== target-fault run=3 seed=3 client=default checksum=false expire=false major=false
+   ops: {0=OK, 1=OK, 2=OK}
+   fault#3 CUT_REQ k=100 on #198 c5 CompleteMultipartUpload key=r3-3/db/t/data/op0-f0-4caaa53e-c16e-4111-9eec-a5228f482e48.parquet upload=96fefe58 len=329 status=-1 -> cut-after-100B
+   counts: {read_rangeOK=14, read_scanOK=1, read_seqOK=7, read_tailOK=7}
+== target-fault run=4 seed=4 client=default checksum=false expire=false major=false
+   ops: {0=OK, 1=OK, 2=OK}
+   fault#4 CUT_REQ k=100 on #289 c6 CompleteMultipartUpload key=r4-4/db/t/data/op0-f0-def1bebb-a357-4cff-aaec-4bd940dfd9f3.parquet upload=6be349a1 len=329 status=-1 -> cut-after-100B
+   counts: {read_rangeOK=10, read_scanOK=1, read_seqOK=5, read_tailOK=5}
+== target-fault run=5 seed=5 client=default checksum=false expire=false major=false
+   ops: {0=OK, 1=OK, 2=OK}
+   fault#5 CUT_REQ k=100 on #360 c8 CompleteMultipartUpload key=r5-5/db/t/data/op0-f0-02f752eb-d931-4fff-b0ee-e688203937e1.parquet upload=39199728 len=329 status=-1 -> cut-after-100B
+   counts: {read_rangeOK=14, read_scanOK=1, read_seqOK=7, read_tailOK=7}

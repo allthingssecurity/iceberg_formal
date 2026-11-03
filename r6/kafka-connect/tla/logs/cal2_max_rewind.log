@@ -1,0 +1,34 @@
+TLC2 Version 2026.03.20.190810 (rev: 11bffb1)
+Running breadth-first search Model-Checking with fp 18 and seed 5807376184134557900 with 4 workers on 12 cores with 2731MB heap and 64MB offheap memory [pid: 68469] (Mac OS X 27.2 aarch64, Homebrew 21.0.11 64bit, MSBDiskFPSet, DiskStateQueue).
+Parsing file /Users/I074560/Downloads/experiments/iceberg-verify/r6/kafka-connect/tla/KcSink.tla
+Parsing file /private/var/folders/3q/7yl2z5xd0gjft7y48_t4cw2h0000gn/T/tlc-3007360706478893794/Integers.tla (jar:file:/Users/I074560/Downloads/experiments/redis-lean/tla/tools/tla2tools.jar!/tla2sany/StandardModules/Integers.tla)
+Parsing file /private/var/folders/3q/7yl2z5xd0gjft7y48_t4cw2h0000gn/T/tlc-3007360706478893794/Sequences.tla (jar:file:/Users/I074560/Downloads/experiments/redis-lean/tla/tools/tla2tools.jar!/tla2sany/StandardModules/Sequences.tla)
+Parsing file /private/var/folders/3q/7yl2z5xd0gjft7y48_t4cw2h0000gn/T/tlc-3007360706478893794/FiniteSets.tla (jar:file:/Users/I074560/Downloads/experiments/redis-lean/tla/tools/tla2tools.jar!/tla2sany/StandardModules/FiniteSets.tla)
+Parsing file /private/var/folders/3q/7yl2z5xd0gjft7y48_t4cw2h0000gn/T/tlc-3007360706478893794/TLC.tla (jar:file:/Users/I074560/Downloads/experiments/redis-lean/tla/tools/tla2tools.jar!/tla2sany/StandardModules/TLC.tla)
+Parsing file /private/var/folders/3q/7yl2z5xd0gjft7y48_t4cw2h0000gn/T/tlc-3007360706478893794/_TLCTrace.tla (jar:file:/Users/I074560/Downloads/experiments/redis-lean/tla/tools/tla2tools.jar!/tla2sany/StandardModules/_TLCTrace.tla)
+Parsing file /private/var/folders/3q/7yl2z5xd0gjft7y48_t4cw2h0000gn/T/tlc-3007360706478893794/Naturals.tla (jar:file:/Users/I074560/Downloads/experiments/redis-lean/tla/tools/tla2tools.jar!/tla2sany/StandardModules/Naturals.tla)
+Parsing file /private/var/folders/3q/7yl2z5xd0gjft7y48_t4cw2h0000gn/T/tlc-3007360706478893794/TLCExt.tla (jar:file:/Users/I074560/Downloads/experiments/redis-lean/tla/tools/tla2tools.jar!/tla2sany/StandardModules/TLCExt.tla)
+Semantic processing of module Naturals
+Semantic processing of module Integers
+Semantic processing of module Sequences
+Semantic processing of module FiniteSets
+Semantic processing of module TLC
+Semantic processing of module TLCExt
+Semantic processing of module _TLCTrace
+Semantic processing of module KcSink
+Linting of module TLCExt
+Linting of module _TLCTrace
+Linting of module KcSink
+Starting... (2026-11-03 14:13:39)
+Computing initial states...
+Finished computing initial states: 1 distinct state generated at 2026-11-03 14:13:39.
+Progress(18) at 2026-11-03 14:13:42: 1,509,560 states generated (1,509,560 s/min), 629,097 distinct states found (629,097 ds/min), 243,494 states left on queue.
+Model checking completed. No error has been found.
+  Estimates of the probability that TLC did not check all reachable states
+  because two distinct states had the same fingerprint:
+  calculated (optimistic):  val = 6.0E-6
+  based on the actual fingerprints:  val = 2.6E-6
+21726613 states generated, 8075783 distinct states found, 0 states left on queue.
+The depth of the complete state graph search is 40.
+The average outdegree of the complete state graph is 1 (minimum is 0, the maximum 7 and the 95th percentile is 2).
+Finished in 39s at (2026-11-03 14:14:19)

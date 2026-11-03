@@ -1,0 +1,47 @@
+[iceberg-kafka-connect-1.12.0.jar] fault run 1: ok  {db.tbl=produced=60 lost=0 dupRows=0 dupFiles=0 uncommittedMissing=0 snapshots=3} committedSrc={0=30, 1=30} failures={put:NotRunningException=1} injected=5
+  -- emu trace (9)
+     start task0 #1
+     start task1 #1
+     assignAll task0 [src-0] gen=1
+     assignAll task1 [src-1] gen=1
+     task0 put threw org.apache.iceberg.connect.channel.NotRunningException: Coordinator unexpectedly terminated on committer sink-0
+     seek task0 src-0 -> 20 (was 20)
+     failTask task0 released [src-0]
+     start task0 #2
+     assign task0 [src-0] gen=3
+  -- kafka events (20)
+     ctl-group connect-sink-coord rebalance gen=1 members=1
+     join connect-sink-coord m1 task0 gen=1 pos={0=0}
+     ctl-group cg-control-a187510c-dfbe-45c5-b285-48113d626895 rebalance gen=1 members=1
+     join cg-control-a187510c-dfbe-45c5-b285-48113d626895 m2 task0 gen=1 pos={0=0}
+     ctl-group cg-control-0829fc75-ac7e-4d90-9f81-46a7cc5c5692 rebalance gen=1 members=1
+     join cg-control-0829fc75-ac7e-4d90-9f81-46a7cc5c5692 m3 task1 gen=1 pos={0=0}
+     commitSync connect-sink-coord task0 {ctl-0=OffsetAndMetadata{offset=5, leaderEpoch=null, metadata=''}}
+     leave connect-sink-coord m1 task0
+     leave cg-control-a187510c-dfbe-45c5-b285-48113d626895 m2 task0
+     ctl-group connect-sink-coord rebalance gen=2 members=1
+     join connect-sink-coord m4 task0 gen=2 pos={0=5}
+     ctl-group cg-control-3458c8a2-b52b-4462-b058-b8b1ab218234 rebalance gen=1 members=1
+     join cg-control-3458c8a2-b52b-4462-b058-b8b1ab218234 m5 task0 gen=1 pos={0=13}
+     commitSync connect-sink-coord task0 {ctl-0=OffsetAndMetadata{offset=15, leaderEpoch=null, metadata=''}}
+     commitSync connect-sink-coord task0 {ctl-0=OffsetAndMetadata{offset=21, leaderEpoch=null, metadata=''}}
+  -- catalog faults [commit#2 CFE_BEFORE on iceberg-committer-0, commit#3 CFE_BEFORE on iceberg-committer-0, commit#4 CFE_BEFORE on iceberg-committer-0, commit#5 CFE_BEFORE on iceberg-committer-0, commit#6 CFE_BEFORE on iceberg-committer-0]
+  -- first task failure:
+      org.apache.iceberg.connect.channel.NotRunningException: Coordinator unexpectedly terminated on committer sink-0
+      	at org.apache.iceberg.connect.channel.CommitterImpl.processControlEvents(CommitterImpl.java:201)
+      	at org.apache.iceberg.connect.channel.CommitterImpl.save(CommitterImpl.java:195)
+      	at org.apache.iceberg.connect.IcebergSinkTask.put(IcebergSinkTask.java:88)
+      	at harness.Emu.lambda$poll$7(Emu.java:287)
+      	at harness.Emu.call(Emu.java:380)
+      	at harness.Emu.poll(Emu.java:287)
+      	at harness.Emu.pollAll(Emu.java:292)
+      	at harness.World.lambda$cycle$1(World.java:134)
+      	at harness.World.safe(World.java:82)
+      	at harness.World.cycle(World.java:134)
+      	at harness.Scenarios.fault(Scenarios.java:182)
+      	at harness.Main.main(Main.java:52)
+[iceberg-kafka-connect-1.12.0.jar] fault run 2: ok  {db.tbl=produced=60 lost=0 dupRows=0 dupFiles=0 uncommittedMissing=0 snapshots=3} committedSrc={0=30, 1=30} failures={put:NotRunningException=1} injected=5
+[iceberg-kafka-connect-1.12.0.jar] fault run 3: ok  {db.tbl=produced=60 lost=0 dupRows=0 dupFiles=0 uncommittedMissing=0 snapshots=3} committedSrc={0=30, 1=30} failures={put:NotRunningException=1} injected=5
+[iceberg-kafka-connect-1.12.0.jar] fault run 4: ok  {db.tbl=produced=60 lost=0 dupRows=0 dupFiles=0 uncommittedMissing=0 snapshots=3} committedSrc={0=30, 1=30} failures={put:NotRunningException=1} injected=5
+[iceberg-kafka-connect-1.12.0.jar] fault run 5: ok  {db.tbl=produced=60 lost=0 dupRows=0 dupFiles=0 uncommittedMissing=0 snapshots=3} committedSrc={0=30, 1=30} failures={put:NotRunningException=1} injected=5
+SUMMARY [iceberg-kafka-connect-1.12.0.jar] fault {precommit=1, kind=CFE_BEFORE, count=5} BAD 0/5

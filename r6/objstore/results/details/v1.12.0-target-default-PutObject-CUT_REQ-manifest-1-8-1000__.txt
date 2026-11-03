@@ -1,0 +1,60 @@
+== target-fault run=1 seed=1 client=default checksum=false expire=false major=false
+   ops: {0=THREW:SdkClientException/SocketException, 1=OK, 2=OK}
+   fault#1 CUT_REQ k=1000 on #19 c1 PutObject key=r1-1/db/t/metadata/867b9592-d8c6-4186-ae4b-bb89acc801b6-m0.avro len=993069 status=-1 -> cut-after-1000B
+   fault#2 CUT_REQ k=1000 on #20 c2 PutObject key=r1-1/db/t/metadata/867b9592-d8c6-4186-ae4b-bb89acc801b6-m0.avro len=993069 status=-1 -> cut-after-1000B
+   fault#3 CUT_REQ k=1000 on #21 c3 PutObject key=r1-1/db/t/metadata/867b9592-d8c6-4186-ae4b-bb89acc801b6-m0.avro len=993069 status=-1 -> cut-after-1000B
+   fault#4 CUT_REQ k=1000 on #22 c4 PutObject key=r1-1/db/t/metadata/867b9592-d8c6-4186-ae4b-bb89acc801b6-m0.avro len=993069 status=-1 -> cut-after-1000B
+   fault#5 CUT_REQ k=1000 on #23 c5 PutObject key=r1-1/db/t/metadata/867b9592-d8c6-4186-ae4b-bb89acc801b6-m0.avro len=993069 status=-1 -> cut-after-1000B
+   fault#6 CUT_REQ k=1000 on #24 c6 PutObject key=r1-1/db/t/metadata/867b9592-d8c6-4186-ae4b-bb89acc801b6-m0.avro len=993069 status=-1 -> cut-after-1000B
+   fault#7 CUT_REQ k=1000 on #41 c9 PutObject key=r1-1/db/t/metadata/4a9d4392-d6f6-4743-806f-45527ab8bb55-m0.avro len=993074 status=-1 -> cut-after-1000B
+   fault#8 CUT_REQ k=1000 on #42 c7 PutObject key=r1-1/db/t/metadata/4a9d4392-d6f6-4743-806f-45527ab8bb55-m0.avro len=993074 status=-1 -> cut-after-1000B
+   op0 commit threw SdkClientException: Unable to execute HTTP request: Broken pipe (SDK Attempt Count: 6) <- SocketException: Broken pipe
+   counts: {commitThrew:SdkClientException/SocketException=1, orphan_callerData=3, read_rangeOK=10, read_scanOK=1, read_seqOK=5, read_tailOK=5}
+== target-fault run=2 seed=2 client=default checksum=false expire=false major=false
+   ops: {0=THREW:SdkClientException/SocketException, 1=OK, 2=OK}
+   fault#9 CUT_REQ k=1000 on #99 c10 PutObject key=r2-2/db/t/metadata/8dc52f5b-b3ca-490c-9e07-7de6f2ebc284-m0.avro len=664801 status=-1 -> cut-after-1000B
+   fault#10 CUT_REQ k=1000 on #100 c8 PutObject key=r2-2/db/t/metadata/8dc52f5b-b3ca-490c-9e07-7de6f2ebc284-m0.avro len=664801 status=-1 -> cut-after-1000B
+   fault#11 CUT_REQ k=1000 on #101 c11 PutObject key=r2-2/db/t/metadata/8dc52f5b-b3ca-490c-9e07-7de6f2ebc284-m0.avro len=664801 status=-1 -> cut-after-1000B
+   fault#12 CUT_REQ k=1000 on #102 c12 PutObject key=r2-2/db/t/metadata/8dc52f5b-b3ca-490c-9e07-7de6f2ebc284-m0.avro len=664801 status=-1 -> cut-after-1000B
+   fault#13 CUT_REQ k=1000 on #103 c13 PutObject key=r2-2/db/t/metadata/8dc52f5b-b3ca-490c-9e07-7de6f2ebc284-m0.avro len=664801 status=-1 -> cut-after-1000B
+   fault#14 CUT_REQ k=1000 on #104 c14 PutObject key=r2-2/db/t/metadata/8dc52f5b-b3ca-490c-9e07-7de6f2ebc284-m0.avro len=664801 status=-1 -> cut-after-1000B
+   fault#15 CUT_REQ k=1000 on #115 c16 PutObject key=r2-2/db/t/metadata/a02960b9-c2c1-4589-9eac-4a911545986f-m0.avro len=664803 status=-1 -> cut-after-1000B
+   fault#16 CUT_REQ k=1000 on #116 c15 PutObject key=r2-2/db/t/metadata/a02960b9-c2c1-4589-9eac-4a911545986f-m0.avro len=664803 status=-1 -> cut-after-1000B
+   op0 commit threw SdkClientException: Unable to execute HTTP request: Broken pipe (SDK Attempt Count: 6) <- SocketException: Broken pipe
+   counts: {commitThrew:SdkClientException/SocketException=1, orphan_callerData=2, read_rangeOK=10, read_scanOK=1, read_seqOK=5, read_tailOK=5}
+== target-fault run=3 seed=3 client=default checksum=false expire=false major=false
+   ops: {0=THREW:SdkClientException/SocketException, 1=OK, 2=OK}
+   fault#17 CUT_REQ k=1000 on #184 c18 PutObject key=r3-3/db/t/metadata/afc0e4e6-cb70-41f1-84ab-d6e5bf1d2336-m0.avro len=993069 status=-1 -> cut-after-1000B
+   fault#18 CUT_REQ k=1000 on #185 c17 PutObject key=r3-3/db/t/metadata/afc0e4e6-cb70-41f1-84ab-d6e5bf1d2336-m0.avro len=993069 status=-1 -> cut-after-1000B
+   fault#19 CUT_REQ k=1000 on #186 c19 PutObject key=r3-3/db/t/metadata/afc0e4e6-cb70-41f1-84ab-d6e5bf1d2336-m0.avro len=993069 status=-1 -> cut-after-1000B
+   fault#20 CUT_REQ k=1000 on #187 c20 PutObject key=r3-3/db/t/metadata/afc0e4e6-cb70-41f1-84ab-d6e5bf1d2336-m0.avro len=993069 status=-1 -> cut-after-1000B
+   fault#21 CUT_REQ k=1000 on #188 c21 PutObject key=r3-3/db/t/metadata/afc0e4e6-cb70-41f1-84ab-d6e5bf1d2336-m0.avro len=993069 status=-1 -> cut-after-1000B
+   fault#22 CUT_REQ k=1000 on #189 c22 PutObject key=r3-3/db/t/metadata/afc0e4e6-cb70-41f1-84ab-d6e5bf1d2336-m0.avro len=993069 status=-1 -> cut-after-1000B
+   fault#23 CUT_REQ k=1000 on #196 c24 PutObject key=r3-3/db/t/metadata/9d255a02-9469-4cb5-b8b4-5dc3ea717da7-m0.avro len=336449 status=-1 -> cut-after-1000B
+   fault#24 CUT_REQ k=1000 on #197 c23 PutObject key=r3-3/db/t/metadata/9d255a02-9469-4cb5-b8b4-5dc3ea717da7-m0.avro len=336449 status=-1 -> cut-after-1000B
+   op0 commit threw SdkClientException: Unable to execute HTTP request: Broken pipe (SDK Attempt Count: 6) <- SocketException: Broken pipe
+   counts: {commitThrew:SdkClientException/SocketException=1, orphan_callerData=3, read_rangeOK=6, read_scanOK=1, read_seqOK=3, read_tailOK=3}
+== target-fault run=4 seed=4 client=default checksum=false expire=false major=false
+   ops: {0=THREW:SdkClientException/SocketException, 1=OK, 2=OK}
+   fault#25 CUT_REQ k=1000 on #246 c25 PutObject key=r4-4/db/t/metadata/ec8ac4be-3ef7-4cb5-987b-fb74bba39a81-m0.avro len=664804 status=-1 -> cut-after-1000B
+   fault#26 CUT_REQ k=1000 on #247 c26 PutObject key=r4-4/db/t/metadata/ec8ac4be-3ef7-4cb5-987b-fb74bba39a81-m0.avro len=664804 status=-1 -> cut-after-1000B
+   fault#27 CUT_REQ k=1000 on #248 c27 PutObject key=r4-4/db/t/metadata/ec8ac4be-3ef7-4cb5-987b-fb74bba39a81-m0.avro len=664804 status=-1 -> cut-after-1000B
+   fault#28 CUT_REQ k=1000 on #249 c28 PutObject key=r4-4/db/t/metadata/ec8ac4be-3ef7-4cb5-987b-fb74bba39a81-m0.avro len=664804 status=-1 -> cut-after-1000B
+   fault#29 CUT_REQ k=1000 on #250 c29 PutObject key=r4-4/db/t/metadata/ec8ac4be-3ef7-4cb5-987b-fb74bba39a81-m0.avro len=664804 status=-1 -> cut-after-1000B
+   fault#30 CUT_REQ k=1000 on #251 c30 PutObject key=r4-4/db/t/metadata/ec8ac4be-3ef7-4cb5-987b-fb74bba39a81-m0.avro len=664804 status=-1 -> cut-after-1000B
+   fault#31 CUT_REQ k=1000 on #257 c32 PutObject key=r4-4/db/t/metadata/1a84c318-aa00-4163-be51-27f0148020f9-m0.avro len=336450 status=-1 -> cut-after-1000B
+   fault#32 CUT_REQ k=1000 on #258 c31 PutObject key=r4-4/db/t/metadata/1a84c318-aa00-4163-be51-27f0148020f9-m0.avro len=336450 status=-1 -> cut-after-1000B
+   op0 commit threw SdkClientException: Unable to execute HTTP request: Broken pipe (SDK Attempt Count: 6) <- SocketException: Broken pipe
+   counts: {commitThrew:SdkClientException/SocketException=1, orphan_callerData=2, read_rangeOK=6, read_scanOK=1, read_seqOK=3, read_tailOK=3}
+== target-fault run=5 seed=5 client=default checksum=false expire=false major=false
+   ops: {0=THREW:SdkClientException/SocketException, 1=OK, 2=OK}
+   fault#33 CUT_REQ k=1000 on #301 c34 PutObject key=r5-5/db/t/metadata/faf4a767-7000-4bc7-8836-6eee75e64fa7-m0.avro len=336448 status=-1 -> cut-after-1000B
+   fault#34 CUT_REQ k=1000 on #302 c33 PutObject key=r5-5/db/t/metadata/faf4a767-7000-4bc7-8836-6eee75e64fa7-m0.avro len=336448 status=-1 -> cut-after-1000B
+   fault#35 CUT_REQ k=1000 on #303 c35 PutObject key=r5-5/db/t/metadata/faf4a767-7000-4bc7-8836-6eee75e64fa7-m0.avro len=336448 status=-1 -> cut-after-1000B
+   fault#36 CUT_REQ k=1000 on #304 c36 PutObject key=r5-5/db/t/metadata/faf4a767-7000-4bc7-8836-6eee75e64fa7-m0.avro len=336448 status=-1 -> cut-after-1000B
+   fault#37 CUT_REQ k=1000 on #305 c37 PutObject key=r5-5/db/t/metadata/faf4a767-7000-4bc7-8836-6eee75e64fa7-m0.avro len=336448 status=-1 -> cut-after-1000B
+   fault#38 CUT_REQ k=1000 on #306 c38 PutObject key=r5-5/db/t/metadata/faf4a767-7000-4bc7-8836-6eee75e64fa7-m0.avro len=336448 status=-1 -> cut-after-1000B
+   fault#39 CUT_REQ k=1000 on #323 c41 PutObject key=r5-5/db/t/metadata/83751c27-7900-436a-89fe-4d60f72f6f36-m0.avro len=993069 status=-1 -> cut-after-1000B
+   fault#40 CUT_REQ k=1000 on #324 c40 PutObject key=r5-5/db/t/metadata/83751c27-7900-436a-89fe-4d60f72f6f36-m0.avro len=993069 status=-1 -> cut-after-1000B
+   op0 commit threw SdkClientException: Unable to execute HTTP request: Connection reset (SDK Attempt Count: 6) <- SocketException: Connection reset
+   counts: {commitThrew:SdkClientException/SocketException=1, orphan_callerData=1, read_rangeOK=12, read_scanOK=1, read_seqOK=6, read_tailOK=6}

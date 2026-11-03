@@ -1,0 +1,41 @@
+TLC2 Version 2026.03.20.190810 (rev: 11bffb1)
+Running breadth-first search Model-Checking with fp 110 and seed 1972932308789155178 with 4 workers on 12 cores with 2731MB heap and 64MB offheap memory [pid: 76782] (Mac OS X 27.2 aarch64, Homebrew 21.0.11 64bit, MSBDiskFPSet, DiskStateQueue).
+Parsing file /Users/I074560/Downloads/experiments/iceberg-verify/r6/kafka-connect/tla/KcSink.tla
+Parsing file /private/var/folders/3q/7yl2z5xd0gjft7y48_t4cw2h0000gn/T/tlc-9449134678778882669/Integers.tla (jar:file:/Users/I074560/Downloads/experiments/redis-lean/tla/tools/tla2tools.jar!/tla2sany/StandardModules/Integers.tla)
+Parsing file /private/var/folders/3q/7yl2z5xd0gjft7y48_t4cw2h0000gn/T/tlc-9449134678778882669/Sequences.tla (jar:file:/Users/I074560/Downloads/experiments/redis-lean/tla/tools/tla2tools.jar!/tla2sany/StandardModules/Sequences.tla)
+Parsing file /private/var/folders/3q/7yl2z5xd0gjft7y48_t4cw2h0000gn/T/tlc-9449134678778882669/FiniteSets.tla (jar:file:/Users/I074560/Downloads/experiments/redis-lean/tla/tools/tla2tools.jar!/tla2sany/StandardModules/FiniteSets.tla)
+Parsing file /private/var/folders/3q/7yl2z5xd0gjft7y48_t4cw2h0000gn/T/tlc-9449134678778882669/TLC.tla (jar:file:/Users/I074560/Downloads/experiments/redis-lean/tla/tools/tla2tools.jar!/tla2sany/StandardModules/TLC.tla)
+Parsing file /private/var/folders/3q/7yl2z5xd0gjft7y48_t4cw2h0000gn/T/tlc-9449134678778882669/_TLCTrace.tla (jar:file:/Users/I074560/Downloads/experiments/redis-lean/tla/tools/tla2tools.jar!/tla2sany/StandardModules/_TLCTrace.tla)
+Parsing file /private/var/folders/3q/7yl2z5xd0gjft7y48_t4cw2h0000gn/T/tlc-9449134678778882669/Naturals.tla (jar:file:/Users/I074560/Downloads/experiments/redis-lean/tla/tools/tla2tools.jar!/tla2sany/StandardModules/Naturals.tla)
+Parsing file /private/var/folders/3q/7yl2z5xd0gjft7y48_t4cw2h0000gn/T/tlc-9449134678778882669/TLCExt.tla (jar:file:/Users/I074560/Downloads/experiments/redis-lean/tla/tools/tla2tools.jar!/tla2sany/StandardModules/TLCExt.tla)
+Semantic processing of module Naturals
+Semantic processing of module Integers
+Semantic processing of module Sequences
+Semantic processing of module FiniteSets
+Semantic processing of module TLC
+Semantic processing of module TLCExt
+Semantic processing of module _TLCTrace
+Semantic processing of module KcSink
+Linting of module TLCExt
+Linting of module _TLCTrace
+Linting of module KcSink
+Starting... (2026-11-03 14:29:00)
+Computing initial states...
+Finished computing initial states: 1 distinct state generated at 2026-11-03 14:29:00.
+Progress(16) at 2026-11-03 14:29:03: 1,697,278 states generated (1,697,278 s/min), 678,852 distinct states found (678,852 ds/min), 307,705 states left on queue.
+Progress(22) at 2026-11-03 14:30:03: 30,712,275 states generated (29,014,997 s/min), 11,316,031 distinct states found (10,637,179 ds/min), 3,392,330 states left on queue.
+Progress(24) at 2026-11-03 14:31:03: 53,827,615 states generated (23,115,340 s/min), 19,388,776 distinct states found (8,072,745 ds/min), 4,725,804 states left on queue.
+Progress(25) at 2026-11-03 14:32:03: 76,999,216 states generated (23,171,601 s/min), 27,351,618 distinct states found (7,962,842 ds/min), 5,332,049 states left on queue.
+Progress(27) at 2026-11-03 14:33:03: 101,613,988 states generated (24,614,772 s/min), 35,563,298 distinct states found (8,211,680 ds/min), 5,182,650 states left on queue.
+Progress(28) at 2026-11-03 14:34:03: 122,463,392 states generated (20,849,404 s/min), 42,425,619 distinct states found (6,862,321 ds/min), 4,371,731 states left on queue.
+Progress(30) at 2026-11-03 14:35:03: 142,426,287 states generated (19,962,895 s/min), 48,862,880 distinct states found (6,437,261 ds/min), 2,795,224 states left on queue.
+Progress(37) at 2026-11-03 14:36:03: 161,357,760 states generated (18,931,473 s/min), 54,933,478 distinct states found (6,070,598 ds/min), 220,130 states left on queue.
+Model checking completed. No error has been found.
+  Estimates of the probability that TLC did not check all reachable states
+  because two distinct states had the same fingerprint:
+  calculated (optimistic):  val = 3.2E-4
+  based on the actual fingerprints:  val = 1.8E-4
+162312270 states generated, 55235585 distinct states found, 0 states left on queue.
+The depth of the complete state graph search is 44.
+The average outdegree of the complete state graph is 1 (minimum is 0, the maximum 8 and the 95th percentile is 2).
+Finished in 07min 07s at (2026-11-03 14:36:07)

@@ -1,0 +1,47 @@
+[iceberg-kafka-connect-1.10.0.jar] zombie-rewind run 1: BAD {db.tbl=produced=90 lost=0 dupRows=10 dupFiles=1 uncommittedMissing=0 snapshots=4} committedSrc={0=30, 1=30, 2=30} failures={} injected=0
+  -- emu trace (13)
+     start task0 #1
+     start task1 #1
+     start task2 #1
+     assignAll task0 [src-0] gen=1
+     assignAll task1 [src-1] gen=1
+     assignAll task2 [src-2] gen=1
+     revoke task0 [src-0] gen=2 describe=PARTIAL
+     seek task0 src-0 -> 20 (was 20)
+     assign task1 [src-0] gen=3
+     revoke task1 [src-0] gen=4 describe=TARGET
+     seek task1 src-0 -> 20 (was 20)
+     seek task1 src-1 -> 20 (was 20)
+     assign task0 [src-0] gen=5
+  -- kafka events (31)
+     ctl-group connect-sink-coord rebalance gen=1 members=1
+     join connect-sink-coord m1 task0 gen=1 pos={0=0}
+     ctl-group cg-control-141f3f65-15c3-4673-8026-df1cb5a3b6a5 rebalance gen=1 members=1
+     join cg-control-141f3f65-15c3-4673-8026-df1cb5a3b6a5 m2 task0 gen=1 pos={0=0}
+     ctl-group cg-control-9728a9c5-805c-4c2d-9f1c-88e27a1fe083 rebalance gen=1 members=1
+     join cg-control-9728a9c5-805c-4c2d-9f1c-88e27a1fe083 m3 task1 gen=1 pos={0=0}
+     ctl-group cg-control-edbe42e0-cce1-4394-ba25-103cebb14887 rebalance gen=1 members=1
+     join cg-control-edbe42e0-cce1-4394-ba25-103cebb14887 m4 task2 gen=1 pos={0=0}
+     commitSync connect-sink-coord task0 {ctl-0=OffsetAndMetadata{offset=7, leaderEpoch=null, metadata=''}}
+     leave cg-control-141f3f65-15c3-4673-8026-df1cb5a3b6a5 m2 task0
+     ctl-group connect-sink-coord rebalance gen=2 members=2
+     join connect-sink-coord m5 task1 gen=2 pos={}
+     join connect-sink-coord m1 task0 gen=2 pos={0=7}
+     commitSync connect-sink-coord task0 {ctl-0=OffsetAndMetadata{offset=12, leaderEpoch=null, metadata=''}}
+     leave cg-control-9728a9c5-805c-4c2d-9f1c-88e27a1fe083 m3 task1
+     leave connect-sink-coord m5 task1
+     ctl-group connect-sink-coord rebalance gen=3 members=1
+     join connect-sink-coord m1 task0 gen=3 pos={0=12}
+     ctl-group cg-control-7cb3c503-2ab4-4317-8b84-9e7cccc26840 rebalance gen=1 members=1
+     join cg-control-7cb3c503-2ab4-4317-8b84-9e7cccc26840 m6 task0 gen=1 pos={0=20}
+     ctl-group cg-control-035012e2-454e-4723-b873-dfae8d852d4d rebalance gen=1 members=1
+     join cg-control-035012e2-454e-4723-b873-dfae8d852d4d m7 task1 gen=1 pos={0=20}
+     commitSync connect-sink-coord task0 {ctl-0=OffsetAndMetadata{offset=23, leaderEpoch=null, metadata=''}}
+     commitSync connect-sink-coord task0 {ctl-0=OffsetAndMetadata{offset=31, leaderEpoch=null, metadata=''}}
+  -- catalog faults []
+  -- first task failure:null
+[iceberg-kafka-connect-1.10.0.jar] zombie-rewind run 2: BAD {db.tbl=produced=90 lost=0 dupRows=10 dupFiles=1 uncommittedMissing=0 snapshots=4} committedSrc={0=30, 1=30, 2=30} failures={} injected=0
+[iceberg-kafka-connect-1.10.0.jar] zombie-rewind run 3: BAD {db.tbl=produced=90 lost=0 dupRows=10 dupFiles=1 uncommittedMissing=0 snapshots=4} committedSrc={0=30, 1=30, 2=30} failures={} injected=0
+[iceberg-kafka-connect-1.10.0.jar] zombie-rewind run 4: BAD {db.tbl=produced=90 lost=0 dupRows=10 dupFiles=1 uncommittedMissing=0 snapshots=4} committedSrc={0=30, 1=30, 2=30} failures={} injected=0
+[iceberg-kafka-connect-1.10.0.jar] zombie-rewind run 5: BAD {db.tbl=produced=90 lost=0 dupRows=10 dupFiles=1 uncommittedMissing=0 snapshots=4} committedSrc={0=30, 1=30, 2=30} failures={} injected=0
+SUMMARY [iceberg-kafka-connect-1.10.0.jar] zombie-rewind {replay=1} BAD 5/5

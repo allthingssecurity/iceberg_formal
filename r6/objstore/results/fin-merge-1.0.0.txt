@@ -1,0 +1,2 @@
+fin-merge v1.0.0 client=default FAULT runs=5 armed=5 finInjected=20 majorRuns=5 counts={MAJOR_lostCommittedFiles=5, MAJOR_summaryVsManifestsMismatch=5}
+fin-merge v1.0.0 client=default CONTROL runs=5 armed=0 finInjected=0 majorRuns=0 counts={}

@@ -1,0 +1,50 @@
+plugins {
+  id 'java'
+}
+
+def icebergVersion = project.findProperty('icebergVersion') ?: '1.12.0'
+def kafkaVersion = '3.9.2'
+// one build dir per release so the classpaths never mix
+layout.buildDirectory = file("build/${icebergVersion}")
+
+repositories {
+  mavenCentral()
+}
+
+dependencies {
+  implementation "org.apache.iceberg:iceberg-kafka-connect:${icebergVersion}"
+  implementation "org.apache.iceberg:iceberg-kafka-connect-events:${icebergVersion}"
+  implementation "org.apache.iceberg:iceberg-core:${icebergVersion}"
+  implementation "org.apache.iceberg:iceberg-data:${icebergVersion}"
+  runtimeOnly "org.apache.iceberg:iceberg-parquet:${icebergVersion}"
+  runtimeOnly "org.apache.iceberg:iceberg-orc:${icebergVersion}"
+  implementation "org.apache.iceberg:iceberg-common:${icebergVersion}"
+  implementation "org.apache.iceberg:iceberg-bundled-guava:${icebergVersion}"
+  implementation "org.apache.kafka:kafka-clients:${kafkaVersion}"
+  implementation "org.apache.kafka:connect-api:${kafkaVersion}"
+  implementation "org.apache.kafka:connect-json:${kafkaVersion}"
+  implementation("org.apache.kafka:connect-runtime:${kafkaVersion}") {
+    transitive = false   // only WorkerSinkTaskContext is needed (KafkaUtils reads its 'consumer' field)
+  }
+  // 1.12.0's FormatModelRegistry registers Avro/Parquet/ORC generic models together; the Parquet
+  // and ORC ones need Hadoop classes to load, otherwise even Avro is "not registered".
+  runtimeOnly 'org.apache.hadoop:hadoop-client-api:3.4.1'
+  runtimeOnly 'org.apache.hadoop:hadoop-client-runtime:3.4.1'
+  implementation 'org.slf4j:slf4j-api:2.0.16'
+  runtimeOnly 'org.slf4j:slf4j-simple:2.0.16'
+}
+
+tasks.withType(JavaCompile).configureEach {
+  options.encoding = 'UTF-8'
+  options.release = 17
+}
+
+// writes the runtime classpath (own classes FIRST, so the shadow KafkaClientFactory wins)
+tasks.register('cp') {
+  dependsOn classes
+  doLast {
+    def f = layout.buildDirectory.file('cp.txt').get().asFile
+    f.text = sourceSets.main.runtimeClasspath.asPath
+    println "classpath -> ${f}"
+  }
+}

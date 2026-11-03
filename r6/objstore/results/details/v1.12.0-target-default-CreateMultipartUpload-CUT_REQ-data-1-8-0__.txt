@@ -1,0 +1,65 @@
+== target-fault run=1 seed=1 client=default checksum=false expire=false major=false
+   ops: {0=OK, 1=OK, 2=OK}
+   fault#1 CUT_REQ k=0 on #4 c1 CreateMultipartUpload key=r1-1/db/t/data/op0-f0-41845d25-69af-475f-8d2a-864fb898bd3a.parquet len=0 status=-1 -> cut-before-headers
+   fault#2 CUT_REQ k=0 on #5 c2 CreateMultipartUpload key=r1-1/db/t/data/op0-f0-41845d25-69af-475f-8d2a-864fb898bd3a.parquet len=0 status=-1 -> cut-before-headers
+   fault#3 CUT_REQ k=0 on #6 c3 CreateMultipartUpload key=r1-1/db/t/data/op0-f0-41845d25-69af-475f-8d2a-864fb898bd3a.parquet len=0 status=-1 -> cut-before-headers
+   fault#4 CUT_REQ k=0 on #7 c4 CreateMultipartUpload key=r1-1/db/t/data/op0-f0-41845d25-69af-475f-8d2a-864fb898bd3a.parquet len=0 status=-1 -> cut-before-headers
+   fault#5 CUT_REQ k=0 on #8 c5 CreateMultipartUpload key=r1-1/db/t/data/op0-f0-41845d25-69af-475f-8d2a-864fb898bd3a.parquet len=0 status=-1 -> cut-before-headers
+   fault#6 CUT_REQ k=0 on #9 c6 CreateMultipartUpload key=r1-1/db/t/data/op0-f0-41845d25-69af-475f-8d2a-864fb898bd3a.parquet len=0 status=-1 -> cut-before-headers
+   fault#7 CUT_REQ k=0 on #12 c7 CreateMultipartUpload key=r1-1/db/t/data/op0-f1-85d2940f-b4af-48ae-8aa3-ccee639de065.parquet len=0 status=-1 -> cut-before-headers
+   fault#8 CUT_REQ k=0 on #13 c8 CreateMultipartUpload key=r1-1/db/t/data/op0-f1-85d2940f-b4af-48ae-8aa3-ccee639de065.parquet len=0 status=-1 -> cut-before-headers
+   op0 blob write threw SdkClientException: Unable to execute HTTP request: Connection reset (SDK Attempt Count: 6) <- SocketException: Connection reset r1-1/db/t/data/op0-f0-41845d25-69af-475f-8d2a-864fb898bd3a.parquet intendedLen=8298831
+   orphan_dataUnknown(writeThrew) r1-1/db/t/data/op0-f0-41845d25-69af-475f-8d2a-864fb898bd3a.parquet size=5318079
+   counts: {blobWriteThrew:SocketException=1, orphan_dataUnknown(writeThrew)=1, read_rangeOK=12, read_scanOK=1, read_seqOK=6, read_tailOK=6}
+== target-fault run=2 seed=2 client=default checksum=false expire=false major=false
+   ops: {0=OK, 1=OK, 2=OK}
+   fault#9 CUT_REQ k=0 on #93 c10 CreateMultipartUpload key=r2-2/db/t/data/op0-f0-4f087cbe-fc9e-4105-a60a-2b8f0cd2dcd2.parquet len=0 status=-1 -> cut-before-headers
+   fault#10 CUT_REQ k=0 on #94 c9 CreateMultipartUpload key=r2-2/db/t/data/op0-f0-4f087cbe-fc9e-4105-a60a-2b8f0cd2dcd2.parquet len=0 status=-1 -> cut-before-headers
+   fault#11 CUT_REQ k=0 on #95 c11 CreateMultipartUpload key=r2-2/db/t/data/op0-f0-4f087cbe-fc9e-4105-a60a-2b8f0cd2dcd2.parquet len=0 status=-1 -> cut-before-headers
+   fault#12 CUT_REQ k=0 on #96 c12 CreateMultipartUpload key=r2-2/db/t/data/op0-f0-4f087cbe-fc9e-4105-a60a-2b8f0cd2dcd2.parquet len=0 status=-1 -> cut-before-headers
+   fault#13 CUT_REQ k=0 on #97 c13 CreateMultipartUpload key=r2-2/db/t/data/op0-f0-4f087cbe-fc9e-4105-a60a-2b8f0cd2dcd2.parquet len=0 status=-1 -> cut-before-headers
+   fault#14 CUT_REQ k=0 on #98 c14 CreateMultipartUpload key=r2-2/db/t/data/op0-f0-4f087cbe-fc9e-4105-a60a-2b8f0cd2dcd2.parquet len=0 status=-1 -> cut-before-headers
+   fault#15 CUT_REQ k=0 on #101 c15 CreateMultipartUpload key=r2-2/db/t/data/op0-f1-9a6b3b25-3343-4630-a913-b4e8539b8fe3.parquet len=0 status=-1 -> cut-before-headers
+   fault#16 CUT_REQ k=0 on #102 c16 CreateMultipartUpload key=r2-2/db/t/data/op0-f1-9a6b3b25-3343-4630-a913-b4e8539b8fe3.parquet len=0 status=-1 -> cut-before-headers
+   op0 blob write threw SdkClientException: Unable to execute HTTP request: Connection reset (SDK Attempt Count: 6) <- SocketException: Connection reset r2-2/db/t/data/op0-f0-4f087cbe-fc9e-4105-a60a-2b8f0cd2dcd2.parquet intendedLen=10229343
+   orphan_dataUnknown(writeThrew) r2-2/db/t/data/op0-f0-4f087cbe-fc9e-4105-a60a-2b8f0cd2dcd2.parquet size=5389924
+   counts: {blobWriteThrew:SocketException=1, orphan_dataUnknown(writeThrew)=1, read_rangeOK=8, read_scanOK=1, read_seqOK=4, read_tailOK=4}
+== target-fault run=3 seed=3 client=default checksum=false expire=false major=false
+   ops: {0=OK, 1=OK, 2=OK}
+   fault#17 CUT_REQ k=0 on #165 c17 CreateMultipartUpload key=r3-3/db/t/data/op0-f0-071fc2b8-fe59-4679-a4a9-ed4870f23710.parquet len=0 status=-1 -> cut-before-headers
+   fault#18 CUT_REQ k=0 on #166 c18 CreateMultipartUpload key=r3-3/db/t/data/op0-f0-071fc2b8-fe59-4679-a4a9-ed4870f23710.parquet len=0 status=-1 -> cut-before-headers
+   fault#19 CUT_REQ k=0 on #167 c19 CreateMultipartUpload key=r3-3/db/t/data/op0-f0-071fc2b8-fe59-4679-a4a9-ed4870f23710.parquet len=0 status=-1 -> cut-before-headers
+   fault#20 CUT_REQ k=0 on #168 c20 CreateMultipartUpload key=r3-3/db/t/data/op0-f0-071fc2b8-fe59-4679-a4a9-ed4870f23710.parquet len=0 status=-1 -> cut-before-headers
+   fault#21 CUT_REQ k=0 on #169 c21 CreateMultipartUpload key=r3-3/db/t/data/op0-f0-071fc2b8-fe59-4679-a4a9-ed4870f23710.parquet len=0 status=-1 -> cut-before-headers
+   fault#22 CUT_REQ k=0 on #170 c22 CreateMultipartUpload key=r3-3/db/t/data/op0-f0-071fc2b8-fe59-4679-a4a9-ed4870f23710.parquet len=0 status=-1 -> cut-before-headers
+   fault#23 CUT_REQ k=0 on #173 c23 CreateMultipartUpload key=r3-3/db/t/data/op0-f1-b6b8364b-79be-41b0-a3d3-5e25eb5df998.parquet len=0 status=-1 -> cut-before-headers
+   fault#24 CUT_REQ k=0 on #174 c24 CreateMultipartUpload key=r3-3/db/t/data/op0-f1-b6b8364b-79be-41b0-a3d3-5e25eb5df998.parquet len=0 status=-1 -> cut-before-headers
+   op0 blob write threw SdkClientException: Unable to execute HTTP request: Connection reset (SDK Attempt Count: 6) <- SocketException: Connection reset r3-3/db/t/data/op0-f0-071fc2b8-fe59-4679-a4a9-ed4870f23710.parquet intendedLen=8501430
+   orphan_dataUnknown(writeThrew) r3-3/db/t/data/op0-f0-071fc2b8-fe59-4679-a4a9-ed4870f23710.parquet size=5449257
+   counts: {blobWriteThrew:SocketException=1, orphan_dataUnknown(writeThrew)=1, read_rangeOK=16, read_scanOK=1, read_seqOK=8, read_tailOK=8}
+== target-fault run=4 seed=4 client=default checksum=false expire=false major=false
+   ops: {0=OK, 1=OK, 2=OK}
+   fault#25 CUT_REQ k=0 on #273 c27 CreateMultipartUpload key=r4-4/db/t/data/op0-f0-580e7653-c0b5-4294-8ad2-1ab0d4ed3962.parquet len=0 status=-1 -> cut-before-headers
+   fault#26 CUT_REQ k=0 on #274 c25 CreateMultipartUpload key=r4-4/db/t/data/op0-f0-580e7653-c0b5-4294-8ad2-1ab0d4ed3962.parquet len=0 status=-1 -> cut-before-headers
+   fault#27 CUT_REQ k=0 on #275 c26 CreateMultipartUpload key=r4-4/db/t/data/op0-f0-580e7653-c0b5-4294-8ad2-1ab0d4ed3962.parquet len=0 status=-1 -> cut-before-headers
+   fault#28 CUT_REQ k=0 on #276 c28 CreateMultipartUpload key=r4-4/db/t/data/op0-f0-580e7653-c0b5-4294-8ad2-1ab0d4ed3962.parquet len=0 status=-1 -> cut-before-headers
+   fault#29 CUT_REQ k=0 on #277 c29 CreateMultipartUpload key=r4-4/db/t/data/op0-f0-580e7653-c0b5-4294-8ad2-1ab0d4ed3962.parquet len=0 status=-1 -> cut-before-headers
+   fault#30 CUT_REQ k=0 on #278 c30 CreateMultipartUpload key=r4-4/db/t/data/op0-f0-580e7653-c0b5-4294-8ad2-1ab0d4ed3962.parquet len=0 status=-1 -> cut-before-headers
+   fault#31 CUT_REQ k=0 on #281 c31 CreateMultipartUpload key=r4-4/db/t/data/op0-f1-9c9f6be4-9a2e-4869-baa9-2baf3496b9e3.parquet len=0 status=-1 -> cut-before-headers
+   fault#32 CUT_REQ k=0 on #282 c32 CreateMultipartUpload key=r4-4/db/t/data/op0-f1-9c9f6be4-9a2e-4869-baa9-2baf3496b9e3.parquet len=0 status=-1 -> cut-before-headers
+   op0 blob write threw SdkClientException: Unable to execute HTTP request: Connection reset (SDK Attempt Count: 6) <- SocketException: Connection reset r4-4/db/t/data/op0-f0-580e7653-c0b5-4294-8ad2-1ab0d4ed3962.parquet intendedLen=6120539
+   orphan_dataUnknown(writeThrew) r4-4/db/t/data/op0-f0-580e7653-c0b5-4294-8ad2-1ab0d4ed3962.parquet size=5314776
+   counts: {blobWriteThrew:SocketException=1, orphan_dataUnknown(writeThrew)=1, read_rangeOK=8, read_scanOK=1, read_seqOK=4, read_tailOK=4}
+== target-fault run=5 seed=5 client=default checksum=false expire=false major=false
+   ops: {0=SKIPPED(no blob written), 1=OK, 2=OK}
+   fault#33 CUT_REQ k=0 on #344 c34 CreateMultipartUpload key=r5-5/db/t/data/op0-f0-50dc5f29-4a32-4709-89b3-b10291bcbd75.parquet len=0 status=-1 -> cut-before-headers
+   fault#34 CUT_REQ k=0 on #345 c33 CreateMultipartUpload key=r5-5/db/t/data/op0-f0-50dc5f29-4a32-4709-89b3-b10291bcbd75.parquet len=0 status=-1 -> cut-before-headers
+   fault#35 CUT_REQ k=0 on #346 c35 CreateMultipartUpload key=r5-5/db/t/data/op0-f0-50dc5f29-4a32-4709-89b3-b10291bcbd75.parquet len=0 status=-1 -> cut-before-headers
+   fault#36 CUT_REQ k=0 on #347 c36 CreateMultipartUpload key=r5-5/db/t/data/op0-f0-50dc5f29-4a32-4709-89b3-b10291bcbd75.parquet len=0 status=-1 -> cut-before-headers
+   fault#37 CUT_REQ k=0 on #348 c37 CreateMultipartUpload key=r5-5/db/t/data/op0-f0-50dc5f29-4a32-4709-89b3-b10291bcbd75.parquet len=0 status=-1 -> cut-before-headers
+   fault#38 CUT_REQ k=0 on #349 c38 CreateMultipartUpload key=r5-5/db/t/data/op0-f0-50dc5f29-4a32-4709-89b3-b10291bcbd75.parquet len=0 status=-1 -> cut-before-headers
+   fault#39 CUT_REQ k=0 on #352 c39 CreateMultipartUpload key=r5-5/db/t/data/op1-f0-cf1dc8cb-e0aa-4974-a453-bd167847dac8.parquet len=0 status=-1 -> cut-before-headers
+   fault#40 CUT_REQ k=0 on #353 c40 CreateMultipartUpload key=r5-5/db/t/data/op1-f0-cf1dc8cb-e0aa-4974-a453-bd167847dac8.parquet len=0 status=-1 -> cut-before-headers
+   op0 blob write threw SdkClientException: Unable to execute HTTP request: Connection reset (SDK Attempt Count: 6) <- SocketException: Connection reset r5-5/db/t/data/op0-f0-50dc5f29-4a32-4709-89b3-b10291bcbd75.parquet intendedLen=10232156
+   orphan_dataUnknown(writeThrew) r5-5/db/t/data/op0-f0-50dc5f29-4a32-4709-89b3-b10291bcbd75.parquet size=5348318
+   counts: {blobWriteThrew:SocketException=1, orphan_dataUnknown(writeThrew)=1, read_rangeOK=8, read_scanOK=1, read_seqOK=4, read_tailOK=4}

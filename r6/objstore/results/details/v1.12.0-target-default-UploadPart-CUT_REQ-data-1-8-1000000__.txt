@@ -1,0 +1,56 @@
+== target-fault run=1 seed=1 client=default checksum=false expire=false major=false
+   ops: {0=OK, 1=OK, 2=OK}
+   fault#1 CUT_REQ k=1000000 on #5 c1 UploadPart key=r1-1/db/t/data/op0-f0-d35884cc-3c89-4898-9f7e-20894a9af417.parquet upload=b4e080e3 part=1 len=5246687 status=-1 -> cut-after-1000000B
+   fault#2 CUT_REQ k=1000000 on #6 c2 UploadPart key=r1-1/db/t/data/op0-f0-d35884cc-3c89-4898-9f7e-20894a9af417.parquet upload=b4e080e3 part=2 len=3058317 status=-1 -> cut-after-1000000B
+   fault#3 CUT_REQ k=1000000 on #7 c3 UploadPart key=r1-1/db/t/data/op0-f0-d35884cc-3c89-4898-9f7e-20894a9af417.parquet upload=b4e080e3 part=2 len=3058317 status=-1 -> cut-after-1000000B
+   fault#4 CUT_REQ k=1000000 on #8 c4 UploadPart key=r1-1/db/t/data/op0-f0-d35884cc-3c89-4898-9f7e-20894a9af417.parquet upload=b4e080e3 part=1 len=5246687 status=-1 -> cut-after-1000000B
+   fault#5 CUT_REQ k=1000000 on #9 c5 UploadPart key=r1-1/db/t/data/op0-f0-d35884cc-3c89-4898-9f7e-20894a9af417.parquet upload=b4e080e3 part=1 len=5246687 status=-1 -> cut-after-1000000B
+   fault#6 CUT_REQ k=1000000 on #10 c6 UploadPart key=r1-1/db/t/data/op0-f0-d35884cc-3c89-4898-9f7e-20894a9af417.parquet upload=b4e080e3 part=2 len=3058317 status=-1 -> cut-after-1000000B
+   fault#7 CUT_REQ k=1000000 on #11 c7 UploadPart key=r1-1/db/t/data/op0-f0-d35884cc-3c89-4898-9f7e-20894a9af417.parquet upload=b4e080e3 part=1 len=5246687 status=-1 -> cut-after-1000000B
+   fault#8 CUT_REQ k=1000000 on #12 c8 UploadPart key=r1-1/db/t/data/op0-f0-d35884cc-3c89-4898-9f7e-20894a9af417.parquet upload=b4e080e3 part=2 len=3058317 status=-1 -> cut-after-1000000B
+   counts: {read_rangeOK=16, read_scanOK=1, read_seqOK=8, read_tailOK=8}
+== target-fault run=2 seed=2 client=default checksum=false expire=false major=false
+   ops: {0=OK, 1=OK, 2=OK}
+   fault#9 CUT_REQ k=1000000 on #113 c11 UploadPart key=r2-2/db/t/data/op0-f0-9ad74e49-bc06-4f39-ba61-cbe6eaa049c7.parquet upload=44b368ba part=1 len=5246687 status=-1 -> cut-after-1000000B
+   fault#10 CUT_REQ k=1000000 on #114 c9 UploadPart key=r2-2/db/t/data/op0-f0-9ad74e49-bc06-4f39-ba61-cbe6eaa049c7.parquet upload=44b368ba part=2 len=4990179 status=-1 -> cut-after-1000000B
+   fault#11 CUT_REQ k=1000000 on #115 c10 UploadPart key=r2-2/db/t/data/op0-f0-9ad74e49-bc06-4f39-ba61-cbe6eaa049c7.parquet upload=44b368ba part=2 len=4990179 status=-1 -> cut-after-1000000B
+   fault#12 CUT_REQ k=1000000 on #116 c12 UploadPart key=r2-2/db/t/data/op0-f0-9ad74e49-bc06-4f39-ba61-cbe6eaa049c7.parquet upload=44b368ba part=1 len=5246687 status=-1 -> cut-after-1000000B
+   fault#13 CUT_REQ k=1000000 on #117 c13 UploadPart key=r2-2/db/t/data/op0-f0-9ad74e49-bc06-4f39-ba61-cbe6eaa049c7.parquet upload=44b368ba part=2 len=4990179 status=-1 -> cut-after-1000000B
+   fault#14 CUT_REQ k=1000000 on #118 c14 UploadPart key=r2-2/db/t/data/op0-f0-9ad74e49-bc06-4f39-ba61-cbe6eaa049c7.parquet upload=44b368ba part=1 len=5246687 status=-1 -> cut-after-1000000B
+   fault#15 CUT_REQ k=1000000 on #119 c15 UploadPart key=r2-2/db/t/data/op0-f0-9ad74e49-bc06-4f39-ba61-cbe6eaa049c7.parquet upload=44b368ba part=1 len=5246687 status=-1 -> cut-after-1000000B
+   fault#16 CUT_REQ k=1000000 on #120 c16 UploadPart key=r2-2/db/t/data/op0-f0-9ad74e49-bc06-4f39-ba61-cbe6eaa049c7.parquet upload=44b368ba part=2 len=4990179 status=-1 -> cut-after-1000000B
+   counts: {read_rangeOK=14, read_scanOK=1, read_seqOK=7, read_tailOK=7}
+== target-fault run=3 seed=3 client=default checksum=false expire=false major=false
+   ops: {0=OK, 1=OK, 2=OK}
+   fault#17 CUT_REQ k=1000000 on #210 c18 UploadPart key=r3-3/db/t/data/op0-f0-1bf39131-4b1c-47db-b38f-ce6399e18626.parquet upload=75bd152d part=1 len=5246687 status=-1 -> cut-after-1000000B
+   fault#18 CUT_REQ k=1000000 on #211 c17 UploadPart key=r3-3/db/t/data/op0-f0-1bf39131-4b1c-47db-b38f-ce6399e18626.parquet upload=75bd152d part=2 len=3261007 status=-1 -> cut-after-1000000B
+   fault#19 CUT_REQ k=1000000 on #212 c19 UploadPart key=r3-3/db/t/data/op0-f0-1bf39131-4b1c-47db-b38f-ce6399e18626.parquet upload=75bd152d part=2 len=3261007 status=-1 -> cut-after-1000000B
+   fault#20 CUT_REQ k=1000000 on #213 c20 UploadPart key=r3-3/db/t/data/op0-f0-1bf39131-4b1c-47db-b38f-ce6399e18626.parquet upload=75bd152d part=1 len=5246687 status=-1 -> cut-after-1000000B
+   fault#21 CUT_REQ k=1000000 on #214 c21 UploadPart key=r3-3/db/t/data/op0-f0-1bf39131-4b1c-47db-b38f-ce6399e18626.parquet upload=75bd152d part=2 len=3261007 status=-1 -> cut-after-1000000B
+   fault#22 CUT_REQ k=1000000 on #215 c22 UploadPart key=r3-3/db/t/data/op0-f0-1bf39131-4b1c-47db-b38f-ce6399e18626.parquet upload=75bd152d part=1 len=5246687 status=-1 -> cut-after-1000000B
+   fault#23 CUT_REQ k=1000000 on #216 c23 UploadPart key=r3-3/db/t/data/op0-f0-1bf39131-4b1c-47db-b38f-ce6399e18626.parquet upload=75bd152d part=2 len=3261007 status=-1 -> cut-after-1000000B
+   fault#24 CUT_REQ k=1000000 on #217 c24 UploadPart key=r3-3/db/t/data/op0-f0-1bf39131-4b1c-47db-b38f-ce6399e18626.parquet upload=75bd152d part=1 len=5246687 status=-1 -> cut-after-1000000B
+   counts: {read_rangeOK=14, read_scanOK=1, read_seqOK=7, read_tailOK=7}
+== target-fault run=4 seed=4 client=default checksum=false expire=false major=false
+   ops: {0=OK, 1=OK, 2=OK}
+   fault#25 CUT_REQ k=1000000 on #308 c25 UploadPart key=r4-4/db/t/data/op0-f0-43187df3-24e1-4adb-8a28-adf818876679.parquet upload=b0a174a5 part=1 len=5246687 status=-1 -> cut-after-1000000B
+   fault#26 CUT_REQ k=1000000 on #309 c26 UploadPart key=r4-4/db/t/data/op0-f0-43187df3-24e1-4adb-8a28-adf818876679.parquet upload=b0a174a5 part=2 len=878496 status=200 -> cut-after-878495B
+   fault#27 CUT_REQ k=1000000 on #310 c27 UploadPart key=r4-4/db/t/data/op0-f0-43187df3-24e1-4adb-8a28-adf818876679.parquet upload=b0a174a5 part=1 len=5246687 status=-1 -> cut-after-1000000B
+   fault#28 CUT_REQ k=1000000 on #311 c28 UploadPart key=r4-4/db/t/data/op0-f0-43187df3-24e1-4adb-8a28-adf818876679.parquet upload=b0a174a5 part=1 len=5246687 status=-1 -> cut-after-1000000B
+   fault#29 CUT_REQ k=1000000 on #312 c29 UploadPart key=r4-4/db/t/data/op0-f0-43187df3-24e1-4adb-8a28-adf818876679.parquet upload=b0a174a5 part=1 len=5246687 status=-1 -> cut-after-1000000B
+   fault#30 CUT_REQ k=1000000 on #313 c30 UploadPart key=r4-4/db/t/data/op0-f0-43187df3-24e1-4adb-8a28-adf818876679.parquet upload=b0a174a5 part=1 len=5246687 status=-1 -> cut-after-1000000B
+   fault#31 CUT_REQ k=1000000 on #317 c31 UploadPart key=r4-4/db/t/data/op0-f1-1ddca09c-3b16-47c6-b345-3bdc8a3ecd3c.parquet upload=b99e8a2b part=1 len=5246687 status=-1 -> cut-after-1000000B
+   fault#32 CUT_REQ k=1000000 on #318 c32 UploadPart key=r4-4/db/t/data/op0-f1-1ddca09c-3b16-47c6-b345-3bdc8a3ecd3c.parquet upload=b99e8a2b part=2 len=3632529 status=-1 -> cut-after-1000000B
+   op0 blob write threw CompletionException: software.amazon.awssdk.core.exception.SdkClientException: Unable to execute HTTP request: Broken pipe (SDK Attempt Count: 6) <- SdkClientException: Unable to execute HTTP request: Broken pipe (SDK Attempt Count: 6) <- SocketException: Broken pipe r4-4/db/t/data/op0-f0-43187df3-24e1-4adb-8a28-adf818876679.parquet
+   counts: {blobWriteThrew:SocketException=1, read_rangeOK=10, read_scanOK=1, read_seqOK=5, read_tailOK=5}
+== target-fault run=5 seed=5 client=default checksum=false expire=false major=false
+   ops: {0=OK, 1=OK, 2=OK}
+   fault#33 CUT_REQ k=1000000 on #392 c34 UploadPart key=r5-5/db/t/data/op0-f0-3b7135f9-407f-4b42-bcf9-fda72393ccea.parquet upload=7b7a4fbc part=1 len=5246687 status=-1 -> cut-after-1000000B
+   fault#34 CUT_REQ k=1000000 on #393 c35 UploadPart key=r5-5/db/t/data/op0-f0-3b7135f9-407f-4b42-bcf9-fda72393ccea.parquet upload=7b7a4fbc part=2 len=4992992 status=-1 -> cut-after-1000000B
+   fault#35 CUT_REQ k=1000000 on #394 c33 UploadPart key=r5-5/db/t/data/op0-f0-3b7135f9-407f-4b42-bcf9-fda72393ccea.parquet upload=7b7a4fbc part=1 len=5246687 status=-1 -> cut-after-1000000B
+   fault#36 CUT_REQ k=1000000 on #395 c36 UploadPart key=r5-5/db/t/data/op0-f0-3b7135f9-407f-4b42-bcf9-fda72393ccea.parquet upload=7b7a4fbc part=2 len=4992992 status=-1 -> cut-after-1000000B
+   fault#37 CUT_REQ k=1000000 on #396 c37 UploadPart key=r5-5/db/t/data/op0-f0-3b7135f9-407f-4b42-bcf9-fda72393ccea.parquet upload=7b7a4fbc part=2 len=4992992 status=-1 -> cut-after-1000000B
+   fault#38 CUT_REQ k=1000000 on #397 c38 UploadPart key=r5-5/db/t/data/op0-f0-3b7135f9-407f-4b42-bcf9-fda72393ccea.parquet upload=7b7a4fbc part=1 len=5246687 status=-1 -> cut-after-1000000B
+   fault#39 CUT_REQ k=1000000 on #398 c39 UploadPart key=r5-5/db/t/data/op0-f0-3b7135f9-407f-4b42-bcf9-fda72393ccea.parquet upload=7b7a4fbc part=2 len=4992992 status=-1 -> cut-after-1000000B
+   fault#40 CUT_REQ k=1000000 on #399 c40 UploadPart key=r5-5/db/t/data/op0-f0-3b7135f9-407f-4b42-bcf9-fda72393ccea.parquet upload=7b7a4fbc part=1 len=5246687 status=-1 -> cut-after-1000000B
+   counts: {read_rangeOK=14, read_scanOK=1, read_seqOK=7, read_tailOK=7}

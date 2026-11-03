@@ -1,0 +1,6 @@
+[iceberg-kafka-connect-1.12.0.jar] icr-nocommit run 1: ok  {db.tbl=produced=60 lost=0 dupRows=0 dupFiles=0 uncommittedMissing=0 snapshots=3} committedSrc={0=30, 1=30} failures={} injected=0
+[iceberg-kafka-connect-1.12.0.jar] icr-nocommit run 2: ok  {db.tbl=produced=60 lost=0 dupRows=0 dupFiles=0 uncommittedMissing=0 snapshots=3} committedSrc={0=30, 1=30} failures={} injected=0
+[iceberg-kafka-connect-1.12.0.jar] icr-nocommit run 3: ok  {db.tbl=produced=60 lost=0 dupRows=0 dupFiles=0 uncommittedMissing=0 snapshots=3} committedSrc={0=30, 1=30} failures={} injected=0
+[iceberg-kafka-connect-1.12.0.jar] icr-nocommit run 4: ok  {db.tbl=produced=60 lost=0 dupRows=0 dupFiles=0 uncommittedMissing=0 snapshots=3} committedSrc={0=30, 1=30} failures={} injected=0
+[iceberg-kafka-connect-1.12.0.jar] icr-nocommit run 5: ok  {db.tbl=produced=60 lost=0 dupRows=0 dupFiles=0 uncommittedMissing=0 snapshots=3} committedSrc={0=30, 1=30} failures={} injected=0
+SUMMARY [iceberg-kafka-connect-1.12.0.jar] icr-nocommit {precommit=1} BAD 0/5

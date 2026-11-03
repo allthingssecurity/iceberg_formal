@@ -1,0 +1,40 @@
+== calib-read-fault run=1 seed=1 client=default checksum=false expire=false major=false
+   ops: {0=OK, 1=OK}
+   fault#1 RESET_RESP k=102400 on #33 c4 GetObject key=r1-1/db/t/data/op0-f0-ea57ca14-590b-421d-819b-6524788ca51a.parquet range=bytes=0- len=0 status=206 -> reset-after-102400B-of-718001
+   counts: {read_rangeOK=8, read_scanOK=1, read_seqOK=4, read_tailOK=4}
+== calib-read-fault run=2 seed=2 client=default checksum=false expire=false major=false
+   ops: {0=OK, 1=OK}
+   fault#2 RESET_RESP k=102400 on #88 c23 GetObject key=r2-2/db/t/data/op0-f0-de215f91-9894-4bce-b6e9-60c8891db56f.parquet range=bytes=0- len=0 status=206 -> reset-after-102400B-of-266466
+   counts: {read_rangeOK=10, read_scanOK=1, read_seqOK=5, read_tailOK=5}
+== calib-read-fault run=3 seed=3 client=default checksum=false expire=false major=false
+   ops: {0=OK, 1=OK}
+   fault#3 RESET_RESP k=102400 on #135 c36 GetObject key=r3-3/db/t/data/op0-f0-be7b88c5-8a7f-420d-9462-15fdbbc4949e.parquet range=bytes=0- len=0 status=206 -> reset-after-102400B-of-722560
+   counts: {read_rangeOK=10, read_scanOK=1, read_seqOK=5, read_tailOK=5}
+== calib-read-fault run=4 seed=4 client=default checksum=false expire=false major=false
+   ops: {0=OK, 1=OK}
+   fault#4 RESET_RESP k=102400 on #184 c52 GetObject key=r4-4/db/t/data/op0-f0-4326d911-9575-459d-bbb8-1af441992de2.parquet range=bytes=0- len=0 status=206 -> reset-after-102400B-of-724703
+   counts: {read_rangeOK=8, read_scanOK=1, read_seqOK=4, read_tailOK=4}
+== calib-read-fault run=5 seed=5 client=default checksum=false expire=false major=false
+   ops: {0=OK, 1=OK}
+   fault#5 RESET_RESP k=102400 on #227 c65 GetObject key=r5-5/db/t/data/op0-f0-3962db83-e674-4bba-a7f7-8be8efcf3756.parquet range=bytes=0- len=0 status=206 -> reset-after-102400B-of-269862
+   counts: {read_rangeOK=6, read_scanOK=1, read_seqOK=3, read_tailOK=3}
+== calib-read-fault run=6 seed=6 client=default checksum=false expire=false major=false
+   ops: {0=OK, 1=OK}
+   fault#6 RESET_RESP k=102400 on #272 c78 GetObject key=r6-6/db/t/data/op0-f1-fb8b5a29-991d-4464-a7dd-9d9d1da47ae0.parquet range=bytes=0- len=0 status=206 -> reset-after-102400B-of-524860
+   counts: {read_rangeOK=8, read_scanOK=1, read_seqOK=4, read_tailOK=4}
+== calib-read-fault run=7 seed=7 client=default checksum=false expire=false major=false
+   ops: {0=OK, 1=OK}
+   fault#7 RESET_RESP k=102400 on #313 c88 GetObject key=r7-7/db/t/data/op0-f0-07069bf4-89b3-4bba-9711-be04b56c5358.parquet range=bytes=0- len=0 status=206 -> reset-after-102400B-of-543773
+   counts: {read_rangeOK=8, read_scanOK=1, read_seqOK=4, read_tailOK=4}
+== calib-read-fault run=8 seed=8 client=default checksum=false expire=false major=false
+   ops: {0=OK, 1=OK}
+   fault#8 RESET_RESP k=102400 on #352 c98 GetObject key=r8-8/db/t/data/op0-f0-cbfee816-101d-4a56-8d78-6244aad42f49.parquet range=bytes=0- len=0 status=206 -> reset-after-102400B-of-412149
+   counts: {read_rangeOK=6, read_scanOK=1, read_seqOK=3, read_tailOK=3}
+== calib-read-fault run=9 seed=9 client=default checksum=false expire=false major=false
+   ops: {0=OK, 1=OK}
+   fault#9 RESET_RESP k=102400 on #399 c108 GetObject key=r9-9/db/t/data/op1-f1-328e7f77-5ec5-4256-8027-76f08461885f.parquet range=bytes=0- len=0 status=206 -> reset-after-102400B-of-669650
+   counts: {read_rangeOK=12, read_scanOK=1, read_seqOK=6, read_tailOK=6}
+== calib-read-fault run=10 seed=10 client=default checksum=false expire=false major=false
+   ops: {0=OK, 1=OK}
+   fault#10 RESET_RESP k=102400 on #456 c130 GetObject key=r10-10/db/t/data/op0-f0-3e77c264-f70b-4f96-8643-bdbbf7e29dff.parquet range=bytes=0- len=0 status=206 -> reset-after-102400B-of-262559
+   counts: {read_rangeOK=8, read_scanOK=1, read_seqOK=4, read_tailOK=4}

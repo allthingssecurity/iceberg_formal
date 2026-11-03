@@ -1,0 +1,45 @@
+== fin-merge-FAULT run=1 seed=1 client=default checksum=false expire=false major=true
+   ops: {0=OK, 1=OK, 2=OK}
+   fault#1 FIN_RESP k=89591 on #36 c1 GetObject key=r1-1/db/t/metadata/75876a4b-bc00-458b-ac8b-fc895b7c3ac2-m0.avro range=bytes=0- len=0 status=206 -> fin-after-89591B-of-254010
+   fault#2 FIN_RESP k=89591 on #37 c2 GetObject key=r1-1/db/t/metadata/75876a4b-bc00-458b-ac8b-fc895b7c3ac2-m0.avro range=bytes=0- len=0 status=206 -> fin-after-89591B-of-254010
+   fault#3 FIN_RESP k=89591 on #38 c3 GetObject key=r1-1/db/t/metadata/75876a4b-bc00-458b-ac8b-fc895b7c3ac2-m0.avro range=bytes=0- len=0 status=206 -> fin-after-89591B-of-254010
+   fault#4 FIN_RESP k=89591 on #39 c4 GetObject key=r1-1/db/t/metadata/75876a4b-bc00-458b-ac8b-fc895b7c3ac2-m0.avro range=bytes=0- len=0 status=206 -> fin-after-89591B-of-254010
+   current snapshot summary total-data-files=7 but manifests list 5
+   op1 returned OK but its files are not all live in current snapshot
+   counts: {MAJOR_lostCommittedFiles=1, MAJOR_summaryVsManifestsMismatch=1}
+== fin-merge-FAULT run=2 seed=2 client=default checksum=false expire=false major=true
+   ops: {0=OK, 1=OK, 2=OK}
+   fault#5 FIN_RESP k=89592 on #89 c6 GetObject key=r2-2/db/t/metadata/cca25df5-a23b-4459-9f70-06821b6c366c-m0.avro range=bytes=0- len=0 status=206 -> fin-after-89592B-of-254014
+   fault#6 FIN_RESP k=89592 on #90 c5 GetObject key=r2-2/db/t/metadata/cca25df5-a23b-4459-9f70-06821b6c366c-m0.avro range=bytes=0- len=0 status=206 -> fin-after-89592B-of-254014
+   fault#7 FIN_RESP k=89592 on #91 c7 GetObject key=r2-2/db/t/metadata/cca25df5-a23b-4459-9f70-06821b6c366c-m0.avro range=bytes=0- len=0 status=206 -> fin-after-89592B-of-254014
+   fault#8 FIN_RESP k=89592 on #92 c8 GetObject key=r2-2/db/t/metadata/cca25df5-a23b-4459-9f70-06821b6c366c-m0.avro range=bytes=0- len=0 status=206 -> fin-after-89592B-of-254014
+   current snapshot summary total-data-files=8 but manifests list 6
+   op1 returned OK but its files are not all live in current snapshot
+   counts: {MAJOR_lostCommittedFiles=1, MAJOR_summaryVsManifestsMismatch=1}
+== fin-merge-FAULT run=3 seed=3 client=default checksum=false expire=false major=true
+   ops: {0=OK, 1=OK, 2=OK}
+   fault#9 FIN_RESP k=89592 on #140 c9 GetObject key=r3-3/db/t/metadata/4f2b0869-00fb-4387-9741-0e8c854889b7-m0.avro range=bytes=0- len=0 status=206 -> fin-after-89592B-of-254012
+   fault#10 FIN_RESP k=89592 on #141 c10 GetObject key=r3-3/db/t/metadata/4f2b0869-00fb-4387-9741-0e8c854889b7-m0.avro range=bytes=0- len=0 status=206 -> fin-after-89592B-of-254012
+   fault#11 FIN_RESP k=89592 on #142 c11 GetObject key=r3-3/db/t/metadata/4f2b0869-00fb-4387-9741-0e8c854889b7-m0.avro range=bytes=0- len=0 status=206 -> fin-after-89592B-of-254012
+   fault#12 FIN_RESP k=89592 on #143 c12 GetObject key=r3-3/db/t/metadata/4f2b0869-00fb-4387-9741-0e8c854889b7-m0.avro range=bytes=0- len=0 status=206 -> fin-after-89592B-of-254012
+   current snapshot summary total-data-files=5 but manifests list 3
+   op0 returned OK but its files are not all live in current snapshot
+   counts: {MAJOR_lostCommittedFiles=1, MAJOR_summaryVsManifestsMismatch=1}
+== fin-merge-FAULT run=4 seed=4 client=default checksum=false expire=false major=true
+   ops: {0=OK, 1=OK, 2=OK}
+   fault#13 FIN_RESP k=89592 on #189 c14 GetObject key=r4-4/db/t/metadata/98ad7c9a-8cb9-4a02-b2a5-97aa1ae2a675-m0.avro range=bytes=0- len=0 status=206 -> fin-after-89592B-of-254014
+   fault#14 FIN_RESP k=89592 on #190 c13 GetObject key=r4-4/db/t/metadata/98ad7c9a-8cb9-4a02-b2a5-97aa1ae2a675-m0.avro range=bytes=0- len=0 status=206 -> fin-after-89592B-of-254014
+   fault#15 FIN_RESP k=89592 on #191 c15 GetObject key=r4-4/db/t/metadata/98ad7c9a-8cb9-4a02-b2a5-97aa1ae2a675-m0.avro range=bytes=0- len=0 status=206 -> fin-after-89592B-of-254014
+   fault#16 FIN_RESP k=89592 on #192 c16 GetObject key=r4-4/db/t/metadata/98ad7c9a-8cb9-4a02-b2a5-97aa1ae2a675-m0.avro range=bytes=0- len=0 status=206 -> fin-after-89592B-of-254014
+   current snapshot summary total-data-files=8 but manifests list 6
+   op1 returned OK but its files are not all live in current snapshot
+   counts: {MAJOR_lostCommittedFiles=1, MAJOR_summaryVsManifestsMismatch=1}
+== fin-merge-FAULT run=5 seed=5 client=default checksum=false expire=false major=true
+   ops: {0=OK, 1=OK, 2=OK}
+   fault#17 FIN_RESP k=89591 on #238 c17 GetObject key=r5-5/db/t/metadata/c93f5661-8c67-4738-8f1d-151abe19aba9-m0.avro range=bytes=0- len=0 status=206 -> fin-after-89591B-of-171802
+   fault#18 FIN_RESP k=89591 on #239 c18 GetObject key=r5-5/db/t/metadata/c93f5661-8c67-4738-8f1d-151abe19aba9-m0.avro range=bytes=0- len=0 status=206 -> fin-after-89591B-of-171802
+   fault#19 FIN_RESP k=89591 on #240 c19 GetObject key=r5-5/db/t/metadata/c93f5661-8c67-4738-8f1d-151abe19aba9-m0.avro range=bytes=0- len=0 status=206 -> fin-after-89591B-of-171802
+   fault#20 FIN_RESP k=89591 on #241 c20 GetObject key=r5-5/db/t/metadata/c93f5661-8c67-4738-8f1d-151abe19aba9-m0.avro range=bytes=0- len=0 status=206 -> fin-after-89591B-of-171802
+   current snapshot summary total-data-files=6 but manifests list 5
+   op1 returned OK but its files are not all live in current snapshot
+   counts: {MAJOR_lostCommittedFiles=1, MAJOR_summaryVsManifestsMismatch=1}

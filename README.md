@@ -5,7 +5,8 @@ This repository is an evidence-gathering exercise on [Apache Iceberg](https://gi
 (TLA+, Spin), a deterministic simulation harness that runs Iceberg's real commit code, stress tests, and
 engine-level reproductions in Spark and Flink.
 
-**Status:** nothing here has been reported upstream yet. Every "confirmed" finding was reproduced on
+**Status:** three findings have draft fix PRs open upstream (see [Upstream PRs](#upstream-prs)); nothing
+else has been reported. Every "confirmed" finding was reproduced on
 released 1.12.0 jars, calling Iceberg's own classes, with a control run where the bad outcome does not
 happen. Faults (lost acknowledgements, read failures, connection drops, process freezes) are *injected*.
 How often each fault happens in your production system is up to you to judge.
@@ -93,6 +94,42 @@ See `findings/r5-open-defect-cause.md`.
 - **One security-relevant candidate is withheld** from this public copy and marked "redacted" in the
   inventory, pending a private report per Apache's security process.
 
+## Round 6: streaming ingestion, object-store drops, REST catalog
+
+Three new tracks, each with the same rules (`r6/RULES.md`): calibrate on a fixed bug first, control runs,
+released jars only.
+
+| Track | Tools | Calibration (pre-fix release fails, fixed release passes) |
+|---|---|---|
+| **Kafka Connect sink** (`r6/kafka-connect/`) | TLA+ model of the coordinator protocol (`KcSink.tla`) + a harness driving the real released sink classes with an in-JVM fake Kafka and a deterministic schedule | #12372: 1.8.1 5/5 vs 1.9.0 0/5. #16282/#17340: 1.11.0 5/5 vs 1.12.0 0/5. The model agrees on both. |
+| **Object store** (`r6/objstore/`) | real `S3FileIO` against an in-JVM S3 server (Adobe S3Mock) behind a fault proxy that cuts uploads, drops acknowledgements and closes reads early | PUT retry #5282: 1.0.0 10/10 vs 1.1.0 0/10. Read retry #10433/#11335: 1.6.1 10/10 vs 1.7.0 0/10. Planted damage caught 3/3 per kind. |
+| **REST catalog** (`r6/rest/`) | DST with Iceberg's REST server in the commit loop and HTTP faults | **still running**, results not yet in |
+
+### Round 6 Major findings
+
+| # | What goes wrong, in plain words | Needs | Trigger vs control | Upstream |
+|---|---|---|---|---|
+| R6-1 | **Kafka Connect skips records after a cooperative rebalance.** When some partitions are revoked, the task throws away its buffer for all of them, then rewinds only the partitions that have a committed offset. A kept partition that has never committed silently skips what was buffered. | cooperative (ICR) rebalancing, a partition with no commit yet (new connector, new topic or partition) | 5/5 on 1.9.0–1.12.0 vs 0/5 (eager rebalancing; or after a first commit) | no match found |
+| R6-2 | **A replacement Kafka Connect coordinator skips data-file events** written before it started, because it reads the control topic from `latest`. On 1.12.0 a failed first table commit now triggers this. | coordinator replaced before its first control-topic commit | 5/5 on 1.9.0–1.12.0 vs 0/5 (`earliest`) | open PR #18006 |
+| R6-3 | **With the `urlconnection` HTTP client, one early-closed S3 read during a merge commit drops committed files from the table**, and the commit reports success. The client reports a short read as end-of-file and nothing checks the length. | `http-client.type=urlconnection` (not the default) and a connection closed mid-read | 5/5 (20/20 at random offsets) vs 0/5 with the default client (the commit fails cleanly) | root cause in open PR #15792 (framed as a read error); the data loss is unreported |
+
+Round 6 Minors: S3 range reads (`readFully`/`readTail`) are never retried; a failed multipart start leaves a
+truncated, unreferenced object; lost acknowledgements leak multipart uploads or replace the original error.
+Refuted: with the default S3 client, 130 fault runs never left a referenced file missing or truncated; Kafka
+Connect handles `CommitStateUnknownException`, coordinator crashes and repeated `CommitFailedException`
+correctly on 1.11.0 and 1.12.0. Camel has no Iceberg component today, so Camel→Iceberg goes through
+Kafka Connect or another writer.
+
+Details: `findings/r6-kafka-connect.md`, `findings/r6-objstore.md`.
+
+## Upstream PRs
+
+Draft fix PRs, each with a regression test that fails on main and passes with the fix:
+
+- [apache/iceberg#18762](https://github.com/apache/iceberg/pull/18762): Core: fail incremental cleanup when a retained manifest list cannot be read (Major #1)
+- [apache/iceberg#18763](https://github.com/apache/iceberg/pull/18763): Spark 4.2: keep imported manifests when the commit state is unknown (Major #4)
+- [apache/iceberg#18764](https://github.com/apache/iceberg/pull/18764): Core: don't share the Avro variant writer across threads (Major #3)
+
 ## Where to read more
 
 | File | Contents |
@@ -119,9 +156,18 @@ cd r5/spark && ./gw test --tests r5spark.D31AddFilesLostAckTest  # finding 4 (al
 cd r5/flink && ./gw test -Dr5.runs=20                            # finding 7 and E-4
 cd r5/catalogs && ./gw test -Dr5.runs=20 && ./gw hiveTest -Dr5.runs=10           # findings 8, 9
 tla/lease/run.sh all                                             # the lease models (needs TLC; see run.sh)
+cd r6/kafka-connect/harness && ./run.sh 1.12.0 icr-nocommit 5    # R6-1 (control: add eager=1 or precommit=1)
+cd r6/kafka-connect/harness && ./run.sh 1.12.0 coord-latest 5    # R6-2 (control: add reset=earliest)
+cd r6/kafka-connect/harness && ./run.sh 1.8.1 icr-close 5        # calibration #12372 (then 1.9.0)
+cd r6/kafka-connect/tla && ./run.sh all                          # the Kafka Connect model
+cd r6/objstore && ./gw -q harness -Dos.mode=fin-merge -Dos.client=urlconnection -Dos.runs=5   # R6-3 (control: -Dos.client=apache)
+cd r6/objstore && ./gw -q harness -Dos.mode=calib-read -PicebergVersion=1.6.1                # calibration (then 1.7.0)
 ```
 
-`r5/races/jrun.sh` and the TLA+ runners contain paths from the original machine; adjust them for yours.
+The Kafka Connect runs keep their capped logs in `r6/kafka-connect/harness/logs/` and `tla/logs/` (the
+scripts write to `out/`, which is not committed).
+
+`r5/races/jrun.sh`, `r6/kafka-connect/*/run.sh` and the TLA+ runners contain paths from the original machine; adjust them for yours.
 
 ## Lessons that shaped the method
 

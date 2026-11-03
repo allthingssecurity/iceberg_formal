@@ -1,0 +1,245 @@
+== explore run=1 seed=100 client=urlconnection checksum=false expire=true major=true
+   ops: {0=OK, 1=OK, 2=OK, 3=OK, 4=OK, 5=OK}
+   fault#1 FIN_RESP k=230145 on #27 c1 GetObject key=r1-100/db/t/metadata/snap-1707504875407226250-1-61b3acb5-2fc2-4b9f-99a2-d3113fa6ae8b.avro range=bytes=0- len=0 status=206 -> fin-after-4525B-of-4526
+   fault#2 STALL_RESP k=717016 on #75 c3 PutObject key=r1-100/db/t/data/op5-f2-a9d4f0d7-1588-4327-a999-eb92b05a6426.parquet len=317749 status=200 -> applied-status-200-stalled-4705ms
+   fault#3 STALL_RESP k=222977 on #76 c2 PutObject key=r1-100/db/t/data/op5-f2-a9d4f0d7-1588-4327-a999-eb92b05a6426.parquet len=317749 status=200 -> applied-status-200-stalled-4188ms
+   fault#4 STALL_RESP k=396335 on #79 c4 PutObject key=r1-100/db/t/metadata/snap-4690131810686309955-1-35f35f3b-4cff-41d0-b1a3-7a8e07f3cd72.avro len=4914 status=200 -> applied-status-200-stalled-4316ms
+   fault#5 STALL_RESP k=1 on #80 c5 PutObject key=r1-100/db/t/metadata/snap-4690131810686309955-1-35f35f3b-4cff-41d0-b1a3-7a8e07f3cd72.avro len=4914 status=200 -> applied-status-200-stalled-4518ms
+   fault#6 STALL_RESP k=368622 on #92 c8 HeadObject key=r1-100/db/t/metadata/snap-1707504875407226250-1-61b3acb5-2fc2-4b9f-99a2-d3113fa6ae8b.avro len=0 status=200 -> applied-status-200-stalled-4633ms
+   current snapshot summary total-data-files=9 but manifests list 7
+   op0 returned OK but its files are not all live in current snapshot
+   op1 returned OK but its files are not all live in current snapshot
+   orphan_committedDataNotReachable r1-100/db/t/data/op0-f0-205f8e69-33b4-4db3-84c8-4eb12f7b0557.parquet size=6868652
+   orphan_committedDataNotReachable r1-100/db/t/data/op1-f0-a7eeed44-6f7e-409b-a729-fa66cacd20e0.parquet size=6418195
+   counts: {MAJOR_lostCommittedFiles=2, MAJOR_summaryVsManifestsMismatch=1, expireOK=1, orphan_callerData=1, orphan_committedDataNotReachable=2, read_rangeOK=18, read_scanOK=1, read_seqOK=9, read_tailOK=9}
+== explore run=2 seed=101 client=urlconnection checksum=false expire=true major=false
+   ops: {0=OK, 1=OK, 2=OK, 3=OK, 4=OK, 5=OK, 6=OK}
+   fault#7 STALL_RESP k=105599 on #147 c7 HeadObject key=r2-101/db/t/data/op0-f0-5fe55285-ba2e-4a9b-9e99-58ab44542a82.parquet len=0 status=404 -> applied-status-404-stalled-4747ms
+   fault#8 DROP_RESP k=815655 on #149 c10 CreateMultipartUpload key=r2-101/db/t/data/op0-f0-5fe55285-ba2e-4a9b-9e99-58ab44542a82.parquet len=0 status=200 -> applied-status-200-ack-dropped
+   leaked upload r2-101/db/t/data/op0-f0-5fe55285-ba2e-4a9b-9e99-58ab44542a82.parquet fb97bf67-7f9f-4121-b987-72c12d063599
+   counts: {expireOK=1, leak_incompleteMultipartUploads=1, read_rangeOK=30, read_scanOK=1, read_seqOK=15, read_tailOK=15}
+== explore run=3 seed=102 client=urlconnection checksum=true expire=false major=false
+   ops: {0=OK, 1=OK, 2=OK, 3=OK, 4=OK}
+   fault#9 DROP_RESP k=134619 on #342 c11 UploadPart key=r3-102/db/t/data/op0-f0-5d6a7989-adba-4490-b11c-63e6e7fccfa3.parquet upload=977ac833 part=1 len=5246687 status=200 -> applied-status-200-ack-dropped
+   fault#10 DROP_RESP k=209085 on #344 c14 UploadPart key=r3-102/db/t/data/op0-f0-5d6a7989-adba-4490-b11c-63e6e7fccfa3.parquet upload=977ac833 part=1 len=5246687 status=200 -> applied-status-200-ack-dropped
+   fault#11 DROP_RESP k=784446 on #345 c12 UploadPart key=r3-102/db/t/data/op0-f0-5d6a7989-adba-4490-b11c-63e6e7fccfa3.parquet upload=977ac833 part=1 len=5246687 status=200 -> applied-status-200-ack-dropped
+   fault#12 DROP_RESP k=121658 on #346 c13 UploadPart key=r3-102/db/t/data/op0-f0-5d6a7989-adba-4490-b11c-63e6e7fccfa3.parquet upload=977ac833 part=1 len=5246687 status=200 -> applied-status-200-ack-dropped
+   fault#13 DROP_RESP k=683695 on #347 c15 UploadPart key=r3-102/db/t/data/op0-f0-5d6a7989-adba-4490-b11c-63e6e7fccfa3.parquet upload=977ac833 part=1 len=5246687 status=200 -> applied-status-200-ack-dropped
+   fault#14 DROP_RESP k=765011 on #377 c16 PutObject key=r3-102/db/t/metadata/00003-a7ec3d28-0ecb-4a3e-80ce-607e8e997247.metadata.json len=5061 status=200 -> applied-status-200-ack-dropped
+   fault#15 DROP_RESP k=768458 on #378 c17 PutObject key=r3-102/db/t/metadata/00003-a7ec3d28-0ecb-4a3e-80ce-607e8e997247.metadata.json len=5061 status=200 -> applied-status-200-ack-dropped
+   fault#16 DROP_RESP k=10 on #379 c18 PutObject key=r3-102/db/t/metadata/00003-a7ec3d28-0ecb-4a3e-80ce-607e8e997247.metadata.json len=5061 status=200 -> applied-status-200-ack-dropped
+   fault#17 DROP_RESP k=981305 on #380 c19 PutObject key=r3-102/db/t/metadata/00003-a7ec3d28-0ecb-4a3e-80ce-607e8e997247.metadata.json len=5061 status=200 -> applied-status-200-ack-dropped
+   fault#18 DROP_RESP k=515930 on #381 c20 PutObject key=r3-102/db/t/metadata/00003-a7ec3d28-0ecb-4a3e-80ce-607e8e997247.metadata.json len=5061 status=200 -> applied-status-200-ack-dropped
+   fault#19 DROP_RESP k=608808 on #394 c21 HeadObject key=r3-102/db/t/data/op3-f2-9e145c08-70ec-4c46-be4e-cea4aa890f75.parquet len=0 status=404 -> applied-status-404-ack-dropped
+   fault#20 DROP_RESP k=19 on #395 c23 HeadObject key=r3-102/db/t/data/op3-f2-9e145c08-70ec-4c46-be4e-cea4aa890f75.parquet len=0 status=404 -> applied-status-404-ack-dropped
+   counts: {read_rangeOK=22, read_scanOK=1, read_seqOK=11, read_tailOK=11}
+== explore run=4 seed=103 client=urlconnection checksum=false expire=false major=false
+   ops: {0=OK, 1=OK, 2=OK, 3=OK}
+   fault#21 DROP_RESP k=820095 on #486 c24 HeadObject key=r4-103/db/t/metadata/snap-7746117810757110913-1-6452ff8a-c1db-4a3d-919c-79f02e275e16.avro len=0 status=200 -> applied-status-200-ack-dropped
+   fault#22 STALL_RESP k=152539 on #491 c25 HeadObject key=r4-103/db/t/data/op1-del-79330a8b-43b6-4ea1-a041-b2b82a223a33.parquet len=0 status=404 -> applied-status-404-stalled-3669ms
+   fault#23 CUT_REQ k=17075 on #494 c22 PutObject key=r4-103/db/t/metadata/aed2b7b6-5188-48b2-bce0-44e598a412cd-m0.avro len=336452 status=-1 -> cut-after-17075B
+   counts: {read_rangeOK=16, read_scanOK=1, read_seqOK=8, read_tailOK=8}
+== explore run=5 seed=104 client=urlconnection checksum=true expire=false major=false
+   ops: {0=OK, 1=OK, 2=OK, 3=OK, 4=OK, 5=OK, 6=OK}
+   fault#24 STALL_RESP k=22278 on #587 c27 PutObject key=r5-104/db/t/metadata/snap-8173479326786560589-1-b7d2f2c6-ef08-4c85-a6b5-3fae11722ecf.avro len=4813 status=200 -> applied-status-200-stalled-4942ms
+   counts: {read_rangeOK=30, read_scanOK=1, read_seqOK=15, read_tailOK=15}
+== explore run=6 seed=105 client=urlconnection checksum=true expire=false major=false
+   ops: {0=OK, 1=OK, 2=OK, 3=OK, 4=OK, 5=OK}
+   fault#25 CUT_REQ k=110822 on #731 c28 UploadPart key=r6-105/db/t/data/op0-f0-70fdd9d4-dc7d-453c-8618-aa1e9328d811.parquet upload=6ad7267e part=2 len=1101428 status=-1 -> cut-after-110822B
+   fault#26 DROP_RESP k=972156 on #732 c29 UploadPart key=r6-105/db/t/data/op0-f0-70fdd9d4-dc7d-453c-8618-aa1e9328d811.parquet upload=6ad7267e part=2 len=1101428 status=200 -> applied-status-200-ack-dropped
+   fault#27 DROP_RESP k=721332 on #734 c30 CompleteMultipartUpload key=r6-105/db/t/data/op0-f0-70fdd9d4-dc7d-453c-8618-aa1e9328d811.parquet upload=6ad7267e len=329 status=200 -> applied-status-200-ack-dropped
+   counts: {read_rangeOK=24, read_scanOK=1, read_seqOK=12, read_tailOK=12}
+== explore run=7 seed=106 client=urlconnection checksum=false expire=true major=false
+   ops: {0=OK, 1=OK, 2=OK, 3=OK}
+   fault#28 STALL_RESP k=766950 on #887 c32 PutObject key=r7-106/db/t/data/op2-f0-7016d405-3fbb-4233-aafe-babb8edb3b62.parquet len=13039 status=200 -> applied-status-200-stalled-3969ms
+   fault#29 STALL_RESP k=3 on #888 c33 PutObject key=r7-106/db/t/data/op2-f0-7016d405-3fbb-4233-aafe-babb8edb3b62.parquet len=13039 status=200 -> applied-status-200-stalled-4828ms
+   fault#30 CUT_REQ k=4008 on #895 c34 PutObject key=r7-106/db/t/metadata/snap-9021507176699287628-1-a7bdae22-1598-4270-a6c1-b1236f94aad0.avro len=4756 status=-1 -> cut-after-4008B
+   fault#31 CUT_REQ k=2575 on #896 c35 PutObject key=r7-106/db/t/metadata/snap-9021507176699287628-1-a7bdae22-1598-4270-a6c1-b1236f94aad0.avro len=4756 status=-1 -> cut-after-2575B
+   counts: {expireOK=1, read_rangeOK=14, read_scanOK=1, read_seqOK=7, read_tailOK=7}
+== explore run=8 seed=107 client=urlconnection checksum=false expire=true major=false
+   ops: {0=OK, 1=OK, 2=OK, 3=OK, 4=OK, 5=OK, 6=OK}
+   fault#32 STALL_RESP k=289801 on #979 c37 UploadPart key=r8-107/db/t/data/op1-f0-74d84371-8fc0-4967-b3de-b04414e0c28e.parquet upload=c9264d8f part=1 len=5246687 status=200 -> applied-status-200-stalled-3938ms
+   fault#33 STALL_RESP k=61 on #981 c36 UploadPart key=r8-107/db/t/data/op1-f0-74d84371-8fc0-4967-b3de-b04414e0c28e.parquet upload=c9264d8f part=1 len=5246687 status=200 -> applied-status-200-stalled-4089ms
+   fault#34 STALL_RESP k=692121 on #982 c38 UploadPart key=r8-107/db/t/data/op1-f0-74d84371-8fc0-4967-b3de-b04414e0c28e.parquet upload=c9264d8f part=1 len=5246687 status=200 -> applied-status-200-stalled-4191ms
+   fault#35 CUT_REQ k=0 on #987 c39 HeadObject key=r8-107/db/t/data/op1-f2-6b4de357-c4c4-4bbb-ac33-c0fbdebd1777.parquet len=0 status=-1 -> cut-before-headers
+   counts: {expireOK=1, read_rangeOK=42, read_scanOK=1, read_seqOK=21, read_tailOK=21}
+== explore run=9 seed=108 client=urlconnection checksum=true expire=true major=false
+   ops: {0=OK, 1=OK, 2=OK, 3=OK, 4=OK, 5=OK}
+   fault#36 STALL_RESP k=55489 on #1209 c44 PutObject key=r9-108/db/t/data/op0-f0-bae27143-ac22-4225-941f-3371712743b6.parquet len=610941 status=200 -> applied-status-200-stalled-4859ms
+   counts: {expireOK=1, read_rangeOK=24, read_scanOK=1, read_seqOK=12, read_tailOK=12}
+== explore run=10 seed=109 client=urlconnection checksum=true expire=true major=false
+   ops: {0=OK, 1=OK, 2=OK, 3=OK, 4=OK}
+   fault#37 CUT_REQ k=0 on #1363 c43 GetObject key=r10-109/db/t/metadata/00000-b2a68c1d-0f66-4456-8ba8-8cd8fe9240f7.metadata.json range=bytes=0- len=0 status=-1 -> cut-before-headers
+   fault#38 RESET_RESP k=30 on #1401 c48 GetObject key=r10-109/db/t/metadata/f8ea28e8-1d9a-4294-9fd5-69688d0f7b32-m0.avro range=bytes=0- len=0 status=206 -> reset-after-30B-of-1319619
+   fault#39 DROP_RESP k=64757 on #1423 c46 PutObject key=r10-109/db/t/metadata/00004-4bc23f97-9283-420e-a667-53f7c59eacdb.metadata.json len=5992 status=200 -> applied-status-200-ack-dropped
+   counts: {expireOK=1, read_rangeOK=28, read_scanOK=1, read_seqOK=14, read_tailOK=14}
+== explore run=11 seed=110 client=urlconnection checksum=true expire=true major=false
+   ops: {0=OK, 1=OK, 2=OK, 3=OK, 4=OK, 5=OK}
+   fault#40 STALL_RESP k=145022 on #1530 c50 HeadObject key=r11-110/db/t/data/op0-f1-e16c24a6-bfdd-4390-ab99-2809790d99a4.parquet len=0 status=404 -> applied-status-404-stalled-4699ms
+   fault#41 CUT_REQ k=0 on #1532 c49 CreateMultipartUpload key=r11-110/db/t/data/op0-f1-e16c24a6-bfdd-4390-ab99-2809790d99a4.parquet len=0 status=-1 -> cut-before-headers
+   fault#42 CUT_REQ k=0 on #1533 c40 CreateMultipartUpload key=r11-110/db/t/data/op0-f1-e16c24a6-bfdd-4390-ab99-2809790d99a4.parquet len=0 status=-1 -> cut-before-headers
+   fault#43 DROP_RESP k=720203 on #1536 c52 UploadPart key=r11-110/db/t/data/op0-f1-e16c24a6-bfdd-4390-ab99-2809790d99a4.parquet upload=63059476 part=2 len=3956660 status=200 -> applied-status-200-ack-dropped
+   counts: {expireOK=1, read_rangeOK=28, read_scanOK=1, read_seqOK=14, read_tailOK=14}
+== explore run=12 seed=111 client=urlconnection checksum=false expire=true major=false
+   ops: {0=OK, 1=OK, 2=OK, 3=OK, 4=OK, 5=OK, 6=OK}
+   fault#44 STALL_RESP k=730694 on #1702 c56 PutObject key=r12-111/db/t/metadata/96e356af-5c3d-4944-96bd-6c2da2692994-m0.avro len=664806 status=200 -> applied-status-200-stalled-3983ms
+   fault#45 CUT_REQ k=0 on #1707 c54 HeadObject key=r12-111/db/t/metadata/snap-1016534115170681625-1-96e356af-5c3d-4944-96bd-6c2da2692994.avro len=0 status=-1 -> cut-before-headers
+   fault#46 DROP_RESP k=728522 on #1710 c57 HeadObject key=r12-111/db/t/data/op1-f0-c004358f-cac5-4b39-a5bc-ee6839f36081.parquet len=0 status=404 -> applied-status-404-ack-dropped
+   fault#47 DROP_RESP k=59100 on #1711 c58 HeadObject key=r12-111/db/t/data/op1-f0-c004358f-cac5-4b39-a5bc-ee6839f36081.parquet len=0 status=404 -> applied-status-404-ack-dropped
+   counts: {expireOK=1, read_rangeOK=30, read_scanOK=1, read_seqOK=15, read_tailOK=15}
+== explore run=13 seed=112 client=urlconnection checksum=false expire=true major=false
+   ops: {0=OK, 1=OK, 2=OK, 3=OK, 4=OK, 5=OK, 6=OK}
+   fault#48 DROP_RESP k=565633 on #1890 c60 UploadPart key=r13-112/db/t/data/op0-f0-732e8aed-76e9-42cf-885e-50d298fdd252.parquet upload=2766384b part=1 len=5246687 status=200 -> applied-status-200-ack-dropped
+   fault#49 DROP_RESP k=188671 on #1892 c61 UploadPart key=r13-112/db/t/data/op0-f0-732e8aed-76e9-42cf-885e-50d298fdd252.parquet upload=2766384b part=1 len=5246687 status=200 -> applied-status-200-ack-dropped
+   fault#50 DROP_RESP k=241850 on #1893 c59 UploadPart key=r13-112/db/t/data/op0-f0-732e8aed-76e9-42cf-885e-50d298fdd252.parquet upload=2766384b part=1 len=5246687 status=200 -> applied-status-200-ack-dropped
+   fault#51 STALL_RESP k=239051 on #1921 c63 GetObject key=r13-112/db/t/metadata/35ccce27-4de8-484d-ac00-077d968d9f09-m0.avro range=bytes=0- len=0 status=206 -> applied-status-206-stalled-4720ms
+   fault#52 STALL_RESP k=629746 on #1922 c62 GetObject key=r13-112/db/t/metadata/35ccce27-4de8-484d-ac00-077d968d9f09-m0.avro range=bytes=0- len=0 status=206 -> applied-status-206-stalled-4587ms
+   fault#53 STALL_RESP k=608713 on #1923 c64 GetObject key=r13-112/db/t/metadata/35ccce27-4de8-484d-ac00-077d968d9f09-m0.avro range=bytes=0- len=0 status=206 -> applied-status-206-stalled-3845ms
+   counts: {expireOK=1, read_rangeOK=32, read_scanOK=1, read_seqOK=16, read_tailOK=16}
+== explore run=14 seed=113 client=urlconnection checksum=false expire=false major=false
+   ops: {0=OK, 1=OK, 2=OK, 3=OK, 4=OK, 5=OK, 6=OK}
+   fault#54 DROP_RESP k=250657 on #2094 c68 GetObject key=r14-113/db/t/metadata/00000-d0fbae18-2e20-450f-8f68-a4e7d71c3462.metadata.json range=bytes=0- len=0 status=206 -> applied-status-206-ack-dropped
+   fault#55 DROP_RESP k=19 on #2095 c71 GetObject key=r14-113/db/t/metadata/00000-d0fbae18-2e20-450f-8f68-a4e7d71c3462.metadata.json range=bytes=0- len=0 status=206 -> applied-status-206-ack-dropped
+   fault#56 DROP_RESP k=155519 on #2096 c66 GetObject key=r14-113/db/t/metadata/00000-d0fbae18-2e20-450f-8f68-a4e7d71c3462.metadata.json range=bytes=0- len=0 status=206 -> applied-status-206-ack-dropped
+   fault#57 DROP_RESP k=509035 on #2097 c72 GetObject key=r14-113/db/t/metadata/00000-d0fbae18-2e20-450f-8f68-a4e7d71c3462.metadata.json range=bytes=0- len=0 status=206 -> applied-status-206-ack-dropped
+   fault#58 STALL_RESP k=733011 on #2103 c70 PutObject key=r14-113/db/t/metadata/4b0118ab-1926-4b9b-ae93-9620d38a6cc4-m0.avro len=664811 status=200 -> applied-status-200-stalled-4117ms
+   counts: {read_rangeOK=30, read_scanOK=1, read_seqOK=15, read_tailOK=15}
+== explore run=15 seed=114 client=urlconnection checksum=true expire=false major=false
+   ops: {0=OK, 1=OK, 2=OK, 3=OK, 4=OK, 5=OK}
+   fault#59 STALL_RESP k=58 on #2294 c73 CreateMultipartUpload key=r15-114/db/t/data/op2-f1-22c8c35a-ed6a-4129-a39d-97cac7a4b990.parquet len=0 status=200 -> applied-status-200-stalled-3737ms
+   fault#60 STALL_RESP k=368667 on #2295 c74 CreateMultipartUpload key=r15-114/db/t/data/op2-f1-22c8c35a-ed6a-4129-a39d-97cac7a4b990.parquet len=0 status=200 -> applied-status-200-stalled-3772ms
+   fault#61 STALL_RESP k=836955 on #2320 c75 CompleteMultipartUpload key=r15-114/db/t/data/op3-f0-8b07e6aa-3798-4754-bdb1-467fbce38625.parquet upload=d49c6ef8 len=329 status=200 -> applied-status-200-stalled-4075ms
+   fault#62 STALL_RESP k=1687 on #2321 c76 CompleteMultipartUpload key=r15-114/db/t/data/op3-f0-8b07e6aa-3798-4754-bdb1-467fbce38625.parquet upload=d49c6ef8 len=329 status=200 -> applied-status-200-stalled-3963ms
+   leaked upload r15-114/db/t/data/op2-f1-22c8c35a-ed6a-4129-a39d-97cac7a4b990.parquet a5a2487c-abc0-4587-ae8e-f066c2dd140d
+   leaked upload r15-114/db/t/data/op2-f1-22c8c35a-ed6a-4129-a39d-97cac7a4b990.parquet 34b71da9-ca02-4e91-b557-1c16c420e327
+   counts: {leak_incompleteMultipartUploads=2, read_rangeOK=32, read_scanOK=1, read_seqOK=16, read_tailOK=16}
+== explore run=16 seed=115 client=urlconnection checksum=true expire=false major=false
+   ops: {0=OK, 1=OK, 2=OK, 3=OK}
+   fault#63 STALL_RESP k=40805 on #2469 c79 UploadPart key=r16-115/db/t/data/op2-f0-ee57fd02-5b71-46cb-804d-01e35c6961a3.parquet upload=050452e3 part=2 len=3748026 status=200 -> applied-status-200-stalled-3816ms
+   fault#64 STALL_RESP k=190880 on #2470 c78 UploadPart key=r16-115/db/t/data/op2-f0-ee57fd02-5b71-46cb-804d-01e35c6961a3.parquet upload=050452e3 part=2 len=3748026 status=200 -> applied-status-200-stalled-4350ms
+   fault#65 CUT_REQ k=0 on #2484 c80 HeadObject key=r16-115/db/t/metadata/snap-4658869297534104760-1-570ac36a-5ed4-4341-8f6e-2a0621aa1b37.avro len=0 status=-1 -> cut-before-headers
+   fault#66 CUT_REQ k=0 on #2485 c81 HeadObject key=r16-115/db/t/metadata/snap-4658869297534104760-1-570ac36a-5ed4-4341-8f6e-2a0621aa1b37.avro len=0 status=-1 -> cut-before-headers
+   fault#67 CUT_REQ k=0 on #2486 c82 HeadObject key=r16-115/db/t/metadata/snap-4658869297534104760-1-570ac36a-5ed4-4341-8f6e-2a0621aa1b37.avro len=0 status=-1 -> cut-before-headers
+   fault#68 RESET_RESP k=629841 on #2505 c84 GetObject key=r16-115/db/t/data/op3-f0-01d599ad-9607-4ea7-8304-d3c6cddc0179.parquet range=bytes=0- len=0 status=206 -> reset-after-602694B-of-602695
+   fault#69 RESET_RESP k=59 on #2506 c83 GetObject key=r16-115/db/t/data/op3-f0-01d599ad-9607-4ea7-8304-d3c6cddc0179.parquet range=bytes=602694- len=0 status=206 -> reset-after-0B-of-1
+   fault#70 RESET_RESP k=254792 on #2507 c85 GetObject key=r16-115/db/t/data/op3-f0-01d599ad-9607-4ea7-8304-d3c6cddc0179.parquet range=bytes=602694- len=0 status=206 -> reset-after-0B-of-1
+   counts: {read_rangeOK=16, read_scanOK=1, read_seqOK=8, read_tailOK=8}
+== explore run=17 seed=116 client=urlconnection checksum=false expire=false major=false
+   ops: {0=THREW:SdkClientException/SocketException, 1=OK, 2=OK, 3=OK, 4=OK, 5=OK}
+   fault#71 CUT_REQ k=245161 on #2544 c86 PutObject key=r17-116/db/t/metadata/46258038-b127-4d2f-9d45-e0bd999604b1-m0.avro len=336452 status=-1 -> cut-after-245161B
+   fault#72 CUT_REQ k=49520 on #2545 c87 PutObject key=r17-116/db/t/metadata/46258038-b127-4d2f-9d45-e0bd999604b1-m0.avro len=336452 status=-1 -> cut-after-49520B
+   fault#73 CUT_REQ k=166130 on #2546 c88 PutObject key=r17-116/db/t/metadata/46258038-b127-4d2f-9d45-e0bd999604b1-m0.avro len=336452 status=-1 -> cut-after-166130B
+   fault#74 DROP_RESP k=89554 on #2547 c89 PutObject key=r17-116/db/t/metadata/46258038-b127-4d2f-9d45-e0bd999604b1-m0.avro len=336452 status=200 -> applied-status-200-ack-dropped
+   fault#75 DROP_RESP k=48 on #2548 c90 PutObject key=r17-116/db/t/metadata/46258038-b127-4d2f-9d45-e0bd999604b1-m0.avro len=336452 status=200 -> applied-status-200-ack-dropped
+   fault#76 DROP_RESP k=304937 on #2549 c91 PutObject key=r17-116/db/t/metadata/46258038-b127-4d2f-9d45-e0bd999604b1-m0.avro len=336452 status=200 -> applied-status-200-ack-dropped
+   op0 commit threw SdkClientException: Unable to execute HTTP request: Connection reset (SDK Attempt Count: 6) <- SocketException: Connection reset
+   orphan_manifest r17-116/db/t/metadata/46258038-b127-4d2f-9d45-e0bd999604b1-m0.avro size=335975
+   counts: {commitThrew:SdkClientException/SocketException=1, orphan_callerData=1, orphan_manifest=1, read_rangeOK=26, read_scanOK=1, read_seqOK=13, read_tailOK=13}
+== explore run=18 seed=117 client=urlconnection checksum=false expire=false major=false
+   ops: {0=OK, 1=OK, 2=OK, 3=OK, 4=OK, 5=OK}
+   fault#77 CUT_REQ k=54509 on #2689 c93 PutObject key=r18-117/db/t/metadata/eaffd1a1-127e-46fe-ab10-c46e1b705379-m0.avro len=664806 status=-1 -> cut-after-54509B
+   fault#78 CUT_REQ k=543953 on #2690 c94 PutObject key=r18-117/db/t/metadata/eaffd1a1-127e-46fe-ab10-c46e1b705379-m0.avro len=664806 status=-1 -> cut-after-543953B
+   fault#79 DROP_RESP k=25 on #2701 c96 CompleteMultipartUpload key=r18-117/db/t/data/op1-f0-241d754c-6fc5-432a-9419-cd3aece77fae.parquet upload=b56305fa len=329 status=200 -> applied-status-200-ack-dropped
+   counts: {read_rangeOK=20, read_scanOK=1, read_seqOK=10, read_tailOK=10}
+== explore run=19 seed=118 client=urlconnection checksum=true expire=true major=false
+   ops: {0=OK, 1=OK, 2=OK, 3=OK, 4=OK, 5=OK}
+   fault#80 STALL_RESP k=988354 on #2799 c97 PutObject key=r19-118/db/t/metadata/00000-ccbe7bab-5f61-4e03-8515-91f7f75da8b2.metadata.json len=2182 status=200 -> applied-status-200-stalled-3585ms
+   fault#81 STALL_RESP k=187356 on #2805 c98 PutObject key=r19-118/db/t/metadata/snap-1151549564591861332-1-3ac30e1e-e6dc-4037-b2ba-2d601bf03a79.avro len=4736 status=200 -> applied-status-200-stalled-4651ms
+   counts: {expireOK=1, read_rangeOK=20, read_scanOK=1, read_seqOK=10, read_tailOK=10}
+== explore run=20 seed=119 client=urlconnection checksum=true expire=false major=false
+   ops: {0=OK, 1=OK, 2=OK, 3=OK}
+   fault#82 DROP_RESP k=7 on #2967 c100 PutObject key=r20-119/db/t/metadata/c1aa3d5f-f65f-40ee-885a-a247da8b2e1b-m0.avro len=1320816 status=200 -> applied-status-200-ack-dropped
+   fault#83 DROP_RESP k=403361 on #2968 c101 PutObject key=r20-119/db/t/metadata/c1aa3d5f-f65f-40ee-885a-a247da8b2e1b-m0.avro len=1320816 status=200 -> applied-status-200-ack-dropped
+   counts: {read_rangeOK=16, read_scanOK=1, read_seqOK=8, read_tailOK=8}
+== explore run=21 seed=120 client=urlconnection checksum=true expire=true major=false
+   ops: {0=OK, 1=OK, 2=OK, 3=OK}
+   fault#84 STALL_RESP k=25 on #3042 c102 PutObject key=r21-120/db/t/data/op0-f0-c4231d74-12a6-4157-a0d8-46139fd44ffa.parquet len=720360 status=200 -> applied-status-200-stalled-4660ms
+   fault#85 STALL_RESP k=85240 on #3043 c103 PutObject key=r21-120/db/t/data/op0-f0-c4231d74-12a6-4157-a0d8-46139fd44ffa.parquet len=720360 status=200 -> applied-status-200-stalled-4526ms
+   fault#86 CUT_REQ k=0 on #3053 c99 HeadObject key=r21-120/db/t/data/op1-f0-6fe91a3f-9c6c-4377-a781-0cce02a4c281.parquet len=0 status=-1 -> cut-before-headers
+   fault#87 CUT_REQ k=0 on #3054 c104 HeadObject key=r21-120/db/t/data/op1-f0-6fe91a3f-9c6c-4377-a781-0cce02a4c281.parquet len=0 status=-1 -> cut-before-headers
+   fault#88 CUT_REQ k=0 on #3055 c105 HeadObject key=r21-120/db/t/data/op1-f0-6fe91a3f-9c6c-4377-a781-0cce02a4c281.parquet len=0 status=-1 -> cut-before-headers
+   fault#89 CUT_REQ k=0 on #3056 c106 HeadObject key=r21-120/db/t/data/op1-f0-6fe91a3f-9c6c-4377-a781-0cce02a4c281.parquet len=0 status=-1 -> cut-before-headers
+   fault#90 STALL_RESP k=923363 on #3059 c107 HeadObject key=r21-120/db/t/data/op1-f1-a4d66cd9-9243-4fd7-a6f9-1f72fad3a0ec.parquet len=0 status=404 -> applied-status-404-stalled-4916ms
+   fault#91 STALL_RESP k=236273 on #3060 c108 HeadObject key=r21-120/db/t/data/op1-f1-a4d66cd9-9243-4fd7-a6f9-1f72fad3a0ec.parquet len=0 status=404 -> applied-status-404-stalled-3629ms
+   counts: {expireOK=1, read_rangeOK=24, read_scanOK=1, read_seqOK=12, read_tailOK=12}
+== explore run=22 seed=121 client=urlconnection checksum=false expire=true major=false
+   ops: {0=OK, 1=OK, 2=OK, 3=OK, 4=OK, 5=OK}
+   fault#92 CUT_REQ k=2124 on #3187 c109 PutObject key=r22-121/db/t/metadata/00001-62a0dfb3-1a5b-4745-a136-77708c8f3c14.metadata.json len=3130 status=-1 -> cut-after-2124B
+   fault#93 CUT_REQ k=1746 on #3188 c111 PutObject key=r22-121/db/t/metadata/00001-62a0dfb3-1a5b-4745-a136-77708c8f3c14.metadata.json len=3130 status=-1 -> cut-after-1746B
+   fault#94 CUT_REQ k=973 on #3189 c110 PutObject key=r22-121/db/t/metadata/00001-62a0dfb3-1a5b-4745-a136-77708c8f3c14.metadata.json len=3130 status=-1 -> cut-after-973B
+   fault#95 CUT_REQ k=1010 on #3190 c112 PutObject key=r22-121/db/t/metadata/00001-62a0dfb3-1a5b-4745-a136-77708c8f3c14.metadata.json len=3130 status=-1 -> cut-after-1010B
+   fault#96 RESET_RESP k=80015 on #3192 c113 GetObject key=r22-121/db/t/metadata/00001-62a0dfb3-1a5b-4745-a136-77708c8f3c14.metadata.json range=bytes=0- len=0 status=206 -> reset-after-2834B-of-2835
+   fault#97 RESET_RESP k=57 on #3193 c114 GetObject key=r22-121/db/t/metadata/00001-62a0dfb3-1a5b-4745-a136-77708c8f3c14.metadata.json range=bytes=2834- len=0 status=206 -> reset-after-0B-of-1
+   fault#98 CUT_REQ k=0 on #3195 c115 HeadObject key=r22-121/db/t/metadata/snap-539500598734567409-1-b049b66f-0046-4d82-9673-50db69e09a38.avro len=0 status=-1 -> cut-before-headers
+   fault#99 CUT_REQ k=0 on #3196 c116 HeadObject key=r22-121/db/t/metadata/snap-539500598734567409-1-b049b66f-0046-4d82-9673-50db69e09a38.avro len=0 status=-1 -> cut-before-headers
+   fault#100 CUT_REQ k=0 on #3197 c117 HeadObject key=r22-121/db/t/metadata/snap-539500598734567409-1-b049b66f-0046-4d82-9673-50db69e09a38.avro len=0 status=-1 -> cut-before-headers
+   counts: {expireOK=1, read_rangeOK=22, read_scanOK=1, read_seqOK=11, read_tailOK=11}
+== explore run=23 seed=122 client=urlconnection checksum=false expire=false major=false
+   ops: {0=OK, 1=OK, 2=OK, 3=OK, 4=OK, 5=OK}
+   fault#101 CUT_REQ k=0 on #3339 c118 CreateMultipartUpload key=r23-122/db/t/data/op0-f0-27fd9a36-c4b9-4d55-907a-313b8a3f6112.parquet len=0 status=-1 -> cut-before-headers
+   fault#102 CUT_REQ k=0 on #3340 c122 CreateMultipartUpload key=r23-122/db/t/data/op0-f0-27fd9a36-c4b9-4d55-907a-313b8a3f6112.parquet len=0 status=-1 -> cut-before-headers
+   fault#103 CUT_REQ k=0 on #3341 c120 CreateMultipartUpload key=r23-122/db/t/data/op0-f0-27fd9a36-c4b9-4d55-907a-313b8a3f6112.parquet len=0 status=-1 -> cut-before-headers
+   fault#104 CUT_REQ k=294 on #3350 c121 PutObject key=r23-122/db/t/metadata/00001-5d669bba-4c08-40c2-a7ed-cba0c4beaf62.metadata.json len=3135 status=-1 -> cut-after-294B
+   counts: {read_rangeOK=26, read_scanOK=1, read_seqOK=13, read_tailOK=13}
+== explore run=24 seed=123 client=urlconnection checksum=false expire=true major=false
+   ops: {0=OK, 1=OK, 2=OK, 3=OK}
+   fault#105 CUT_REQ k=1432 on #3490 c124 PutObject key=r24-123/db/t/data/op0-f1-92df4d0e-d4e0-4275-8c7a-61c2bc7a86ed.parquet len=1434 status=200 -> cut-after-1432B
+   fault#106 DROP_RESP k=1035046 on #3493 c125 PutObject key=r24-123/db/t/metadata/f914d606-f6eb-4a6f-99a6-360839fc5f4a-m0.avro len=993077 status=200 -> applied-status-200-ack-dropped
+   fault#107 DROP_RESP k=15 on #3494 c123 PutObject key=r24-123/db/t/metadata/f914d606-f6eb-4a6f-99a6-360839fc5f4a-m0.avro len=993077 status=200 -> applied-status-200-ack-dropped
+   fault#108 DROP_RESP k=197312 on #3495 c126 PutObject key=r24-123/db/t/metadata/f914d606-f6eb-4a6f-99a6-360839fc5f4a-m0.avro len=993077 status=200 -> applied-status-200-ack-dropped
+   fault#109 DROP_RESP k=597649 on #3515 c127 HeadObject key=r24-123/db/t/data/op2-f1-b6c8c742-f897-4ed9-af9f-07a6e235fabe.parquet len=0 status=404 -> applied-status-404-ack-dropped
+   fault#110 DROP_RESP k=41 on #3517 c129 PutObject key=r24-123/db/t/data/op2-f1-b6c8c742-f897-4ed9-af9f-07a6e235fabe.parquet len=998 status=200 -> applied-status-200-ack-dropped
+   fault#111 DROP_RESP k=915583 on #3518 c128 PutObject key=r24-123/db/t/data/op2-f1-b6c8c742-f897-4ed9-af9f-07a6e235fabe.parquet len=998 status=200 -> applied-status-200-ack-dropped
+   fault#112 DROP_RESP k=12 on #3519 c130 PutObject key=r24-123/db/t/data/op2-f1-b6c8c742-f897-4ed9-af9f-07a6e235fabe.parquet len=998 status=200 -> applied-status-200-ack-dropped
+   counts: {expireOK=1, read_rangeOK=20, read_scanOK=1, read_seqOK=10, read_tailOK=10}
+== explore run=25 seed=124 client=urlconnection checksum=false expire=true major=false
+   ops: {0=OK, 1=OK, 2=OK, 3=OK, 4=OK, 5=OK}
+   fault#113 CUT_REQ k=5722 on #3623 c131 PutObject key=r25-124/db/t/data/op1-f0-47ed0d3d-08f9-458d-9ace-7c2c85425de7.parquet len=7460 status=-1 -> cut-after-5722B
+   fault#114 CUT_REQ k=7250 on #3624 c132 PutObject key=r25-124/db/t/data/op1-f0-47ed0d3d-08f9-458d-9ace-7c2c85425de7.parquet len=7460 status=-1 -> cut-after-7250B
+   fault#115 DROP_RESP k=6 on #3625 c133 PutObject key=r25-124/db/t/data/op1-f0-47ed0d3d-08f9-458d-9ace-7c2c85425de7.parquet len=7460 status=200 -> applied-status-200-ack-dropped
+   fault#116 STALL_RESP k=30724 on #3636 c134 HeadObject key=r25-124/db/t/metadata/snap-3922095010470102614-1-7efbcc4f-5a12-42fa-b309-ff73d20152b4.avro len=0 status=200 -> applied-status-200-stalled-4818ms
+   fault#117 STALL_RESP k=19 on #3637 c135 HeadObject key=r25-124/db/t/metadata/snap-3922095010470102614-1-7efbcc4f-5a12-42fa-b309-ff73d20152b4.avro len=0 status=200 -> applied-status-200-stalled-3715ms
+   fault#118 STALL_RESP k=374587 on #3640 c136 HeadObject key=r25-124/db/t/data/op2-f0-b797cda8-51c2-477a-a522-656346adc2f8.parquet len=0 status=404 -> applied-status-404-stalled-4110ms
+   fault#119 STALL_RESP k=27 on #3641 c137 HeadObject key=r25-124/db/t/data/op2-f0-b797cda8-51c2-477a-a522-656346adc2f8.parquet len=0 status=404 -> applied-status-404-stalled-3842ms
+   counts: {expireOK=1, read_rangeOK=34, read_scanOK=1, read_seqOK=17, read_tailOK=17}
+== explore run=26 seed=125 client=urlconnection checksum=true expire=false major=false
+   ops: {0=OK, 1=OK, 2=OK, 3=OK, 4=OK}
+   fault#120 STALL_RESP k=631391 on #3828 c142 PutObject key=r26-125/db/t/data/op2-f0-35315ca9-a56e-479c-beba-a77b4391fdc7.parquet len=13831 status=200 -> applied-status-200-stalled-4879ms
+   fault#121 STALL_RESP k=401866 on #3829 c141 PutObject key=r26-125/db/t/data/op2-f0-35315ca9-a56e-479c-beba-a77b4391fdc7.parquet len=13831 status=200 -> applied-status-200-stalled-4116ms
+   counts: {read_rangeOK=24, read_scanOK=1, read_seqOK=12, read_tailOK=12}
+== explore run=27 seed=126 client=urlconnection checksum=false expire=true major=false
+   ops: {0=OK, 1=OK, 2=OK, 3=OK}
+   fault#122 STALL_RESP k=76279 on #3925 c140 HeadObject key=r27-126/db/t/data/op0-f1-4f9f2e73-6c51-4d4f-bfdd-a3676d7c089c.parquet len=0 status=404 -> applied-status-404-stalled-3647ms
+   fault#123 CUT_REQ k=3003590 on #3928 c139 UploadPart key=r27-126/db/t/data/op0-f1-4f9f2e73-6c51-4d4f-bfdd-a3676d7c089c.parquet upload=be8edd3b part=1 len=5246687 status=-1 -> cut-after-3003590B
+   fault#124 DROP_RESP k=890307 on #3930 c143 UploadPart key=r27-126/db/t/data/op0-f1-4f9f2e73-6c51-4d4f-bfdd-a3676d7c089c.parquet upload=be8edd3b part=1 len=5246687 status=200 -> applied-status-200-ack-dropped
+   fault#125 DROP_RESP k=645555 on #3931 c144 UploadPart key=r27-126/db/t/data/op0-f1-4f9f2e73-6c51-4d4f-bfdd-a3676d7c089c.parquet upload=be8edd3b part=1 len=5246687 status=200 -> applied-status-200-ack-dropped
+   fault#126 CUT_REQ k=0 on #3945 c145 GetObject key=r27-126/db/t/metadata/00002-46d545ab-3d01-454b-b6b9-206a3c4f83a5.metadata.json range=bytes=0- len=0 status=-1 -> cut-before-headers
+   fault#127 CUT_REQ k=0 on #3946 c146 GetObject key=r27-126/db/t/metadata/00002-46d545ab-3d01-454b-b6b9-206a3c4f83a5.metadata.json range=bytes=0- len=0 status=-1 -> cut-before-headers
+   counts: {expireOK=1, read_rangeOK=18, read_scanOK=1, read_seqOK=9, read_tailOK=9}
+== explore run=28 seed=127 client=urlconnection checksum=false expire=true major=false
+   ops: {0=OK, 1=OK, 2=OK, 3=OK, 4=OK, 5=OK}
+   fault#128 STALL_RESP k=238445 on #4054 c147 PutObject key=r28-127/db/t/data/op1-f2-ef8b05eb-2db2-4468-b17b-6d9c16f96b32.parquet len=15569 status=200 -> applied-status-200-stalled-3652ms
+   fault#129 STALL_RESP k=61 on #4055 c148 PutObject key=r28-127/db/t/data/op1-f2-ef8b05eb-2db2-4468-b17b-6d9c16f96b32.parquet len=15569 status=200 -> applied-status-200-stalled-3923ms
+   fault#130 STALL_RESP k=534996 on #4061 c149 HeadObject key=r28-127/db/t/metadata/snap-871823390254670429-1-585e8198-aae3-4d1e-822c-8483aa2977b8.avro len=0 status=200 -> applied-status-200-stalled-4585ms
+   fault#131 STALL_RESP k=951213 on #4062 c150 HeadObject key=r28-127/db/t/metadata/snap-871823390254670429-1-585e8198-aae3-4d1e-822c-8483aa2977b8.avro len=0 status=200 -> applied-status-200-stalled-4104ms
+   fault#132 STALL_RESP k=1038675 on #4063 c151 HeadObject key=r28-127/db/t/metadata/snap-871823390254670429-1-585e8198-aae3-4d1e-822c-8483aa2977b8.avro len=0 status=200 -> applied-status-200-stalled-3584ms
+   fault#133 DROP_RESP k=866647 on #4064 c152 HeadObject key=r28-127/db/t/metadata/snap-871823390254670429-1-585e8198-aae3-4d1e-822c-8483aa2977b8.avro len=0 status=200 -> applied-status-200-ack-dropped
+   fault#134 DROP_RESP k=575582 on #4065 c153 HeadObject key=r28-127/db/t/metadata/snap-871823390254670429-1-585e8198-aae3-4d1e-822c-8483aa2977b8.avro len=0 status=200 -> applied-status-200-ack-dropped
+   fault#135 DROP_RESP k=30 on #4066 c154 HeadObject key=r28-127/db/t/metadata/snap-871823390254670429-1-585e8198-aae3-4d1e-822c-8483aa2977b8.avro len=0 status=200 -> applied-status-200-ack-dropped
+   fault#136 DROP_RESP k=523007 on #4102 c155 CompleteMultipartUpload key=r28-127/db/t/data/op3-f1-e0cb50a7-4bae-4820-9ee2-af097b1d2eac.parquet upload=a9cb7d7a len=329 status=200 -> applied-status-200-ack-dropped
+   fault#137 DROP_RESP k=746925 on #4103 c156 CompleteMultipartUpload key=r28-127/db/t/data/op3-f1-e0cb50a7-4bae-4820-9ee2-af097b1d2eac.parquet upload=a9cb7d7a len=329 status=200 -> applied-status-200-ack-dropped
+   fault#138 DROP_RESP k=666507 on #4104 c157 CompleteMultipartUpload key=r28-127/db/t/data/op3-f1-e0cb50a7-4bae-4820-9ee2-af097b1d2eac.parquet upload=a9cb7d7a len=329 status=200 -> applied-status-200-ack-dropped
+   counts: {expireOK=1, read_rangeOK=30, read_scanOK=1, read_seqOK=15, read_tailOK=15}
+== explore run=29 seed=128 client=urlconnection checksum=false expire=true major=false
+   ops: {0=OK, 1=OK, 2=OK, 3=OK}
+   fault#139 CUT_REQ k=105915 on #4231 c161 PutObject key=r29-128/db/t/data/op0-f0-dc1339d9-c4d4-4bfb-8737-bc37628ef892.parquet len=468276 status=-1 -> cut-after-105915B
+   fault#140 CUT_REQ k=125184 on #4232 c162 PutObject key=r29-128/db/t/data/op0-f0-dc1339d9-c4d4-4bfb-8737-bc37628ef892.parquet len=468276 status=-1 -> cut-after-125184B
+   fault#141 CUT_REQ k=297719 on #4233 c160 PutObject key=r29-128/db/t/data/op0-f0-dc1339d9-c4d4-4bfb-8737-bc37628ef892.parquet len=468276 status=-1 -> cut-after-297719B
+   fault#142 CUT_REQ k=44166 on #4234 c158 PutObject key=r29-128/db/t/data/op0-f0-dc1339d9-c4d4-4bfb-8737-bc37628ef892.parquet len=468276 status=-1 -> cut-after-44166B
+   counts: {expireOK=1, read_rangeOK=18, read_scanOK=1, read_seqOK=9, read_tailOK=9}
+== explore run=30 seed=129 client=urlconnection checksum=true expire=true major=false
+   ops: {0=OK, 1=OK, 2=OK, 3=OK, 4=OK, 5=OK}
+   fault#143 CUT_REQ k=32603 on #4338 c164 PutObject key=r30-129/db/t/data/op0-f0-f692331c-d0ad-4434-b7bd-562948b2e626.parquet len=337157 status=-1 -> cut-after-32603B
+   fault#144 STALL_RESP k=55 on #4365 c163 PutObject key=r30-129/db/t/metadata/snap-9018944261874466515-1-c2ca4623-c306-461f-a9e7-2931dd28bb11.avro len=4755 status=200 -> applied-status-200-stalled-3917ms
+   fault#145 STALL_RESP k=192451 on #4366 c159 PutObject key=r30-129/db/t/metadata/snap-9018944261874466515-1-c2ca4623-c306-461f-a9e7-2931dd28bb11.avro len=4755 status=200 -> applied-status-200-stalled-4288ms
+   counts: {expireOK=1, read_rangeOK=22, read_scanOK=1, read_seqOK=11, read_tailOK=11}

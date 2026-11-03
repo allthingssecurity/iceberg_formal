@@ -1,0 +1,194 @@
+TLC2 Version 2026.03.20.190810 (rev: 11bffb1)
+Running breadth-first search Model-Checking with fp 104 and seed -1315972633614375543 with 4 workers on 12 cores with 2731MB heap and 64MB offheap memory [pid: 68756] (Mac OS X 27.2 aarch64, Homebrew 21.0.11 64bit, MSBDiskFPSet, DiskStateQueue).
+Parsing file /Users/I074560/Downloads/experiments/iceberg-verify/r6/kafka-connect/tla/KcSink.tla
+Parsing file /private/var/folders/3q/7yl2z5xd0gjft7y48_t4cw2h0000gn/T/tlc-16186640758261843154/Integers.tla (jar:file:/Users/I074560/Downloads/experiments/redis-lean/tla/tools/tla2tools.jar!/tla2sany/StandardModules/Integers.tla)
+Parsing file /private/var/folders/3q/7yl2z5xd0gjft7y48_t4cw2h0000gn/T/tlc-16186640758261843154/Sequences.tla (jar:file:/Users/I074560/Downloads/experiments/redis-lean/tla/tools/tla2tools.jar!/tla2sany/StandardModules/Sequences.tla)
+Parsing file /private/var/folders/3q/7yl2z5xd0gjft7y48_t4cw2h0000gn/T/tlc-16186640758261843154/FiniteSets.tla (jar:file:/Users/I074560/Downloads/experiments/redis-lean/tla/tools/tla2tools.jar!/tla2sany/StandardModules/FiniteSets.tla)
+Parsing file /private/var/folders/3q/7yl2z5xd0gjft7y48_t4cw2h0000gn/T/tlc-16186640758261843154/TLC.tla (jar:file:/Users/I074560/Downloads/experiments/redis-lean/tla/tools/tla2tools.jar!/tla2sany/StandardModules/TLC.tla)
+Parsing file /private/var/folders/3q/7yl2z5xd0gjft7y48_t4cw2h0000gn/T/tlc-16186640758261843154/_TLCTrace.tla (jar:file:/Users/I074560/Downloads/experiments/redis-lean/tla/tools/tla2tools.jar!/tla2sany/StandardModules/_TLCTrace.tla)
+Parsing file /private/var/folders/3q/7yl2z5xd0gjft7y48_t4cw2h0000gn/T/tlc-16186640758261843154/Naturals.tla (jar:file:/Users/I074560/Downloads/experiments/redis-lean/tla/tools/tla2tools.jar!/tla2sany/StandardModules/Naturals.tla)
+Parsing file /private/var/folders/3q/7yl2z5xd0gjft7y48_t4cw2h0000gn/T/tlc-16186640758261843154/TLCExt.tla (jar:file:/Users/I074560/Downloads/experiments/redis-lean/tla/tools/tla2tools.jar!/tla2sany/StandardModules/TLCExt.tla)
+Semantic processing of module Naturals
+Semantic processing of module Integers
+Semantic processing of module Sequences
+Semantic processing of module FiniteSets
+Semantic processing of module TLC
+Semantic processing of module TLCExt
+Semantic processing of module _TLCTrace
+Semantic processing of module KcSink
+Linting of module TLCExt
+Linting of module _TLCTrace
+Linting of module KcSink
+Starting... (2026-11-03 14:14:19)
+Computing initial states...
+Finished computing initial states: 1 distinct state generated at 2026-11-03 14:14:20.
+Error: Invariant NoLoss is violated.
+Error: The behavior up to this point is:
+State 1: <Initial predicate>
+/\ cgo = 0
+/\ ctl = <<>>
+/\ cto = 0
+/\ ccnt = 0
+/\ cbuf = {}
+/\ moves = 0
+/\ fails = 0
+/\ woff = <<(0 :> -1 @@ 1 :> -1), (0 :> -1 @@ 1 :> -1)>>
+/\ srcC = (0 :> -1 @@ 1 :> -1)
+/\ pos = <<(0 :> 0 @@ 1 :> 0), (0 :> 0 @@ 1 :> 0)>>
+/\ cphase = "idle"
+/\ wseen = <<0, 0>>
+/\ table = (<<0, 0>> :> 0 @@ <<0, 1>> :> 0 @@ <<1, 0>> :> 0 @@ <<1, 1>> :> 0)
+/\ tOff = 0
+/\ crashes = 0
+/\ ccur = 0
+/\ rewinds = 0
+/\ committer = <<TRUE, TRUE>>
+/\ up = <<TRUE, TRUE>>
+/\ wbuf = <<{}, {}>>
+/\ cpos = 1
+/\ coord = 1
+/\ worker = <<FALSE, FALSE>>
+/\ owner = (0 :> 1 @@ 1 :> 1)
+/\ nextCid = 1
+
+State 2: <Poll(1,0) line 106, col 3 to line 115, col 76 of module KcSink>
+/\ cgo = 0
+/\ ctl = <<>>
+/\ cto = 0
+/\ ccnt = 0
+/\ cbuf = {}
+/\ moves = 0
+/\ fails = 0
+/\ woff = <<(0 :> 1 @@ 1 :> -1), (0 :> -1 @@ 1 :> -1)>>
+/\ srcC = (0 :> -1 @@ 1 :> -1)
+/\ pos = <<(0 :> 1 @@ 1 :> 0), (0 :> 0 @@ 1 :> 0)>>
+/\ cphase = "idle"
+/\ wseen = <<0, 0>>
+/\ table = (<<0, 0>> :> 0 @@ <<0, 1>> :> 0 @@ <<1, 0>> :> 0 @@ <<1, 1>> :> 0)
+/\ tOff = 0
+/\ crashes = 0
+/\ ccur = 0
+/\ rewinds = 0
+/\ committer = <<TRUE, TRUE>>
+/\ up = <<TRUE, TRUE>>
+/\ wbuf = <<{<<0, 0>>}, {}>>
+/\ cpos = 1
+/\ coord = 1
+/\ worker = <<TRUE, FALSE>>
+/\ owner = (0 :> 1 @@ 1 :> 1)
+/\ nextCid = 1
+
+State 3: <Revoke(1,1) line 215, col 3 to line 235, col 91 of module KcSink>
+/\ cgo = 0
+/\ ctl = <<>>
+/\ cto = 0
+/\ ccnt = 0
+/\ cbuf = {}
+/\ moves = 1
+/\ fails = 0
+/\ woff = <<(0 :> -1 @@ 1 :> -1), (0 :> -1 @@ 1 :> -1)>>
+/\ srcC = (0 :> -1 @@ 1 :> -1)
+/\ pos = <<(0 :> 1 @@ 1 :> 0), (0 :> 0 @@ 1 :> 0)>>
+/\ cphase = "idle"
+/\ wseen = <<0, 0>>
+/\ table = (<<0, 0>> :> 0 @@ <<0, 1>> :> 0 @@ <<1, 0>> :> 0 @@ <<1, 1>> :> 0)
+/\ tOff = 0
+/\ crashes = 0
+/\ ccur = 0
+/\ rewinds = 0
+/\ committer = <<TRUE, TRUE>>
+/\ up = <<TRUE, TRUE>>
+/\ wbuf = <<{}, {}>>
+/\ cpos = 1
+/\ coord = 1
+/\ worker = <<FALSE, FALSE>>
+/\ owner = (0 :> 1 @@ 1 :> 0)
+/\ nextCid = 1
+
+State 4: <Poll(1,0) line 106, col 3 to line 115, col 76 of module KcSink>
+/\ cgo = 0
+/\ ctl = <<>>
+/\ cto = 0
+/\ ccnt = 0
+/\ cbuf = {}
+/\ moves = 1
+/\ fails = 0
+/\ woff = <<(0 :> 2 @@ 1 :> -1), (0 :> -1 @@ 1 :> -1)>>
+/\ srcC = (0 :> -1 @@ 1 :> -1)
+/\ pos = <<(0 :> 2 @@ 1 :> 0), (0 :> 0 @@ 1 :> 0)>>
+/\ cphase = "idle"
+/\ wseen = <<0, 0>>
+/\ table = (<<0, 0>> :> 0 @@ <<0, 1>> :> 0 @@ <<1, 0>> :> 0 @@ <<1, 1>> :> 0)
+/\ tOff = 0
+/\ crashes = 0
+/\ ccur = 0
+/\ rewinds = 0
+/\ committer = <<TRUE, TRUE>>
+/\ up = <<TRUE, TRUE>>
+/\ wbuf = <<{<<0, 1>>}, {}>>
+/\ cpos = 1
+/\ coord = 1
+/\ worker = <<TRUE, FALSE>>
+/\ owner = (0 :> 1 @@ 1 :> 0)
+/\ nextCid = 1
+
+State 5: <StartCommit line 139, col 3 to line 143, col 81 of module KcSink>
+/\ cgo = 0
+/\ ctl = <<[k |-> "SC", cid |-> 1]>>
+/\ cto = 0
+/\ ccnt = 0
+/\ cbuf = {}
+/\ moves = 1
+/\ fails = 0
+/\ woff = <<(0 :> 2 @@ 1 :> -1), (0 :> -1 @@ 1 :> -1)>>
+/\ srcC = (0 :> -1 @@ 1 :> -1)
+/\ pos = <<(0 :> 2 @@ 1 :> 0), (0 :> 0 @@ 1 :> 0)>>
+/\ cphase = "idle"
+/\ wseen = <<0, 0>>
+/\ table = (<<0, 0>> :> 0 @@ <<0, 1>> :> 0 @@ <<1, 0>> :> 0 @@ <<1, 1>> :> 0)
+/\ tOff = 0
+/\ crashes = 0
+/\ ccur = 1
+/\ rewinds = 0
+/\ committer = <<TRUE, TRUE>>
+/\ up = <<TRUE, TRUE>>
+/\ wbuf = <<{<<0, 1>>}, {}>>
+/\ cpos = 1
+/\ coord = 1
+/\ worker = <<TRUE, FALSE>>
+/\ owner = (0 :> 1 @@ 1 :> 0)
+/\ nextCid = 2
+
+State 6: <Respond(1) line 120, col 3 to line 132, col 76 of module KcSink>
+/\ cgo = 0
+/\ ctl = << [k |-> "SC", cid |-> 1],
+   [k |-> "DW", recs |-> {<<0, 1>>}, cid |-> 1],
+   [k |-> "DC", cid |-> 1, n |-> 1] >>
+/\ cto = 0
+/\ ccnt = 0
+/\ cbuf = {}
+/\ moves = 1
+/\ fails = 0
+/\ woff = <<(0 :> -1 @@ 1 :> -1), (0 :> -1 @@ 1 :> -1)>>
+/\ srcC = (0 :> 2 @@ 1 :> -1)
+/\ pos = <<(0 :> 2 @@ 1 :> 0), (0 :> 0 @@ 1 :> 0)>>
+/\ cphase = "idle"
+/\ wseen = <<1, 0>>
+/\ table = (<<0, 0>> :> 0 @@ <<0, 1>> :> 0 @@ <<1, 0>> :> 0 @@ <<1, 1>> :> 0)
+/\ tOff = 0
+/\ crashes = 0
+/\ ccur = 1
+/\ rewinds = 0
+/\ committer = <<TRUE, TRUE>>
+/\ up = <<TRUE, TRUE>>
+/\ wbuf = <<{}, {}>>
+/\ cpos = 1
+/\ coord = 1
+/\ worker = <<TRUE, FALSE>>
+/\ owner = (0 :> 1 @@ 1 :> 0)
+/\ nextCid = 2
+
+1251 states generated, 745 distinct states found, 477 states left on queue.
+The depth of the complete state graph search is 8.
+Finished in 00s at (2026-11-03 14:14:20)
+Trace exploration spec path: ./KcSink_TTrace_1793695459.tla

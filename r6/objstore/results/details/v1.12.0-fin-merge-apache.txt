@@ -1,0 +1,35 @@
+== fin-merge-FAULT run=1 seed=1 client=apache checksum=false expire=false major=false
+   ops: {0=OK, 1=OK, 2=THREW:AvroRuntimeException/ConnectionClosedException}
+   fault#1 FIN_RESP k=90101 on #31 c1 GetObject key=r1-1/db/t/metadata/58eac37b-ab6e-4948-a9d8-150bdafae466-m0.avro range=bytes=0- len=0 status=206 -> fin-after-90101B-of-254528
+   op2 commit threw AvroRuntimeException: org.apache.hc.core5.http.ConnectionClosedException: Premature end of Content-Length delimited message body (expected: 254528; received: 9010 <- ConnectionClosedException: Premature end of Content-Length delimited message body (expected: 254528; received: 90101)
+   orphan_manifest r1-1/db/t/metadata/42425e45-a73d-43a2-97a6-fb863fd26f62-m0.avro size=90100
+   orphan_manifest r1-1/db/t/metadata/42425e45-a73d-43a2-97a6-fb863fd26f62-m1.avro size=172316
+   counts: {commitThrew:AvroRuntimeException/ConnectionClosedException=1, orphan_callerData=1, orphan_manifest=2}
+== fin-merge-FAULT run=2 seed=2 client=apache checksum=false expire=false major=false
+   ops: {0=OK, 1=OK, 2=THREW:AvroRuntimeException/ConnectionClosedException}
+   fault#2 FIN_RESP k=90100 on #65 c2 GetObject key=r2-2/db/t/metadata/e2caf466-fef8-4c78-b0b0-80258da082c5-m0.avro range=bytes=0- len=0 status=206 -> fin-after-90100B-of-254526
+   op2 commit threw AvroRuntimeException: org.apache.hc.core5.http.ConnectionClosedException: Premature end of Content-Length delimited message body (expected: 254526; received: 9010 <- ConnectionClosedException: Premature end of Content-Length delimited message body (expected: 254526; received: 90100)
+   orphan_manifest r2-2/db/t/metadata/e8c4a453-9d76-4614-b4a2-226a6020b23b-m0.avro size=254529
+   orphan_manifest r2-2/db/t/metadata/e8c4a453-9d76-4614-b4a2-226a6020b23b-m1.avro size=336744
+   counts: {commitThrew:AvroRuntimeException/ConnectionClosedException=1, orphan_callerData=3, orphan_manifest=2}
+== fin-merge-FAULT run=3 seed=3 client=apache checksum=false expire=false major=false
+   ops: {0=OK, 1=OK, 2=THREW:AvroRuntimeException/ConnectionClosedException}
+   fault#3 FIN_RESP k=90100 on #94 c3 GetObject key=r3-3/db/t/metadata/73b12e18-8951-44d1-a1d9-888801a382d6-m0.avro range=bytes=0- len=0 status=206 -> fin-after-90100B-of-254524
+   op2 commit threw AvroRuntimeException: org.apache.hc.core5.http.ConnectionClosedException: Premature end of Content-Length delimited message body (expected: 254524; received: 9010 <- ConnectionClosedException: Premature end of Content-Length delimited message body (expected: 254524; received: 90100)
+   orphan_manifest r3-3/db/t/metadata/a88df37a-1b57-4aec-8080-8302e635e32e-m0.avro size=90100
+   orphan_manifest r3-3/db/t/metadata/a88df37a-1b57-4aec-8080-8302e635e32e-m1.avro size=254530
+   counts: {commitThrew:AvroRuntimeException/ConnectionClosedException=1, orphan_callerData=1, orphan_manifest=2}
+== fin-merge-FAULT run=4 seed=4 client=apache checksum=false expire=false major=false
+   ops: {0=OK, 1=OK, 2=THREW:AvroRuntimeException/ConnectionClosedException}
+   fault#4 FIN_RESP k=90101 on #128 c4 GetObject key=r4-4/db/t/metadata/376fe323-e18c-4536-9bd4-30690b9a6b53-m0.avro range=bytes=0- len=0 status=206 -> fin-after-90101B-of-254529
+   op2 commit threw AvroRuntimeException: org.apache.hc.core5.http.ConnectionClosedException: Premature end of Content-Length delimited message body (expected: 254529; received: 9010 <- ConnectionClosedException: Premature end of Content-Length delimited message body (expected: 254529; received: 90101)
+   orphan_manifest r4-4/db/t/metadata/87cae0a4-aff8-4a40-9f07-d030b5d6f3e2-m0.avro size=254528
+   orphan_manifest r4-4/db/t/metadata/87cae0a4-aff8-4a40-9f07-d030b5d6f3e2-m1.avro size=336744
+   counts: {commitThrew:AvroRuntimeException/ConnectionClosedException=1, orphan_callerData=3, orphan_manifest=2}
+== fin-merge-FAULT run=5 seed=5 client=apache checksum=false expire=false major=false
+   ops: {0=OK, 1=OK, 2=THREW:AvroRuntimeException/ConnectionClosedException}
+   fault#5 FIN_RESP k=90099 on #158 c5 GetObject key=r5-5/db/t/metadata/0f1d00d2-1313-4b3d-890c-eebc9f056242-m0.avro range=bytes=0- len=0 status=206 -> fin-after-90099B-of-172312
+   op2 commit threw AvroRuntimeException: org.apache.hc.core5.http.ConnectionClosedException: Premature end of Content-Length delimited message body (expected: 172312; received: 9009 <- ConnectionClosedException: Premature end of Content-Length delimited message body (expected: 172312; received: 90099)
+   orphan_manifest r5-5/db/t/metadata/7cf72486-a642-4286-856f-f366cababfc7-m0.avro size=254525
+   orphan_manifest r5-5/db/t/metadata/7cf72486-a642-4286-856f-f366cababfc7-m1.avro size=336739
+   counts: {commitThrew:AvroRuntimeException/ConnectionClosedException=1, orphan_callerData=3, orphan_manifest=2}

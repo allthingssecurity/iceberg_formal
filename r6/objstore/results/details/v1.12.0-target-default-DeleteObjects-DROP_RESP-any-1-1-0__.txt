@@ -1,0 +1,20 @@
+== target-fault run=1 seed=1 client=default checksum=false expire=true major=false
+   ops: {0=OK, 1=OK, 2=OK, 3=OK}
+   fault#1 DROP_RESP k=0 on #93 c3 DeleteObjects key= len=285 status=200 -> applied-status-200-ack-dropped
+   counts: {expireOK=1, read_rangeOK=20, read_scanOK=1, read_seqOK=10, read_tailOK=10}
+== target-fault run=2 seed=2 client=default checksum=false expire=true major=false
+   ops: {0=OK, 1=OK, 2=OK, 3=OK}
+   fault#2 DROP_RESP k=0 on #233 c4 DeleteObjects key= len=285 status=200 -> applied-status-200-ack-dropped
+   counts: {expireOK=1, read_rangeOK=20, read_scanOK=1, read_seqOK=10, read_tailOK=10}
+== target-fault run=3 seed=3 client=default checksum=false expire=true major=false
+   ops: {0=OK, 1=OK, 2=OK, 3=OK}
+   fault#3 DROP_RESP k=0 on #364 c5 DeleteObjects key= len=285 status=200 -> applied-status-200-ack-dropped
+   counts: {expireOK=1, read_rangeOK=18, read_scanOK=1, read_seqOK=9, read_tailOK=9}
+== target-fault run=4 seed=4 client=default checksum=false expire=true major=false
+   ops: {0=OK, 1=OK, 2=OK, 3=OK}
+   fault#4 DROP_RESP k=0 on #486 c8 DeleteObjects key= len=285 status=200 -> applied-status-200-ack-dropped
+   counts: {expireOK=1, read_rangeOK=16, read_scanOK=1, read_seqOK=8, read_tailOK=8}
+== target-fault run=5 seed=5 client=default checksum=false expire=true major=false
+   ops: {0=OK, 1=OK, 2=OK, 3=OK}
+   fault#5 DROP_RESP k=0 on #609 c6 DeleteObjects key= len=285 status=200 -> applied-status-200-ack-dropped
+   counts: {expireOK=1, read_rangeOK=16, read_scanOK=1, read_seqOK=8, read_tailOK=8}

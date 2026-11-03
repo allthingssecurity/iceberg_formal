@@ -1,0 +1,6 @@
+control v1.12.0 client=default runs=10 majorRuns=0 counts={expireOK=5, read_rangeOK=284, read_scanOK=10, read_seqOK=142, read_tailOK=142}
+details: /Users/I074560/Downloads/experiments/iceberg-verify/r6/objstore/build/work/v1.12.0/control-default-details.txt
+explore v1.12.0 client=default runs=40 majorRuns=0 majorSeeds=[]
+  faults injected: {CompleteMultipartUpload:CUT_REQ=1, CompleteMultipartUpload:DROP_RESP=4, CreateMultipartUpload:CUT_REQ=3, CreateMultipartUpload:DROP_RESP=1, CreateMultipartUpload:STALL_RESP=1, GetObject:CUT_REQ=1, GetObject:DROP_RESP=10, GetObject:FIN_RESP=5, GetObject:RESET_RESP=8, GetObject:STALL_RESP=3, HeadObject:CUT_REQ=12, HeadObject:DROP_RESP=7, HeadObject:STALL_RESP=10, PutObject:CUT_REQ=30, PutObject:DROP_RESP=31, PutObject:STALL_RESP=18, UploadPart:CUT_REQ=7, UploadPart:DROP_RESP=10, UploadPart:STALL_RESP=2}
+  outcome counts : {commitThrew:RuntimeIOException/ConnectionClosedException=1, commitThrew:SdkClientException/SocketException=2, expireOK=23, leak_incompleteMultipartUploads=1, orphan_callerData=6, orphan_manifest=2, orphan_manifestList=1, orphan_metadataJson=1, read_rangeOK=960, read_rangeThrew:SocketException=1, read_scanOK=40, read_seqOK=481, read_tailOK=480}
+details: /Users/I074560/Downloads/experiments/iceberg-verify/r6/objstore/build/work/v1.12.0/explore-default-details.txt

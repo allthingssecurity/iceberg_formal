@@ -1,0 +1,25 @@
+== target-fault run=1 seed=1 client=default checksum=false expire=false major=false
+   ops: {0=OK, 1=OK, 2=OK}
+   fault#1 DROP_RESP k=0 on #4 c1 CreateMultipartUpload key=r1-1/db/t/data/op0-f0-97e076ff-81a1-4947-839e-6d38840b7c32.parquet len=0 status=200 -> applied-status-200-ack-dropped
+   leaked upload r1-1/db/t/data/op0-f0-97e076ff-81a1-4947-839e-6d38840b7c32.parquet 116e037f-1bec-4fcf-93f3-64c9e8b78af7
+   counts: {leak_incompleteMultipartUploads=1, read_rangeOK=16, read_scanOK=1, read_seqOK=8, read_tailOK=8}
+== target-fault run=2 seed=2 client=default checksum=false expire=false major=false
+   ops: {0=OK, 1=OK, 2=OK}
+   fault#2 DROP_RESP k=0 on #105 c2 CreateMultipartUpload key=r2-2/db/t/data/op0-f0-dc4316b7-baeb-4dcc-96fc-e28eea7c67e2.parquet len=0 status=200 -> applied-status-200-ack-dropped
+   leaked upload r2-2/db/t/data/op0-f0-dc4316b7-baeb-4dcc-96fc-e28eea7c67e2.parquet 4b0099f1-941f-4d14-a89a-879ca2bfd425
+   counts: {leak_incompleteMultipartUploads=1, read_rangeOK=14, read_scanOK=1, read_seqOK=7, read_tailOK=7}
+== target-fault run=3 seed=3 client=default checksum=false expire=false major=false
+   ops: {0=OK, 1=OK, 2=OK}
+   fault#3 DROP_RESP k=0 on #195 c4 CreateMultipartUpload key=r3-3/db/t/data/op0-f0-da179933-5ac0-4eec-9bf9-9277eadcc7bb.parquet len=0 status=200 -> applied-status-200-ack-dropped
+   leaked upload r3-3/db/t/data/op0-f0-da179933-5ac0-4eec-9bf9-9277eadcc7bb.parquet d944b9cb-9f20-4018-ba88-977583f15fea
+   counts: {leak_incompleteMultipartUploads=1, read_rangeOK=14, read_scanOK=1, read_seqOK=7, read_tailOK=7}
+== target-fault run=4 seed=4 client=default checksum=false expire=false major=false
+   ops: {0=OK, 1=OK, 2=OK}
+   fault#4 DROP_RESP k=0 on #286 c5 CreateMultipartUpload key=r4-4/db/t/data/op0-f0-debc17cd-551c-495f-bdf0-8a9832dc9466.parquet len=0 status=200 -> applied-status-200-ack-dropped
+   leaked upload r4-4/db/t/data/op0-f0-debc17cd-551c-495f-bdf0-8a9832dc9466.parquet 9c063623-eea0-428a-bb78-1e7f804adbff
+   counts: {leak_incompleteMultipartUploads=1, read_rangeOK=10, read_scanOK=1, read_seqOK=5, read_tailOK=5}
+== target-fault run=5 seed=5 client=default checksum=false expire=false major=false
+   ops: {0=OK, 1=OK, 2=OK}
+   fault#5 DROP_RESP k=0 on #357 c3 CreateMultipartUpload key=r5-5/db/t/data/op0-f0-f166627b-1b04-41da-92d1-b9375698df14.parquet len=0 status=200 -> applied-status-200-ack-dropped
+   leaked upload r5-5/db/t/data/op0-f0-f166627b-1b04-41da-92d1-b9375698df14.parquet 08060b67-0bf4-4b73-bda2-f003e53638e8
+   counts: {leak_incompleteMultipartUploads=1, read_rangeOK=14, read_scanOK=1, read_seqOK=7, read_tailOK=7}

@@ -1,0 +1,65 @@
+== target-fault run=1 seed=1 client=default checksum=false expire=true major=false
+   ops: {0=OK, 1=OK, 2=OK, 3=OK}
+   fault#1 CUT_REQ k=10 on #93 c2 DeleteObjects key= len=285 status=-1 -> cut-after-10B
+   fault#2 CUT_REQ k=10 on #94 c3 DeleteObjects key= len=285 status=-1 -> cut-after-10B
+   fault#3 CUT_REQ k=10 on #95 c1 DeleteObjects key= len=285 status=-1 -> cut-after-10B
+   fault#4 CUT_REQ k=10 on #96 c4 DeleteObjects key= len=285 status=-1 -> cut-after-10B
+   fault#5 CUT_REQ k=10 on #97 c5 DeleteObjects key= len=285 status=-1 -> cut-after-10B
+   fault#6 CUT_REQ k=10 on #98 c6 DeleteObjects key= len=285 status=-1 -> cut-after-10B
+   fault#7 CUT_REQ k=10 on #99 c7 DeleteObjects key= len=448 status=-1 -> cut-after-10B
+   fault#8 CUT_REQ k=10 on #100 c8 DeleteObjects key= len=448 status=-1 -> cut-after-10B
+   orphan_manifest r1-1/db/t/metadata/14cbdb34-f2d4-466c-86b1-de9926b7916f-m0.avro size=992145
+   orphan_manifest r1-1/db/t/metadata/5cd30de4-2c87-4780-a5b2-22a50fe5f495-m0.avro size=992147
+   counts: {expireOK=1, orphan_manifest=2, read_rangeOK=20, read_scanOK=1, read_seqOK=10, read_tailOK=10}
+== target-fault run=2 seed=2 client=default checksum=false expire=true major=false
+   ops: {0=OK, 1=OK, 2=OK, 3=OK}
+   fault#9 CUT_REQ k=10 on #239 c12 DeleteObjects key= len=285 status=-1 -> cut-after-10B
+   fault#10 CUT_REQ k=10 on #240 c9 DeleteObjects key= len=285 status=-1 -> cut-after-10B
+   fault#11 CUT_REQ k=10 on #241 c11 DeleteObjects key= len=285 status=-1 -> cut-after-10B
+   fault#12 CUT_REQ k=10 on #242 c13 DeleteObjects key= len=285 status=-1 -> cut-after-10B
+   fault#13 CUT_REQ k=10 on #243 c14 DeleteObjects key= len=285 status=-1 -> cut-after-10B
+   fault#14 CUT_REQ k=10 on #244 c15 DeleteObjects key= len=285 status=-1 -> cut-after-10B
+   fault#15 CUT_REQ k=10 on #245 c16 DeleteObjects key= len=448 status=-1 -> cut-after-10B
+   fault#16 CUT_REQ k=10 on #246 c17 DeleteObjects key= len=448 status=-1 -> cut-after-10B
+   orphan_manifest r2-2/db/t/metadata/df5c83b4-51f9-4f28-bb2d-0ef1e598803e-m0.avro size=664057
+   orphan_manifest r2-2/db/t/metadata/f632cb6e-2e92-49df-8e42-22bcbb806aef-m0.avro size=664057
+   counts: {expireOK=1, orphan_manifest=2, read_rangeOK=20, read_scanOK=1, read_seqOK=10, read_tailOK=10}
+== target-fault run=3 seed=3 client=default checksum=false expire=true major=false
+   ops: {0=OK, 1=OK, 2=OK, 3=OK}
+   fault#17 CUT_REQ k=10 on #376 c20 DeleteObjects key= len=285 status=-1 -> cut-after-10B
+   fault#18 CUT_REQ k=10 on #377 c18 DeleteObjects key= len=285 status=-1 -> cut-after-10B
+   fault#19 CUT_REQ k=10 on #378 c19 DeleteObjects key= len=285 status=-1 -> cut-after-10B
+   fault#20 CUT_REQ k=10 on #379 c21 DeleteObjects key= len=285 status=-1 -> cut-after-10B
+   fault#21 CUT_REQ k=10 on #380 c22 DeleteObjects key= len=285 status=-1 -> cut-after-10B
+   fault#22 CUT_REQ k=10 on #381 c23 DeleteObjects key= len=285 status=-1 -> cut-after-10B
+   fault#23 CUT_REQ k=10 on #382 c24 DeleteObjects key= len=447 status=-1 -> cut-after-10B
+   fault#24 CUT_REQ k=10 on #383 c25 DeleteObjects key= len=447 status=-1 -> cut-after-10B
+   orphan_manifest r3-3/db/t/metadata/2086fa00-397f-4122-bd67-adaf9c309aed-m0.avro size=335972
+   orphan_manifest r3-3/db/t/metadata/30215c72-715b-49a7-8a73-be933ed86fd4-m0.avro size=992145
+   counts: {expireOK=1, orphan_manifest=2, read_rangeOK=18, read_scanOK=1, read_seqOK=9, read_tailOK=9}
+== target-fault run=4 seed=4 client=default checksum=false expire=true major=false
+   ops: {0=OK, 1=OK, 2=OK, 3=OK}
+   fault#25 CUT_REQ k=10 on #504 c28 DeleteObjects key= len=285 status=-1 -> cut-after-10B
+   fault#26 CUT_REQ k=10 on #505 c26 DeleteObjects key= len=285 status=-1 -> cut-after-10B
+   fault#27 CUT_REQ k=10 on #506 c27 DeleteObjects key= len=285 status=-1 -> cut-after-10B
+   fault#28 CUT_REQ k=10 on #507 c29 DeleteObjects key= len=285 status=-1 -> cut-after-10B
+   fault#29 CUT_REQ k=10 on #508 c30 DeleteObjects key= len=285 status=-1 -> cut-after-10B
+   fault#30 CUT_REQ k=10 on #509 c31 DeleteObjects key= len=285 status=-1 -> cut-after-10B
+   fault#31 CUT_REQ k=10 on #510 c32 DeleteObjects key= len=448 status=-1 -> cut-after-10B
+   fault#32 CUT_REQ k=10 on #511 c33 DeleteObjects key= len=448 status=-1 -> cut-after-10B
+   orphan_manifest r4-4/db/t/metadata/64972ff1-2f9b-4041-a098-6378ccb408de-m0.avro size=664056
+   orphan_manifest r4-4/db/t/metadata/8e703413-3172-4d9e-996d-a479bfd70cd2-m0.avro size=335973
+   counts: {expireOK=1, orphan_manifest=2, read_rangeOK=16, read_scanOK=1, read_seqOK=8, read_tailOK=8}
+== target-fault run=5 seed=5 client=default checksum=false expire=true major=false
+   ops: {0=OK, 1=OK, 2=OK, 3=OK}
+   fault#33 CUT_REQ k=10 on #633 c35 DeleteObjects key= len=285 status=-1 -> cut-after-10B
+   fault#34 CUT_REQ k=10 on #634 c34 DeleteObjects key= len=285 status=-1 -> cut-after-10B
+   fault#35 CUT_REQ k=10 on #635 c36 DeleteObjects key= len=285 status=-1 -> cut-after-10B
+   fault#36 CUT_REQ k=10 on #636 c37 DeleteObjects key= len=285 status=-1 -> cut-after-10B
+   fault#37 CUT_REQ k=10 on #637 c38 DeleteObjects key= len=285 status=-1 -> cut-after-10B
+   fault#38 CUT_REQ k=10 on #638 c39 DeleteObjects key= len=285 status=-1 -> cut-after-10B
+   fault#39 CUT_REQ k=10 on #639 c40 DeleteObjects key= len=448 status=-1 -> cut-after-10B
+   fault#40 CUT_REQ k=10 on #640 c41 DeleteObjects key= len=448 status=-1 -> cut-after-10B
+   orphan_manifest r5-5/db/t/metadata/2ce97425-cc1b-4db8-a15c-7f010c1372db-m0.avro size=992142
+   orphan_manifest r5-5/db/t/metadata/acb3b387-c1f0-4cf7-a975-4da647889a63-m0.avro size=335971
+   counts: {expireOK=1, orphan_manifest=2, read_rangeOK=16, read_scanOK=1, read_seqOK=8, read_tailOK=8}

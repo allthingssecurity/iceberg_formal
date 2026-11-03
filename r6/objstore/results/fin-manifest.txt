@@ -1,0 +1,8 @@
+fin-scan v1.12.0 client=urlconnection FAULT runs=5 armed=5 finInjected=5 majorRuns=5 counts={MAJOR_silentScanMismatch=5, read_rangeOK=46, read_seqOK=23, read_tailOK=23}
+fin-scan v1.12.0 client=urlconnection CONTROL runs=5 armed=0 finInjected=0 majorRuns=0 counts={read_rangeOK=46, read_scanOK=5, read_seqOK=23, read_tailOK=23}
+fin-merge v1.12.0 client=urlconnection FAULT runs=5 armed=5 finInjected=5 majorRuns=5 counts={MAJOR_lostCommittedFiles=5}
+fin-merge v1.12.0 client=urlconnection CONTROL runs=5 armed=0 finInjected=0 majorRuns=0 counts={}
+fin-scan v1.12.0 client=default FAULT runs=5 armed=5 finInjected=5 majorRuns=0 counts={read_rangeOK=46, read_scanThrew:ConnectionClosedException=5, read_seqOK=23, read_tailOK=23}
+fin-scan v1.12.0 client=default CONTROL runs=5 armed=0 finInjected=0 majorRuns=0 counts={read_rangeOK=46, read_scanOK=5, read_seqOK=23, read_tailOK=23}
+fin-merge v1.12.0 client=default FAULT runs=5 armed=5 finInjected=5 majorRuns=0 counts={commitThrew:AvroRuntimeException/ConnectionClosedException=5, orphan_callerData=11, orphan_manifest=10}
+fin-merge v1.12.0 client=default CONTROL runs=5 armed=0 finInjected=0 majorRuns=0 counts={}

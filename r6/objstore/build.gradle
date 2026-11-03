@@ -1,0 +1,85 @@
+plugins {
+  id 'java'
+}
+
+// Iceberg release under test (released jars from Maven Central only).
+def icebergVersion = project.findProperty('icebergVersion') ?: '1.12.0'
+def parts = icebergVersion.tokenize('.').collect { it as int }
+def atLeast = { int maj, int min -> parts[0] > maj || (parts[0] == maj && parts[1] >= min) }
+// iceberg-aws-bundle exists from 1.4.0; older releases get explicit SDK modules (version from that release's
+// versions.props).
+def oldSdk = ['0.13': '2.15.7', '0.14': '2.17.131', '1.0': '2.17.131', '1.1': '2.17.257', '1.2': '2.20.18',
+              '1.3': '2.20.18']
+def sdkKey = "${parts[0]}.${parts[1]}"
+
+repositories {
+  mavenCentral()
+}
+
+configurations {
+  s3server
+}
+
+dependencies {
+  implementation "org.apache.iceberg:iceberg-api:${icebergVersion}"
+  implementation "org.apache.iceberg:iceberg-core:${icebergVersion}"
+  implementation "org.apache.iceberg:iceberg-common:${icebergVersion}"
+  implementation "org.apache.iceberg:iceberg-bundled-guava:${icebergVersion}"
+  implementation "org.apache.iceberg:iceberg-aws:${icebergVersion}"
+  if (atLeast(1, 4)) {
+    implementation "org.apache.iceberg:iceberg-aws-bundle:${icebergVersion}"
+    // bundles from 1.10 ship apache5-client only; add the UrlConnection client at the bundled SDK version
+    def bundleSdk = ['1.12': '2.54.17']
+    if (bundleSdk[sdkKey] != null) {
+      implementation "software.amazon.awssdk:url-connection-client:${bundleSdk[sdkKey]}"
+    }
+  } else {
+    def sdk = oldSdk[sdkKey]
+    if (sdk == null) {
+      throw new GradleException("No SDK version mapping for iceberg ${icebergVersion}")
+    }
+    ['s3', 'apache-client', 'url-connection-client', 'sts', 'kms', 'glue', 'dynamodb'].each {
+      implementation "software.amazon.awssdk:${it}:${sdk}"
+    }
+  }
+  implementation 'org.xerial:sqlite-jdbc:3.53.4.0'
+  implementation 'org.slf4j:slf4j-api:2.0.16'
+  runtimeOnly 'org.slf4j:slf4j-simple:2.0.16'
+
+  // In-JVM S3 server (separate JVM process, own classpath, so its AWS SDK never meets Iceberg's).
+  s3server 'com.adobe.testing:s3mock:5.2.3'
+}
+
+if (!atLeast(1, 4)) {
+  sourceSets.main.java.exclude '**/Ranges.java'
+}
+
+tasks.withType(JavaCompile).configureEach {
+  options.encoding = 'UTF-8'
+  options.release = 17
+}
+
+def passProps = ['os.mode', 'os.runs', 'os.seed', 'os.fault', 'os.op', 'os.out', 'os.client', 'os.commits',
+                 'os.verbose', 'os.faults', 'os.scenario', 'os.spec', 'os.size', 'os.checksum', 'os.expire',
+                 'os.nth', 'os.k']
+
+tasks.register('harness', JavaExec) {
+  classpath = sourceSets.main.runtimeClasspath
+  mainClass = 'objstore.Harness'
+  systemProperty 'icebergVersion', icebergVersion
+  systemProperty 's3server.classpath', configurations.s3server.asPath
+  systemProperty 'org.slf4j.simpleLogger.defaultLogLevel', 'off'
+  systemProperty 'org.slf4j.simpleLogger.log.objstore', 'info'
+  systemProperty 'workdir', "${buildDir}/work"
+  systemProperty 'resultsdir', "${projectDir}/results/details"
+  passProps.each { n -> def v = System.getProperty(n); if (v != null) systemProperty n, v }
+  environment 'AWS_REGION', 'us-east-1'
+  environment 'AWS_ACCESS_KEY_ID', 'test'
+  environment 'AWS_SECRET_ACCESS_KEY', 'test'
+  maxHeapSize = '2g'
+  outputs.upToDateWhen { false }
+}
+
+tasks.register('printS3ServerClasspath') {
+  doLast { println configurations.s3server.asPath }
+}

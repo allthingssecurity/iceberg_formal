@@ -1,0 +1,24 @@
+TLC2 Version 2026.03.20.190810 (rev: 11bffb1)
+Running breadth-first search Model-Checking with fp 20 and seed -1864895956236361840 with 4 workers on 12 cores with 2731MB heap and 64MB offheap memory [pid: 88838] (Mac OS X 27.2 aarch64, Homebrew 21.0.11 64bit, MSBDiskFPSet, DiskStateQueue).
+Parsing file /Users/I074560/Downloads/experiments/iceberg-verify/r6/kafka-connect/tla/KcSink.tla
+Parsing file /private/var/folders/3q/7yl2z5xd0gjft7y48_t4cw2h0000gn/T/tlc-13015420005106487927/Integers.tla (jar:file:/Users/I074560/Downloads/experiments/redis-lean/tla/tools/tla2tools.jar!/tla2sany/StandardModules/Integers.tla)
+Parsing file /private/var/folders/3q/7yl2z5xd0gjft7y48_t4cw2h0000gn/T/tlc-13015420005106487927/Sequences.tla (jar:file:/Users/I074560/Downloads/experiments/redis-lean/tla/tools/tla2tools.jar!/tla2sany/StandardModules/Sequences.tla)
+Parsing file /private/var/folders/3q/7yl2z5xd0gjft7y48_t4cw2h0000gn/T/tlc-13015420005106487927/FiniteSets.tla (jar:file:/Users/I074560/Downloads/experiments/redis-lean/tla/tools/tla2tools.jar!/tla2sany/StandardModules/FiniteSets.tla)
+Parsing file /private/var/folders/3q/7yl2z5xd0gjft7y48_t4cw2h0000gn/T/tlc-13015420005106487927/TLC.tla (jar:file:/Users/I074560/Downloads/experiments/redis-lean/tla/tools/tla2tools.jar!/tla2sany/StandardModules/TLC.tla)
+Parsing file /private/var/folders/3q/7yl2z5xd0gjft7y48_t4cw2h0000gn/T/tlc-13015420005106487927/_TLCTrace.tla (jar:file:/Users/I074560/Downloads/experiments/redis-lean/tla/tools/tla2tools.jar!/tla2sany/StandardModules/_TLCTrace.tla)
+Parsing file /private/var/folders/3q/7yl2z5xd0gjft7y48_t4cw2h0000gn/T/tlc-13015420005106487927/Naturals.tla (jar:file:/Users/I074560/Downloads/experiments/redis-lean/tla/tools/tla2tools.jar!/tla2sany/StandardModules/Naturals.tla)
+Parsing file /private/var/folders/3q/7yl2z5xd0gjft7y48_t4cw2h0000gn/T/tlc-13015420005106487927/TLCExt.tla (jar:file:/Users/I074560/Downloads/experiments/redis-lean/tla/tools/tla2tools.jar!/tla2sany/StandardModules/TLCExt.tla)
+Semantic processing of module Naturals
+Semantic processing of module Integers
+Semantic processing of module Sequences
+Semantic processing of module FiniteSets
+Semantic processing of module TLC
+Semantic processing of module TLCExt
+Semantic processing of module _TLCTrace
+Semantic processing of module KcSink
+Linting of module TLCExt
+Linting of module _TLCTrace
+Linting of module KcSink
+Starting... (2026-11-03 14:49:06)
+Error: Assumption line 39, col 8 to line 39, col 36 of module KcSink is false.
+Finished in 00s at (2026-11-03 14:49:06)

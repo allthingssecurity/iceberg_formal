@@ -1,0 +1,8 @@
+target-read v1.12.0 client=urlconnection kind=FIN_RESP nth=1 k=102400 FAULT runs=5 injected=5 counts={MAJOR_silentBadSequentialRead=5, read_rangeOK=42, read_scanOK=5, read_seqOK=16, read_tailOK=21}
+target-read v1.12.0 client=urlconnection kind=FIN_RESP nth=1 k=102400 CONTROL runs=5 injected=0 counts={read_rangeOK=42, read_scanOK=5, read_seqOK=21, read_tailOK=21}
+target-read v1.12.0 client=urlconnection kind=FIN_RESP nth=2 k=102400 FAULT runs=5 injected=5 counts={read_rangeOK=32, read_rangeThrew:EOFException=5, read_scanOK=5, read_seqOK=21, read_tailOK=16}
+target-read v1.12.0 client=urlconnection kind=FIN_RESP nth=2 k=102400 CONTROL runs=5 injected=0 counts={read_rangeOK=42, read_scanOK=5, read_seqOK=21, read_tailOK=21}
+target-read v1.12.0 client=urlconnection kind=RESET_RESP nth=1 k=102400 FAULT runs=5 injected=5 counts={read_rangeOK=42, read_scanOK=5, read_seqOK=21, read_tailOK=21}
+target-read v1.12.0 client=urlconnection kind=RESET_RESP nth=1 k=102400 CONTROL runs=5 injected=0 counts={read_rangeOK=42, read_scanOK=5, read_seqOK=21, read_tailOK=21}
+target-read v1.12.0 client=urlconnection kind=RESET_RESP nth=2 k=102400 FAULT runs=5 injected=5 counts={read_rangeOK=32, read_rangeThrew:SocketException=5, read_scanOK=5, read_seqOK=21, read_tailOK=16}
+target-read v1.12.0 client=urlconnection kind=RESET_RESP nth=2 k=102400 CONTROL runs=5 injected=0 counts={read_rangeOK=42, read_scanOK=5, read_seqOK=21, read_tailOK=21}

@@ -1,0 +1,20 @@
+== target-fault run=1 seed=1 client=default checksum=false expire=false major=false
+   ops: {0=OK, 1=OK, 2=OK, 3=OK}
+   fault#1 FIN_RESP k=3500 on #26 c1 GetObject key=r1-1/db/t/metadata/snap-1915815610628745985-1-b6f2a2aa-8ca0-4607-9cb6-3727275f942d.avro range=bytes=0- len=0 status=206 -> fin-after-3500B-of-4507
+   counts: {read_rangeOK=18, read_scanOK=1, read_seqOK=9, read_tailOK=9}
+== target-fault run=2 seed=2 client=default checksum=false expire=false major=false
+   ops: {0=OK, 1=OK, 2=OK, 3=OK}
+   fault#2 FIN_RESP k=3500 on #112 c3 GetObject key=r2-2/db/t/metadata/snap-7442643806874257687-1-f6deea63-6c7b-4aaa-abec-5dd7d582f73b.avro range=bytes=0- len=0 status=206 -> fin-after-3500B-of-4533
+   counts: {read_rangeOK=16, read_scanOK=1, read_seqOK=8, read_tailOK=8}
+== target-fault run=3 seed=3 client=default checksum=false expire=false major=false
+   ops: {0=OK, 1=OK, 2=OK, 3=OK}
+   fault#3 FIN_RESP k=3500 on #198 c4 GetObject key=r3-3/db/t/metadata/snap-3073109432063650573-1-a09cbd5c-8abf-43a6-b166-8fc74961b67f.avro range=bytes=0- len=0 status=206 -> fin-after-3500B-of-4517
+   counts: {read_rangeOK=16, read_scanOK=1, read_seqOK=8, read_tailOK=8}
+== target-fault run=4 seed=4 client=default checksum=false expire=false major=false
+   ops: {0=OK, 1=OK, 2=OK, 3=OK}
+   fault#4 FIN_RESP k=3500 on #277 c5 GetObject key=r4-4/db/t/metadata/snap-540282420062864038-1-93959df3-52eb-4bce-ab06-309d9b7a9c91.avro range=bytes=0- len=0 status=206 -> fin-after-3500B-of-4514
+   counts: {read_rangeOK=22, read_scanOK=1, read_seqOK=11, read_tailOK=11}
+== target-fault run=5 seed=5 client=default checksum=false expire=false major=false
+   ops: {0=OK, 1=OK, 2=OK, 3=OK}
+   fault#5 FIN_RESP k=3500 on #383 c7 GetObject key=r5-5/db/t/metadata/snap-7313394256192255664-1-3afe2306-737c-4e7d-9968-ca4966664d1a.avro range=bytes=0- len=0 status=206 -> fin-after-3500B-of-4521
+   counts: {read_rangeOK=16, read_scanOK=1, read_seqOK=8, read_tailOK=8}

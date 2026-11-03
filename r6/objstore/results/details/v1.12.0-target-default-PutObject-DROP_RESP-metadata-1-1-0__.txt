@@ -1,0 +1,20 @@
+== target-fault run=1 seed=1 client=default checksum=false expire=false major=false
+   ops: {0=OK, 1=OK, 2=OK}
+   fault#1 DROP_RESP k=0 on #1 c1 PutObject key=r1-1/db/t/metadata/00000-8ce2c561-cd81-466b-bea0-77313fcd2146.metadata.json len=2179 status=200 -> applied-status-200-ack-dropped
+   counts: {read_rangeOK=16, read_scanOK=1, read_seqOK=8, read_tailOK=8}
+== target-fault run=2 seed=2 client=default checksum=false expire=false major=false
+   ops: {0=OK, 1=OK, 2=OK}
+   fault#2 DROP_RESP k=0 on #102 c2 PutObject key=r2-2/db/t/metadata/00000-44033934-a8a3-4e21-b37c-c2140de4cf8e.metadata.json len=2179 status=200 -> applied-status-200-ack-dropped
+   counts: {read_rangeOK=14, read_scanOK=1, read_seqOK=7, read_tailOK=7}
+== target-fault run=3 seed=3 client=default checksum=false expire=false major=false
+   ops: {0=OK, 1=OK, 2=OK}
+   fault#3 DROP_RESP k=0 on #192 c3 PutObject key=r3-3/db/t/metadata/00000-ca951fcf-f60b-4b2b-a809-92742bf05c23.metadata.json len=2179 status=200 -> applied-status-200-ack-dropped
+   counts: {read_rangeOK=14, read_scanOK=1, read_seqOK=7, read_tailOK=7}
+== target-fault run=4 seed=4 client=default checksum=false expire=false major=false
+   ops: {0=OK, 1=OK, 2=OK}
+   fault#4 DROP_RESP k=0 on #283 c7 PutObject key=r4-4/db/t/metadata/00000-37837f0d-ae3f-4ba5-9847-84be9e331c56.metadata.json len=2179 status=200 -> applied-status-200-ack-dropped
+   counts: {read_rangeOK=10, read_scanOK=1, read_seqOK=5, read_tailOK=5}
+== target-fault run=5 seed=5 client=default checksum=false expire=false major=false
+   ops: {0=OK, 1=OK, 2=OK}
+   fault#5 DROP_RESP k=0 on #354 c6 PutObject key=r5-5/db/t/metadata/00000-f56dbcfb-33b6-4dea-a5c3-796fdbac4c61.metadata.json len=2179 status=200 -> applied-status-200-ack-dropped
+   counts: {read_rangeOK=14, read_scanOK=1, read_seqOK=7, read_tailOK=7}

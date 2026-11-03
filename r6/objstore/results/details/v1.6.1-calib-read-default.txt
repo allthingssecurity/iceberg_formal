@@ -1,0 +1,50 @@
+== calib-read-fault run=1 seed=1 client=default checksum=false expire=false major=false
+   ops: {0=OK, 1=OK}
+   fault#1 RESET_RESP k=102400 on #29 c4 GetObject key=r1-1/db/t/data/op0-f0-fa9fddd8-c5dd-494c-b398-0ea0afab70e5.parquet range=bytes=0- len=0 status=206 -> reset-after-102400B-of-718001
+   seq read threw r1-1/db/t/data/op0-f0-fa9fddd8-c5dd-494c-b398-0ea0afab70e5.parquet SocketException: Connection reset
+   counts: {read_rangeOK=8, read_scanOK=1, read_seqOK=3, read_seqThrew:SocketException=1, read_tailOK=4}
+== calib-read-fault run=2 seed=2 client=default checksum=false expire=false major=false
+   ops: {0=OK, 1=OK}
+   fault#2 RESET_RESP k=102400 on #79 c23 GetObject key=r2-2/db/t/data/op0-f0-3ea8a03f-439c-435b-af5b-d63b99422ba4.parquet range=bytes=0- len=0 status=206 -> reset-after-102400B-of-266466
+   seq read threw r2-2/db/t/data/op0-f0-3ea8a03f-439c-435b-af5b-d63b99422ba4.parquet SocketException: Connection reset
+   counts: {read_rangeOK=10, read_scanOK=1, read_seqOK=4, read_seqThrew:SocketException=1, read_tailOK=5}
+== calib-read-fault run=3 seed=3 client=default checksum=false expire=false major=false
+   ops: {0=OK, 1=OK}
+   fault#3 RESET_RESP k=102400 on #121 c36 GetObject key=r3-3/db/t/data/op0-f0-462cad1c-3783-43b4-a60f-b1fb5a989236.parquet range=bytes=0- len=0 status=206 -> reset-after-102400B-of-722560
+   seq read threw r3-3/db/t/data/op0-f0-462cad1c-3783-43b4-a60f-b1fb5a989236.parquet SocketException: Connection reset
+   counts: {read_rangeOK=10, read_scanOK=1, read_seqOK=4, read_seqThrew:SocketException=1, read_tailOK=5}
+== calib-read-fault run=4 seed=4 client=default checksum=false expire=false major=false
+   ops: {0=OK, 1=OK}
+   fault#4 RESET_RESP k=102400 on #165 c52 GetObject key=r4-4/db/t/data/op0-f0-3d353555-6de7-4177-bdd4-1bd4a927d5a6.parquet range=bytes=0- len=0 status=206 -> reset-after-102400B-of-724703
+   seq read threw r4-4/db/t/data/op0-f0-3d353555-6de7-4177-bdd4-1bd4a927d5a6.parquet SocketException: Connection reset
+   counts: {read_rangeOK=8, read_scanOK=1, read_seqOK=3, read_seqThrew:SocketException=1, read_tailOK=4}
+== calib-read-fault run=5 seed=5 client=default checksum=false expire=false major=false
+   ops: {0=OK, 1=OK}
+   fault#5 RESET_RESP k=102400 on #203 c65 GetObject key=r5-5/db/t/data/op0-f0-175f1b4e-aade-4e65-a57b-ab6d208d872e.parquet range=bytes=0- len=0 status=206 -> reset-after-102400B-of-269862
+   seq read threw r5-5/db/t/data/op0-f0-175f1b4e-aade-4e65-a57b-ab6d208d872e.parquet SocketException: Connection reset
+   counts: {read_rangeOK=6, read_scanOK=1, read_seqOK=2, read_seqThrew:SocketException=1, read_tailOK=3}
+== calib-read-fault run=6 seed=6 client=default checksum=false expire=false major=false
+   ops: {0=OK, 1=OK}
+   fault#6 RESET_RESP k=102400 on #243 c78 GetObject key=r6-6/db/t/data/op0-f1-1457976a-2e1a-47b7-bac7-8b86eb5cc00c.parquet range=bytes=0- len=0 status=206 -> reset-after-102400B-of-524860
+   seq read threw r6-6/db/t/data/op0-f1-1457976a-2e1a-47b7-bac7-8b86eb5cc00c.parquet SocketException: Connection reset
+   counts: {read_rangeOK=8, read_scanOK=1, read_seqOK=3, read_seqThrew:SocketException=1, read_tailOK=4}
+== calib-read-fault run=7 seed=7 client=default checksum=false expire=false major=false
+   ops: {0=OK, 1=OK}
+   fault#7 RESET_RESP k=102400 on #279 c88 GetObject key=r7-7/db/t/data/op0-f0-db98d248-0537-4c55-b9a0-d61fed48859e.parquet range=bytes=0- len=0 status=206 -> reset-after-102400B-of-543773
+   seq read threw r7-7/db/t/data/op0-f0-db98d248-0537-4c55-b9a0-d61fed48859e.parquet SocketException: Connection reset
+   counts: {read_rangeOK=8, read_scanOK=1, read_seqOK=3, read_seqThrew:SocketException=1, read_tailOK=4}
+== calib-read-fault run=8 seed=8 client=default checksum=false expire=false major=false
+   ops: {0=OK, 1=OK}
+   fault#8 RESET_RESP k=102400 on #313 c98 GetObject key=r8-8/db/t/data/op0-f0-c14588a5-3a34-4d13-92b3-69458472c919.parquet range=bytes=0- len=0 status=206 -> reset-after-102400B-of-412149
+   seq read threw r8-8/db/t/data/op0-f0-c14588a5-3a34-4d13-92b3-69458472c919.parquet SocketException: Connection reset
+   counts: {read_rangeOK=6, read_scanOK=1, read_seqOK=2, read_seqThrew:SocketException=1, read_tailOK=3}
+== calib-read-fault run=9 seed=9 client=default checksum=false expire=false major=false
+   ops: {0=OK, 1=OK}
+   fault#9 RESET_RESP k=102400 on #355 c108 GetObject key=r9-9/db/t/data/op1-f1-15e14a55-332f-48fd-a34b-a358299b5768.parquet range=bytes=0- len=0 status=206 -> reset-after-102400B-of-669650
+   seq read threw r9-9/db/t/data/op1-f1-15e14a55-332f-48fd-a34b-a358299b5768.parquet SocketException: Connection reset
+   counts: {read_rangeOK=12, read_scanOK=1, read_seqOK=5, read_seqThrew:SocketException=1, read_tailOK=6}
+== calib-read-fault run=10 seed=10 client=default checksum=false expire=false major=false
+   ops: {0=OK, 1=OK}
+   fault#10 RESET_RESP k=102400 on #407 c130 GetObject key=r10-10/db/t/data/op0-f0-5abd77b5-2ba2-4fdc-a5c1-0a03ffbc0528.parquet range=bytes=0- len=0 status=206 -> reset-after-102400B-of-262559
+   seq read threw r10-10/db/t/data/op0-f0-5abd77b5-2ba2-4fdc-a5c1-0a03ffbc0528.parquet SocketException: Connection reset
+   counts: {read_rangeOK=8, read_scanOK=1, read_seqOK=3, read_seqThrew:SocketException=1, read_tailOK=4}

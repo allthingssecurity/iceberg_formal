@@ -1,0 +1,462 @@
+TLC2 Version 2026.03.20.190810 (rev: 11bffb1)
+Running breadth-first search Model-Checking with fp 15 and seed 6021595809395407857 with 4 workers on 12 cores with 2731MB heap and 64MB offheap memory [pid: 68458] (Mac OS X 27.2 aarch64, Homebrew 21.0.11 64bit, MSBDiskFPSet, DiskStateQueue).
+Parsing file /Users/I074560/Downloads/experiments/iceberg-verify/r6/kafka-connect/tla/KcSink.tla
+Parsing file /private/var/folders/3q/7yl2z5xd0gjft7y48_t4cw2h0000gn/T/tlc-4396620227802380585/Integers.tla (jar:file:/Users/I074560/Downloads/experiments/redis-lean/tla/tools/tla2tools.jar!/tla2sany/StandardModules/Integers.tla)
+Parsing file /private/var/folders/3q/7yl2z5xd0gjft7y48_t4cw2h0000gn/T/tlc-4396620227802380585/Sequences.tla (jar:file:/Users/I074560/Downloads/experiments/redis-lean/tla/tools/tla2tools.jar!/tla2sany/StandardModules/Sequences.tla)
+Parsing file /private/var/folders/3q/7yl2z5xd0gjft7y48_t4cw2h0000gn/T/tlc-4396620227802380585/FiniteSets.tla (jar:file:/Users/I074560/Downloads/experiments/redis-lean/tla/tools/tla2tools.jar!/tla2sany/StandardModules/FiniteSets.tla)
+Parsing file /private/var/folders/3q/7yl2z5xd0gjft7y48_t4cw2h0000gn/T/tlc-4396620227802380585/TLC.tla (jar:file:/Users/I074560/Downloads/experiments/redis-lean/tla/tools/tla2tools.jar!/tla2sany/StandardModules/TLC.tla)
+Parsing file /private/var/folders/3q/7yl2z5xd0gjft7y48_t4cw2h0000gn/T/tlc-4396620227802380585/_TLCTrace.tla (jar:file:/Users/I074560/Downloads/experiments/redis-lean/tla/tools/tla2tools.jar!/tla2sany/StandardModules/_TLCTrace.tla)
+Parsing file /private/var/folders/3q/7yl2z5xd0gjft7y48_t4cw2h0000gn/T/tlc-4396620227802380585/Naturals.tla (jar:file:/Users/I074560/Downloads/experiments/redis-lean/tla/tools/tla2tools.jar!/tla2sany/StandardModules/Naturals.tla)
+Parsing file /private/var/folders/3q/7yl2z5xd0gjft7y48_t4cw2h0000gn/T/tlc-4396620227802380585/TLCExt.tla (jar:file:/Users/I074560/Downloads/experiments/redis-lean/tla/tools/tla2tools.jar!/tla2sany/StandardModules/TLCExt.tla)
+Semantic processing of module Naturals
+Semantic processing of module Integers
+Semantic processing of module Sequences
+Semantic processing of module FiniteSets
+Semantic processing of module TLC
+Semantic processing of module TLCExt
+Semantic processing of module _TLCTrace
+Semantic processing of module KcSink
+Linting of module TLCExt
+Linting of module _TLCTrace
+Linting of module KcSink
+Starting... (2026-11-03 14:13:38)
+Computing initial states...
+Finished computing initial states: 1 distinct state generated at 2026-11-03 14:13:38.
+Error: Invariant NoDup is violated.
+Error: The behavior up to this point is:
+State 1: <Initial predicate>
+/\ cgo = 0
+/\ ctl = <<>>
+/\ cto = 0
+/\ ccnt = 0
+/\ cbuf = {}
+/\ moves = 0
+/\ fails = 0
+/\ woff = <<(0 :> -1 @@ 1 :> -1), (0 :> -1 @@ 1 :> -1)>>
+/\ srcC = (0 :> -1 @@ 1 :> -1)
+/\ pos = <<(0 :> 0 @@ 1 :> 0), (0 :> 0 @@ 1 :> 0)>>
+/\ cphase = "idle"
+/\ wseen = <<0, 0>>
+/\ table = (<<0, 0>> :> 0 @@ <<0, 1>> :> 0 @@ <<1, 0>> :> 0 @@ <<1, 1>> :> 0)
+/\ tOff = 0
+/\ crashes = 0
+/\ ccur = 0
+/\ rewinds = 0
+/\ committer = <<TRUE, TRUE>>
+/\ up = <<TRUE, TRUE>>
+/\ wbuf = <<{}, {}>>
+/\ cpos = 1
+/\ coord = 1
+/\ worker = <<FALSE, FALSE>>
+/\ owner = (0 :> 1 @@ 1 :> 1)
+/\ nextCid = 1
+
+State 2: <Poll(1,0) line 106, col 3 to line 115, col 76 of module KcSink>
+/\ cgo = 0
+/\ ctl = <<>>
+/\ cto = 0
+/\ ccnt = 0
+/\ cbuf = {}
+/\ moves = 0
+/\ fails = 0
+/\ woff = <<(0 :> 1 @@ 1 :> -1), (0 :> -1 @@ 1 :> -1)>>
+/\ srcC = (0 :> -1 @@ 1 :> -1)
+/\ pos = <<(0 :> 1 @@ 1 :> 0), (0 :> 0 @@ 1 :> 0)>>
+/\ cphase = "idle"
+/\ wseen = <<0, 0>>
+/\ table = (<<0, 0>> :> 0 @@ <<0, 1>> :> 0 @@ <<1, 0>> :> 0 @@ <<1, 1>> :> 0)
+/\ tOff = 0
+/\ crashes = 0
+/\ ccur = 0
+/\ rewinds = 0
+/\ committer = <<TRUE, TRUE>>
+/\ up = <<TRUE, TRUE>>
+/\ wbuf = <<{<<0, 0>>}, {}>>
+/\ cpos = 1
+/\ coord = 1
+/\ worker = <<TRUE, FALSE>>
+/\ owner = (0 :> 1 @@ 1 :> 1)
+/\ nextCid = 1
+
+State 3: <StartCommit line 139, col 3 to line 143, col 81 of module KcSink>
+/\ cgo = 0
+/\ ctl = <<[k |-> "SC", cid |-> 1]>>
+/\ cto = 0
+/\ ccnt = 0
+/\ cbuf = {}
+/\ moves = 0
+/\ fails = 0
+/\ woff = <<(0 :> 1 @@ 1 :> -1), (0 :> -1 @@ 1 :> -1)>>
+/\ srcC = (0 :> -1 @@ 1 :> -1)
+/\ pos = <<(0 :> 1 @@ 1 :> 0), (0 :> 0 @@ 1 :> 0)>>
+/\ cphase = "idle"
+/\ wseen = <<0, 0>>
+/\ table = (<<0, 0>> :> 0 @@ <<0, 1>> :> 0 @@ <<1, 0>> :> 0 @@ <<1, 1>> :> 0)
+/\ tOff = 0
+/\ crashes = 0
+/\ ccur = 1
+/\ rewinds = 0
+/\ committer = <<TRUE, TRUE>>
+/\ up = <<TRUE, TRUE>>
+/\ wbuf = <<{<<0, 0>>}, {}>>
+/\ cpos = 1
+/\ coord = 1
+/\ worker = <<TRUE, FALSE>>
+/\ owner = (0 :> 1 @@ 1 :> 1)
+/\ nextCid = 2
+
+State 4: <Respond(1) line 120, col 3 to line 132, col 76 of module KcSink>
+/\ cgo = 0
+/\ ctl = << [k |-> "SC", cid |-> 1],
+   [k |-> "DW", recs |-> {<<0, 0>>}, cid |-> 1],
+   [k |-> "DC", cid |-> 1, n |-> 2] >>
+/\ cto = 0
+/\ ccnt = 0
+/\ cbuf = {}
+/\ moves = 0
+/\ fails = 0
+/\ woff = <<(0 :> -1 @@ 1 :> -1), (0 :> -1 @@ 1 :> -1)>>
+/\ srcC = (0 :> 1 @@ 1 :> -1)
+/\ pos = <<(0 :> 1 @@ 1 :> 0), (0 :> 0 @@ 1 :> 0)>>
+/\ cphase = "idle"
+/\ wseen = <<1, 0>>
+/\ table = (<<0, 0>> :> 0 @@ <<0, 1>> :> 0 @@ <<1, 0>> :> 0 @@ <<1, 1>> :> 0)
+/\ tOff = 0
+/\ crashes = 0
+/\ ccur = 1
+/\ rewinds = 0
+/\ committer = <<TRUE, TRUE>>
+/\ up = <<TRUE, TRUE>>
+/\ wbuf = <<{}, {}>>
+/\ cpos = 1
+/\ coord = 1
+/\ worker = <<TRUE, FALSE>>
+/\ owner = (0 :> 1 @@ 1 :> 1)
+/\ nextCid = 2
+
+State 5: <Read line 146, col 3 to line 157, col 76 of module KcSink>
+/\ cgo = 0
+/\ ctl = << [k |-> "SC", cid |-> 1],
+   [k |-> "DW", recs |-> {<<0, 0>>}, cid |-> 1],
+   [k |-> "DC", cid |-> 1, n |-> 2] >>
+/\ cto = 2
+/\ ccnt = 0
+/\ cbuf = {}
+/\ moves = 0
+/\ fails = 0
+/\ woff = <<(0 :> -1 @@ 1 :> -1), (0 :> -1 @@ 1 :> -1)>>
+/\ srcC = (0 :> 1 @@ 1 :> -1)
+/\ pos = <<(0 :> 1 @@ 1 :> 0), (0 :> 0 @@ 1 :> 0)>>
+/\ cphase = "idle"
+/\ wseen = <<1, 0>>
+/\ table = (<<0, 0>> :> 0 @@ <<0, 1>> :> 0 @@ <<1, 0>> :> 0 @@ <<1, 1>> :> 0)
+/\ tOff = 0
+/\ crashes = 0
+/\ ccur = 1
+/\ rewinds = 0
+/\ committer = <<TRUE, TRUE>>
+/\ up = <<TRUE, TRUE>>
+/\ wbuf = <<{}, {}>>
+/\ cpos = 2
+/\ coord = 1
+/\ worker = <<TRUE, FALSE>>
+/\ owner = (0 :> 1 @@ 1 :> 1)
+/\ nextCid = 2
+
+State 6: <Read line 146, col 3 to line 157, col 76 of module KcSink>
+/\ cgo = 0
+/\ ctl = << [k |-> "SC", cid |-> 1],
+   [k |-> "DW", recs |-> {<<0, 0>>}, cid |-> 1],
+   [k |-> "DC", cid |-> 1, n |-> 2] >>
+/\ cto = 3
+/\ ccnt = 0
+/\ cbuf = {2}
+/\ moves = 0
+/\ fails = 0
+/\ woff = <<(0 :> -1 @@ 1 :> -1), (0 :> -1 @@ 1 :> -1)>>
+/\ srcC = (0 :> 1 @@ 1 :> -1)
+/\ pos = <<(0 :> 1 @@ 1 :> 0), (0 :> 0 @@ 1 :> 0)>>
+/\ cphase = "idle"
+/\ wseen = <<1, 0>>
+/\ table = (<<0, 0>> :> 0 @@ <<0, 1>> :> 0 @@ <<1, 0>> :> 0 @@ <<1, 1>> :> 0)
+/\ tOff = 0
+/\ crashes = 0
+/\ ccur = 1
+/\ rewinds = 0
+/\ committer = <<TRUE, TRUE>>
+/\ up = <<TRUE, TRUE>>
+/\ wbuf = <<{}, {}>>
+/\ cpos = 3
+/\ coord = 1
+/\ worker = <<TRUE, FALSE>>
+/\ owner = (0 :> 1 @@ 1 :> 1)
+/\ nextCid = 2
+
+State 7: <Rewind line 200, col 3 to line 203, col 93 of module KcSink>
+/\ cgo = 0
+/\ ctl = << [k |-> "SC", cid |-> 1],
+   [k |-> "DW", recs |-> {<<0, 0>>}, cid |-> 1],
+   [k |-> "DC", cid |-> 1, n |-> 2] >>
+/\ cto = 3
+/\ ccnt = 0
+/\ cbuf = {2}
+/\ moves = 0
+/\ fails = 0
+/\ woff = <<(0 :> -1 @@ 1 :> -1), (0 :> -1 @@ 1 :> -1)>>
+/\ srcC = (0 :> 1 @@ 1 :> -1)
+/\ pos = <<(0 :> 1 @@ 1 :> 0), (0 :> 0 @@ 1 :> 0)>>
+/\ cphase = "idle"
+/\ wseen = <<1, 0>>
+/\ table = (<<0, 0>> :> 0 @@ <<0, 1>> :> 0 @@ <<1, 0>> :> 0 @@ <<1, 1>> :> 0)
+/\ tOff = 0
+/\ crashes = 0
+/\ ccur = 1
+/\ rewinds = 1
+/\ committer = <<TRUE, TRUE>>
+/\ up = <<TRUE, TRUE>>
+/\ wbuf = <<{}, {}>>
+/\ cpos = 1
+/\ coord = 1
+/\ worker = <<TRUE, FALSE>>
+/\ owner = (0 :> 1 @@ 1 :> 1)
+/\ nextCid = 2
+
+State 8: <Read line 146, col 3 to line 157, col 76 of module KcSink>
+/\ cgo = 0
+/\ ctl = << [k |-> "SC", cid |-> 1],
+   [k |-> "DW", recs |-> {<<0, 0>>}, cid |-> 1],
+   [k |-> "DC", cid |-> 1, n |-> 2] >>
+/\ cto = 2
+/\ ccnt = 0
+/\ cbuf = {2}
+/\ moves = 0
+/\ fails = 0
+/\ woff = <<(0 :> -1 @@ 1 :> -1), (0 :> -1 @@ 1 :> -1)>>
+/\ srcC = (0 :> 1 @@ 1 :> -1)
+/\ pos = <<(0 :> 1 @@ 1 :> 0), (0 :> 0 @@ 1 :> 0)>>
+/\ cphase = "idle"
+/\ wseen = <<1, 0>>
+/\ table = (<<0, 0>> :> 0 @@ <<0, 1>> :> 0 @@ <<1, 0>> :> 0 @@ <<1, 1>> :> 0)
+/\ tOff = 0
+/\ crashes = 0
+/\ ccur = 1
+/\ rewinds = 1
+/\ committer = <<TRUE, TRUE>>
+/\ up = <<TRUE, TRUE>>
+/\ wbuf = <<{}, {}>>
+/\ cpos = 2
+/\ coord = 1
+/\ worker = <<TRUE, FALSE>>
+/\ owner = (0 :> 1 @@ 1 :> 1)
+/\ nextCid = 2
+
+State 9: <Timeout line 161, col 3 to line 164, col 99 of module KcSink>
+/\ cgo = 0
+/\ ctl = << [k |-> "SC", cid |-> 1],
+   [k |-> "DW", recs |-> {<<0, 0>>}, cid |-> 1],
+   [k |-> "DC", cid |-> 1, n |-> 2] >>
+/\ cto = 2
+/\ ccnt = 0
+/\ cbuf = {2}
+/\ moves = 0
+/\ fails = 0
+/\ woff = <<(0 :> -1 @@ 1 :> -1), (0 :> -1 @@ 1 :> -1)>>
+/\ srcC = (0 :> 1 @@ 1 :> -1)
+/\ pos = <<(0 :> 1 @@ 1 :> 0), (0 :> 0 @@ 1 :> 0)>>
+/\ cphase = "table"
+/\ wseen = <<1, 0>>
+/\ table = (<<0, 0>> :> 0 @@ <<0, 1>> :> 0 @@ <<1, 0>> :> 0 @@ <<1, 1>> :> 0)
+/\ tOff = 0
+/\ crashes = 0
+/\ ccur = 1
+/\ rewinds = 1
+/\ committer = <<TRUE, TRUE>>
+/\ up = <<TRUE, TRUE>>
+/\ wbuf = <<{}, {}>>
+/\ cpos = 2
+/\ coord = 1
+/\ worker = <<TRUE, FALSE>>
+/\ owner = (0 :> 1 @@ 1 :> 1)
+/\ nextCid = 2
+
+State 10: <CommitTable line 170, col 3 to line 177, col 86 of module KcSink>
+/\ cgo = 0
+/\ ctl = << [k |-> "SC", cid |-> 1],
+   [k |-> "DW", recs |-> {<<0, 0>>}, cid |-> 1],
+   [k |-> "DC", cid |-> 1, n |-> 2] >>
+/\ cto = 2
+/\ ccnt = 0
+/\ cbuf = {2}
+/\ moves = 0
+/\ fails = 0
+/\ woff = <<(0 :> -1 @@ 1 :> -1), (0 :> -1 @@ 1 :> -1)>>
+/\ srcC = (0 :> 1 @@ 1 :> -1)
+/\ pos = <<(0 :> 1 @@ 1 :> 0), (0 :> 0 @@ 1 :> 0)>>
+/\ cphase = "offsets"
+/\ wseen = <<1, 0>>
+/\ table = (<<0, 0>> :> 1 @@ <<0, 1>> :> 0 @@ <<1, 0>> :> 0 @@ <<1, 1>> :> 0)
+/\ tOff = 2
+/\ crashes = 0
+/\ ccur = 1
+/\ rewinds = 1
+/\ committer = <<TRUE, TRUE>>
+/\ up = <<TRUE, TRUE>>
+/\ wbuf = <<{}, {}>>
+/\ cpos = 2
+/\ coord = 1
+/\ worker = <<TRUE, FALSE>>
+/\ owner = (0 :> 1 @@ 1 :> 1)
+/\ nextCid = 2
+
+State 11: <CommitOffsets line 191, col 3 to line 195, col 76 of module KcSink>
+/\ cgo = 2
+/\ ctl = << [k |-> "SC", cid |-> 1],
+   [k |-> "DW", recs |-> {<<0, 0>>}, cid |-> 1],
+   [k |-> "DC", cid |-> 1, n |-> 2] >>
+/\ cto = 2
+/\ ccnt = 0
+/\ cbuf = {}
+/\ moves = 0
+/\ fails = 0
+/\ woff = <<(0 :> -1 @@ 1 :> -1), (0 :> -1 @@ 1 :> -1)>>
+/\ srcC = (0 :> 1 @@ 1 :> -1)
+/\ pos = <<(0 :> 1 @@ 1 :> 0), (0 :> 0 @@ 1 :> 0)>>
+/\ cphase = "idle"
+/\ wseen = <<1, 0>>
+/\ table = (<<0, 0>> :> 1 @@ <<0, 1>> :> 0 @@ <<1, 0>> :> 0 @@ <<1, 1>> :> 0)
+/\ tOff = 2
+/\ crashes = 0
+/\ ccur = 0
+/\ rewinds = 1
+/\ committer = <<TRUE, TRUE>>
+/\ up = <<TRUE, TRUE>>
+/\ wbuf = <<{}, {}>>
+/\ cpos = 2
+/\ coord = 1
+/\ worker = <<TRUE, FALSE>>
+/\ owner = (0 :> 1 @@ 1 :> 1)
+/\ nextCid = 2
+
+State 12: <Read line 146, col 3 to line 157, col 76 of module KcSink>
+/\ cgo = 2
+/\ ctl = << [k |-> "SC", cid |-> 1],
+   [k |-> "DW", recs |-> {<<0, 0>>}, cid |-> 1],
+   [k |-> "DC", cid |-> 1, n |-> 2] >>
+/\ cto = 3
+/\ ccnt = 0
+/\ cbuf = {2}
+/\ moves = 0
+/\ fails = 0
+/\ woff = <<(0 :> -1 @@ 1 :> -1), (0 :> -1 @@ 1 :> -1)>>
+/\ srcC = (0 :> 1 @@ 1 :> -1)
+/\ pos = <<(0 :> 1 @@ 1 :> 0), (0 :> 0 @@ 1 :> 0)>>
+/\ cphase = "idle"
+/\ wseen = <<1, 0>>
+/\ table = (<<0, 0>> :> 1 @@ <<0, 1>> :> 0 @@ <<1, 0>> :> 0 @@ <<1, 1>> :> 0)
+/\ tOff = 2
+/\ crashes = 0
+/\ ccur = 0
+/\ rewinds = 1
+/\ committer = <<TRUE, TRUE>>
+/\ up = <<TRUE, TRUE>>
+/\ wbuf = <<{}, {}>>
+/\ cpos = 3
+/\ coord = 1
+/\ worker = <<TRUE, FALSE>>
+/\ owner = (0 :> 1 @@ 1 :> 1)
+/\ nextCid = 2
+
+State 13: <StartCommit line 139, col 3 to line 143, col 81 of module KcSink>
+/\ cgo = 2
+/\ ctl = << [k |-> "SC", cid |-> 1],
+   [k |-> "DW", recs |-> {<<0, 0>>}, cid |-> 1],
+   [k |-> "DC", cid |-> 1, n |-> 2],
+   [k |-> "SC", cid |-> 2] >>
+/\ cto = 3
+/\ ccnt = 0
+/\ cbuf = {2}
+/\ moves = 0
+/\ fails = 0
+/\ woff = <<(0 :> -1 @@ 1 :> -1), (0 :> -1 @@ 1 :> -1)>>
+/\ srcC = (0 :> 1 @@ 1 :> -1)
+/\ pos = <<(0 :> 1 @@ 1 :> 0), (0 :> 0 @@ 1 :> 0)>>
+/\ cphase = "idle"
+/\ wseen = <<1, 0>>
+/\ table = (<<0, 0>> :> 1 @@ <<0, 1>> :> 0 @@ <<1, 0>> :> 0 @@ <<1, 1>> :> 0)
+/\ tOff = 2
+/\ crashes = 0
+/\ ccur = 2
+/\ rewinds = 1
+/\ committer = <<TRUE, TRUE>>
+/\ up = <<TRUE, TRUE>>
+/\ wbuf = <<{}, {}>>
+/\ cpos = 3
+/\ coord = 1
+/\ worker = <<TRUE, FALSE>>
+/\ owner = (0 :> 1 @@ 1 :> 1)
+/\ nextCid = 3
+
+State 14: <Timeout line 161, col 3 to line 164, col 99 of module KcSink>
+/\ cgo = 2
+/\ ctl = << [k |-> "SC", cid |-> 1],
+   [k |-> "DW", recs |-> {<<0, 0>>}, cid |-> 1],
+   [k |-> "DC", cid |-> 1, n |-> 2],
+   [k |-> "SC", cid |-> 2] >>
+/\ cto = 3
+/\ ccnt = 0
+/\ cbuf = {2}
+/\ moves = 0
+/\ fails = 0
+/\ woff = <<(0 :> -1 @@ 1 :> -1), (0 :> -1 @@ 1 :> -1)>>
+/\ srcC = (0 :> 1 @@ 1 :> -1)
+/\ pos = <<(0 :> 1 @@ 1 :> 0), (0 :> 0 @@ 1 :> 0)>>
+/\ cphase = "table"
+/\ wseen = <<1, 0>>
+/\ table = (<<0, 0>> :> 1 @@ <<0, 1>> :> 0 @@ <<1, 0>> :> 0 @@ <<1, 1>> :> 0)
+/\ tOff = 2
+/\ crashes = 0
+/\ ccur = 2
+/\ rewinds = 1
+/\ committer = <<TRUE, TRUE>>
+/\ up = <<TRUE, TRUE>>
+/\ wbuf = <<{}, {}>>
+/\ cpos = 3
+/\ coord = 1
+/\ worker = <<TRUE, FALSE>>
+/\ owner = (0 :> 1 @@ 1 :> 1)
+/\ nextCid = 3
+
+State 15: <CommitTable line 170, col 3 to line 177, col 86 of module KcSink>
+/\ cgo = 2
+/\ ctl = << [k |-> "SC", cid |-> 1],
+   [k |-> "DW", recs |-> {<<0, 0>>}, cid |-> 1],
+   [k |-> "DC", cid |-> 1, n |-> 2],
+   [k |-> "SC", cid |-> 2] >>
+/\ cto = 3
+/\ ccnt = 0
+/\ cbuf = {2}
+/\ moves = 0
+/\ fails = 0
+/\ woff = <<(0 :> -1 @@ 1 :> -1), (0 :> -1 @@ 1 :> -1)>>
+/\ srcC = (0 :> 1 @@ 1 :> -1)
+/\ pos = <<(0 :> 1 @@ 1 :> 0), (0 :> 0 @@ 1 :> 0)>>
+/\ cphase = "offsets"
+/\ wseen = <<1, 0>>
+/\ table = (<<0, 0>> :> 2 @@ <<0, 1>> :> 0 @@ <<1, 0>> :> 0 @@ <<1, 1>> :> 0)
+/\ tOff = 3
+/\ crashes = 0
+/\ ccur = 2
+/\ rewinds = 1
+/\ committer = <<TRUE, TRUE>>
+/\ up = <<TRUE, TRUE>>
+/\ wbuf = <<{}, {}>>
+/\ cpos = 3
+/\ coord = 1
+/\ worker = <<TRUE, FALSE>>
+/\ owner = (0 :> 1 @@ 1 :> 1)
+/\ nextCid = 3
+
+537656 states generated, 231068 distinct states found, 100286 states left on queue.
+The depth of the complete state graph search is 16.
+Finished in 01s at (2026-11-03 14:13:39)
+Trace exploration spec path: ./KcSink_TTrace_1793695417.tla

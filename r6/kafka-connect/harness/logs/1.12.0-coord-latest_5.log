@@ -1,0 +1,33 @@
+[iceberg-kafka-connect-1.12.0.jar] coord-latest run 1: BAD {db.tbl=produced=20 lost=20 dupRows=0 dupFiles=0 uncommittedMissing=0 snapshots=0 lostSample: p0@0 p0@1 p0@2 p0@3 p0@4 p0@5 p0@6 p0@7 p0@8 p0@9 p1@0 p1@1 p1@2 p1@3 p1@4 p1@5 p1@6 p1@7 p1@8 p1@9} committedSrc={0=10, 1=10} failures={} injected=0
+  -- emu trace (7)
+     start task0 #1
+     start task1 #1
+     assignAll task0 [src-0] gen=1
+     assignAll task1 [src-1] gen=1
+     CRASH task0 (held [src-0])
+     assign task1 [src-0] gen=3
+     start task0 #2
+  -- kafka events (20)
+     ctl-group connect-sink-coord rebalance gen=1 members=1
+     join connect-sink-coord m1 task0 gen=1 pos={0=0}
+     ctl-group cg-control-4a439a8e-32cc-4589-8105-04d8f4faedac rebalance gen=1 members=1
+     join cg-control-4a439a8e-32cc-4589-8105-04d8f4faedac m2 task0 gen=1 pos={0=0}
+     ctl-group cg-control-32cafbdb-9c78-437f-a8c0-fcc057055395 rebalance gen=1 members=1
+     join cg-control-32cafbdb-9c78-437f-a8c0-fcc057055395 m3 task1 gen=1 pos={0=0}
+     leave cg-control-4a439a8e-32cc-4589-8105-04d8f4faedac m2 task0
+     leave connect-sink-coord m1 task0
+     ctl-group connect-sink-coord rebalance gen=2 members=1
+     join connect-sink-coord m4 task1 gen=2 pos={0=5}
+     commitSync connect-sink-coord task1 {ctl-0=OffsetAndMetadata{offset=7, leaderEpoch=null, metadata=''}}
+     commitSync connect-sink-coord task1 {ctl-0=OffsetAndMetadata{offset=9, leaderEpoch=null, metadata=''}}
+     commitSync connect-sink-coord task1 {ctl-0=OffsetAndMetadata{offset=13, leaderEpoch=null, metadata=''}}
+     commitSync connect-sink-coord task1 {ctl-0=OffsetAndMetadata{offset=16, leaderEpoch=null, metadata=''}}
+     commitSync connect-sink-coord task1 {ctl-0=OffsetAndMetadata{offset=18, leaderEpoch=null, metadata=''}}
+     commitSync connect-sink-coord task1 {ctl-0=OffsetAndMetadata{offset=22, leaderEpoch=null, metadata=''}}
+  -- catalog faults []
+  -- first task failure:null
+[iceberg-kafka-connect-1.12.0.jar] coord-latest run 2: BAD {db.tbl=produced=20 lost=20 dupRows=0 dupFiles=0 uncommittedMissing=0 snapshots=0 lostSample: p0@0 p0@1 p0@2 p0@3 p0@4 p0@5 p0@6 p0@7 p0@8 p0@9 p1@0 p1@1 p1@2 p1@3 p1@4 p1@5 p1@6 p1@7 p1@8 p1@9} committedSrc={0=10, 1=10} failures={} injected=0
+[iceberg-kafka-connect-1.12.0.jar] coord-latest run 3: BAD {db.tbl=produced=20 lost=20 dupRows=0 dupFiles=0 uncommittedMissing=0 snapshots=0 lostSample: p0@0 p0@1 p0@2 p0@3 p0@4 p0@5 p0@6 p0@7 p0@8 p0@9 p1@0 p1@1 p1@2 p1@3 p1@4 p1@5 p1@6 p1@7 p1@8 p1@9} committedSrc={0=10, 1=10} failures={} injected=0
+[iceberg-kafka-connect-1.12.0.jar] coord-latest run 4: BAD {db.tbl=produced=20 lost=20 dupRows=0 dupFiles=0 uncommittedMissing=0 snapshots=0 lostSample: p0@0 p0@1 p0@2 p0@3 p0@4 p0@5 p0@6 p0@7 p0@8 p0@9 p1@0 p1@1 p1@2 p1@3 p1@4 p1@5 p1@6 p1@7 p1@8 p1@9} committedSrc={0=10, 1=10} failures={} injected=0
+[iceberg-kafka-connect-1.12.0.jar] coord-latest run 5: BAD {db.tbl=produced=20 lost=20 dupRows=0 dupFiles=0 uncommittedMissing=0 snapshots=0 lostSample: p0@0 p0@1 p0@2 p0@3 p0@4 p0@5 p0@6 p0@7 p0@8 p0@9 p1@0 p1@1 p1@2 p1@3 p1@4 p1@5 p1@6 p1@7 p1@8 p1@9} committedSrc={0=10, 1=10} failures={} injected=0
+SUMMARY [iceberg-kafka-connect-1.12.0.jar] coord-latest {} BAD 5/5

@@ -1,0 +1,15 @@
+cal1_prefix: Error: Invariant NoLoss is violated. 1929 states generated, 1120 distinct states found, 639 states left on queue. 
+cal1_fixed: Model checking completed. No error has been found. 4737648 states generated, 1885928 distinct states found, 0 states left on queue. 
+cal2_put_rewind: Error: Invariant NoDup is violated. 537656 states generated, 231068 distinct states found, 100286 states left on queue. 
+cal2_max_rewind: Model checking completed. No error has been found. 21726613 states generated, 8075783 distinct states found, 0 states left on queue. 
+f1_seeknull_skip: Error: Invariant NoLoss is violated. 1251 states generated, 745 distinct states found, 477 states left on queue. 
+f2_latest_crash: Error: Invariant NoLoss is violated. 687 states generated, 365 distinct states found, 240 states left on queue. 
+f2_latest_move: Error: Invariant NoLoss is violated. 263 states generated, 144 distinct states found, 85 states left on queue. 
+f2_latest_fail: Error: Invariant NoLoss is violated. 559 states generated, 315 distinct states found, 203 states left on queue. 
+f2_earliest_fail: Model checking completed. No error has been found. 36220170 states generated, 13020018 distinct states found, 0 states left on queue. 
+rel112_all: Error: Invariant NoLoss is violated. 909 states generated, 527 distinct states found, 366 states left on queue. 
+fix112_all: Model checking completed. No error has been found. 162312270 states generated, 55235585 distinct states found, 0 states left on queue. 
+fix112_all_retry: Model checking completed. No error has been found. 182633140 states generated, 60608300 distinct states found, 0 states left on queue. 
+wit_fix_commits: Error: Invariant W_AllCommitted is violated. 28718 states generated, 12865 distinct states found, 7342 states left on queue. 
+wit_fix_rewinds: Error: Invariant W_Rewound is violated. 265 states generated, 147 distinct states found, 92 states left on queue. 
+neg_unknown_close: Error: Assumption line 39, col 8 to line 39, col 36 of module KcSink is false. 
