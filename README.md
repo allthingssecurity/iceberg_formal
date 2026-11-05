@@ -122,6 +122,17 @@ Kafka Connect or another writer.
 
 Details: `findings/r6-kafka-connect.md`, `findings/r6-objstore.md`.
 
+## Round 7: streaming ingestion, with Specula
+
+Does data streamed from Kafka or Flink land in Iceberg exactly once? This round used the
+[Specula](https://github.com/specula-org/Specula) workflow (code analysis, a TLA+ model checked against
+traces from the real code, model checking, then reproduction of every suspect) on the Kafka Connect sink,
+and the same steps by hand on the Flink sinks. New, real bugs include record loss and table corruption
+during a rolling upgrade across 1.11, record loss when the control topic is re-created or has several
+partitions, a bounded Flink job dropping a writer's last batch, and several ways ingestion silently stops
+while Kafka lag looks healthy. The write-up, in plain words, with what was checked on released jars and
+what was not: [`r7-streaming/README.md`](r7-streaming/README.md).
+
 ## Upstream PRs
 
 Draft fix PRs, each with a regression test that fails on main and passes with the fix:

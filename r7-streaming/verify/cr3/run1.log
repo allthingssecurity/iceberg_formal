@@ -1,0 +1,653 @@
+[current] system under test: file:/Users/I074560/.gradle/caches/modules-2/files-2.1/org.apache.iceberg/iceberg-kafka-connect/1.12.0/8b6b8a3cb462113922453b7963c38f6dd3e0014f/iceberg-kafka-connect-1.12.0.jar
+[current] iceberg version of system under test: Apache Iceberg 1.12.0 (commit 212aa894e919ff9fdf89160da4aadcbe6858ac01)
+
+==================== SCENARIO A1-rolling-legacy-jdbc ====================
+[main] INFO org.apache.iceberg.connect.IcebergSinkConfig - IcebergSinkConfig values: 
+	iceberg.catalog = iceberg
+	iceberg.connect.group-id = null
+	iceberg.control.commit.interval-ms = 0
+	iceberg.control.commit.max-consecutive-failures = 1
+	iceberg.control.commit.threads = 1
+	iceberg.control.commit.timeout-ms = 600000
+	iceberg.control.group-id-prefix = cg-control-
+	iceberg.control.topic = control-iceberg
+	iceberg.coordinator-executor-keep-alive-timeout-ms = 120000
+	iceberg.coordinator.transactional.prefix = null
+	iceberg.hadoop-conf-dir = null
+	iceberg.tables = [db.tbl]
+	iceberg.tables.auto-create-enabled = false
+	iceberg.tables.default-commit-branch = null
+	iceberg.tables.default-id-columns = null
+	iceberg.tables.default-partition-by = null
+	iceberg.tables.dynamic-enabled = false
+	iceberg.tables.evolve-schema-enabled = false
+	iceberg.tables.route-field = null
+	iceberg.tables.schema-case-insensitive = false
+	iceberg.tables.schema-force-optional = false
+
+[main] INFO org.apache.iceberg.connect.IcebergSinkConfig - Worker properties not loaded, using only iceberg.kafka.* properties for Kafka clients
+[current] connector config: catalog={catalog-impl=org.apache.iceberg.jdbc.JdbcCatalog, jdbc.schema-version=V1, warehouse=file:/Users/I074560/Downloads/experiments/iceberg-verify/r7/lead-verify/cr3/run/A1-rolling-legacy-jdbc/warehouse, uri=jdbc:sqlite:file:/Users/I074560/Downloads/experiments/iceberg-verify/r7/lead-verify/cr3/run/A1-rolling-legacy-jdbc/catalog.db} control-topic=control-iceberg group=connect-cr3-sink
+[main] WARN org.apache.hadoop.util.NativeCodeLoader - Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+[current] operator: created db.tbl uuid U1=791468e9-2c1e-4c74-8269-e5bd198dc87d location=file:/Users/I074560/Downloads/experiments/iceberg-verify/r7/lead-verify/cr3/run/A1-rolling-legacy-jdbc/warehouse/db/tbl schema=(1:id long, 2:data string)
+[main] INFO org.apache.iceberg.connect.CatalogUtils - Hadoop config initialized: org.apache.hadoop.hdfs.HdfsConfiguration
+[main] INFO org.apache.iceberg.connect.channel.Channel - Sending event of type: START_COMMIT
+[main] INFO org.apache.iceberg.connect.channel.Coordinator - Coordinator cr3-sink-0 initiated commit 1c3110cb-6414-4233-b46f-4a901871f144
+[current] current coordinator sent START_COMMIT commitId=1c3110cb-6414-4233-b46f-4a901871f144
+[current] spawning legacy 1.10.2 sink JVM: mode=respond
+    [main] INFO org.apache.iceberg.connect.IcebergSinkConfig - IcebergSinkConfig values: 
+    	iceberg.catalog = iceberg
+    	iceberg.connect.group-id = null
+    	iceberg.control.commit.interval-ms = 0
+    	iceberg.control.commit.threads = 1
+    	iceberg.control.commit.timeout-ms = 600000
+    	iceberg.control.group-id-prefix = cg-control-
+    	iceberg.control.topic = control-iceberg
+    	iceberg.coordinator-executor-keep-alive-timeout-ms = 120000
+    	iceberg.coordinator.transactional.prefix = null
+    	iceberg.hadoop-conf-dir = null
+    	iceberg.tables = [db.tbl]
+    	iceberg.tables.auto-create-enabled = false
+    	iceberg.tables.default-commit-branch = null
+    	iceberg.tables.default-id-columns = null
+    	iceberg.tables.default-partition-by = null
+    	iceberg.tables.dynamic-enabled = false
+    	iceberg.tables.evolve-schema-enabled = false
+    	iceberg.tables.route-field = null
+    	iceberg.tables.schema-case-insensitive = false
+    	iceberg.tables.schema-force-optional = false
+    
+    [main] INFO org.apache.iceberg.connect.IcebergSinkConfig - Worker properties not loaded, using only iceberg.kafka.* properties for Kafka clients
+    [legacy-1.10.2] running Iceberg Kafka Connect 1.10.2 from file:/Users/I074560/Downloads/experiments/iceberg-verify/r7/lead-verify/cr3/legacy-lib/iceberg-kafka-connect-1.10.2.jar
+    [legacy-1.10.2] mode=respond connectGroupId=connect-cr3-sink
+    [main] INFO org.apache.iceberg.connect.CatalogUtils - Hadoop config initialized: org.apache.hadoop.hdfs.HdfsConfiguration
+    [legacy-1.10.2] catalog=org.apache.iceberg.jdbc.JdbcCatalog name=iceberg
+    [main] WARN org.apache.hadoop.util.NativeCodeLoader - Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+    [legacy-1.10.2] 1.10.2 worker buffered 3 source records (src-topic:0 offsets 0..2)
+    [legacy-1.10.2] 1.10.2 worker consumed START_COMMIT commitId=1c3110cb-6414-4233-b46f-4a901871f144
+    [main] INFO org.apache.iceberg.connect.channel.Channel - Sending event of type: DATA_WRITTEN
+    [main] INFO org.apache.iceberg.connect.channel.Channel - Sending event of type: DATA_COMPLETE
+    [main] INFO org.apache.iceberg.connect.channel.Channel - Handled event of type: START_COMMIT
+    [legacy-1.10.2] 1.10.2 worker sent DATA_WRITTEN commitId=1c3110cb-6414-4233-b46f-4a901871f144 tableReference={catalog=iceberg, identifier=db.tbl} writerSchemaHasTableUuidField=false dataFile=file:/Users/I074560/Downloads/experiments/iceberg-verify/r7/lead-verify/cr3/run/A1-rolling-legacy-jdbc/warehouse/db/tbl/data/00001-1793833749957-fa84191e-7d4f-498a-9a46-496fb89d7b77-00001.parquet (3 rows)
+    [legacy-1.10.2] 1.10.2 worker sent DATA_COMPLETE commitId=1c3110cb-6414-4233-b46f-4a901871f144 assignments=[src-topic:0@3]
+    [legacy-1.10.2] 1.10.2 worker committed source offsets in its transaction: [{dummy.group.id={src-topic-0=OffsetAndMetadata{offset=3, leaderEpoch=null, metadata=''}}}]
+    [legacy-1.10.2] wrote 2 control record(s) to /Users/I074560/Downloads/experiments/iceberg-verify/r7/lead-verify/cr3/run/A1-rolling-legacy-jdbc/job/ctl-out
+[current] operator: DROP TABLE db.tbl (purge=false) -> true; CREATE TABLE db.tbl uuid U2=e7ff3b74-3b5c-48d5-ac7c-d1ef2627027f location=file:/Users/I074560/Downloads/experiments/iceberg-verify/r7/lead-verify/cr3/run/A1-rolling-legacy-jdbc/warehouse/db/tbl schema=(1:id string, 2:data string)
+[current] coordinator consumes DATA_WRITTEN commitId=1c3110cb-6414-4233-b46f-4a901871f144 tableReference={identifier=db.tbl, uuid=null} files=[file:/Users/I074560/Downloads/experiments/iceberg-verify/r7/lead-verify/cr3/run/A1-rolling-legacy-jdbc/warehouse/db/tbl/data/00001-1793833749957-fa84191e-7d4f-498a-9a46-496fb89d7b77-00001.parquet]
+[current] coordinator consumes DATA_COMPLETE commitId=1c3110cb-6414-4233-b46f-4a901871f144
+[main] INFO org.apache.iceberg.connect.channel.Channel - Handled event of type: DATA_WRITTEN
+[main] INFO org.apache.iceberg.connect.channel.CommitState - Commit 1c3110cb-6414-4233-b46f-4a901871f144 ready, received responses for all 1 partitions
+[iceberg-committer-0] INFO org.apache.iceberg.connect.channel.Channel - Sending event of type: COMMIT_TO_TABLE
+[current] coordinator THREW -> CoordinatorThread: "Coordinator error during process, exiting thread": java.lang.IllegalArgumentException: Invalid field position: 3
+[current]       at org.apache.iceberg.relocated.com.google.common.base.Preconditions.checkArgument(Preconditions.java:142)
+[current]       at org.apache.iceberg.connect.events.AvroUtil.positionToId(AvroUtil.java:88)
+[current]       at org.apache.iceberg.connect.events.TableReference.get(TableReference.java:129)
+[current]       at org.apache.iceberg.avro.ValueWriters$RecordWriter.get(ValueWriters.java:597)
+[current]       at org.apache.iceberg.avro.ValueWriters$RecordWriter.get(ValueWriters.java:589)
+[current]       at org.apache.iceberg.avro.ValueWriters$StructWriter.write(ValueWriters.java:584)
+[current]       at org.apache.iceberg.avro.ValueWriters$StructWriter.write(ValueWriters.java:584)
+[current]       at org.apache.iceberg.avro.ValueWriters$StructWriter.write(ValueWriters.java:584)
+[current]       at org.apache.iceberg.avro.GenericAvroWriter.write(GenericAvroWriter.java:47)
+[current]       at org.apache.iceberg.avro.AvroEncoderUtil.encode(AvroEncoderUtil.java:60)
+[current]       at org.apache.iceberg.connect.events.AvroUtil.encode(AvroUtil.java:55)
+[current]       at org.apache.iceberg.connect.channel.Channel.lambda$send$1(Channel.java:91)
+[current] coordinator produced START_COMMIT commitId=1c3110cb-6414-4233-b46f-4a901871f144
+[current] coordinator committed control-topic offsets: []
+[current] [after the commit cycle] table db.tbl uuid=e7ff3b74-3b5c-48d5-ac7c-d1ef2627027f (U1=791468e9-2c1e-4c74-8269-e5bd198dc87d) snapshots=1
+[current]   current snapshot 1559945427929611858 summary: commit-id=1c3110cb-6414-4233-b46f-4a901871f144 offsets={"0":3} added-records=3
+[current]   references data file file:/Users/I074560/Downloads/experiments/iceberg-verify/r7/lead-verify/cr3/run/A1-rolling-legacy-jdbc/warehouse/db/tbl/data/00001-1793833749957-fa84191e-7d4f-498a-9a46-496fb89d7b77-00001.parquet records=3 specId=0 exists=true  <== written by the worker for table U1
+[current]     that file's own (writer) schema: (1:id long, 2:data string)
+[current]   table schema:                       (1:id string, 2:data string)
+[current]   row: id[string]=1 (java Long) data[string]=row-1 (java String) 
+[current]   typed read of string column 'id' FAILED: java.lang.IllegalStateException: Not an instance of java.lang.CharSequence: 1
+[current]   row: id[string]=2 (java Long) data[string]=row-2 (java String) 
+[current]   typed read of string column 'id' FAILED: java.lang.IllegalStateException: Not an instance of java.lang.CharSequence: 2
+[current]   row: id[string]=3 (java Long) data[string]=row-3 (java String) 
+[current]   typed read of string column 'id' FAILED: java.lang.IllegalStateException: Not an instance of java.lang.CharSequence: 3
+[current] IcebergGenerics.read(U2) returned 3 row(s)
+
+==================== A1-rolling-legacy-jdbc: task restart -> new coordinator resumes from checkpoint null (none -> auto.offset.reset=latest) ====================
+[main] INFO org.apache.iceberg.connect.CatalogUtils - Hadoop config initialized: org.apache.hadoop.hdfs.HdfsConfiguration
+[main] INFO org.apache.iceberg.connect.channel.Channel - Sending event of type: START_COMMIT
+[main] INFO org.apache.iceberg.connect.channel.Coordinator - Coordinator cr3-sink-0 initiated commit 4c98dca8-966f-4858-94d9-27f6270107b9
+[current] restarted coordinator sent START_COMMIT commitId=4c98dca8-966f-4858-94d9-27f6270107b9
+[main] INFO org.apache.iceberg.connect.CatalogUtils - Hadoop config initialized: org.apache.hadoop.hdfs.HdfsConfiguration
+[current] current worker buffered 0 source records
+[main] INFO org.apache.iceberg.connect.channel.Channel - Sending event of type: DATA_COMPLETE
+[main] INFO org.apache.iceberg.connect.channel.Channel - Handled event of type: START_COMMIT
+[current] current worker sent DATA_COMPLETE commitId=4c98dca8-966f-4858-94d9-27f6270107b9
+[main] INFO org.apache.iceberg.connect.channel.CommitState - Commit 4c98dca8-966f-4858-94d9-27f6270107b9 ready, received responses for all 1 partitions
+[main] INFO org.apache.iceberg.connect.channel.Channel - Sending event of type: COMMIT_COMPLETE
+[main] INFO org.apache.iceberg.connect.channel.Coordinator - Coordinator cr3-sink-0 completed commit 4c98dca8-966f-4858-94d9-27f6270107b9, committed to 0 table(s), valid-through null
+[main] INFO org.apache.iceberg.connect.channel.Channel - Handled event of type: DATA_COMPLETE
+[current] restarted coordinator produced START_COMMIT commitId=4c98dca8-966f-4858-94d9-27f6270107b9
+[current] restarted coordinator produced COMMIT_COMPLETE commitId=4c98dca8-966f-4858-94d9-27f6270107b9
+[current] restarted coordinator committed control-topic offsets: []
+[current] restarted coordinator completed a commit cycle without terminating: true
+[current] [after restart/recovery (final state)] table db.tbl uuid=e7ff3b74-3b5c-48d5-ac7c-d1ef2627027f (U1=791468e9-2c1e-4c74-8269-e5bd198dc87d) snapshots=1
+[current]   current snapshot 1559945427929611858 summary: commit-id=1c3110cb-6414-4233-b46f-4a901871f144 offsets={"0":3} added-records=3
+[current]   references data file file:/Users/I074560/Downloads/experiments/iceberg-verify/r7/lead-verify/cr3/run/A1-rolling-legacy-jdbc/warehouse/db/tbl/data/00001-1793833749957-fa84191e-7d4f-498a-9a46-496fb89d7b77-00001.parquet records=3 specId=0 exists=true  <== written by the worker for table U1
+[current]     that file's own (writer) schema: (1:id long, 2:data string)
+[current]   table schema:                       (1:id string, 2:data string)
+[current]   row: id[string]=1 (java Long) data[string]=row-1 (java String) 
+[current]   typed read of string column 'id' FAILED: java.lang.IllegalStateException: Not an instance of java.lang.CharSequence: 1
+[current]   row: id[string]=2 (java Long) data[string]=row-2 (java String) 
+[current]   typed read of string column 'id' FAILED: java.lang.IllegalStateException: Not an instance of java.lang.CharSequence: 2
+[current]   row: id[string]=3 (java Long) data[string]=row-3 (java String) 
+[current]   typed read of string column 'id' FAILED: java.lang.IllegalStateException: Not an instance of java.lang.CharSequence: 3
+[current] IcebergGenerics.read(U2) returned 3 row(s)
+
+==================== SCENARIO A1c-rolling-current-jdbc-CONTROL ====================
+[main] INFO org.apache.iceberg.connect.IcebergSinkConfig - IcebergSinkConfig values: 
+	iceberg.catalog = iceberg
+	iceberg.connect.group-id = null
+	iceberg.control.commit.interval-ms = 0
+	iceberg.control.commit.max-consecutive-failures = 1
+	iceberg.control.commit.threads = 1
+	iceberg.control.commit.timeout-ms = 600000
+	iceberg.control.group-id-prefix = cg-control-
+	iceberg.control.topic = control-iceberg
+	iceberg.coordinator-executor-keep-alive-timeout-ms = 120000
+	iceberg.coordinator.transactional.prefix = null
+	iceberg.hadoop-conf-dir = null
+	iceberg.tables = [db.tbl]
+	iceberg.tables.auto-create-enabled = false
+	iceberg.tables.default-commit-branch = null
+	iceberg.tables.default-id-columns = null
+	iceberg.tables.default-partition-by = null
+	iceberg.tables.dynamic-enabled = false
+	iceberg.tables.evolve-schema-enabled = false
+	iceberg.tables.route-field = null
+	iceberg.tables.schema-case-insensitive = false
+	iceberg.tables.schema-force-optional = false
+
+[main] INFO org.apache.iceberg.connect.IcebergSinkConfig - Worker properties not loaded, using only iceberg.kafka.* properties for Kafka clients
+[current] connector config: catalog={catalog-impl=org.apache.iceberg.jdbc.JdbcCatalog, jdbc.schema-version=V1, warehouse=file:/Users/I074560/Downloads/experiments/iceberg-verify/r7/lead-verify/cr3/run/A1c-rolling-current-jdbc-CONTROL/warehouse, uri=jdbc:sqlite:file:/Users/I074560/Downloads/experiments/iceberg-verify/r7/lead-verify/cr3/run/A1c-rolling-current-jdbc-CONTROL/catalog.db} control-topic=control-iceberg group=connect-cr3-sink
+[current] operator: created db.tbl uuid U1=c1ace924-b80d-4625-9fe6-7db85ac8bed3 location=file:/Users/I074560/Downloads/experiments/iceberg-verify/r7/lead-verify/cr3/run/A1c-rolling-current-jdbc-CONTROL/warehouse/db/tbl schema=(1:id long, 2:data string)
+[main] INFO org.apache.iceberg.connect.CatalogUtils - Hadoop config initialized: org.apache.hadoop.hdfs.HdfsConfiguration
+[main] INFO org.apache.iceberg.connect.channel.Channel - Sending event of type: START_COMMIT
+[main] INFO org.apache.iceberg.connect.channel.Coordinator - Coordinator cr3-sink-0 initiated commit dfd14520-6c16-4524-a480-c30cd9365810
+[current] current coordinator sent START_COMMIT commitId=dfd14520-6c16-4524-a480-c30cd9365810
+[main] INFO org.apache.iceberg.connect.CatalogUtils - Hadoop config initialized: org.apache.hadoop.hdfs.HdfsConfiguration
+[current] current worker buffered 3 source records
+[main] INFO org.apache.iceberg.connect.channel.Channel - Sending event of type: DATA_WRITTEN
+[main] INFO org.apache.iceberg.connect.channel.Channel - Sending event of type: DATA_COMPLETE
+[main] INFO org.apache.iceberg.connect.channel.Channel - Handled event of type: START_COMMIT
+[current] current worker sent DATA_WRITTEN commitId=dfd14520-6c16-4524-a480-c30cd9365810 tableReference={identifier=db.tbl, uuid=c1ace924-b80d-4625-9fe6-7db85ac8bed3} files=[file:/Users/I074560/Downloads/experiments/iceberg-verify/r7/lead-verify/cr3/run/A1c-rolling-current-jdbc-CONTROL/warehouse/db/tbl/data/00001-1793833751574-d4853793-7b26-41d7-a042-b716a8acd0f8-00001.parquet]
+[current] current worker sent DATA_COMPLETE commitId=dfd14520-6c16-4524-a480-c30cd9365810
+[current] operator: DROP TABLE db.tbl (purge=false) -> true; CREATE TABLE db.tbl uuid U2=98a126fd-37f2-4b6b-ba9b-768af0d21a4a location=file:/Users/I074560/Downloads/experiments/iceberg-verify/r7/lead-verify/cr3/run/A1c-rolling-current-jdbc-CONTROL/warehouse/db/tbl schema=(1:id string, 2:data string)
+[current] coordinator consumes DATA_WRITTEN commitId=dfd14520-6c16-4524-a480-c30cd9365810 tableReference={identifier=db.tbl, uuid=c1ace924-b80d-4625-9fe6-7db85ac8bed3} files=[file:/Users/I074560/Downloads/experiments/iceberg-verify/r7/lead-verify/cr3/run/A1c-rolling-current-jdbc-CONTROL/warehouse/db/tbl/data/00001-1793833751574-d4853793-7b26-41d7-a042-b716a8acd0f8-00001.parquet]
+[current] coordinator consumes DATA_COMPLETE commitId=dfd14520-6c16-4524-a480-c30cd9365810
+[main] INFO org.apache.iceberg.connect.channel.Channel - Handled event of type: DATA_WRITTEN
+[main] INFO org.apache.iceberg.connect.channel.CommitState - Commit dfd14520-6c16-4524-a480-c30cd9365810 ready, received responses for all 1 partitions
+[iceberg-committer-0] WARN org.apache.iceberg.connect.channel.Coordinator - Skipping commits to table db.tbl due to target table mismatch.  Expected: 98a126fd-37f2-4b6b-ba9b-768af0d21a4a Received: c1ace924-b80d-4625-9fe6-7db85ac8bed3
+[main] INFO org.apache.iceberg.connect.channel.Channel - Sending event of type: COMMIT_COMPLETE
+[main] INFO org.apache.iceberg.connect.channel.Coordinator - Coordinator cr3-sink-0 completed commit dfd14520-6c16-4524-a480-c30cd9365810, committed to 1 table(s), valid-through 2023-11-14T22:13:20.002Z
+[main] INFO org.apache.iceberg.connect.channel.Channel - Handled event of type: DATA_COMPLETE
+[current] coordinator produced START_COMMIT commitId=dfd14520-6c16-4524-a480-c30cd9365810
+[current] coordinator produced COMMIT_COMPLETE commitId=dfd14520-6c16-4524-a480-c30cd9365810
+[current] coordinator committed control-topic offsets: []
+[current] [after the commit cycle] table db.tbl uuid=98a126fd-37f2-4b6b-ba9b-768af0d21a4a (U1=c1ace924-b80d-4625-9fe6-7db85ac8bed3) snapshots=0
+
+==================== SCENARIO B1-replay-legacy-jdbc ====================
+[main] INFO org.apache.iceberg.connect.IcebergSinkConfig - IcebergSinkConfig values: 
+	iceberg.catalog = iceberg
+	iceberg.connect.group-id = null
+	iceberg.control.commit.interval-ms = 0
+	iceberg.control.commit.max-consecutive-failures = 1
+	iceberg.control.commit.threads = 1
+	iceberg.control.commit.timeout-ms = 600000
+	iceberg.control.group-id-prefix = cg-control-
+	iceberg.control.topic = control-iceberg
+	iceberg.coordinator-executor-keep-alive-timeout-ms = 120000
+	iceberg.coordinator.transactional.prefix = null
+	iceberg.hadoop-conf-dir = null
+	iceberg.tables = [db.tbl]
+	iceberg.tables.auto-create-enabled = false
+	iceberg.tables.default-commit-branch = null
+	iceberg.tables.default-id-columns = null
+	iceberg.tables.default-partition-by = null
+	iceberg.tables.dynamic-enabled = false
+	iceberg.tables.evolve-schema-enabled = false
+	iceberg.tables.route-field = null
+	iceberg.tables.schema-case-insensitive = false
+	iceberg.tables.schema-force-optional = false
+
+[main] INFO org.apache.iceberg.connect.IcebergSinkConfig - Worker properties not loaded, using only iceberg.kafka.* properties for Kafka clients
+[current] connector config: catalog={catalog-impl=org.apache.iceberg.jdbc.JdbcCatalog, jdbc.schema-version=V1, warehouse=file:/Users/I074560/Downloads/experiments/iceberg-verify/r7/lead-verify/cr3/run/B1-replay-legacy-jdbc/warehouse, uri=jdbc:sqlite:file:/Users/I074560/Downloads/experiments/iceberg-verify/r7/lead-verify/cr3/run/B1-replay-legacy-jdbc/catalog.db} control-topic=control-iceberg group=connect-cr3-sink
+[current] operator: created db.tbl uuid U1=8a86f289-1d7b-4db2-90b7-b4bf7cd59048 location=file:/Users/I074560/Downloads/experiments/iceberg-verify/r7/lead-verify/cr3/run/B1-replay-legacy-jdbc/warehouse/db/tbl schema=(1:id long, 2:data string)
+[main] INFO org.apache.iceberg.connect.CatalogUtils - Hadoop config initialized: org.apache.hadoop.hdfs.HdfsConfiguration
+[current] spawning legacy 1.10.2 sink JVM: mode=pending
+    [main] INFO org.apache.iceberg.connect.IcebergSinkConfig - IcebergSinkConfig values: 
+    	iceberg.catalog = iceberg
+    	iceberg.connect.group-id = null
+    	iceberg.control.commit.interval-ms = 0
+    	iceberg.control.commit.threads = 1
+    	iceberg.control.commit.timeout-ms = 600000
+    	iceberg.control.group-id-prefix = cg-control-
+    	iceberg.control.topic = control-iceberg
+    	iceberg.coordinator-executor-keep-alive-timeout-ms = 120000
+    	iceberg.coordinator.transactional.prefix = null
+    	iceberg.hadoop-conf-dir = null
+    	iceberg.tables = [db.tbl]
+    	iceberg.tables.auto-create-enabled = false
+    	iceberg.tables.default-commit-branch = null
+    	iceberg.tables.default-id-columns = null
+    	iceberg.tables.default-partition-by = null
+    	iceberg.tables.dynamic-enabled = false
+    	iceberg.tables.evolve-schema-enabled = false
+    	iceberg.tables.route-field = null
+    	iceberg.tables.schema-case-insensitive = false
+    	iceberg.tables.schema-force-optional = false
+    
+    [main] INFO org.apache.iceberg.connect.IcebergSinkConfig - Worker properties not loaded, using only iceberg.kafka.* properties for Kafka clients
+    [legacy-1.10.2] running Iceberg Kafka Connect 1.10.2 from file:/Users/I074560/Downloads/experiments/iceberg-verify/r7/lead-verify/cr3/legacy-lib/iceberg-kafka-connect-1.10.2.jar
+    [legacy-1.10.2] mode=pending connectGroupId=connect-cr3-sink
+    [main] INFO org.apache.iceberg.connect.CatalogUtils - Hadoop config initialized: org.apache.hadoop.hdfs.HdfsConfiguration
+    [legacy-1.10.2] catalog=org.apache.iceberg.jdbc.JdbcCatalog name=iceberg
+    [main] INFO org.apache.iceberg.connect.channel.Channel - Sending event of type: START_COMMIT
+    [main] INFO org.apache.iceberg.connect.channel.Coordinator - Commit 1db9af3a-d44d-4948-864c-612f61d09945 initiated
+    [legacy-1.10.2] 1.10.2 coordinator sent START_COMMIT commitId=1db9af3a-d44d-4948-864c-612f61d09945
+    [main] WARN org.apache.hadoop.util.NativeCodeLoader - Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+    [legacy-1.10.2] 1.10.2 worker buffered 3 source records (src-topic:0 offsets 0..2)
+    [legacy-1.10.2] 1.10.2 worker consumed START_COMMIT commitId=1db9af3a-d44d-4948-864c-612f61d09945
+    [main] INFO org.apache.iceberg.connect.channel.Channel - Sending event of type: DATA_WRITTEN
+    [main] INFO org.apache.iceberg.connect.channel.Channel - Sending event of type: DATA_COMPLETE
+    [main] INFO org.apache.iceberg.connect.channel.Channel - Handled event of type: START_COMMIT
+    [legacy-1.10.2] 1.10.2 worker sent DATA_WRITTEN commitId=1db9af3a-d44d-4948-864c-612f61d09945 tableReference={catalog=iceberg, identifier=db.tbl} writerSchemaHasTableUuidField=false dataFile=file:/Users/I074560/Downloads/experiments/iceberg-verify/r7/lead-verify/cr3/run/B1-replay-legacy-jdbc/warehouse/db/tbl/data/00001-1793833752225-8e74933e-0529-452f-9c58-438dff9d843f-00001.parquet (3 rows)
+    [legacy-1.10.2] 1.10.2 worker sent DATA_COMPLETE commitId=1db9af3a-d44d-4948-864c-612f61d09945 assignments=[src-topic:0@3]
+    [legacy-1.10.2] 1.10.2 worker committed source offsets in its transaction: [{dummy.group.id={src-topic-0=OffsetAndMetadata{offset=3, leaderEpoch=null, metadata=''}}}]
+    [legacy-1.10.2] connector stopped for the upgrade before the 1.10.2 coordinator committed; its responses remain in the control topic past the coordinator group offset
+    [legacy-1.10.2] wrote 3 control record(s) to /Users/I074560/Downloads/experiments/iceberg-verify/r7/lead-verify/cr3/run/B1-replay-legacy-jdbc/job/ctl-out
+[current] control topic retained from the 1.10.2 connector: offsets 0..2 (coordinator group checkpoint = 0)
+[current] operator: DROP TABLE db.tbl (purge=false) -> true; CREATE TABLE db.tbl uuid U2=68ba0c30-9df7-4463-b765-171d3bc07858 location=file:/Users/I074560/Downloads/experiments/iceberg-verify/r7/lead-verify/cr3/run/B1-replay-legacy-jdbc/warehouse/db/tbl schema=(1:id string, 2:data string)
+[current] coordinator will replay START_COMMIT commitId=1db9af3a-d44d-4948-864c-612f61d09945
+[current] coordinator will replay DATA_WRITTEN commitId=1db9af3a-d44d-4948-864c-612f61d09945 tableReference={identifier=db.tbl, uuid=null} files=[file:/Users/I074560/Downloads/experiments/iceberg-verify/r7/lead-verify/cr3/run/B1-replay-legacy-jdbc/warehouse/db/tbl/data/00001-1793833752225-8e74933e-0529-452f-9c58-438dff9d843f-00001.parquet]
+[current] coordinator will replay DATA_COMPLETE commitId=1db9af3a-d44d-4948-864c-612f61d09945
+[main] INFO org.apache.iceberg.connect.channel.Channel - Sending event of type: START_COMMIT
+[main] INFO org.apache.iceberg.connect.channel.Coordinator - Coordinator cr3-sink-0 initiated commit 37718387-290a-4c92-9384-8129b78d0b86
+[main] INFO org.apache.iceberg.connect.channel.Channel - Handled event of type: DATA_WRITTEN
+[main] INFO org.apache.iceberg.connect.channel.CommitState - Commit 37718387-290a-4c92-9384-8129b78d0b86 not ready, received responses for 0 of 1 partitions, waiting for more
+[main] INFO org.apache.iceberg.connect.channel.Channel - Handled event of type: DATA_COMPLETE
+[current] current coordinator sent START_COMMIT commitId=37718387-290a-4c92-9384-8129b78d0b86
+[main] INFO org.apache.iceberg.connect.CatalogUtils - Hadoop config initialized: org.apache.hadoop.hdfs.HdfsConfiguration
+[current] current worker buffered 0 source records
+[main] INFO org.apache.iceberg.connect.channel.Channel - Sending event of type: DATA_COMPLETE
+[main] INFO org.apache.iceberg.connect.channel.Channel - Handled event of type: START_COMMIT
+[current] current worker sent DATA_COMPLETE commitId=37718387-290a-4c92-9384-8129b78d0b86
+[main] INFO org.apache.iceberg.connect.channel.CommitState - Commit 37718387-290a-4c92-9384-8129b78d0b86 ready, received responses for all 1 partitions
+[iceberg-committer-0] INFO org.apache.iceberg.connect.channel.Channel - Sending event of type: COMMIT_TO_TABLE
+[current] upgraded coordinator THREW -> CoordinatorThread: "Coordinator error during process, exiting thread": java.lang.IllegalArgumentException: Invalid field position: 3
+[current]       at org.apache.iceberg.relocated.com.google.common.base.Preconditions.checkArgument(Preconditions.java:142)
+[current]       at org.apache.iceberg.connect.events.AvroUtil.positionToId(AvroUtil.java:88)
+[current]       at org.apache.iceberg.connect.events.TableReference.get(TableReference.java:129)
+[current]       at org.apache.iceberg.avro.ValueWriters$RecordWriter.get(ValueWriters.java:597)
+[current]       at org.apache.iceberg.avro.ValueWriters$RecordWriter.get(ValueWriters.java:589)
+[current]       at org.apache.iceberg.avro.ValueWriters$StructWriter.write(ValueWriters.java:584)
+[current]       at org.apache.iceberg.avro.ValueWriters$StructWriter.write(ValueWriters.java:584)
+[current]       at org.apache.iceberg.avro.ValueWriters$StructWriter.write(ValueWriters.java:584)
+[current]       at org.apache.iceberg.avro.GenericAvroWriter.write(GenericAvroWriter.java:47)
+[current]       at org.apache.iceberg.avro.AvroEncoderUtil.encode(AvroEncoderUtil.java:60)
+[current]       at org.apache.iceberg.connect.events.AvroUtil.encode(AvroUtil.java:55)
+[current]       at org.apache.iceberg.connect.channel.Channel.lambda$send$1(Channel.java:91)
+[current] coordinator produced START_COMMIT commitId=37718387-290a-4c92-9384-8129b78d0b86
+[current] coordinator committed control-topic offsets: []
+[current] [after the commit cycle] table db.tbl uuid=68ba0c30-9df7-4463-b765-171d3bc07858 (U1=8a86f289-1d7b-4db2-90b7-b4bf7cd59048) snapshots=1
+[current]   current snapshot 4337966858646926556 summary: commit-id=37718387-290a-4c92-9384-8129b78d0b86 offsets={"0":5} added-records=3
+[current]   references data file file:/Users/I074560/Downloads/experiments/iceberg-verify/r7/lead-verify/cr3/run/B1-replay-legacy-jdbc/warehouse/db/tbl/data/00001-1793833752225-8e74933e-0529-452f-9c58-438dff9d843f-00001.parquet records=3 specId=0 exists=true  <== written by the worker for table U1
+[current]     that file's own (writer) schema: (1:id long, 2:data string)
+[current]   table schema:                       (1:id string, 2:data string)
+[current]   row: id[string]=1 (java Long) data[string]=row-1 (java String) 
+[current]   typed read of string column 'id' FAILED: java.lang.IllegalStateException: Not an instance of java.lang.CharSequence: 1
+[current]   row: id[string]=2 (java Long) data[string]=row-2 (java String) 
+[current]   typed read of string column 'id' FAILED: java.lang.IllegalStateException: Not an instance of java.lang.CharSequence: 2
+[current]   row: id[string]=3 (java Long) data[string]=row-3 (java String) 
+[current]   typed read of string column 'id' FAILED: java.lang.IllegalStateException: Not an instance of java.lang.CharSequence: 3
+[current] IcebergGenerics.read(U2) returned 3 row(s)
+
+==================== B1-replay-legacy-jdbc: task restart -> new coordinator resumes from checkpoint 0 ====================
+[main] INFO org.apache.iceberg.connect.CatalogUtils - Hadoop config initialized: org.apache.hadoop.hdfs.HdfsConfiguration
+[main] INFO org.apache.iceberg.connect.channel.Channel - Sending event of type: START_COMMIT
+[main] INFO org.apache.iceberg.connect.channel.Coordinator - Coordinator cr3-sink-0 initiated commit 1aee42ba-0c40-4c69-8230-bb37a68b1658
+[main] INFO org.apache.iceberg.connect.channel.Channel - Handled event of type: DATA_WRITTEN
+[main] INFO org.apache.iceberg.connect.channel.CommitState - Commit 1aee42ba-0c40-4c69-8230-bb37a68b1658 not ready, received responses for 0 of 1 partitions, waiting for more
+[main] INFO org.apache.iceberg.connect.channel.Channel - Handled event of type: DATA_COMPLETE
+[main] INFO org.apache.iceberg.connect.channel.CommitState - Commit 1aee42ba-0c40-4c69-8230-bb37a68b1658 not ready, received responses for 0 of 1 partitions, waiting for more
+[main] INFO org.apache.iceberg.connect.channel.Channel - Handled event of type: DATA_COMPLETE
+[current] restarted coordinator sent START_COMMIT commitId=1aee42ba-0c40-4c69-8230-bb37a68b1658
+[main] INFO org.apache.iceberg.connect.CatalogUtils - Hadoop config initialized: org.apache.hadoop.hdfs.HdfsConfiguration
+[current] current worker buffered 0 source records
+[main] INFO org.apache.iceberg.connect.channel.Channel - Sending event of type: DATA_COMPLETE
+[main] INFO org.apache.iceberg.connect.channel.Channel - Handled event of type: START_COMMIT
+[current] current worker sent DATA_COMPLETE commitId=1aee42ba-0c40-4c69-8230-bb37a68b1658
+[main] INFO org.apache.iceberg.connect.channel.CommitState - Commit 1aee42ba-0c40-4c69-8230-bb37a68b1658 ready, received responses for all 1 partitions
+[iceberg-committer-0] INFO org.apache.iceberg.connect.channel.Coordinator - Coordinator cr3-sink-0 found nothing to commit to table db.tbl, skipping
+[main] INFO org.apache.iceberg.connect.channel.Channel - Sending event of type: COMMIT_COMPLETE
+[main] INFO org.apache.iceberg.connect.channel.Coordinator - Coordinator cr3-sink-0 completed commit 1aee42ba-0c40-4c69-8230-bb37a68b1658, committed to 1 table(s), valid-through null
+[main] INFO org.apache.iceberg.connect.channel.Channel - Handled event of type: DATA_COMPLETE
+[current] restarted coordinator produced START_COMMIT commitId=1aee42ba-0c40-4c69-8230-bb37a68b1658
+[current] restarted coordinator produced COMMIT_COMPLETE commitId=1aee42ba-0c40-4c69-8230-bb37a68b1658
+[current] restarted coordinator committed control-topic offsets: []
+[current] restarted coordinator completed a commit cycle without terminating: true
+[current] [after restart/recovery (final state)] table db.tbl uuid=68ba0c30-9df7-4463-b765-171d3bc07858 (U1=8a86f289-1d7b-4db2-90b7-b4bf7cd59048) snapshots=1
+[current]   current snapshot 4337966858646926556 summary: commit-id=37718387-290a-4c92-9384-8129b78d0b86 offsets={"0":5} added-records=3
+[current]   references data file file:/Users/I074560/Downloads/experiments/iceberg-verify/r7/lead-verify/cr3/run/B1-replay-legacy-jdbc/warehouse/db/tbl/data/00001-1793833752225-8e74933e-0529-452f-9c58-438dff9d843f-00001.parquet records=3 specId=0 exists=true  <== written by the worker for table U1
+[current]     that file's own (writer) schema: (1:id long, 2:data string)
+[current]   table schema:                       (1:id string, 2:data string)
+[current]   row: id[string]=1 (java Long) data[string]=row-1 (java String) 
+[current]   typed read of string column 'id' FAILED: java.lang.IllegalStateException: Not an instance of java.lang.CharSequence: 1
+[current]   row: id[string]=2 (java Long) data[string]=row-2 (java String) 
+[current]   typed read of string column 'id' FAILED: java.lang.IllegalStateException: Not an instance of java.lang.CharSequence: 2
+[current]   row: id[string]=3 (java Long) data[string]=row-3 (java String) 
+[current]   typed read of string column 'id' FAILED: java.lang.IllegalStateException: Not an instance of java.lang.CharSequence: 3
+[current] IcebergGenerics.read(U2) returned 3 row(s)
+
+==================== SCENARIO A2-rolling-legacy-hadoop ====================
+[main] INFO org.apache.iceberg.connect.IcebergSinkConfig - IcebergSinkConfig values: 
+	iceberg.catalog = iceberg
+	iceberg.connect.group-id = null
+	iceberg.control.commit.interval-ms = 0
+	iceberg.control.commit.max-consecutive-failures = 1
+	iceberg.control.commit.threads = 1
+	iceberg.control.commit.timeout-ms = 600000
+	iceberg.control.group-id-prefix = cg-control-
+	iceberg.control.topic = control-iceberg
+	iceberg.coordinator-executor-keep-alive-timeout-ms = 120000
+	iceberg.coordinator.transactional.prefix = null
+	iceberg.hadoop-conf-dir = null
+	iceberg.tables = [db.tbl]
+	iceberg.tables.auto-create-enabled = false
+	iceberg.tables.default-commit-branch = null
+	iceberg.tables.default-id-columns = null
+	iceberg.tables.default-partition-by = null
+	iceberg.tables.dynamic-enabled = false
+	iceberg.tables.evolve-schema-enabled = false
+	iceberg.tables.route-field = null
+	iceberg.tables.schema-case-insensitive = false
+	iceberg.tables.schema-force-optional = false
+
+[main] INFO org.apache.iceberg.connect.IcebergSinkConfig - Worker properties not loaded, using only iceberg.kafka.* properties for Kafka clients
+[current] connector config: catalog={warehouse=file:/Users/I074560/Downloads/experiments/iceberg-verify/r7/lead-verify/cr3/run/A2-rolling-legacy-hadoop/warehouse, type=hadoop} control-topic=control-iceberg group=connect-cr3-sink
+[current] operator: created db.tbl uuid U1=f20b0a39-d918-491a-b250-c3fa3783f47d location=file:/Users/I074560/Downloads/experiments/iceberg-verify/r7/lead-verify/cr3/run/A2-rolling-legacy-hadoop/warehouse/db/tbl schema=(1:id long, 2:data string)
+[main] INFO org.apache.iceberg.connect.CatalogUtils - Hadoop config initialized: org.apache.hadoop.hdfs.HdfsConfiguration
+[main] INFO org.apache.iceberg.connect.channel.Channel - Sending event of type: START_COMMIT
+[main] INFO org.apache.iceberg.connect.channel.Coordinator - Coordinator cr3-sink-0 initiated commit 1d8a78ab-da19-419b-844f-b25571668bd7
+[current] current coordinator sent START_COMMIT commitId=1d8a78ab-da19-419b-844f-b25571668bd7
+[current] spawning legacy 1.10.2 sink JVM: mode=respond
+    [main] INFO org.apache.iceberg.connect.IcebergSinkConfig - IcebergSinkConfig values: 
+    	iceberg.catalog = iceberg
+    	iceberg.connect.group-id = null
+    	iceberg.control.commit.interval-ms = 0
+    	iceberg.control.commit.threads = 1
+    	iceberg.control.commit.timeout-ms = 600000
+    	iceberg.control.group-id-prefix = cg-control-
+    	iceberg.control.topic = control-iceberg
+    	iceberg.coordinator-executor-keep-alive-timeout-ms = 120000
+    	iceberg.coordinator.transactional.prefix = null
+    	iceberg.hadoop-conf-dir = null
+    	iceberg.tables = [db.tbl]
+    	iceberg.tables.auto-create-enabled = false
+    	iceberg.tables.default-commit-branch = null
+    	iceberg.tables.default-id-columns = null
+    	iceberg.tables.default-partition-by = null
+    	iceberg.tables.dynamic-enabled = false
+    	iceberg.tables.evolve-schema-enabled = false
+    	iceberg.tables.route-field = null
+    	iceberg.tables.schema-case-insensitive = false
+    	iceberg.tables.schema-force-optional = false
+    
+    [main] INFO org.apache.iceberg.connect.IcebergSinkConfig - Worker properties not loaded, using only iceberg.kafka.* properties for Kafka clients
+    [legacy-1.10.2] running Iceberg Kafka Connect 1.10.2 from file:/Users/I074560/Downloads/experiments/iceberg-verify/r7/lead-verify/cr3/legacy-lib/iceberg-kafka-connect-1.10.2.jar
+    [legacy-1.10.2] mode=respond connectGroupId=connect-cr3-sink
+    [main] INFO org.apache.iceberg.connect.CatalogUtils - Hadoop config initialized: org.apache.hadoop.hdfs.HdfsConfiguration
+    [main] WARN org.apache.hadoop.util.NativeCodeLoader - Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+    [legacy-1.10.2] catalog=org.apache.iceberg.hadoop.HadoopCatalog name=iceberg
+    [legacy-1.10.2] 1.10.2 worker buffered 3 source records (src-topic:0 offsets 0..2)
+    [legacy-1.10.2] 1.10.2 worker consumed START_COMMIT commitId=1d8a78ab-da19-419b-844f-b25571668bd7
+    [main] INFO org.apache.iceberg.connect.channel.Channel - Sending event of type: DATA_WRITTEN
+    [main] INFO org.apache.iceberg.connect.channel.Channel - Sending event of type: DATA_COMPLETE
+    [main] INFO org.apache.iceberg.connect.channel.Channel - Handled event of type: START_COMMIT
+    [legacy-1.10.2] 1.10.2 worker sent DATA_WRITTEN commitId=1d8a78ab-da19-419b-844f-b25571668bd7 tableReference={catalog=iceberg, identifier=db.tbl} writerSchemaHasTableUuidField=false dataFile=file:/Users/I074560/Downloads/experiments/iceberg-verify/r7/lead-verify/cr3/run/A2-rolling-legacy-hadoop/warehouse/db/tbl/data/00001-1793833753084-05c46961-921b-4491-81bb-421fdd24b86d-00001.parquet (3 rows)
+    [legacy-1.10.2] 1.10.2 worker sent DATA_COMPLETE commitId=1d8a78ab-da19-419b-844f-b25571668bd7 assignments=[src-topic:0@3]
+    [legacy-1.10.2] 1.10.2 worker committed source offsets in its transaction: [{dummy.group.id={src-topic-0=OffsetAndMetadata{offset=3, leaderEpoch=null, metadata=''}}}]
+    [legacy-1.10.2] wrote 2 control record(s) to /Users/I074560/Downloads/experiments/iceberg-verify/r7/lead-verify/cr3/run/A2-rolling-legacy-hadoop/job/ctl-out
+[current] operator: DROP TABLE db.tbl (purge=false) -> true; CREATE TABLE db.tbl uuid U2=d34d2dce-b5f1-4157-aa72-4209a905c5bc location=file:/Users/I074560/Downloads/experiments/iceberg-verify/r7/lead-verify/cr3/run/A2-rolling-legacy-hadoop/warehouse/db/tbl schema=(1:id long, 2:data string)
+[current] coordinator consumes DATA_WRITTEN commitId=1d8a78ab-da19-419b-844f-b25571668bd7 tableReference={identifier=db.tbl, uuid=null} files=[file:/Users/I074560/Downloads/experiments/iceberg-verify/r7/lead-verify/cr3/run/A2-rolling-legacy-hadoop/warehouse/db/tbl/data/00001-1793833753084-05c46961-921b-4491-81bb-421fdd24b86d-00001.parquet]
+[current] coordinator consumes DATA_COMPLETE commitId=1d8a78ab-da19-419b-844f-b25571668bd7
+[main] INFO org.apache.iceberg.connect.channel.Channel - Handled event of type: DATA_WRITTEN
+[main] INFO org.apache.iceberg.connect.channel.CommitState - Commit 1d8a78ab-da19-419b-844f-b25571668bd7 ready, received responses for all 1 partitions
+[iceberg-committer-0] INFO org.apache.iceberg.connect.channel.Channel - Sending event of type: COMMIT_TO_TABLE
+[current] coordinator THREW -> CoordinatorThread: "Coordinator error during process, exiting thread": java.lang.IllegalArgumentException: Invalid field position: 3
+[current]       at org.apache.iceberg.relocated.com.google.common.base.Preconditions.checkArgument(Preconditions.java:142)
+[current]       at org.apache.iceberg.connect.events.AvroUtil.positionToId(AvroUtil.java:88)
+[current]       at org.apache.iceberg.connect.events.TableReference.get(TableReference.java:129)
+[current]       at org.apache.iceberg.avro.ValueWriters$RecordWriter.get(ValueWriters.java:597)
+[current]       at org.apache.iceberg.avro.ValueWriters$RecordWriter.get(ValueWriters.java:589)
+[current]       at org.apache.iceberg.avro.ValueWriters$StructWriter.write(ValueWriters.java:584)
+[current]       at org.apache.iceberg.avro.ValueWriters$StructWriter.write(ValueWriters.java:584)
+[current]       at org.apache.iceberg.avro.ValueWriters$StructWriter.write(ValueWriters.java:584)
+[current]       at org.apache.iceberg.avro.GenericAvroWriter.write(GenericAvroWriter.java:47)
+[current]       at org.apache.iceberg.avro.AvroEncoderUtil.encode(AvroEncoderUtil.java:60)
+[current]       at org.apache.iceberg.connect.events.AvroUtil.encode(AvroUtil.java:55)
+[current]       at org.apache.iceberg.connect.channel.Channel.lambda$send$1(Channel.java:91)
+[current] coordinator produced START_COMMIT commitId=1d8a78ab-da19-419b-844f-b25571668bd7
+[current] coordinator committed control-topic offsets: []
+[current] [after the commit cycle] table db.tbl uuid=d34d2dce-b5f1-4157-aa72-4209a905c5bc (U1=f20b0a39-d918-491a-b250-c3fa3783f47d) snapshots=1
+[current]   current snapshot 8579454339228414304 summary: commit-id=1d8a78ab-da19-419b-844f-b25571668bd7 offsets={"0":3} added-records=3
+[current]   references data file file:/Users/I074560/Downloads/experiments/iceberg-verify/r7/lead-verify/cr3/run/A2-rolling-legacy-hadoop/warehouse/db/tbl/data/00001-1793833753084-05c46961-921b-4491-81bb-421fdd24b86d-00001.parquet records=3 specId=0 exists=false  <== written by the worker for table U1
+[current]   table schema:                       (1:id long, 2:data string)
+[current] IcebergGenerics.read(U2) FAILED: org.apache.iceberg.exceptions.NotFoundException: Failed to open input stream for file: file:/Users/I074560/Downloads/experiments/iceberg-verify/r7/lead-verify/cr3/run/A2-rolling-legacy-hadoop/warehouse/db/tbl/data/00001-1793833753084-05c46961-921b-4491-81bb-421fdd24b86d-00001.parquet
+[current]   caused by: java.io.FileNotFoundException: File file:/Users/I074560/Downloads/experiments/iceberg-verify/r7/lead-verify/cr3/run/A2-rolling-legacy-hadoop/warehouse/db/tbl/data/00001-1793833753084-05c46961-921b-4491-81bb-421fdd24b86d-00001.parquet does not exist
+
+==================== A2-rolling-legacy-hadoop: task restart -> new coordinator resumes from checkpoint null (none -> auto.offset.reset=latest) ====================
+[main] INFO org.apache.iceberg.connect.CatalogUtils - Hadoop config initialized: org.apache.hadoop.hdfs.HdfsConfiguration
+[main] INFO org.apache.iceberg.connect.channel.Channel - Sending event of type: START_COMMIT
+[main] INFO org.apache.iceberg.connect.channel.Coordinator - Coordinator cr3-sink-0 initiated commit db32877d-49d9-4ad8-9d90-736fc45630ff
+[current] restarted coordinator sent START_COMMIT commitId=db32877d-49d9-4ad8-9d90-736fc45630ff
+[main] INFO org.apache.iceberg.connect.CatalogUtils - Hadoop config initialized: org.apache.hadoop.hdfs.HdfsConfiguration
+[current] current worker buffered 0 source records
+[main] INFO org.apache.iceberg.connect.channel.Channel - Sending event of type: DATA_COMPLETE
+[main] INFO org.apache.iceberg.connect.channel.Channel - Handled event of type: START_COMMIT
+[current] current worker sent DATA_COMPLETE commitId=db32877d-49d9-4ad8-9d90-736fc45630ff
+[main] INFO org.apache.iceberg.connect.channel.CommitState - Commit db32877d-49d9-4ad8-9d90-736fc45630ff ready, received responses for all 1 partitions
+[main] INFO org.apache.iceberg.connect.channel.Channel - Sending event of type: COMMIT_COMPLETE
+[main] INFO org.apache.iceberg.connect.channel.Coordinator - Coordinator cr3-sink-0 completed commit db32877d-49d9-4ad8-9d90-736fc45630ff, committed to 0 table(s), valid-through null
+[main] INFO org.apache.iceberg.connect.channel.Channel - Handled event of type: DATA_COMPLETE
+[current] restarted coordinator produced START_COMMIT commitId=db32877d-49d9-4ad8-9d90-736fc45630ff
+[current] restarted coordinator produced COMMIT_COMPLETE commitId=db32877d-49d9-4ad8-9d90-736fc45630ff
+[current] restarted coordinator committed control-topic offsets: []
+[current] restarted coordinator completed a commit cycle without terminating: true
+[current] [after restart/recovery (final state)] table db.tbl uuid=d34d2dce-b5f1-4157-aa72-4209a905c5bc (U1=f20b0a39-d918-491a-b250-c3fa3783f47d) snapshots=1
+[current]   current snapshot 8579454339228414304 summary: commit-id=1d8a78ab-da19-419b-844f-b25571668bd7 offsets={"0":3} added-records=3
+[current]   references data file file:/Users/I074560/Downloads/experiments/iceberg-verify/r7/lead-verify/cr3/run/A2-rolling-legacy-hadoop/warehouse/db/tbl/data/00001-1793833753084-05c46961-921b-4491-81bb-421fdd24b86d-00001.parquet records=3 specId=0 exists=false  <== written by the worker for table U1
+[current]   table schema:                       (1:id long, 2:data string)
+[current] IcebergGenerics.read(U2) FAILED: org.apache.iceberg.exceptions.NotFoundException: Failed to open input stream for file: file:/Users/I074560/Downloads/experiments/iceberg-verify/r7/lead-verify/cr3/run/A2-rolling-legacy-hadoop/warehouse/db/tbl/data/00001-1793833753084-05c46961-921b-4491-81bb-421fdd24b86d-00001.parquet
+[current]   caused by: java.io.FileNotFoundException: File file:/Users/I074560/Downloads/experiments/iceberg-verify/r7/lead-verify/cr3/run/A2-rolling-legacy-hadoop/warehouse/db/tbl/data/00001-1793833753084-05c46961-921b-4491-81bb-421fdd24b86d-00001.parquet does not exist
+
+==================== SCENARIO A2c-rolling-current-hadoop-CONTROL ====================
+[main] INFO org.apache.iceberg.connect.IcebergSinkConfig - IcebergSinkConfig values: 
+	iceberg.catalog = iceberg
+	iceberg.connect.group-id = null
+	iceberg.control.commit.interval-ms = 0
+	iceberg.control.commit.max-consecutive-failures = 1
+	iceberg.control.commit.threads = 1
+	iceberg.control.commit.timeout-ms = 600000
+	iceberg.control.group-id-prefix = cg-control-
+	iceberg.control.topic = control-iceberg
+	iceberg.coordinator-executor-keep-alive-timeout-ms = 120000
+	iceberg.coordinator.transactional.prefix = null
+	iceberg.hadoop-conf-dir = null
+	iceberg.tables = [db.tbl]
+	iceberg.tables.auto-create-enabled = false
+	iceberg.tables.default-commit-branch = null
+	iceberg.tables.default-id-columns = null
+	iceberg.tables.default-partition-by = null
+	iceberg.tables.dynamic-enabled = false
+	iceberg.tables.evolve-schema-enabled = false
+	iceberg.tables.route-field = null
+	iceberg.tables.schema-case-insensitive = false
+	iceberg.tables.schema-force-optional = false
+
+[main] INFO org.apache.iceberg.connect.IcebergSinkConfig - Worker properties not loaded, using only iceberg.kafka.* properties for Kafka clients
+[current] connector config: catalog={warehouse=file:/Users/I074560/Downloads/experiments/iceberg-verify/r7/lead-verify/cr3/run/A2c-rolling-current-hadoop-CONTROL/warehouse, type=hadoop} control-topic=control-iceberg group=connect-cr3-sink
+[current] operator: created db.tbl uuid U1=f451f40d-0ab6-4823-a13d-fc4058841d6b location=file:/Users/I074560/Downloads/experiments/iceberg-verify/r7/lead-verify/cr3/run/A2c-rolling-current-hadoop-CONTROL/warehouse/db/tbl schema=(1:id long, 2:data string)
+[main] INFO org.apache.iceberg.connect.CatalogUtils - Hadoop config initialized: org.apache.hadoop.hdfs.HdfsConfiguration
+[main] INFO org.apache.iceberg.connect.channel.Channel - Sending event of type: START_COMMIT
+[main] INFO org.apache.iceberg.connect.channel.Coordinator - Coordinator cr3-sink-0 initiated commit 394d50b4-e648-44e8-aa9b-b33e1ba23480
+[current] current coordinator sent START_COMMIT commitId=394d50b4-e648-44e8-aa9b-b33e1ba23480
+[main] INFO org.apache.iceberg.connect.CatalogUtils - Hadoop config initialized: org.apache.hadoop.hdfs.HdfsConfiguration
+[current] current worker buffered 3 source records
+[main] INFO org.apache.iceberg.connect.channel.Channel - Sending event of type: DATA_WRITTEN
+[main] INFO org.apache.iceberg.connect.channel.Channel - Sending event of type: DATA_COMPLETE
+[main] INFO org.apache.iceberg.connect.channel.Channel - Handled event of type: START_COMMIT
+[current] current worker sent DATA_WRITTEN commitId=394d50b4-e648-44e8-aa9b-b33e1ba23480 tableReference={identifier=db.tbl, uuid=f451f40d-0ab6-4823-a13d-fc4058841d6b} files=[file:/Users/I074560/Downloads/experiments/iceberg-verify/r7/lead-verify/cr3/run/A2c-rolling-current-hadoop-CONTROL/warehouse/db/tbl/data/00001-1793833753639-5bb7a9c7-e4bb-40bf-a077-57de2c5820c4-00001.parquet]
+[current] current worker sent DATA_COMPLETE commitId=394d50b4-e648-44e8-aa9b-b33e1ba23480
+[current] operator: DROP TABLE db.tbl (purge=false) -> true; CREATE TABLE db.tbl uuid U2=7dd9ab24-82bb-4ea0-8901-b633d547bb40 location=file:/Users/I074560/Downloads/experiments/iceberg-verify/r7/lead-verify/cr3/run/A2c-rolling-current-hadoop-CONTROL/warehouse/db/tbl schema=(1:id long, 2:data string)
+[current] coordinator consumes DATA_WRITTEN commitId=394d50b4-e648-44e8-aa9b-b33e1ba23480 tableReference={identifier=db.tbl, uuid=f451f40d-0ab6-4823-a13d-fc4058841d6b} files=[file:/Users/I074560/Downloads/experiments/iceberg-verify/r7/lead-verify/cr3/run/A2c-rolling-current-hadoop-CONTROL/warehouse/db/tbl/data/00001-1793833753639-5bb7a9c7-e4bb-40bf-a077-57de2c5820c4-00001.parquet]
+[current] coordinator consumes DATA_COMPLETE commitId=394d50b4-e648-44e8-aa9b-b33e1ba23480
+[main] INFO org.apache.iceberg.connect.channel.Channel - Handled event of type: DATA_WRITTEN
+[main] INFO org.apache.iceberg.connect.channel.CommitState - Commit 394d50b4-e648-44e8-aa9b-b33e1ba23480 ready, received responses for all 1 partitions
+[iceberg-committer-0] WARN org.apache.iceberg.connect.channel.Coordinator - Skipping commits to table db.tbl due to target table mismatch.  Expected: 7dd9ab24-82bb-4ea0-8901-b633d547bb40 Received: f451f40d-0ab6-4823-a13d-fc4058841d6b
+[main] INFO org.apache.iceberg.connect.channel.Channel - Sending event of type: COMMIT_COMPLETE
+[main] INFO org.apache.iceberg.connect.channel.Coordinator - Coordinator cr3-sink-0 completed commit 394d50b4-e648-44e8-aa9b-b33e1ba23480, committed to 1 table(s), valid-through 2023-11-14T22:13:20.002Z
+[main] INFO org.apache.iceberg.connect.channel.Channel - Handled event of type: DATA_COMPLETE
+[current] coordinator produced START_COMMIT commitId=394d50b4-e648-44e8-aa9b-b33e1ba23480
+[current] coordinator produced COMMIT_COMPLETE commitId=394d50b4-e648-44e8-aa9b-b33e1ba23480
+[current] coordinator committed control-topic offsets: []
+[current] [after the commit cycle] table db.tbl uuid=7dd9ab24-82bb-4ea0-8901-b633d547bb40 (U1=f451f40d-0ab6-4823-a13d-fc4058841d6b) snapshots=0
+
+==================== SCENARIO A0-rolling-legacy-jdbc-NO-REPLACEMENT ====================
+[main] INFO org.apache.iceberg.connect.IcebergSinkConfig - IcebergSinkConfig values: 
+	iceberg.catalog = iceberg
+	iceberg.connect.group-id = null
+	iceberg.control.commit.interval-ms = 0
+	iceberg.control.commit.max-consecutive-failures = 1
+	iceberg.control.commit.threads = 1
+	iceberg.control.commit.timeout-ms = 600000
+	iceberg.control.group-id-prefix = cg-control-
+	iceberg.control.topic = control-iceberg
+	iceberg.coordinator-executor-keep-alive-timeout-ms = 120000
+	iceberg.coordinator.transactional.prefix = null
+	iceberg.hadoop-conf-dir = null
+	iceberg.tables = [db.tbl]
+	iceberg.tables.auto-create-enabled = false
+	iceberg.tables.default-commit-branch = null
+	iceberg.tables.default-id-columns = null
+	iceberg.tables.default-partition-by = null
+	iceberg.tables.dynamic-enabled = false
+	iceberg.tables.evolve-schema-enabled = false
+	iceberg.tables.route-field = null
+	iceberg.tables.schema-case-insensitive = false
+	iceberg.tables.schema-force-optional = false
+
+[main] INFO org.apache.iceberg.connect.IcebergSinkConfig - Worker properties not loaded, using only iceberg.kafka.* properties for Kafka clients
+[current] connector config: catalog={catalog-impl=org.apache.iceberg.jdbc.JdbcCatalog, jdbc.schema-version=V1, warehouse=file:/Users/I074560/Downloads/experiments/iceberg-verify/r7/lead-verify/cr3/run/A0-rolling-legacy-jdbc-NO-REPLACEMENT/warehouse, uri=jdbc:sqlite:file:/Users/I074560/Downloads/experiments/iceberg-verify/r7/lead-verify/cr3/run/A0-rolling-legacy-jdbc-NO-REPLACEMENT/catalog.db} control-topic=control-iceberg group=connect-cr3-sink
+[current] operator: created db.tbl uuid U1=db658c5d-0b25-4703-8faa-6acfdcb66f03 location=file:/Users/I074560/Downloads/experiments/iceberg-verify/r7/lead-verify/cr3/run/A0-rolling-legacy-jdbc-NO-REPLACEMENT/warehouse/db/tbl schema=(1:id long, 2:data string)
+[main] INFO org.apache.iceberg.connect.CatalogUtils - Hadoop config initialized: org.apache.hadoop.hdfs.HdfsConfiguration
+[main] INFO org.apache.iceberg.connect.channel.Channel - Sending event of type: START_COMMIT
+[main] INFO org.apache.iceberg.connect.channel.Coordinator - Coordinator cr3-sink-0 initiated commit 7fa92105-860c-440f-b6e4-72acdaeb240c
+[current] current coordinator sent START_COMMIT commitId=7fa92105-860c-440f-b6e4-72acdaeb240c
+[current] spawning legacy 1.10.2 sink JVM: mode=respond
+    [main] INFO org.apache.iceberg.connect.IcebergSinkConfig - IcebergSinkConfig values: 
+    	iceberg.catalog = iceberg
+    	iceberg.connect.group-id = null
+    	iceberg.control.commit.interval-ms = 0
+    	iceberg.control.commit.threads = 1
+    	iceberg.control.commit.timeout-ms = 600000
+    	iceberg.control.group-id-prefix = cg-control-
+    	iceberg.control.topic = control-iceberg
+    	iceberg.coordinator-executor-keep-alive-timeout-ms = 120000
+    	iceberg.coordinator.transactional.prefix = null
+    	iceberg.hadoop-conf-dir = null
+    	iceberg.tables = [db.tbl]
+    	iceberg.tables.auto-create-enabled = false
+    	iceberg.tables.default-commit-branch = null
+    	iceberg.tables.default-id-columns = null
+    	iceberg.tables.default-partition-by = null
+    	iceberg.tables.dynamic-enabled = false
+    	iceberg.tables.evolve-schema-enabled = false
+    	iceberg.tables.route-field = null
+    	iceberg.tables.schema-case-insensitive = false
+    	iceberg.tables.schema-force-optional = false
+    
+    [main] INFO org.apache.iceberg.connect.IcebergSinkConfig - Worker properties not loaded, using only iceberg.kafka.* properties for Kafka clients
+    [legacy-1.10.2] running Iceberg Kafka Connect 1.10.2 from file:/Users/I074560/Downloads/experiments/iceberg-verify/r7/lead-verify/cr3/legacy-lib/iceberg-kafka-connect-1.10.2.jar
+    [legacy-1.10.2] mode=respond connectGroupId=connect-cr3-sink
+    [main] INFO org.apache.iceberg.connect.CatalogUtils - Hadoop config initialized: org.apache.hadoop.hdfs.HdfsConfiguration
+    [legacy-1.10.2] catalog=org.apache.iceberg.jdbc.JdbcCatalog name=iceberg
+    [main] WARN org.apache.hadoop.util.NativeCodeLoader - Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+    [legacy-1.10.2] 1.10.2 worker buffered 3 source records (src-topic:0 offsets 0..2)
+    [legacy-1.10.2] 1.10.2 worker consumed START_COMMIT commitId=7fa92105-860c-440f-b6e4-72acdaeb240c
+    [main] INFO org.apache.iceberg.connect.channel.Channel - Sending event of type: DATA_WRITTEN
+    [main] INFO org.apache.iceberg.connect.channel.Channel - Sending event of type: DATA_COMPLETE
+    [main] INFO org.apache.iceberg.connect.channel.Channel - Handled event of type: START_COMMIT
+    [legacy-1.10.2] 1.10.2 worker sent DATA_WRITTEN commitId=7fa92105-860c-440f-b6e4-72acdaeb240c tableReference={catalog=iceberg, identifier=db.tbl} writerSchemaHasTableUuidField=false dataFile=file:/Users/I074560/Downloads/experiments/iceberg-verify/r7/lead-verify/cr3/run/A0-rolling-legacy-jdbc-NO-REPLACEMENT/warehouse/db/tbl/data/00001-1793833754210-4e60e08c-37a8-4ad3-b101-707d38900d0e-00001.parquet (3 rows)
+    [legacy-1.10.2] 1.10.2 worker sent DATA_COMPLETE commitId=7fa92105-860c-440f-b6e4-72acdaeb240c assignments=[src-topic:0@3]
+    [legacy-1.10.2] 1.10.2 worker committed source offsets in its transaction: [{dummy.group.id={src-topic-0=OffsetAndMetadata{offset=3, leaderEpoch=null, metadata=''}}}]
+    [legacy-1.10.2] wrote 2 control record(s) to /Users/I074560/Downloads/experiments/iceberg-verify/r7/lead-verify/cr3/run/A0-rolling-legacy-jdbc-NO-REPLACEMENT/job/ctl-out
+[current] operator: (no DROP/CREATE in this scenario)
+[current] coordinator consumes DATA_WRITTEN commitId=7fa92105-860c-440f-b6e4-72acdaeb240c tableReference={identifier=db.tbl, uuid=null} files=[file:/Users/I074560/Downloads/experiments/iceberg-verify/r7/lead-verify/cr3/run/A0-rolling-legacy-jdbc-NO-REPLACEMENT/warehouse/db/tbl/data/00001-1793833754210-4e60e08c-37a8-4ad3-b101-707d38900d0e-00001.parquet]
+[current] coordinator consumes DATA_COMPLETE commitId=7fa92105-860c-440f-b6e4-72acdaeb240c
+[main] INFO org.apache.iceberg.connect.channel.Channel - Handled event of type: DATA_WRITTEN
+[main] INFO org.apache.iceberg.connect.channel.CommitState - Commit 7fa92105-860c-440f-b6e4-72acdaeb240c ready, received responses for all 1 partitions
+[iceberg-committer-0] INFO org.apache.iceberg.connect.channel.Channel - Sending event of type: COMMIT_TO_TABLE
+[current] coordinator THREW -> CoordinatorThread: "Coordinator error during process, exiting thread": java.lang.IllegalArgumentException: Invalid field position: 3
+[current]       at org.apache.iceberg.relocated.com.google.common.base.Preconditions.checkArgument(Preconditions.java:142)
+[current]       at org.apache.iceberg.connect.events.AvroUtil.positionToId(AvroUtil.java:88)
+[current]       at org.apache.iceberg.connect.events.TableReference.get(TableReference.java:129)
+[current]       at org.apache.iceberg.avro.ValueWriters$RecordWriter.get(ValueWriters.java:597)
+[current]       at org.apache.iceberg.avro.ValueWriters$RecordWriter.get(ValueWriters.java:589)
+[current]       at org.apache.iceberg.avro.ValueWriters$StructWriter.write(ValueWriters.java:584)
+[current]       at org.apache.iceberg.avro.ValueWriters$StructWriter.write(ValueWriters.java:584)
+[current]       at org.apache.iceberg.avro.ValueWriters$StructWriter.write(ValueWriters.java:584)
+[current]       at org.apache.iceberg.avro.GenericAvroWriter.write(GenericAvroWriter.java:47)
+[current]       at org.apache.iceberg.avro.AvroEncoderUtil.encode(AvroEncoderUtil.java:60)
+[current]       at org.apache.iceberg.connect.events.AvroUtil.encode(AvroUtil.java:55)
+[current]       at org.apache.iceberg.connect.channel.Channel.lambda$send$1(Channel.java:91)
+[current] coordinator produced START_COMMIT commitId=7fa92105-860c-440f-b6e4-72acdaeb240c
+[current] coordinator committed control-topic offsets: []
+[current] [after the commit cycle] table db.tbl uuid=db658c5d-0b25-4703-8faa-6acfdcb66f03 (U1=db658c5d-0b25-4703-8faa-6acfdcb66f03) snapshots=1
+[current]   current snapshot 3259254902200660556 summary: commit-id=7fa92105-860c-440f-b6e4-72acdaeb240c offsets={"0":3} added-records=3
+[current]   references data file file:/Users/I074560/Downloads/experiments/iceberg-verify/r7/lead-verify/cr3/run/A0-rolling-legacy-jdbc-NO-REPLACEMENT/warehouse/db/tbl/data/00001-1793833754210-4e60e08c-37a8-4ad3-b101-707d38900d0e-00001.parquet records=3 specId=0 exists=true  <== written by the worker for table U1
+[current]     that file's own (writer) schema: (1:id long, 2:data string)
+[current]   table schema:                       (1:id long, 2:data string)
+[current]   row: id[long]=1 (java Long) data[string]=row-1 (java String) 
+[current]   row: id[long]=2 (java Long) data[string]=row-2 (java String) 
+[current]   row: id[long]=3 (java Long) data[string]=row-3 (java String) 
+[current] IcebergGenerics.read(U2) returned 3 row(s)
+
+==================== A0-rolling-legacy-jdbc-NO-REPLACEMENT: task restart -> new coordinator resumes from checkpoint null (none -> auto.offset.reset=latest) ====================
+[main] INFO org.apache.iceberg.connect.CatalogUtils - Hadoop config initialized: org.apache.hadoop.hdfs.HdfsConfiguration
+[main] INFO org.apache.iceberg.connect.channel.Channel - Sending event of type: START_COMMIT
+[main] INFO org.apache.iceberg.connect.channel.Coordinator - Coordinator cr3-sink-0 initiated commit 21086e05-282a-404f-b09c-7efa94179b3b
+[current] restarted coordinator sent START_COMMIT commitId=21086e05-282a-404f-b09c-7efa94179b3b
+[main] INFO org.apache.iceberg.connect.CatalogUtils - Hadoop config initialized: org.apache.hadoop.hdfs.HdfsConfiguration
+[current] current worker buffered 0 source records
+[main] INFO org.apache.iceberg.connect.channel.Channel - Sending event of type: DATA_COMPLETE
+[main] INFO org.apache.iceberg.connect.channel.Channel - Handled event of type: START_COMMIT
+[current] current worker sent DATA_COMPLETE commitId=21086e05-282a-404f-b09c-7efa94179b3b
+[main] INFO org.apache.iceberg.connect.channel.CommitState - Commit 21086e05-282a-404f-b09c-7efa94179b3b ready, received responses for all 1 partitions
+[main] INFO org.apache.iceberg.connect.channel.Channel - Sending event of type: COMMIT_COMPLETE
+[main] INFO org.apache.iceberg.connect.channel.Coordinator - Coordinator cr3-sink-0 completed commit 21086e05-282a-404f-b09c-7efa94179b3b, committed to 0 table(s), valid-through null
+[main] INFO org.apache.iceberg.connect.channel.Channel - Handled event of type: DATA_COMPLETE
+[current] restarted coordinator produced START_COMMIT commitId=21086e05-282a-404f-b09c-7efa94179b3b
+[current] restarted coordinator produced COMMIT_COMPLETE commitId=21086e05-282a-404f-b09c-7efa94179b3b
+[current] restarted coordinator committed control-topic offsets: []
+[current] restarted coordinator completed a commit cycle without terminating: true
+[current] [after restart/recovery (final state)] table db.tbl uuid=db658c5d-0b25-4703-8faa-6acfdcb66f03 (U1=db658c5d-0b25-4703-8faa-6acfdcb66f03) snapshots=1
+[current]   current snapshot 3259254902200660556 summary: commit-id=7fa92105-860c-440f-b6e4-72acdaeb240c offsets={"0":3} added-records=3
+[current]   references data file file:/Users/I074560/Downloads/experiments/iceberg-verify/r7/lead-verify/cr3/run/A0-rolling-legacy-jdbc-NO-REPLACEMENT/warehouse/db/tbl/data/00001-1793833754210-4e60e08c-37a8-4ad3-b101-707d38900d0e-00001.parquet records=3 specId=0 exists=true  <== written by the worker for table U1
+[current]     that file's own (writer) schema: (1:id long, 2:data string)
+[current]   table schema:                       (1:id long, 2:data string)
+[current]   row: id[long]=1 (java Long) data[string]=row-1 (java String) 
+[current]   row: id[long]=2 (java Long) data[string]=row-2 (java String) 
+[current]   row: id[long]=3 (java Long) data[string]=row-3 (java String) 
+[current] IcebergGenerics.read(U2) returned 3 row(s)
+
+==================== SUMMARY ====================
+[current] A1-rolling-legacy-jdbc               BUG: file(s) written for dropped table U1 committed into re-created table U2; coordinator terminated after the append (task failed), restart kept them
+[current] A1c-rolling-current-jdbc-CONTROL     REJECTED: U2 untouched (no snapshot)
+[current] B1-replay-legacy-jdbc                BUG: file(s) written for dropped table U1 committed into re-created table U2; coordinator terminated after the append (task failed), restart kept them
+[current] A2-rolling-legacy-hadoop             BUG: file(s) written for dropped table U1 committed into re-created table U2; coordinator terminated after the append (task failed), restart kept them
+[current] A2c-rolling-current-hadoop-CONTROL   REJECTED: U2 untouched (no snapshot)
+[current] A0-rolling-legacy-jdbc-NO-REPLACEMENT SEPARATE-DEFECT: coordinator terminated after committing a 1.10.2 DataWritten (no table replacement involved); files landed in U1=true
+[current] RESULT: CR-3 REPRODUCED (legacy null-uuid DataWritten committed into the recreated table; uuid-bearing control rejected)

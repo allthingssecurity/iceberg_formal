@@ -1,0 +1,23 @@
+// CR-3 repro helper (test-classpath only; does not touch the system under test).
+// Adds sqlite-jdbc (shared JdbcCatalog) and the connect-runtime jar (for a real
+// WorkerSinkTaskContext) to the kafka-connect test runtime classpath, and writes that
+// classpath to the file named by -Dcr3.cpfile.
+gradle.allprojects { p ->
+  if (p.path == ':iceberg-kafka-connect:iceberg-kafka-connect') {
+    p.afterEvaluate {
+      p.dependencies {
+        testRuntimeOnly 'org.xerial:sqlite-jdbc:3.53.4.0'
+        testRuntimeOnly('org.apache.kafka:connect-runtime:3.9.2') { transitive = false }
+      }
+      p.tasks.register('cr3PrintTestClasspath') {
+        dependsOn 'testClasses'
+        dependsOn p.sourceSets.test.runtimeClasspath
+        def cp = p.sourceSets.test.runtimeClasspath
+        def out = System.getProperty('cr3.cpfile')
+        doLast {
+          new File(out).text = cp.files.collect { it.absolutePath }.join(File.pathSeparator)
+        }
+      }
+    }
+  }
+}

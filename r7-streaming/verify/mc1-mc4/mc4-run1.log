@@ -1,0 +1,344 @@
+> Task :compileJava NO-SOURCE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+> Task :compileTestJava
+> Task :processTestResources NO-SOURCE
+> Task :testClasses
+OpenJDK 64-Bit Server VM warning: Sharing is only supported for boot loader classes because bootstrap classpath has been appended
+
+> Task :test
+
+TestLeadMC4BranchDrop > trigger_branchDroppedAfterPublish() STANDARD_ERROR
+    Mockito is currently self-attaching to enable the inline-mock-maker. This will no longer work in future releases of the JDK. Please add Mockito as an agent to your build what is described in Mockito's documentation: https://javadoc.io/doc/org.mockito/mockito-core/latest/org/mockito/Mockito.html#0.3
+    [Test worker] WARN org.apache.hadoop.util.NativeCodeLoader - Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+    [Test worker] INFO org.apache.iceberg.CatalogUtil - Loading custom FileIO implementation: org.apache.iceberg.hadoop.HadoopFileIO
+    [Test worker] INFO org.apache.iceberg.BaseMetastoreCatalog - Table properties set at catalog level through catalog properties: {}
+    [Test worker] INFO org.apache.iceberg.BaseMetastoreCatalog - Table properties enforced at catalog level through catalog properties: {}
+    [Test worker] INFO org.apache.iceberg.hadoop.HadoopTableOperations - Committed a new metadata file file:/Users/I074560/Downloads/experiments/iceberg-verify/r7/lead-verify/mc1/build/mc1/drop/warehouse/db/tbl/metadata/v1.metadata.json
+    [Test worker] INFO org.apache.iceberg.connect.IcebergSinkConfig - IcebergSinkConfig values: 
+    	iceberg.catalog = iceberg
+    	iceberg.connect.group-id = null
+    	iceberg.control.commit.interval-ms = 0
+    	iceberg.control.commit.max-consecutive-failures = 1
+    	iceberg.control.commit.threads = 1
+    	iceberg.control.commit.timeout-ms = 2147483647
+    	iceberg.control.group-id-prefix = cg-control-
+    	iceberg.control.topic = mc1-control
+    	iceberg.coordinator-executor-keep-alive-timeout-ms = 120000
+    	iceberg.coordinator.transactional.prefix = null
+    	iceberg.hadoop-conf-dir = null
+    	iceberg.tables = [db.tbl]
+    	iceberg.tables.auto-create-enabled = false
+    	iceberg.tables.default-commit-branch = audit
+    	iceberg.tables.default-id-columns = null
+    	iceberg.tables.default-partition-by = null
+    	iceberg.tables.dynamic-enabled = false
+    	iceberg.tables.evolve-schema-enabled = false
+    	iceberg.tables.route-field = null
+    	iceberg.tables.schema-case-insensitive = false
+    	iceberg.tables.schema-force-optional = false
+
+    [Test worker] INFO org.apache.iceberg.connect.IcebergSinkConfig - Worker properties not loaded, using only iceberg.kafka.* properties for Kafka clients
+    [Test worker] INFO org.apache.kafka.connect.json.JsonConverterConfig - JsonConverterConfig values: 
+    	converter.type = value
+    	decimal.format = BASE64
+    	replace.null.with.default = true
+    	schemas.cache.size = 1000
+    	schemas.enable = false
+
+    [Test worker] INFO org.apache.iceberg.BaseMetastoreCatalog - Table loaded by catalog: iceberg.db.tbl
+    [Test worker] INFO org.apache.iceberg.formats.FormatModelRegistry - Unable to call register for (org.apache.iceberg.arrow.vectorized.ArrowFormatModels). Check for missing jars on the classpath: java.lang.NoSuchMethodException: Cannot find method: register
+    [Test worker] INFO org.apache.iceberg.formats.FormatModelRegistry - Unable to call register for (org.apache.iceberg.flink.data.FlinkFormatModels). Check for missing jars on the classpath: java.lang.NoSuchMethodException: Cannot find method: register
+    [Test worker] INFO org.apache.iceberg.formats.FormatModelRegistry - Unable to call register for (org.apache.iceberg.spark.source.SparkFormatModels). Check for missing jars on the classpath: java.lang.NoSuchMethodException: Cannot find method: register
+    [Test worker] INFO org.apache.hadoop.io.compress.CodecPool - Got brand-new compressor [.zstd]
+    [Test worker] INFO org.apache.iceberg.connect.channel.Channel - Sending event of type: START_COMMIT
+    [Test worker] INFO org.apache.iceberg.connect.channel.Coordinator - Coordinator mc1-sink-0 initiated commit 5ffeb853-042a-45e4-8d45-5f6244de96e2
+    [Test worker] INFO org.apache.iceberg.connect.channel.Channel - Sending event of type: DATA_WRITTEN
+    [Test worker] INFO org.apache.iceberg.connect.channel.Channel - Sending event of type: DATA_COMPLETE
+    [Test worker] INFO org.apache.iceberg.connect.channel.Channel - Handled event of type: START_COMMIT
+    [Test worker] INFO org.apache.iceberg.connect.channel.Channel - Handled event of type: DATA_WRITTEN
+    [Test worker] INFO org.apache.iceberg.connect.channel.CommitState - Commit 5ffeb853-042a-45e4-8d45-5f6244de96e2 ready, received responses for all 1 partitions
+    [iceberg-committer-0] INFO org.apache.iceberg.BaseMetastoreCatalog - Table loaded by catalog: iceberg.db.tbl
+    [iceberg-committer-0] INFO org.apache.iceberg.hadoop.HadoopTableOperations - Committed a new metadata file file:/Users/I074560/Downloads/experiments/iceberg-verify/r7/lead-verify/mc1/build/mc1/drop/warehouse/db/tbl/metadata/v2.metadata.json
+    [iceberg-committer-0] INFO org.apache.iceberg.SnapshotProducer - Committed snapshot 5161744902274932939 (MergeAppend)
+    [iceberg-committer-0] INFO org.apache.iceberg.metrics.LoggingMetricsReporter - Received metrics report: CommitReport{tableName=iceberg.db.tbl, snapshotId=5161744902274932939, sequenceNumber=1, operation=append, commitMetrics=CommitMetricsResult{totalDuration=TimerResult{timeUnit=NANOSECONDS, totalDuration=PT0.20451525S, count=1}, attempts=CounterResult{unit=COUNT, value=1}, addedDataFiles=CounterResult{unit=COUNT, value=1}, removedDataFiles=null, totalDataFiles=CounterResult{unit=COUNT, value=1}, addedDeleteFiles=null, addedEqualityDeleteFiles=null, addedPositionalDeleteFiles=null, addedDVs=null, removedDeleteFiles=null, removedEqualityDeleteFiles=null, removedPositionalDeleteFiles=null, removedDVs=null, totalDeleteFiles=CounterResult{unit=COUNT, value=0}, addedRecords=CounterResult{unit=COUNT, value=3}, removedRecords=null, totalRecords=CounterResult{unit=COUNT, value=3}, addedFilesSizeInBytes=CounterResult{unit=BYTES, value=678}, removedFilesSizeInBytes=null, totalFilesSizeInBytes=CounterResult{unit=BYTES, value=678}, addedPositionalDeletes=null, removedPositionalDeletes=null, totalPositionalDeletes=CounterResult{unit=COUNT, value=0}, addedEqualityDeletes=null, removedEqualityDeletes=null, totalEqualityDeletes=CounterResult{unit=COUNT, value=0}, manifestsCreated=CounterResult{unit=COUNT, value=1}, manifestsReplaced=CounterResult{unit=COUNT, value=0}, manifestsKept=CounterResult{unit=COUNT, value=0}, manifestEntriesProcessed=null}, metadata={iceberg-version=Apache Iceberg 1.12.0 (commit 212aa894e919ff9fdf89160da4aadcbe6858ac01)}}
+    [iceberg-committer-0] INFO org.apache.iceberg.connect.channel.Channel - Sending event of type: COMMIT_TO_TABLE
+    [iceberg-committer-0] INFO org.apache.iceberg.connect.channel.Coordinator - Coordinator mc1-sink-0 completed commit to table db.tbl, snapshot 5161744902274932939, commit ID 5ffeb853-042a-45e4-8d45-5f6244de96e2, valid-through null
+    [Test worker] INFO org.apache.iceberg.connect.channel.Channel - Sending event of type: COMMIT_COMPLETE
+    [Test worker] INFO org.apache.iceberg.connect.channel.Coordinator - Coordinator mc1-sink-0 completed commit 5ffeb853-042a-45e4-8d45-5f6244de96e2, committed to 1 table(s), valid-through null
+    [Test worker] INFO org.apache.iceberg.connect.channel.Channel - Handled event of type: DATA_COMPLETE
+    [Test worker] INFO org.apache.iceberg.SnapshotScan - Scanning table iceberg.db.tbl snapshot 5161744902274932939 created at 2026-11-04T22:09:06.350+00:00 with filter true
+    [Test worker] INFO org.apache.hadoop.io.compress.CodecPool - Got brand-new decompressor [.zstd]
+    [Test worker] INFO org.apache.iceberg.metrics.LoggingMetricsReporter - Received metrics report: ScanReport{tableName=iceberg.db.tbl, snapshotId=5161744902274932939, filter=true, schemaId=0, projectedFieldIds=[1, 2], projectedFieldNames=[id, data], scanMetrics=ScanMetricsResult{totalPlanningDuration=TimerResult{timeUnit=NANOSECONDS, totalDuration=PT0.028034958S, count=1}, resultDataFiles=CounterResult{unit=COUNT, value=1}, resultDeleteFiles=CounterResult{unit=COUNT, value=0}, totalDataManifests=CounterResult{unit=COUNT, value=1}, totalDeleteManifests=CounterResult{unit=COUNT, value=0}, scannedDataManifests=CounterResult{unit=COUNT, value=1}, skippedDataManifests=CounterResult{unit=COUNT, value=0}, totalFileSizeInBytes=CounterResult{unit=BYTES, value=678}, totalDeleteFileSizeInBytes=CounterResult{unit=BYTES, value=0}, skippedDataFiles=CounterResult{unit=COUNT, value=0}, skippedDeleteFiles=CounterResult{unit=COUNT, value=0}, scannedDeleteManifests=CounterResult{unit=COUNT, value=0}, skippedDeleteManifests=CounterResult{unit=COUNT, value=0}, indexedDeleteFiles=CounterResult{unit=COUNT, value=0}, equalityDeleteFiles=CounterResult{unit=COUNT, value=0}, positionalDeleteFiles=CounterResult{unit=COUNT, value=0}, dvs=CounterResult{unit=COUNT, value=0}}, metadata={iceberg-version=Apache Iceberg 1.12.0 (commit 212aa894e919ff9fdf89160da4aadcbe6858ac01)}}
+
+TestLeadMC4BranchDrop > trigger_branchDroppedAfterPublish() STANDARD_OUT
+    [MC-4L][drop] phase A failure=null refs=3 rows on audit, main rows=-1 refs=[audit]
+
+TestLeadMC4BranchDrop > trigger_branchDroppedAfterPublish() STANDARD_ERROR
+    [Test worker] INFO org.apache.iceberg.hadoop.HadoopTableOperations - Committed a new metadata file file:/Users/I074560/Downloads/experiments/iceberg-verify/r7/lead-verify/mc1/build/mc1/drop/warehouse/db/tbl/metadata/v3.metadata.json
+    [Test worker] INFO org.apache.iceberg.hadoop.HadoopTableOperations - Committed a new metadata file file:/Users/I074560/Downloads/experiments/iceberg-verify/r7/lead-verify/mc1/build/mc1/drop/warehouse/db/tbl/metadata/v4.metadata.json
+
+TestLeadMC4BranchDrop > trigger_branchDroppedAfterPublish() STANDARD_OUT
+    [MC-4L][drop] operator: published audit->main and DROPPED branch audit; refs=[main]
+
+TestLeadMC4BranchDrop > trigger_branchDroppedAfterPublish() STANDARD_ERROR
+    [Test worker] INFO org.apache.iceberg.BaseMetastoreCatalog - Table loaded by catalog: iceberg.db.tbl
+    [Test worker] INFO org.apache.hadoop.io.compress.CodecPool - Got brand-new compressor [.zstd]
+    [Test worker] INFO org.apache.iceberg.connect.channel.Channel - Sending event of type: START_COMMIT
+    [Test worker] INFO org.apache.iceberg.connect.channel.Coordinator - Coordinator mc1-sink-0 initiated commit fb6ba279-f1ec-4d72-aba9-fd55166b850a
+    [Test worker] INFO org.apache.iceberg.connect.channel.Channel - Sending event of type: DATA_WRITTEN
+    [Test worker] INFO org.apache.iceberg.connect.channel.Channel - Sending event of type: DATA_COMPLETE
+    [Test worker] INFO org.apache.iceberg.connect.channel.Channel - Handled event of type: START_COMMIT
+    [Test worker] INFO org.apache.iceberg.connect.channel.Channel - Handled event of type: DATA_WRITTEN
+    [Test worker] INFO org.apache.iceberg.connect.channel.CommitState - Commit fb6ba279-f1ec-4d72-aba9-fd55166b850a ready, received responses for all 1 partitions
+    [iceberg-committer-0] INFO org.apache.iceberg.BaseMetastoreCatalog - Table loaded by catalog: iceberg.db.tbl
+
+TestLeadMC4BranchDrop > trigger_branchDroppedAfterPublish() STANDARD_OUT
+    [MC-4L][drop] coordinator.process() threw (CoordinatorThread would exit -> NotRunningException, task FAILED): org.apache.iceberg.exceptions.ValidationException: Snapshot ancestry validation failed: Cannot commit to db.tbl, stale offsets: Expected: {} Committed: {0=3}
+    [MC-4L][drop]     at org.apache.iceberg.exceptions.ValidationException.check(ValidationException.java:49)
+    [MC-4L][drop]     at org.apache.iceberg.SnapshotProducer.runValidations(SnapshotProducer.java:385)
+    [MC-4L][drop]     at org.apache.iceberg.SnapshotProducer.apply(SnapshotProducer.java:302)
+    [MC-4L][drop]     at org.apache.iceberg.SnapshotProducer.lambda$commit$2(SnapshotProducer.java:500)
+    [MC-4L][drop]     at org.apache.iceberg.util.Tasks$Builder.runTaskWithRetry(Tasks.java:416)
+    [MC-4L][drop]     at org.apache.iceberg.util.Tasks$Builder.runSingleThreaded(Tasks.java:222)
+    [MC-4L][drop]     at org.apache.iceberg.util.Tasks$Builder.run(Tasks.java:206)
+    [MC-4L][drop]     at org.apache.iceberg.util.Tasks$Builder.run(Tasks.java:199)
+    [MC-4L][drop]     at org.apache.iceberg.SnapshotProducer.commit(SnapshotProducer.java:498)
+    [MC-4L][drop]     at org.apache.iceberg.connect.channel.Coordinator.commitToTable(Coordinator.java:320)
+    [MC-4L][drop]     at org.apache.iceberg.connect.channel.Coordinator.lambda$doCommit$1(Coordinator.java:207)
+    [MC-4L][drop]     at org.apache.iceberg.util.Tasks$Builder.runTaskWithRetry(Tasks.java:416)
+    [MC-4L][drop]     at org.apache.iceberg.util.Tasks$Builder$1.run(Tasks.java:318)
+    [MC-4L][drop]     at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572)
+
+TestLeadMC4BranchDrop > trigger_branchDroppedAfterPublish() STANDARD_ERROR
+    [Test worker] INFO org.apache.iceberg.BaseMetastoreCatalog - Table loaded by catalog: iceberg.db.tbl
+    [Test worker] INFO org.apache.hadoop.io.compress.CodecPool - Got brand-new compressor [.zstd]
+    [Test worker] INFO org.apache.iceberg.connect.channel.Channel - Sending event of type: START_COMMIT
+    [Test worker] INFO org.apache.iceberg.connect.channel.Coordinator - Coordinator mc1-sink-0 initiated commit 98f3e6fe-71b9-4038-b946-8691944bea98
+    [Test worker] INFO org.apache.iceberg.connect.channel.Channel - Handled event of type: DATA_WRITTEN
+    [Test worker] INFO org.apache.iceberg.connect.channel.CommitState - Commit 98f3e6fe-71b9-4038-b946-8691944bea98 not ready, received responses for 0 of 1 partitions, waiting for more
+    [Test worker] INFO org.apache.iceberg.connect.channel.Channel - Handled event of type: DATA_COMPLETE
+    [Test worker] INFO org.apache.iceberg.connect.channel.Channel - Handled event of type: DATA_WRITTEN
+    [Test worker] INFO org.apache.iceberg.connect.channel.CommitState - Commit 98f3e6fe-71b9-4038-b946-8691944bea98 not ready, received responses for 0 of 1 partitions, waiting for more
+    [Test worker] INFO org.apache.iceberg.connect.channel.Channel - Handled event of type: DATA_COMPLETE
+    [Test worker] INFO org.apache.iceberg.connect.channel.Channel - Sending event of type: DATA_WRITTEN
+    [Test worker] INFO org.apache.iceberg.connect.channel.Channel - Sending event of type: DATA_COMPLETE
+    [Test worker] INFO org.apache.iceberg.connect.channel.Channel - Handled event of type: START_COMMIT
+    [Test worker] INFO org.apache.iceberg.connect.channel.Channel - Handled event of type: DATA_WRITTEN
+    [Test worker] INFO org.apache.iceberg.connect.channel.CommitState - Commit 98f3e6fe-71b9-4038-b946-8691944bea98 ready, received responses for all 1 partitions
+    [iceberg-committer-0] INFO org.apache.iceberg.BaseMetastoreCatalog - Table loaded by catalog: iceberg.db.tbl
+
+TestLeadMC4BranchDrop > trigger_branchDroppedAfterPublish() STANDARD_OUT
+    [MC-4L][drop] coordinator.process() threw (CoordinatorThread would exit -> NotRunningException, task FAILED): org.apache.iceberg.exceptions.ValidationException: Snapshot ancestry validation failed: Cannot commit to db.tbl, stale offsets: Expected: {} Committed: {0=3}
+    [MC-4L][drop]     at org.apache.iceberg.exceptions.ValidationException.check(ValidationException.java:49)
+    [MC-4L][drop]     at org.apache.iceberg.SnapshotProducer.runValidations(SnapshotProducer.java:385)
+    [MC-4L][drop]     at org.apache.iceberg.SnapshotProducer.apply(SnapshotProducer.java:302)
+    [MC-4L][drop]     at org.apache.iceberg.SnapshotProducer.lambda$commit$2(SnapshotProducer.java:500)
+    [MC-4L][drop]     at org.apache.iceberg.util.Tasks$Builder.runTaskWithRetry(Tasks.java:416)
+    [MC-4L][drop]     at org.apache.iceberg.util.Tasks$Builder.runSingleThreaded(Tasks.java:222)
+    [MC-4L][drop]     at org.apache.iceberg.util.Tasks$Builder.run(Tasks.java:206)
+    [MC-4L][drop]     at org.apache.iceberg.util.Tasks$Builder.run(Tasks.java:199)
+    [MC-4L][drop]     at org.apache.iceberg.SnapshotProducer.commit(SnapshotProducer.java:498)
+    [MC-4L][drop]     at org.apache.iceberg.connect.channel.Coordinator.commitToTable(Coordinator.java:320)
+    [MC-4L][drop]     at org.apache.iceberg.connect.channel.Coordinator.lambda$doCommit$1(Coordinator.java:207)
+    [MC-4L][drop]     at org.apache.iceberg.util.Tasks$Builder.runTaskWithRetry(Tasks.java:416)
+    [MC-4L][drop]     at org.apache.iceberg.util.Tasks$Builder$1.run(Tasks.java:318)
+    [MC-4L][drop]     at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572)
+
+TestLeadMC4BranchDrop > trigger_branchDroppedAfterPublish() STANDARD_ERROR
+    [Test worker] INFO org.apache.iceberg.BaseMetastoreCatalog - Table loaded by catalog: iceberg.db.tbl
+    [Test worker] INFO org.apache.hadoop.io.compress.CodecPool - Got brand-new compressor [.zstd]
+    [Test worker] INFO org.apache.iceberg.connect.channel.Channel - Sending event of type: START_COMMIT
+    [Test worker] INFO org.apache.iceberg.connect.channel.Coordinator - Coordinator mc1-sink-0 initiated commit 4ad0fb83-8a72-43fa-a66c-c0372c7da6e7
+    [Test worker] INFO org.apache.iceberg.connect.channel.Channel - Handled event of type: DATA_WRITTEN
+    [Test worker] INFO org.apache.iceberg.connect.channel.CommitState - Commit 4ad0fb83-8a72-43fa-a66c-c0372c7da6e7 not ready, received responses for 0 of 1 partitions, waiting for more
+    [Test worker] INFO org.apache.iceberg.connect.channel.Channel - Handled event of type: DATA_COMPLETE
+    [Test worker] INFO org.apache.iceberg.connect.channel.Channel - Handled event of type: DATA_WRITTEN
+    [Test worker] INFO org.apache.iceberg.connect.channel.CommitState - Commit 4ad0fb83-8a72-43fa-a66c-c0372c7da6e7 not ready, received responses for 0 of 1 partitions, waiting for more
+    [Test worker] INFO org.apache.iceberg.connect.channel.Channel - Handled event of type: DATA_COMPLETE
+    [Test worker] INFO org.apache.iceberg.connect.channel.Channel - Handled event of type: DATA_WRITTEN
+    [Test worker] INFO org.apache.iceberg.connect.channel.CommitState - Commit 4ad0fb83-8a72-43fa-a66c-c0372c7da6e7 not ready, received responses for 0 of 1 partitions, waiting for more
+    [Test worker] INFO org.apache.iceberg.connect.channel.Channel - Handled event of type: DATA_COMPLETE
+    [Test worker] INFO org.apache.iceberg.connect.channel.Channel - Sending event of type: DATA_WRITTEN
+    [Test worker] INFO org.apache.iceberg.connect.channel.Channel - Sending event of type: DATA_COMPLETE
+    [Test worker] INFO org.apache.iceberg.connect.channel.Channel - Handled event of type: START_COMMIT
+    [Test worker] INFO org.apache.iceberg.connect.channel.Channel - Handled event of type: DATA_WRITTEN
+    [Test worker] INFO org.apache.iceberg.connect.channel.CommitState - Commit 4ad0fb83-8a72-43fa-a66c-c0372c7da6e7 ready, received responses for all 1 partitions
+    [iceberg-committer-0] INFO org.apache.iceberg.BaseMetastoreCatalog - Table loaded by catalog: iceberg.db.tbl
+
+TestLeadMC4BranchDrop > trigger_branchDroppedAfterPublish() STANDARD_OUT
+    [MC-4L][drop] coordinator.process() threw (CoordinatorThread would exit -> NotRunningException, task FAILED): org.apache.iceberg.exceptions.ValidationException: Snapshot ancestry validation failed: Cannot commit to db.tbl, stale offsets: Expected: {} Committed: {0=3}
+    [MC-4L][drop]     at org.apache.iceberg.exceptions.ValidationException.check(ValidationException.java:49)
+    [MC-4L][drop]     at org.apache.iceberg.SnapshotProducer.runValidations(SnapshotProducer.java:385)
+    [MC-4L][drop]     at org.apache.iceberg.SnapshotProducer.apply(SnapshotProducer.java:302)
+    [MC-4L][drop]     at org.apache.iceberg.SnapshotProducer.lambda$commit$2(SnapshotProducer.java:500)
+    [MC-4L][drop]     at org.apache.iceberg.util.Tasks$Builder.runTaskWithRetry(Tasks.java:416)
+    [MC-4L][drop]     at org.apache.iceberg.util.Tasks$Builder.runSingleThreaded(Tasks.java:222)
+    [MC-4L][drop]     at org.apache.iceberg.util.Tasks$Builder.run(Tasks.java:206)
+    [MC-4L][drop]     at org.apache.iceberg.util.Tasks$Builder.run(Tasks.java:199)
+    [MC-4L][drop]     at org.apache.iceberg.SnapshotProducer.commit(SnapshotProducer.java:498)
+    [MC-4L][drop]     at org.apache.iceberg.connect.channel.Coordinator.commitToTable(Coordinator.java:320)
+    [MC-4L][drop]     at org.apache.iceberg.connect.channel.Coordinator.lambda$doCommit$1(Coordinator.java:207)
+    [MC-4L][drop]     at org.apache.iceberg.util.Tasks$Builder.runTaskWithRetry(Tasks.java:416)
+    [MC-4L][drop]     at org.apache.iceberg.util.Tasks$Builder$1.run(Tasks.java:318)
+    [MC-4L][drop]     at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572)
+
+TestLeadMC4BranchDrop > trigger_branchDroppedAfterPublish() STANDARD_ERROR
+    [Test worker] INFO org.apache.iceberg.SnapshotScan - Scanning table iceberg.db.tbl snapshot 5161744902274932939 created at 2026-11-04T22:09:06.350+00:00 with filter true
+    [Test worker] INFO org.apache.hadoop.io.compress.CodecPool - Got brand-new decompressor [.zstd]
+    [Test worker] INFO org.apache.iceberg.metrics.LoggingMetricsReporter - Received metrics report: ScanReport{tableName=iceberg.db.tbl, snapshotId=5161744902274932939, filter=true, schemaId=0, projectedFieldIds=[1, 2], projectedFieldNames=[id, data], scanMetrics=ScanMetricsResult{totalPlanningDuration=TimerResult{timeUnit=NANOSECONDS, totalDuration=PT0.004652625S, count=1}, resultDataFiles=CounterResult{unit=COUNT, value=1}, resultDeleteFiles=CounterResult{unit=COUNT, value=0}, totalDataManifests=CounterResult{unit=COUNT, value=1}, totalDeleteManifests=CounterResult{unit=COUNT, value=0}, scannedDataManifests=CounterResult{unit=COUNT, value=1}, skippedDataManifests=CounterResult{unit=COUNT, value=0}, totalFileSizeInBytes=CounterResult{unit=BYTES, value=678}, totalDeleteFileSizeInBytes=CounterResult{unit=BYTES, value=0}, skippedDataFiles=CounterResult{unit=COUNT, value=0}, skippedDeleteFiles=CounterResult{unit=COUNT, value=0}, scannedDeleteManifests=CounterResult{unit=COUNT, value=0}, skippedDeleteManifests=CounterResult{unit=COUNT, value=0}, indexedDeleteFiles=CounterResult{unit=COUNT, value=0}, equalityDeleteFiles=CounterResult{unit=COUNT, value=0}, positionalDeleteFiles=CounterResult{unit=COUNT, value=0}, dvs=CounterResult{unit=COUNT, value=0}}, metadata={iceberg-version=Apache Iceberg 1.12.0 (commit 212aa894e919ff9fdf89160da4aadcbe6858ac01)}}
+
+TestLeadMC4BranchDrop > trigger_branchDroppedAfterPublish() STANDARD_OUT
+    [MC-4L][drop] phase B commit outcomes=[ValidationException, ValidationException, ValidationException] main rows=3 audit rows=-1 refs=[main] source offsets committed={src-0=12}
+    [MC-4L][drop] RESULT STALL: [ValidationException, ValidationException, ValidationException]
+
+TestLeadMC4BranchDrop > trigger_branchDroppedAfterPublish() PASSED
+
+TestLeadMC4BranchDrop > control_branchKeptAfterPublish() STANDARD_ERROR
+    [Test worker] INFO org.apache.iceberg.CatalogUtil - Loading custom FileIO implementation: org.apache.iceberg.hadoop.HadoopFileIO
+    [Test worker] INFO org.apache.iceberg.BaseMetastoreCatalog - Table properties set at catalog level through catalog properties: {}
+    [Test worker] INFO org.apache.iceberg.BaseMetastoreCatalog - Table properties enforced at catalog level through catalog properties: {}
+    [Test worker] INFO org.apache.iceberg.hadoop.HadoopTableOperations - Committed a new metadata file file:/Users/I074560/Downloads/experiments/iceberg-verify/r7/lead-verify/mc1/build/mc1/kept/warehouse/db/tbl/metadata/v1.metadata.json
+    [Test worker] INFO org.apache.iceberg.connect.IcebergSinkConfig - IcebergSinkConfig values: 
+    	iceberg.catalog = iceberg
+    	iceberg.connect.group-id = null
+    	iceberg.control.commit.interval-ms = 0
+    	iceberg.control.commit.max-consecutive-failures = 1
+    	iceberg.control.commit.threads = 1
+    	iceberg.control.commit.timeout-ms = 2147483647
+    	iceberg.control.group-id-prefix = cg-control-
+    	iceberg.control.topic = mc1-control
+    	iceberg.coordinator-executor-keep-alive-timeout-ms = 120000
+    	iceberg.coordinator.transactional.prefix = null
+    	iceberg.hadoop-conf-dir = null
+    	iceberg.tables = [db.tbl]
+    	iceberg.tables.auto-create-enabled = false
+    	iceberg.tables.default-commit-branch = audit
+    	iceberg.tables.default-id-columns = null
+    	iceberg.tables.default-partition-by = null
+    	iceberg.tables.dynamic-enabled = false
+    	iceberg.tables.evolve-schema-enabled = false
+    	iceberg.tables.route-field = null
+    	iceberg.tables.schema-case-insensitive = false
+    	iceberg.tables.schema-force-optional = false
+
+    [Test worker] INFO org.apache.iceberg.connect.IcebergSinkConfig - Worker properties not loaded, using only iceberg.kafka.* properties for Kafka clients
+    [Test worker] INFO org.apache.kafka.connect.json.JsonConverterConfig - JsonConverterConfig values: 
+    	converter.type = value
+    	decimal.format = BASE64
+    	replace.null.with.default = true
+    	schemas.cache.size = 1000
+    	schemas.enable = false
+
+    [Test worker] INFO org.apache.iceberg.BaseMetastoreCatalog - Table loaded by catalog: iceberg.db.tbl
+    [Test worker] INFO org.apache.hadoop.io.compress.CodecPool - Got brand-new compressor [.zstd]
+    [Test worker] INFO org.apache.iceberg.connect.channel.Channel - Sending event of type: START_COMMIT
+    [Test worker] INFO org.apache.iceberg.connect.channel.Coordinator - Coordinator mc1-sink-0 initiated commit 56afeaeb-140c-4d80-9094-60307cc5038a
+    [Test worker] INFO org.apache.iceberg.connect.channel.Channel - Sending event of type: DATA_WRITTEN
+    [Test worker] INFO org.apache.iceberg.connect.channel.Channel - Sending event of type: DATA_COMPLETE
+    [Test worker] INFO org.apache.iceberg.connect.channel.Channel - Handled event of type: START_COMMIT
+    [Test worker] INFO org.apache.iceberg.connect.channel.Channel - Handled event of type: DATA_WRITTEN
+    [Test worker] INFO org.apache.iceberg.connect.channel.CommitState - Commit 56afeaeb-140c-4d80-9094-60307cc5038a ready, received responses for all 1 partitions
+    [iceberg-committer-0] INFO org.apache.iceberg.BaseMetastoreCatalog - Table loaded by catalog: iceberg.db.tbl
+    [iceberg-committer-0] INFO org.apache.iceberg.hadoop.HadoopTableOperations - Committed a new metadata file file:/Users/I074560/Downloads/experiments/iceberg-verify/r7/lead-verify/mc1/build/mc1/kept/warehouse/db/tbl/metadata/v2.metadata.json
+    [iceberg-committer-0] INFO org.apache.iceberg.SnapshotProducer - Committed snapshot 8560552674672041095 (MergeAppend)
+    [iceberg-committer-0] INFO org.apache.iceberg.metrics.LoggingMetricsReporter - Received metrics report: CommitReport{tableName=iceberg.db.tbl, snapshotId=8560552674672041095, sequenceNumber=1, operation=append, commitMetrics=CommitMetricsResult{totalDuration=TimerResult{timeUnit=NANOSECONDS, totalDuration=PT0.099971834S, count=1}, attempts=CounterResult{unit=COUNT, value=1}, addedDataFiles=CounterResult{unit=COUNT, value=1}, removedDataFiles=null, totalDataFiles=CounterResult{unit=COUNT, value=1}, addedDeleteFiles=null, addedEqualityDeleteFiles=null, addedPositionalDeleteFiles=null, addedDVs=null, removedDeleteFiles=null, removedEqualityDeleteFiles=null, removedPositionalDeleteFiles=null, removedDVs=null, totalDeleteFiles=CounterResult{unit=COUNT, value=0}, addedRecords=CounterResult{unit=COUNT, value=3}, removedRecords=null, totalRecords=CounterResult{unit=COUNT, value=3}, addedFilesSizeInBytes=CounterResult{unit=BYTES, value=678}, removedFilesSizeInBytes=null, totalFilesSizeInBytes=CounterResult{unit=BYTES, value=678}, addedPositionalDeletes=null, removedPositionalDeletes=null, totalPositionalDeletes=CounterResult{unit=COUNT, value=0}, addedEqualityDeletes=null, removedEqualityDeletes=null, totalEqualityDeletes=CounterResult{unit=COUNT, value=0}, manifestsCreated=CounterResult{unit=COUNT, value=1}, manifestsReplaced=CounterResult{unit=COUNT, value=0}, manifestsKept=CounterResult{unit=COUNT, value=0}, manifestEntriesProcessed=null}, metadata={iceberg-version=Apache Iceberg 1.12.0 (commit 212aa894e919ff9fdf89160da4aadcbe6858ac01)}}
+    [iceberg-committer-0] INFO org.apache.iceberg.connect.channel.Channel - Sending event of type: COMMIT_TO_TABLE
+    [iceberg-committer-0] INFO org.apache.iceberg.connect.channel.Coordinator - Coordinator mc1-sink-0 completed commit to table db.tbl, snapshot 8560552674672041095, commit ID 56afeaeb-140c-4d80-9094-60307cc5038a, valid-through null
+    [Test worker] INFO org.apache.iceberg.connect.channel.Channel - Sending event of type: COMMIT_COMPLETE
+    [Test worker] INFO org.apache.iceberg.connect.channel.Coordinator - Coordinator mc1-sink-0 completed commit 56afeaeb-140c-4d80-9094-60307cc5038a, committed to 1 table(s), valid-through null
+    [Test worker] INFO org.apache.iceberg.connect.channel.Channel - Handled event of type: DATA_COMPLETE
+    [Test worker] INFO org.apache.iceberg.SnapshotScan - Scanning table iceberg.db.tbl snapshot 8560552674672041095 created at 2026-11-04T22:09:06.823+00:00 with filter true
+    [Test worker] INFO org.apache.hadoop.io.compress.CodecPool - Got brand-new decompressor [.zstd]
+    [Test worker] INFO org.apache.iceberg.metrics.LoggingMetricsReporter - Received metrics report: ScanReport{tableName=iceberg.db.tbl, snapshotId=8560552674672041095, filter=true, schemaId=0, projectedFieldIds=[1, 2], projectedFieldNames=[id, data], scanMetrics=ScanMetricsResult{totalPlanningDuration=TimerResult{timeUnit=NANOSECONDS, totalDuration=PT0.004252167S, count=1}, resultDataFiles=CounterResult{unit=COUNT, value=1}, resultDeleteFiles=CounterResult{unit=COUNT, value=0}, totalDataManifests=CounterResult{unit=COUNT, value=1}, totalDeleteManifests=CounterResult{unit=COUNT, value=0}, scannedDataManifests=CounterResult{unit=COUNT, value=1}, skippedDataManifests=CounterResult{unit=COUNT, value=0}, totalFileSizeInBytes=CounterResult{unit=BYTES, value=678}, totalDeleteFileSizeInBytes=CounterResult{unit=BYTES, value=0}, skippedDataFiles=CounterResult{unit=COUNT, value=0}, skippedDeleteFiles=CounterResult{unit=COUNT, value=0}, scannedDeleteManifests=CounterResult{unit=COUNT, value=0}, skippedDeleteManifests=CounterResult{unit=COUNT, value=0}, indexedDeleteFiles=CounterResult{unit=COUNT, value=0}, equalityDeleteFiles=CounterResult{unit=COUNT, value=0}, positionalDeleteFiles=CounterResult{unit=COUNT, value=0}, dvs=CounterResult{unit=COUNT, value=0}}, metadata={iceberg-version=Apache Iceberg 1.12.0 (commit 212aa894e919ff9fdf89160da4aadcbe6858ac01)}}
+
+TestLeadMC4BranchDrop > control_branchKeptAfterPublish() STANDARD_OUT
+    [MC-4L][kept] phase A failure=null refs=3 rows on audit, main rows=-1 refs=[audit]
+
+TestLeadMC4BranchDrop > control_branchKeptAfterPublish() STANDARD_ERROR
+    [Test worker] INFO org.apache.iceberg.hadoop.HadoopTableOperations - Committed a new metadata file file:/Users/I074560/Downloads/experiments/iceberg-verify/r7/lead-verify/mc1/build/mc1/kept/warehouse/db/tbl/metadata/v3.metadata.json
+
+TestLeadMC4BranchDrop > control_branchKeptAfterPublish() STANDARD_OUT
+    [MC-4L][kept] operator: published audit->main (branch kept); refs=[audit, main]
+
+TestLeadMC4BranchDrop > control_branchKeptAfterPublish() STANDARD_ERROR
+    [Test worker] INFO org.apache.iceberg.BaseMetastoreCatalog - Table loaded by catalog: iceberg.db.tbl
+    [Test worker] INFO org.apache.hadoop.io.compress.CodecPool - Got brand-new compressor [.zstd]
+    [Test worker] INFO org.apache.iceberg.connect.channel.Channel - Sending event of type: START_COMMIT
+    [Test worker] INFO org.apache.iceberg.connect.channel.Coordinator - Coordinator mc1-sink-0 initiated commit ec98ab33-17c6-49af-8067-52f9baa5947d
+    [Test worker] INFO org.apache.iceberg.connect.channel.Channel - Sending event of type: DATA_WRITTEN
+    [Test worker] INFO org.apache.iceberg.connect.channel.Channel - Sending event of type: DATA_COMPLETE
+    [Test worker] INFO org.apache.iceberg.connect.channel.Channel - Handled event of type: START_COMMIT
+    [Test worker] INFO org.apache.iceberg.connect.channel.Channel - Handled event of type: DATA_WRITTEN
+    [Test worker] INFO org.apache.iceberg.connect.channel.CommitState - Commit ec98ab33-17c6-49af-8067-52f9baa5947d ready, received responses for all 1 partitions
+    [iceberg-committer-0] INFO org.apache.iceberg.BaseMetastoreCatalog - Table loaded by catalog: iceberg.db.tbl
+    [iceberg-committer-0] INFO org.apache.iceberg.hadoop.HadoopTableOperations - Committed a new metadata file file:/Users/I074560/Downloads/experiments/iceberg-verify/r7/lead-verify/mc1/build/mc1/kept/warehouse/db/tbl/metadata/v4.metadata.json
+    [iceberg-committer-0] INFO org.apache.iceberg.SnapshotProducer - Committed snapshot 5635914780575030736 (MergeAppend)
+    [iceberg-committer-0] INFO org.apache.iceberg.metrics.LoggingMetricsReporter - Received metrics report: CommitReport{tableName=iceberg.db.tbl, snapshotId=5635914780575030736, sequenceNumber=2, operation=append, commitMetrics=CommitMetricsResult{totalDuration=TimerResult{timeUnit=NANOSECONDS, totalDuration=PT0.144493333S, count=1}, attempts=CounterResult{unit=COUNT, value=1}, addedDataFiles=CounterResult{unit=COUNT, value=1}, removedDataFiles=null, totalDataFiles=CounterResult{unit=COUNT, value=2}, addedDeleteFiles=null, addedEqualityDeleteFiles=null, addedPositionalDeleteFiles=null, addedDVs=null, removedDeleteFiles=null, removedEqualityDeleteFiles=null, removedPositionalDeleteFiles=null, removedDVs=null, totalDeleteFiles=CounterResult{unit=COUNT, value=0}, addedRecords=CounterResult{unit=COUNT, value=3}, removedRecords=null, totalRecords=CounterResult{unit=COUNT, value=6}, addedFilesSizeInBytes=CounterResult{unit=BYTES, value=683}, removedFilesSizeInBytes=null, totalFilesSizeInBytes=CounterResult{unit=BYTES, value=1361}, addedPositionalDeletes=null, removedPositionalDeletes=null, totalPositionalDeletes=CounterResult{unit=COUNT, value=0}, addedEqualityDeletes=null, removedEqualityDeletes=null, totalEqualityDeletes=CounterResult{unit=COUNT, value=0}, manifestsCreated=CounterResult{unit=COUNT, value=1}, manifestsReplaced=CounterResult{unit=COUNT, value=0}, manifestsKept=CounterResult{unit=COUNT, value=1}, manifestEntriesProcessed=null}, metadata={iceberg-version=Apache Iceberg 1.12.0 (commit 212aa894e919ff9fdf89160da4aadcbe6858ac01)}}
+    [iceberg-committer-0] INFO org.apache.iceberg.connect.channel.Channel - Sending event of type: COMMIT_TO_TABLE
+    [iceberg-committer-0] INFO org.apache.iceberg.connect.channel.Coordinator - Coordinator mc1-sink-0 completed commit to table db.tbl, snapshot 5635914780575030736, commit ID ec98ab33-17c6-49af-8067-52f9baa5947d, valid-through null
+    [Test worker] INFO org.apache.iceberg.connect.channel.Channel - Sending event of type: COMMIT_COMPLETE
+    [Test worker] INFO org.apache.iceberg.connect.channel.Coordinator - Coordinator mc1-sink-0 completed commit ec98ab33-17c6-49af-8067-52f9baa5947d, committed to 1 table(s), valid-through null
+    [Test worker] INFO org.apache.iceberg.connect.channel.Channel - Handled event of type: DATA_COMPLETE
+    [Test worker] INFO org.apache.iceberg.BaseMetastoreCatalog - Table loaded by catalog: iceberg.db.tbl
+    [Test worker] INFO org.apache.hadoop.io.compress.CodecPool - Got brand-new compressor [.zstd]
+    [Test worker] INFO org.apache.iceberg.connect.channel.Channel - Sending event of type: START_COMMIT
+    [Test worker] INFO org.apache.iceberg.connect.channel.Coordinator - Coordinator mc1-sink-0 initiated commit fad85824-6a1f-4298-92c7-a9e7bd8595c2
+    [Test worker] INFO org.apache.iceberg.connect.channel.Channel - Sending event of type: DATA_WRITTEN
+    [Test worker] INFO org.apache.iceberg.connect.channel.Channel - Sending event of type: DATA_COMPLETE
+    [Test worker] INFO org.apache.iceberg.connect.channel.Channel - Handled event of type: START_COMMIT
+    [Test worker] INFO org.apache.iceberg.connect.channel.Channel - Handled event of type: DATA_WRITTEN
+    [Test worker] INFO org.apache.iceberg.connect.channel.CommitState - Commit fad85824-6a1f-4298-92c7-a9e7bd8595c2 ready, received responses for all 1 partitions
+    [iceberg-committer-0] INFO org.apache.iceberg.BaseMetastoreCatalog - Table loaded by catalog: iceberg.db.tbl
+    [iceberg-committer-0] INFO org.apache.iceberg.hadoop.HadoopTableOperations - Committed a new metadata file file:/Users/I074560/Downloads/experiments/iceberg-verify/r7/lead-verify/mc1/build/mc1/kept/warehouse/db/tbl/metadata/v5.metadata.json
+    [iceberg-committer-0] INFO org.apache.iceberg.SnapshotProducer - Committed snapshot 6017043820171791095 (MergeAppend)
+    [iceberg-committer-0] INFO org.apache.iceberg.metrics.LoggingMetricsReporter - Received metrics report: CommitReport{tableName=iceberg.db.tbl, snapshotId=6017043820171791095, sequenceNumber=3, operation=append, commitMetrics=CommitMetricsResult{totalDuration=TimerResult{timeUnit=NANOSECONDS, totalDuration=PT0.139327458S, count=1}, attempts=CounterResult{unit=COUNT, value=1}, addedDataFiles=CounterResult{unit=COUNT, value=1}, removedDataFiles=null, totalDataFiles=CounterResult{unit=COUNT, value=3}, addedDeleteFiles=null, addedEqualityDeleteFiles=null, addedPositionalDeleteFiles=null, addedDVs=null, removedDeleteFiles=null, removedEqualityDeleteFiles=null, removedPositionalDeleteFiles=null, removedDVs=null, totalDeleteFiles=CounterResult{unit=COUNT, value=0}, addedRecords=CounterResult{unit=COUNT, value=3}, removedRecords=null, totalRecords=CounterResult{unit=COUNT, value=9}, addedFilesSizeInBytes=CounterResult{unit=BYTES, value=683}, removedFilesSizeInBytes=null, totalFilesSizeInBytes=CounterResult{unit=BYTES, value=2044}, addedPositionalDeletes=null, removedPositionalDeletes=null, totalPositionalDeletes=CounterResult{unit=COUNT, value=0}, addedEqualityDeletes=null, removedEqualityDeletes=null, totalEqualityDeletes=CounterResult{unit=COUNT, value=0}, manifestsCreated=CounterResult{unit=COUNT, value=1}, manifestsReplaced=CounterResult{unit=COUNT, value=0}, manifestsKept=CounterResult{unit=COUNT, value=2}, manifestEntriesProcessed=null}, metadata={iceberg-version=Apache Iceberg 1.12.0 (commit 212aa894e919ff9fdf89160da4aadcbe6858ac01)}}
+    [iceberg-committer-0] INFO org.apache.iceberg.connect.channel.Channel - Sending event of type: COMMIT_TO_TABLE
+    [iceberg-committer-0] INFO org.apache.iceberg.connect.channel.Coordinator - Coordinator mc1-sink-0 completed commit to table db.tbl, snapshot 6017043820171791095, commit ID fad85824-6a1f-4298-92c7-a9e7bd8595c2, valid-through null
+    [Test worker] INFO org.apache.iceberg.connect.channel.Channel - Sending event of type: COMMIT_COMPLETE
+    [Test worker] INFO org.apache.iceberg.connect.channel.Coordinator - Coordinator mc1-sink-0 completed commit fad85824-6a1f-4298-92c7-a9e7bd8595c2, committed to 1 table(s), valid-through null
+    [Test worker] INFO org.apache.iceberg.connect.channel.Channel - Handled event of type: DATA_COMPLETE
+    [Test worker] INFO org.apache.iceberg.BaseMetastoreCatalog - Table loaded by catalog: iceberg.db.tbl
+    [Test worker] INFO org.apache.hadoop.io.compress.CodecPool - Got brand-new compressor [.zstd]
+    [Test worker] INFO org.apache.iceberg.connect.channel.Channel - Sending event of type: START_COMMIT
+    [Test worker] INFO org.apache.iceberg.connect.channel.Coordinator - Coordinator mc1-sink-0 initiated commit f4a2da44-5fc2-49ad-80d2-35c537abb53e
+    [Test worker] INFO org.apache.iceberg.connect.channel.Channel - Sending event of type: DATA_WRITTEN
+    [Test worker] INFO org.apache.iceberg.connect.channel.Channel - Sending event of type: DATA_COMPLETE
+    [Test worker] INFO org.apache.iceberg.connect.channel.Channel - Handled event of type: START_COMMIT
+    [Test worker] INFO org.apache.iceberg.connect.channel.Channel - Handled event of type: DATA_WRITTEN
+    [Test worker] INFO org.apache.iceberg.connect.channel.CommitState - Commit f4a2da44-5fc2-49ad-80d2-35c537abb53e ready, received responses for all 1 partitions
+    [iceberg-committer-0] INFO org.apache.iceberg.BaseMetastoreCatalog - Table loaded by catalog: iceberg.db.tbl
+    [iceberg-committer-0] INFO org.apache.iceberg.hadoop.HadoopTableOperations - Committed a new metadata file file:/Users/I074560/Downloads/experiments/iceberg-verify/r7/lead-verify/mc1/build/mc1/kept/warehouse/db/tbl/metadata/v6.metadata.json
+    [iceberg-committer-0] INFO org.apache.iceberg.SnapshotProducer - Committed snapshot 1643264807491898779 (MergeAppend)
+    [iceberg-committer-0] INFO org.apache.iceberg.metrics.LoggingMetricsReporter - Received metrics report: CommitReport{tableName=iceberg.db.tbl, snapshotId=1643264807491898779, sequenceNumber=4, operation=append, commitMetrics=CommitMetricsResult{totalDuration=TimerResult{timeUnit=NANOSECONDS, totalDuration=PT0.135541166S, count=1}, attempts=CounterResult{unit=COUNT, value=1}, addedDataFiles=CounterResult{unit=COUNT, value=1}, removedDataFiles=null, totalDataFiles=CounterResult{unit=COUNT, value=4}, addedDeleteFiles=null, addedEqualityDeleteFiles=null, addedPositionalDeleteFiles=null, addedDVs=null, removedDeleteFiles=null, removedEqualityDeleteFiles=null, removedPositionalDeleteFiles=null, removedDVs=null, totalDeleteFiles=CounterResult{unit=COUNT, value=0}, addedRecords=CounterResult{unit=COUNT, value=3}, removedRecords=null, totalRecords=CounterResult{unit=COUNT, value=12}, addedFilesSizeInBytes=CounterResult{unit=BYTES, value=687}, removedFilesSizeInBytes=null, totalFilesSizeInBytes=CounterResult{unit=BYTES, value=2731}, addedPositionalDeletes=null, removedPositionalDeletes=null, totalPositionalDeletes=CounterResult{unit=COUNT, value=0}, addedEqualityDeletes=null, removedEqualityDeletes=null, totalEqualityDeletes=CounterResult{unit=COUNT, value=0}, manifestsCreated=CounterResult{unit=COUNT, value=1}, manifestsReplaced=CounterResult{unit=COUNT, value=0}, manifestsKept=CounterResult{unit=COUNT, value=3}, manifestEntriesProcessed=null}, metadata={iceberg-version=Apache Iceberg 1.12.0 (commit 212aa894e919ff9fdf89160da4aadcbe6858ac01)}}
+    [iceberg-committer-0] INFO org.apache.iceberg.connect.channel.Channel - Sending event of type: COMMIT_TO_TABLE
+    [iceberg-committer-0] INFO org.apache.iceberg.connect.channel.Coordinator - Coordinator mc1-sink-0 completed commit to table db.tbl, snapshot 1643264807491898779, commit ID f4a2da44-5fc2-49ad-80d2-35c537abb53e, valid-through null
+    [Test worker] INFO org.apache.iceberg.connect.channel.Channel - Sending event of type: COMMIT_COMPLETE
+    [Test worker] INFO org.apache.iceberg.connect.channel.Coordinator - Coordinator mc1-sink-0 completed commit f4a2da44-5fc2-49ad-80d2-35c537abb53e, committed to 1 table(s), valid-through null
+    [Test worker] INFO org.apache.iceberg.connect.channel.Channel - Handled event of type: DATA_COMPLETE
+    [Test worker] INFO org.apache.iceberg.SnapshotScan - Scanning table iceberg.db.tbl snapshot 8560552674672041095 created at 2026-11-04T22:09:06.823+00:00 with filter true
+    [Test worker] INFO org.apache.hadoop.io.compress.CodecPool - Got brand-new decompressor [.zstd]
+    [Test worker] INFO org.apache.iceberg.metrics.LoggingMetricsReporter - Received metrics report: ScanReport{tableName=iceberg.db.tbl, snapshotId=8560552674672041095, filter=true, schemaId=0, projectedFieldIds=[1, 2], projectedFieldNames=[id, data], scanMetrics=ScanMetricsResult{totalPlanningDuration=TimerResult{timeUnit=NANOSECONDS, totalDuration=PT0.003281125S, count=1}, resultDataFiles=CounterResult{unit=COUNT, value=1}, resultDeleteFiles=CounterResult{unit=COUNT, value=0}, totalDataManifests=CounterResult{unit=COUNT, value=1}, totalDeleteManifests=CounterResult{unit=COUNT, value=0}, scannedDataManifests=CounterResult{unit=COUNT, value=1}, skippedDataManifests=CounterResult{unit=COUNT, value=0}, totalFileSizeInBytes=CounterResult{unit=BYTES, value=678}, totalDeleteFileSizeInBytes=CounterResult{unit=BYTES, value=0}, skippedDataFiles=CounterResult{unit=COUNT, value=0}, skippedDeleteFiles=CounterResult{unit=COUNT, value=0}, scannedDeleteManifests=CounterResult{unit=COUNT, value=0}, skippedDeleteManifests=CounterResult{unit=COUNT, value=0}, indexedDeleteFiles=CounterResult{unit=COUNT, value=0}, equalityDeleteFiles=CounterResult{unit=COUNT, value=0}, positionalDeleteFiles=CounterResult{unit=COUNT, value=0}, dvs=CounterResult{unit=COUNT, value=0}}, metadata={iceberg-version=Apache Iceberg 1.12.0 (commit 212aa894e919ff9fdf89160da4aadcbe6858ac01)}}
+    [Test worker] INFO org.apache.iceberg.SnapshotScan - Scanning table iceberg.db.tbl snapshot 1643264807491898779 created at 2026-11-04T22:09:07.386+00:00 with filter true
+    [Test worker] INFO org.apache.hadoop.io.compress.CodecPool - Got brand-new decompressor [.zstd]
+    [Test worker] INFO org.apache.hadoop.io.compress.CodecPool - Got brand-new decompressor [.zstd]
+    [Test worker] INFO org.apache.hadoop.io.compress.CodecPool - Got brand-new decompressor [.zstd]
+    [Test worker] INFO org.apache.hadoop.io.compress.CodecPool - Got brand-new decompressor [.zstd]
+    [Test worker] INFO org.apache.iceberg.metrics.LoggingMetricsReporter - Received metrics report: ScanReport{tableName=iceberg.db.tbl, snapshotId=1643264807491898779, filter=true, schemaId=0, projectedFieldIds=[1, 2], projectedFieldNames=[id, data], scanMetrics=ScanMetricsResult{totalPlanningDuration=TimerResult{timeUnit=NANOSECONDS, totalDuration=PT0.0248755S, count=1}, resultDataFiles=CounterResult{unit=COUNT, value=4}, resultDeleteFiles=CounterResult{unit=COUNT, value=0}, totalDataManifests=CounterResult{unit=COUNT, value=4}, totalDeleteManifests=CounterResult{unit=COUNT, value=0}, scannedDataManifests=CounterResult{unit=COUNT, value=4}, skippedDataManifests=CounterResult{unit=COUNT, value=0}, totalFileSizeInBytes=CounterResult{unit=BYTES, value=2731}, totalDeleteFileSizeInBytes=CounterResult{unit=BYTES, value=0}, skippedDataFiles=CounterResult{unit=COUNT, value=0}, skippedDeleteFiles=CounterResult{unit=COUNT, value=0}, scannedDeleteManifests=CounterResult{unit=COUNT, value=0}, skippedDeleteManifests=CounterResult{unit=COUNT, value=0}, indexedDeleteFiles=CounterResult{unit=COUNT, value=0}, equalityDeleteFiles=CounterResult{unit=COUNT, value=0}, positionalDeleteFiles=CounterResult{unit=COUNT, value=0}, dvs=CounterResult{unit=COUNT, value=0}}, metadata={iceberg-version=Apache Iceberg 1.12.0 (commit 212aa894e919ff9fdf89160da4aadcbe6858ac01)}}
+
+TestLeadMC4BranchDrop > control_branchKeptAfterPublish() STANDARD_OUT
+    [MC-4L][kept] phase B commit outcomes=[ok, ok, ok] main rows=3 audit rows=12 refs=[audit, main] source offsets committed={src-0=12}
+    [MC-4L][kept] RESULT NO-STALL: [ok, ok, ok]
+
+TestLeadMC4BranchDrop > control_branchKeptAfterPublish() PASSED
+
+[Incubating] Problems report is available at: file:///Users/I074560/Downloads/experiments/iceberg-verify/r7/lead-verify/mc1/build/1.12.0/reports/problems/problems-report.html
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 9.0.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/8.14.3/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+
+BUILD SUCCESSFUL in 4s
+2 actionable tasks: 2 executed

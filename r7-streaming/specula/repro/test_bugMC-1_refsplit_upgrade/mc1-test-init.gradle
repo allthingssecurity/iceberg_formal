@@ -1,0 +1,18 @@
+// MC-1 reproduction: test-task configuration only (no build logic of the project is changed).
+allprojects { p ->
+  if (p.path == ':iceberg-kafka-connect:iceberg-kafka-connect') {
+    p.tasks.withType(Test).configureEach { t ->
+      ['mc1.legacyCp', 'mc1.peerClasses', 'mc1.workDir'].each { k ->
+        if (System.getProperty(k) != null) {
+          t.systemProperty k, System.getProperty(k)
+        }
+      }
+      t.testLogging {
+        showStandardStreams = true
+        events 'passed', 'failed', 'skipped'
+        exceptionFormat 'full'
+      }
+      t.outputs.upToDateWhen { false }
+    }
+  }
+}

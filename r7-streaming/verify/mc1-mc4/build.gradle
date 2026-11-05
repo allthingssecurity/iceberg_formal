@@ -1,0 +1,41 @@
+// Lead verification of Specula MC-1 on RELEASED jars: the test runs against
+// org.apache.iceberg:iceberg-kafka-connect:1.12.0 from Maven Central (not a source build).
+plugins { id 'java' }
+def icebergVersion = project.findProperty('icebergVersion') ?: '1.12.0'
+def kafkaVersion = '3.9.2'
+layout.buildDirectory = file("build/${icebergVersion}")
+repositories { mavenCentral() }
+dependencies {
+  testImplementation "org.apache.iceberg:iceberg-kafka-connect:${icebergVersion}"
+  testImplementation "org.apache.iceberg:iceberg-kafka-connect-events:${icebergVersion}"
+  testImplementation "org.apache.iceberg:iceberg-api:${icebergVersion}"
+  testImplementation "org.apache.iceberg:iceberg-core:${icebergVersion}"
+  testImplementation "org.apache.iceberg:iceberg-data:${icebergVersion}"
+  testImplementation "org.apache.iceberg:iceberg-parquet:${icebergVersion}"
+  testImplementation "org.apache.iceberg:iceberg-common:${icebergVersion}"
+  testImplementation "org.apache.iceberg:iceberg-bundled-guava:${icebergVersion}"
+  testRuntimeOnly "org.apache.iceberg:iceberg-orc:${icebergVersion}"
+  testImplementation "org.apache.kafka:kafka-clients:${kafkaVersion}"
+  testImplementation "org.apache.kafka:connect-api:${kafkaVersion}"
+  testImplementation "org.apache.kafka:connect-json:${kafkaVersion}"
+  testImplementation 'org.apache.hadoop:hadoop-client-api:3.4.1'
+  testRuntimeOnly 'org.apache.hadoop:hadoop-client-runtime:3.4.1'
+  testImplementation platform('org.junit:junit-bom:5.11.4')
+  testImplementation 'org.junit.jupiter:junit-jupiter'
+  testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+  testImplementation 'org.mockito:mockito-core:5.14.2'
+  testRuntimeOnly 'org.xerial:sqlite-jdbc:3.53.4.0'
+  testImplementation("org.apache.kafka:connect-runtime:${kafkaVersion}") { transitive = false }
+  testImplementation 'org.assertj:assertj-core:3.26.3'
+  testRuntimeOnly 'org.slf4j:slf4j-simple:2.0.16'
+}
+tasks.withType(JavaCompile).configureEach { options.encoding = 'UTF-8'; options.release = 17 }
+test {
+  useJUnitPlatform()
+  ['mc1.legacyCp', 'mc1.peerClasses', 'mc1.workDir', 'mc1.control'].each { k -> if (System.getProperty(k) != null) systemProperty k, System.getProperty(k) }
+  systemProperty 'icebergVersion', icebergVersion
+  jvmArgs '-XX:+EnableDynamicAgentLoading'
+  testLogging { showStandardStreams = true; events 'passed', 'failed'; exceptionFormat 'full' }
+  outputs.upToDateWhen { false }
+}
+tasks.register('printCp') { doLast { println sourceSets.test.runtimeClasspath.asPath } }
